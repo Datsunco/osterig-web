@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Roboto:wght@700&display=swap');
+@import url('https://fonts.cdnfonts.com/css/gilroy');
+
+.Header {
+    color: #FFF;
+    width: 100%;
+
+}
+
+.logo {
+    margin-left: 350px;
+}
+
+.logo_text {
+    color: #000;
+    font-family: Jost;
+    font-size: 10px;
+    font-style: italic;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.35px;
+    text-transform: uppercase;
+    margin-top: 0px;
+}
+
+.logo_image {
+    width: 84px;
+    height: 13px;
+
+}
+
+.catalog_button {
+    display:inline-block;
+    border-radius: 5px;
+    background: #0071E3;
+    width: 120px;
+    height: 40px;
+    flex-shrink: 0;
+}
+
+.catalog_text {
+    color: #FFF;
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-top: -20px;  
+    margin-left: 25px;  
+}
+
+.catalog_image{
+    margin-top: 15px;
+    margin-left: 17px;
+}
