@@ -1,0 +1,98 @@
+.chelka1 {
+    display: flex;
+    margin-top:40px
+}
+
+
+.atovar1 {
+    margin: 0 0 0 auto;
+    border:NONE;
+    padding: 13px;
+    border-radius: 10px;
+    color: #ffffff  ;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 17px;
+    letter-spacing: 0em;
+    text-align: left;
+    background-color: #414141;
+    margin-right: 10%;
+}
+
+.popular2 {
+    font-family: Gilroy;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 45px;
+    letter-spacing: 0em;
+    text-align: left;   
+}
+
+.list-group {
+    background-color: #282828;
+    height: auto;
+    width: 100%;
+    padding: 30px;
+    margin-top: 4%;
+    border-radius: 0%;
+    color: #FFFFFF;
+}
+
+.pop {
+    margin-top: 4%;
+    display: flex;
+    flex-wrap: wrap;
+}   
+
+.list-group-item.active {
+    width: 284px;
+    height: 315px;
+    background-color: #282828;
+    margin-bottom: 0px;
+}
+
+.list-group-item {
+    width: 284px;
+    height: 315px;
+    border-radius: 13px;
+    margin-left: 15px;
+    margin-top: 25px;
+    background: #282828;
+    border: 2px solid #666C77;;
+    padding: 30px;
+    color: #FFFFFF;
+}
+
+.list-group-item+.list-group-item {
+    border-top-width: 2px;
+}
+
+.list-group-item:first-child {
+    border-top-left-radius: 13px;
+    border-top-right-radius: 13px;
+}
+
+.list-group-item:last-child {
+    border-bottom-left-radius: 13px;
+    border-bottom-right-radius: 13px;
+}
+
+.components12 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+    height: auto;
+    width: auto;
+    margin-top: 37%;
+}
+
+.list-group-item+.list-group-item.active {
+    margin-top: calc(25 * var(--bs-list-group-border-width));
+    border-top-width: var(--bs-list-group-border-width);
+}
+
+.alllist  {
+    margin-left: 6%;
+}

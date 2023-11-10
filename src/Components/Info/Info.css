@@ -1,0 +1,115 @@
+.h2css {
+    font-family: Gilroy;
+    font-size: 30px;
+    font-weight: 700;
+    line-height: 37px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 15%;
+    color: white;
+}
+
+.info1 {
+    justify-content: center;
+    display: flex;
+    height: 382px;
+    width: 100%;
+    margin-top: 2%; 
+    background: rgb(107,0,120);
+    background: linear-gradient(135deg, rgba(107,0,120,1) 5%, rgba(44,31,140,1) 22%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 61%, rgba(107,0,120,1) 76%, rgba(44,31,140,1) 88%);
+    border-radius: 20px;
+}
+
+
+.svg2 {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    margin-top: 4%;
+}
+
+.katalog {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 54px;
+    width: 345px;
+    margin: 0 auto;
+    border-radius: 60px;
+    background-color: white;
+    font-family: Gilroy;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 26px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-top: 17%;
+    border: none;
+}
+
+.strelka1 {
+    margin-top: -81%;
+    margin-left: 28%;
+}
+
+.strelka {
+    margin-left: 16%;
+    margin-top: -3%;
+}
+
+.description {
+    height: auto;
+    width: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    color: #2D2D2D;
+    margin-left: 7px;
+}
+
+.op {
+    width: 284px;
+    height: 206px;
+    background-color: #F8F8F8;
+    padding: 20px;
+    text-align: left;
+    border-radius: 20px;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+.text1 {
+    color: #0071E3;
+}
+
+.text2 {
+    color: #9747FF;
+}
+
+.text3 {
+    color: #21A366;
+}
+
+.text4 {
+    color: #FF9F47;
+}
+
+.op1 {
+    width: 284px;
+    height: 206px;
+    background-color: #F8F8F8;
+    padding: 20px;
+    text-align: left;
+    border-radius: 20px;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+    letter-spacing: 0em;
+    margin-top: 40px;
+}

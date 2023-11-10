@@ -1,0 +1,188 @@
+.oror {
+    background-image: url(../../static/bigstar.png);
+    height: 240px;
+    width: 240px;
+    display: flex;
+    background-repeat: no-repeat;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    font-size: 64;
+}
+
+.cb {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.agn {
+    align-items: center;
+    display: flex;
+    text-align: left;
+}
+
+.reddownload {
+    color: var(--element-red, #E30613);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+    margin-left: 85px;
+}
+
+.bka {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.greytext {
+    color: #656565;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.pdf {
+    color: #A7AEB5;
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px;
+    /* 142.857% */
+    letter-spacing: 0.28px;
+    text-transform: uppercase;
+    margin-left: 3px;
+}
+
+.agn1 {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    text-transform: uppercase;
+}
+
+.bka1 {
+    text-decoration: underline;
+    color: #000;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    text-transform: uppercase;
+    margin-left: 3px;
+    margin-top: 20px;
+}
+
+.lastprice {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 100%;
+    /* 18px */
+    letter-spacing: -0.72px;
+    text-decoration-line: strikethrough;
+    text-transform: uppercase;
+    text-decoration: line-through;
+    margin-top: 14%;
+}
+
+.newprice {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 100%;
+    /* 36px */
+    letter-spacing: -1.44px;
+}
+
+.harakter {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 18.2px */
+    text-transform: uppercase;
+}
+
+.vkorzinu {
+    border-radius: 7px;
+    background-color: #0071E3;
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    /* 18.2px */
+    text-transform: uppercase;
+    padding: 22px;
+    border: none;
+}
+
+.favorits12 {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADvSURBVHgBpZQNEYMwDIUfUzAJlYAEJOAAJMwBSMABOJiEbQqYg90UMAdbA8kIHT+l++4e/SF9vTYBYCS2qq06qze3NDYqJvGI6ck4YEkFay0mEzOjJiu1G7XlzMLSiWnUOzrld6LGPLlacFqIqbSH3IfBMiVrCcMeXcQdIsJ/9D4Hq6faJZSY2xcZ3nmQIxwxvNEjwVhTR+zHWD3YI5XJC9YzvUbDa1t3F8l2AX+k2DvM5CDF9MvwNZsc1SX3NNVmOTbQpmdME0X9eo+ZQGUgmaPWsFqMd5ZgJ8YxdTcIwmA4thzxirBa/aHE8EfZ5ANcWmap5MR82gAAAABJRU5ErkJggg==);
+    height: 18px;
+    width: 20px;
+    background-repeat: no-repeat;
+    visibility: visible;
+    margin-left: 2%;
+}
+
+.izbr {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    /* 18.2px */
+    text-transform: uppercase;
+    margin-left: 29%;
+}
+
+.dhg {
+    display: flex;
+    align-items: center;
+}
+
+.assh {
+    width: 540px;
+    height: auto;
+    font-size:32; 
+    border: 12px; 
+    background-color: #F1F3F4;
+    padding: 20px;
+    display: block;
+    align-items: center;
+    justify-content: space-around;
+}

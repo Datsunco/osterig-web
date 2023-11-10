@@ -1,0 +1,175 @@
+.information {
+    display: flex;
+    vertical-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 978px;
+    height: 188px;
+    border-radius: 13px;
+    background: #F5F5F7;
+    margin-top: -115px;
+}
+
+.buttons {
+    width: auto;
+    height: auto;
+    border-radius: 50px;
+    padding: 9px;
+    background: linear-gradient(88.99deg, #00C6FF 0.27%, #0072FF 120.37%);
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 10px;
+}
+
+.headerimages {
+    margin-left: 15px;
+}
+
+div#navbarScroll {
+    display: flex;
+    vertical-align: center;
+    justify-content: center;
+}
+
+.bottommenu {
+    width: 115%;
+    margin-left: -8%;
+    background-color: #282828;
+    display: flex;
+    justify-content: center;
+    margin-top: 200px;
+    flex-wrap: wrap;
+    height: 338px;
+}
+
+.connection {
+    padding: 50px;
+}
+
+.textY {
+    color: #282828;
+    font-family: Gilroy;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 139%;
+}
+
+nav.bg-body.navbar.navbar-expand-lg.navbar-light {
+    box-shadow: none;
+}
+
+.container-fluid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btmenu {
+    display: flex;
+    justify-content: center;
+    text-align: left;
+    flex-wrap: wrap;
+    color: white;
+    width: 978px;
+    height: 188px;
+    background-color: #282828;;
+}
+
+.textP {
+    margin-left: 80px;
+    margin-top: 15px;
+}
+
+.textPop {
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 525;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+}
+
+a {
+    text-decoration:none;
+}
+
+.textYes {
+    color: #9E9E9E;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+}
+
+.autors {
+    display: flex;
+    margin-left: 61%;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.labekin {
+    background: linear-gradient(269deg, #84FF9F 3.55%, #99E71A 45.45%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #FFF;
+    margin-top: 8px;
+    text-align: right;
+    margin-left: 4px;
+}
+
+.des {
+    color: #FFF;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: right;
+    margin-left: 225px;
+    margin-top: 8px;
+}
+
+.des1 {
+    color: #FFF;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    text-align: right;
+    margin-left: 225px;
+    margin-top: -12px;
+}
+
+.code {
+    background: linear-gradient(90deg, rgba(255,255,255,1) 17%, rgba(0,17,255,1) 49%, rgba(255,0,0,1) 96%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: SF Pro Display;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    color: #FFF;
+    margin-top: -12px;
+    text-align: right;
+    margin-left: 14px;
+}
