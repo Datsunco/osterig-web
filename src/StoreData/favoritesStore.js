@@ -3,12 +3,34 @@ import favoritesService from "../services/favoritesService";
 import axios from 'axios';
 
 export default class FavoritesStore {
-    favorites = []
+    favorites = [
+        {
+            "_id": "65253f6e9c60f2de114a4be9",
+            "favoritesDevice": "651d45f76bd9ff09147fc61e",
+            "deviceId": "BLM15AG102SN1D",
+            "typeId": "527",
+            "__v": 0
+        },
+        {
+            "_id": "65514103d69bafee96f37f00",
+            "favoritesDevice": "651d45f76bd9ff09147fc61e",
+            "deviceId": "GZ1608U600CTF",
+            "typeId": "527",
+            "__v": 0
+        }
+    ]
+    isLoaded = false
 
     constructor() {
         makeAutoObservable(this);
     }
 
+    // get favorites(){
+    //     return this.favorites
+    // }
+    setIsLoaded(){
+        this.isLoaded = true
+    }
 
     setFavorites(favorites){
         this.favorites = favorites
@@ -67,6 +89,7 @@ export default class FavoritesStore {
         try {
             const favorites = await favoritesService.getFavorites()
             this.setFavorites(favorites.data)
+            this.setIsLoaded()
         } catch (e) {
             console.log(e);
         }

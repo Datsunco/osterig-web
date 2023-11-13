@@ -1,5 +1,5 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Context } from "../..";
 import { Row } from "react-bootstrap";
 import DeviceItem from "../DeviceItem/DeviceItem";
@@ -7,6 +7,10 @@ import "./Popular.css"
 
 const Popular = () => {
     const { device } = useContext(Context)
+
+    useEffect(() => {
+        console.log(device.hotProducts)
+    })
 
     return (
         <div>
@@ -19,9 +23,12 @@ const Popular = () => {
                 </div>
             </div>
             <Row className="d-flex">
-                {device.devices.map(device =>
+                {/* {device.devices.map(device =>
                     <DeviceItem key={device.id} device={device} />
-                )}
+                )} */}
+                {device.hotProducts.map(device =>
+                        <DeviceItem key={device.id} device={device} />
+                    )}
             </Row>
         </div>
     );

@@ -1,0 +1,152 @@
+.frameChild {
+  border-radius: 18px;
+  background-color: #f1f2f4;
+  width: 377px;
+  height: 248px;
+}
+
+.div,
+.div1 {
+  position: relative;
+  font-weight: 500;
+}
+
+.div {
+  line-height: 130%;
+  text-transform: uppercase;
+}
+
+.div1 {
+  line-height: 135%;
+  text-align: right;
+}
+
+.parent {
+  align-self: stretch;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.b,
+.b1 {
+  font-size: 32px;
+  position: relative;
+  line-height: 110%;
+  text-transform: uppercase;
+}
+
+.b1 {
+  text-align: right;
+
+}
+
+.frameGroup,
+.group {
+  align-self: stretch;
+  display: flex;
+}
+
+.group {
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  font-size: var(--font-size-13xl);
+}
+
+.frameGroup {
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 20px;
+}
+
+.b2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  position: relative;
+  line-height: 130%;
+  text-transform: uppercase;
+}
+
+.wrapper {
+  align-self: stretch;
+  border-radius: 7px;
+  background-color: black;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 25px;
+}
+
+.p {
+  margin: 0;
+}
+
+.div2 {
+  align-self: stretch;
+  position: relative;
+  font-size: 13px;
+  line-height: 120%;
+  text-transform: uppercase;
+  font-weight: 500;
+  color: var(--gray-4);
+  text-align: center;
+}
+
+.frameParent1 {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  text-align: right;
+  color: var(--white);
+}
+
+.frameParent {
+  align-self: stretch;
+  gap: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.frameDiv {
+  align-self: stretch;
+}
+
+.frameContainer {
+  padding-top: 17px;
+  display: block;
+  margin: auto;
+
+  width: 349px;
+}
+
+.rectangleParent {
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  width: 377px;
+  height: 248px;
+  text-align: left;
+  font-size: var(--font-size-sm);
+  color: var(--black);
+  font-family: var(--font-gilroy);
+}
+
+.frameWrapper {
+  font-family:Gilroy;
+  width: 377px;
+  height: 248px;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: #F1F2F4;
+}

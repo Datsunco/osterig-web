@@ -2,8 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { Galleria } from 'primereact/galleria';
 import { PhotoService } from '../../services/photoService';
 import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
+import { useContext } from 'react';
 
 const Slider = () => {
+    const { device } = useContext(Context)
     const [images, setImages] = useState(null);
     const responsiveOptions = [
         {
@@ -25,16 +28,16 @@ const Slider = () => {
     }, [])
 
     const itemTemplate = (item) => {
-        return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%' }} />
+        return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', borderRadius: '17px'}} />
     }
 
     const thumbnailTemplate = (item) => {
-        return <img src={item.thumbnailImageSrc} alt={item.alt} />
+        return <img src={item.thumbnailImageSrc} alt={item.alt} style={{ maxWidth: '100px', margin: '0', marginLeft: 'auto', borderRadius: '17px', marginTop: '16px' }}/>
     }
 
     return (
         <div className="card">
-            <Galleria value={images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '640px' }} 
+            <Galleria value={device.images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '425px' }} 
                 item={itemTemplate} thumbnail={thumbnailTemplate} />
         </div>
     )

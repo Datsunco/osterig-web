@@ -37,6 +37,7 @@ export default class CartStore {
             console.log(e);
         }
     }
+    
 
     async removeDevice(deviceId, typeId) {
         try {
@@ -51,7 +52,6 @@ export default class CartStore {
     async getDevices() {
         try {
             const devices = await cartService.getDevices()
-            console.log(devices.data)
             this.setDevices(devices.data)
         } catch (e) {
             console.log(e);

@@ -1,0 +1,21 @@
+.cart_component {
+    width: 100%;
+}
+
+
+
+.cart_items {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.cart_elements {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart_elements_2 {
+
+    /* */
+}

@@ -1,22 +1,25 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import Popular from '../../Components/Popular/Popular';
 import Info from '../../Components/Info/Info';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import TypeBar from '../../Components/TypeBar/TypeBar';
+import { observer } from 'mobx-react-lite';
+import { Context } from '../..';
 
 
 import './Main.css'
 
 
 const Main = () => {
+    const { device } = useContext(Context)
     const [data, setData] = useState('')
 
     useEffect(() => {
+        device.parseHotProducts()
+    })
 
-    }, [data])
 
-    
 
     return (
         <div>
@@ -37,4 +40,4 @@ const Main = () => {
     );
 };
 
-export default Main;
+export default observer(Main);

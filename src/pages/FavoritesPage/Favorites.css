@@ -1,0 +1,18 @@
+.favorite_component{
+    width: 100%;
+}
+
+.fav_elements{
+    display: block;
+    margin: auto;
+    width: 70%;
+}
+
+.fav_items{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    margin: auto;
+    width: 100%;
+    gap: 15px;
+}

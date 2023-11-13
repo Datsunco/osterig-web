@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from "react-dom";
 import { Card, Col, Container, Image, Row } from 'react-bootstrap';
 import { observer } from "mobx-react-lite";
+import './VMenu.css'
 
 const description = [
   {id:1, title:'Категория', discription:'Operational Amplifier/Comparator/Instrumentation OpAmps'},
@@ -16,75 +17,7 @@ const VMenu = () => {
     const [visible, setVisible] = React.useState(false);
     return (
       <div class="bgcqa">
-         <style>{`
-.qweqas {
-  color: rgb(241, 243, 244);
-  font-family: Gilroy;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 130%;
-  /* 18.2px */
-  text-transform: uppercase;
-  border: none;
-  height: 45px;
-  width: 508px;
-  background-color: rgb(241, 243, 244);;
-}
-.bgcqa {
-  background-color: rgb(241, 243, 244);;
-}
-.dflexand {
-  display: flex;
-  background-color: rgb(241, 243, 244);;
-  flex-wrap: wrap;
-}
-
-.svgd {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-left: 65%;
-  margin-top:5%;
-}
-
-.lineout {
-  margin-top: 2%;
-}
-
-.harakter {
-  margin-top:5%;
-}
-
-.mttop {
-  margin-top:1%;
-}
-
-.infot {
-  color: #656565;
-font-family: Gilroy;
-font-size: 14px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
-text-transform: uppercase;
-}
-
-.infod {
-  color: #000;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: uppercase;
-  margin-left:5px;
-}
-
-.td {
-  display: flex;
-  flex-wrap: wrap;
-}
-`}</style>
+         {/* <style>{}</style> */}
         <button class="qweqas" onClick={() => setVisible(!visible)}>
           <div class="dflexand">
             <h class='harakter'>Характеристики</h>
