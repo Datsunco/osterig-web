@@ -4,6 +4,7 @@ import Popular from '../../Components/Popular/Popular';
 import Info from '../../Components/Info/Info';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import TypeBar from '../../Components/TypeBar/TypeBar';
+import Header from '../../Components/Header/Header';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 
@@ -24,6 +25,7 @@ const Main = () => {
     return (
         <div>
             <Container>
+                <Header/>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
                 <Row className='mt-2'>
                     <Info />
