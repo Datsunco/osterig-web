@@ -31,7 +31,8 @@ const Favorites = () => {
                             productImageUrl: "https://assets.lcsc.com/images/lcsc/224x224/20230202_FUXINSEMI-SMF5-0A_C908213_front.jpg",
                             brandNameEn: "Chipanalog",
                             productModel: device.deviceId,
-                            currencyPrice: 127}
+                            currencyPrice: 127,
+                            catalogId: device.typeId,}
                         }/>
                         )}
                 </div>

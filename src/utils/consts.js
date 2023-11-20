@@ -6,3 +6,5 @@ export const CART_ROUTE = '/cart'
 export const ORDER_ROUTE = '/order'
 export const FAVORITES_ROUTE = '/favorites'
 export const SEARCH_ROUTE = '/search'
+export const CATALOG_ROUTE = '/catalog'
+

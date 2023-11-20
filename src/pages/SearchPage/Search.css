@@ -1,0 +1,27 @@
+.search_page {
+    font-family: Gilroy;
+    /* width: 95%; */
+    width: 1250px;
+    margin: auto;
+}
+
+.blocknameelem {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 15px;
+
+    margin-left: 100px;
+}
+
+.vart_block {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.chechboxes_block {
+    display: block;
+    flex-direction: column;
+}

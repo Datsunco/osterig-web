@@ -8,50 +8,56 @@ import { observer } from "mobx-react-lite";
 
 const DeviceItem = ({ device }) => {
     const { cart, favorites } = useContext(Context)
-    const [isFavorite, setIsFavorite] = useState(true);
+    const [isFavorite, setIsFavorite] = useState(false);
     const [isCart, setIsCart] = useState(false);
     const navigate = useNavigate();
 
+    const toggleFavorite = () => {
+        console.log('chech')
+        setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
+    };
+
     useEffect(() => {
-        if (favorites.isLoaded == true) {
-            console.log('test')
-            // favorites.favorites.forEach(fav => {
-            //     console
-            //     if (device.productModel === fav.deviceId)
-            //         setIsFavorite(true)
-            // });
+        //console.log(device?.productPriceList.productPrice)
+            favorites.favorites.forEach(fav => {
+                if (device.productModel == fav.deviceId)
+                    setIsFavorite(true)
+            });
             cart.devices.forEach(dev => {
                 if (device.productModel == dev.deviceId)
-                    setIsCart(true)
+                    setIsCart(!isCart)
             });
-        }
+            if (isFavorite == true){
+                document.getElementById(device.productModel).style.visibility = 'visible'
+            }
 
-    }, [favorites, device])
+    }, [favorites, cart, device])
 
     return (
-        <div  className={"mt-3"}
-            onClick={() => navigate(DEVICE_ROUTE + '/' + device.productCode, { state: { productCode: device.productCode } })}>
+        <div className={"mt-3"}>
             <div class="md3">
-                <Card style={{ width: 150, cursor: 'pointer' }} border={"light"} class="card">
-                    <div class="amg"><Image width={150} height={149} src={device.productImageUrl} />
-                        {isFavorite ?
-                            <div class="favorits1">
-                                <a href="#action1" data-rr-ui-event-key="#action1" class="nav-link">
-                                </a>
-                            </div>
-                            :
-                            <div class="favorits2">
-                                <a href="#action1" data-rr-ui-event-key="#action1" class="nav-link">
-                                </a>
-                            </div>
-                        }
+                {isFavorite == true ?
+                    <img className="heart_icon_device" id={device.productModel} onClick={() => favorites.removeFavorite(device.productModel, device.catalogId) && toggleFavorite()} alt="" src="/activeheart.svg" />
+                    :
+                    <img className="heart_icon_device" onClick={() => favorites.addFavorite(device.productModel, device.catalogId) && toggleFavorite()} alt="" src="/heart.svg" />
+                }
+                <Card
+                    style={{ width: 150, cursor: 'pointer' }}
+                    border={"light"}
+                    class="card"
+                    onClick={() => navigate(DEVICE_ROUTE + '/' + device.productCode, { state: { productCode: device.productCode } })}>
+                    <div className="amg">
+                        <Image  className="amg" width={150} height={149} 
+                        src={device.productImageUrlBig ? device.productImageUrlBig : device.productImageUrl} />
+                        {/* ? device.productImageUrlBig : device.productImageUrlBig */}
                     </div>
                     <div className="mt-1 d-flex" justify-content-between align-items-center class="card2">
 
                         <div class="text11">{device.brandNameEn}</div>
-                        <div class="text12">{device.name} {device.productModel}</div>
+                        <div class="text12">{device.productModel}</div>
                     </div>
-                    <div class="text13">{device.currencyPrice} </div>
+                    <div class="text13">{ device?.currencyPrice } </div>
+                    {/* != null ? device?.currencyPrice : device?.productPriceList[0].currencyPrice */}
                     <button class="busket1" href=''>В корзину</button>
                 </Card>
             </div>

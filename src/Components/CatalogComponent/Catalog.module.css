@@ -1,0 +1,62 @@
+
+.homeDesktop {
+    margin-top: 40px;
+    width: 1250px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Gilroy;
+    background-color: var(--color-white);
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-black);
+}
+
+.catalogSubdirectoryBlock {
+    display: block;
+    width: 405px;
+}
+
+.separatorIcon {
+    width: 1px;
+    height: 791px;
+    display: block;
+    margin-left: 15px;
+    background: black;
+}
+
+.typeHeader{
+    font-size: 36px;
+    color: var(--color-black);
+}
+
+.catalogTypesStock{
+    display: flex;
+}
+
+.catalogTypesStockPoint {
+    top: 80px;
+    left: 320px;
+    border-radius: 50%;
+    background-color: #55bc72;
+    width: 8px;
+    height: 8px;
+} 
+
+.catalogTypesStockText {
+    top: 77px;
+    left: 335px;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 500;
+    color: var(--color-black);
+}
+
+.catalog {
+    margin-left: 50px;
+    display: flex;
+    flex-direction: row;
+    width: 936px;
+    height: 790px;
+} 

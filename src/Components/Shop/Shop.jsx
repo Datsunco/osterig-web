@@ -8,9 +8,7 @@ const Shop = () => {
     const { store, favorites} = useContext(Context)
 
 
-    useEffect(() => {
-        console.log(store.devices)
-    }, [store, favorites])
+    
     return (
         <div>
             <div>

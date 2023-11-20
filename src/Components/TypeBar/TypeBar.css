@@ -32,7 +32,7 @@
 .list-group {
     background-color: #282828;
     height: auto;
-    width: 100%;
+    /* width: 100%; */
     padding: 30px;
     margin-top: 4%;
     border-radius: 0%;

@@ -1,0 +1,30 @@
+.catalog_element {
+    border-radius: 9px;
+    background-color: var(--color-whitesmoke);
+    width: 405px;
+    height: 44px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--padding-xs) var(--padding-mid);
+    box-sizing: border-box;
+}
+
+.catalog_element:hover{
+    background-color: #F1F1F1;
+}
+
+.adcdacdataConversion {
+    margin-left: 17px;
+    position: relative;
+    font-weight: 600;
+}
+
+.catalogChild {
+    margin-right: 17px;
+    position: relative;
+    width: 6.7px;
+    height: 11.8px;
+}

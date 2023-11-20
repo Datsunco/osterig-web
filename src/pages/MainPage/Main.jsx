@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import Header from '../../Components/Header/Header';
 import Popular from '../../Components/Popular/Popular';
 import Info from '../../Components/Info/Info';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
@@ -12,18 +13,24 @@ import './Main.css'
 
 
 const Main = () => {
-    const { device } = useContext(Context)
+    const { device, favorites, cart} = useContext(Context)
     const [data, setData] = useState('')
 
     useEffect(() => {
-        device.parseHotProducts()
-    })
+        // if (localStorage.getItem('token')) {
+        //     device.parseHotProducts()
+        //     favorites.getFavorites()
+        //     cart.getDevices()
+        // }
+        
+    }, [device, favorites, cart])
 
 
 
     return (
         <div>
             <Container>
+                <Header/>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
                 <Row className='mt-2'>
                     <Info />

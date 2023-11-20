@@ -1,5 +1,6 @@
 .md3 {
-    display: flex;
+    display: block;
+    flex-direction: column;
     width: 229px;
     height: 344px;
     border-radius: 10px;
@@ -11,10 +12,17 @@
     margin-left: 0px;
 }
 
-.mt-3{
-    display: flex;
-
+.md3:hover .heart_icon_device{
+    visibility: visible;
 }
+
+
+.heart_icon_device{
+    visibility: hidden;
+    margin-left: 180px;
+}
+
+
 
 .amg {
     border-radius: 15px;
@@ -45,6 +53,7 @@
 }
 
 .text12 {
+    flex-wrap: wrap;
     text-align: center;
     font-family: Gilroy;
     font-size: 16px;
@@ -104,7 +113,7 @@
 }
 
 .favorits2{
-    background-image: url(../../static/ava.png);
+    background-image: url(../../static/basket.png);
     height: 18px;
     width: 20px;
     background-repeat: no-repeat;
@@ -113,11 +122,6 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
-}
-
-.md3:hover .favorits1, .favorits2{
-    visibility: visible;
-    opacity: 1;  
 }
 
 .tovar {

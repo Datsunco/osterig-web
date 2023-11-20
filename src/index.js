@@ -6,6 +6,7 @@ import Store from './StoreData/store';
 import FavoritesStore from './StoreData/favoritesStore';
 import CartStore from './StoreData/cartStore';
 import DeviceStore from './StoreData/deviceStore';
+import CatalogStore from './StoreData/catalogStore';
 
 const store = new Store()
 
@@ -16,9 +17,11 @@ root.render(
 
     <Context.Provider value={{
       store: new Store(),
+      userStore: new UserStore(),
       favorites: new FavoritesStore(),
       cart: new CartStore(),
-      device: new DeviceStore()
+      device: new DeviceStore(),
+      catalog: new CatalogStore()
     }}>
     <App />
     </Context.Provider>

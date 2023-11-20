@@ -6,11 +6,16 @@ import DeviceItem from "../DeviceItem/DeviceItem";
 import "./Popular.css"
 
 const Popular = () => {
-    const { device } = useContext(Context)
+    const { device, favorites, cart } = useContext(Context)
 
     useEffect(() => {
-        console.log(device.hotProducts)
-    })
+        if (localStorage.getItem('token')) {
+            device.parseHotProducts()
+            favorites.getFavorites()
+            cart.getDevices()
+        }
+        
+    }, [device, favorites, cart])
 
     return (
         <div>
@@ -23,9 +28,6 @@ const Popular = () => {
                 </div>
             </div>
             <Row className="d-flex">
-                {/* {device.devices.map(device =>
-                    <DeviceItem key={device.id} device={device} />
-                )} */}
                 {device.hotProducts.map(device =>
                         <DeviceItem key={device.id} device={device} />
                     )}
