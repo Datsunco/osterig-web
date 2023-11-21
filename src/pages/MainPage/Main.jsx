@@ -17,12 +17,11 @@ const Main = () => {
     const [data, setData] = useState('')
 
     useEffect(() => {
-        // if (localStorage.getItem('token')) {
-        //     device.parseHotProducts()
-        //     favorites.getFavorites()
-        //     cart.getDevices()
-        // }
-        
+        if (localStorage.getItem('token')) {
+            device.parseHotProducts()
+            favorites.getFavorites()
+            cart.getDevices()
+        }
     }, [device, favorites, cart])
 
 

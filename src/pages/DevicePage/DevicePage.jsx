@@ -1,4 +1,5 @@
 import { Col, Container, Row } from 'react-bootstrap';
+import Header from '../../Components/Header/Header';
 import Slider from '../../Components/Slider/Slider';
 import VMenu from '../../Components/VMenu/VMenu';
 import PopularTovar from '../../Components/PopularTovar/PopularTovar';
@@ -22,7 +23,7 @@ const DevicePage = () => {
   const deviceData = { id: 3, name: 'Iphone 7', price: 25000, rating: 5, img: 'https://ironfriends.ru/wp-content/uploads/2022/10/03_iPhone_13.jpg' }
   return (
     <Container className='mt-3'>
-      {/* <Row> */}
+      <Header/>
       <Col md={4}>
         <Row>
           <Slider />

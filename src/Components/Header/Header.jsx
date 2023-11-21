@@ -1,13 +1,21 @@
 import React from 'react';
+import { useNavigate } from 'react-router';
 import './Header.css'
 import LogoSVG from './LogoSVG';
 
 const Header = () => {
+    const navigate = useNavigate()
+
+    const onClickCatalog = (path) => {
+        
+        navigate(`/${path}`)
+    }
+
     return (
         <div className='Header'>
             <div class="topHeader">
-                <div class="logo"><LogoSVG /></div>
-                <div className='catalog_button'>
+                <div class="logo" onClick={() => onClickCatalog("mainpage")}><LogoSVG /></div>
+                <div className='catalog_button' onClick={ () => onClickCatalog("catalog")}>
                     <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
                         <line x1="1" y1="1" x2="15" y2="1" stroke="white" stroke-width="2" stroke-linecap="round" />
                         <line x1="1" y1="7" x2="9.5" y2="7" stroke="white" stroke-width="2" stroke-linecap="round" />
@@ -26,11 +34,11 @@ const Header = () => {
                     </div>
                     <div>
                         <div class="favorits"></div>
-                        <div class='text-padding-top'>Избранное</div>
+                        <div class='text-padding-top' onClick={() => onClickCatalog("favorites")}>Избранное</div>
                     </div>
                     <div>
                         <div class="basket"></div>
-                        <div class='text-padding-top'>Корзина</div>
+                        <div class='text-padding-top' onClick={() => onClickCatalog("cart")}>Корзина</div>
                     </div>
                     <div class="profile"></div>
                 </div>

@@ -8,14 +8,14 @@ import "./Popular.css"
 const Popular = () => {
     const { device, favorites, cart } = useContext(Context)
 
-    useEffect(() => {
-        if (localStorage.getItem('token')) {
-            device.parseHotProducts()
-            favorites.getFavorites()
-            cart.getDevices()
-        }
+    // useEffect(() => {
+    //     if (localStorage.getItem('token')) {
+    //         device.parseHotProducts()
+    //         favorites.getFavorites()
+    //         cart.getDevices()
+    //     }
         
-    }, [device, favorites, cart])
+    // }, [device, favorites, cart])
 
     return (
         <div>

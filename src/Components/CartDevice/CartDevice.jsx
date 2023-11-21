@@ -3,8 +3,8 @@ import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 
 import './CartDevice.css'
-
-const CartDevice = ({ deviceId, typeId }) => {
+// deviceId, typeId 
+const CartDevice = ({device}) => {
     const { cart, favorites } = useContext(Context)
     const [isFavorite, setIsFavorite] = useState(false);
 
@@ -16,11 +16,11 @@ const CartDevice = ({ deviceId, typeId }) => {
     useEffect(() => {
         if (favorites.isLoaded == true) {
             favorites.favorites.forEach(fav => {
-                if (deviceId === fav.deviceId)
+                if (device.productCode === fav.productCode)
                     setIsFavorite(true)
             });
         }
-    }, [favorites, deviceId])
+    }, [favorites, device, setIsFavorite])
 
 
     return (
@@ -28,17 +28,17 @@ const CartDevice = ({ deviceId, typeId }) => {
         <div className="frame-parent">
             <div className="frame-group">
                 <div className="frame-child" />
-                <img className="frame-item" alt="" src="/frame-1948758489@2x.png" />
+                <img className="frame-item" alt="" src={device.productImageUrl} />
             </div>
             <div className="frame-container">
                 <div className="chipanalog-parent">
-                    <div className="chipanalog">ChipAnalog</div>
-                    <div className="ca-is3082wx">{deviceId}</div>
+                    <div className="chipanalog">{device.brandNameEn}</div>
+                    <div className="ca-is3082wx">{device.productModel}</div>
                 </div>
                 <div className="frame-wrapper">
                     <div className="parent">
-                        <div className="div">5 600 ₽</div>
-                        <b className="b">5 600 ₽</b>
+                        <div className="div">{device.price} ₽</div>
+                        <b className="b">{device.price} ₽</b>
                     </div>
                 </div>
             </div>
@@ -49,7 +49,7 @@ const CartDevice = ({ deviceId, typeId }) => {
                     </div>
                 </div>
                 <div className="wrapper">
-                    <div className="div1">1</div>
+                    <div className="div1">{device.count}</div>
                 </div>
                 <div className="plus-wrapper">
                     <div className="plus">
@@ -59,13 +59,13 @@ const CartDevice = ({ deviceId, typeId }) => {
             </div>
             <div className="heart-parent">
                 {isFavorite == true ?
-                    <img className="heart-icon" onClick={() => favorites.addFavorite(deviceId, typeId) && toggleFavorite()} alt="" src="/activeheart.svg" />
+                    <img className="heart-icon" onClick={() => favorites.removeFavorite(device) && toggleFavorite()} alt="" src="/activeheart.svg" />
                     :
-                    <img className="heart-icon" onClick={() => favorites.addFavorite(deviceId, typeId) && toggleFavorite()} alt="" src="/heart.svg" />
+                    <img className="heart-icon" onClick={() => favorites.addFavorite(device) && toggleFavorite()} alt="" src="/heart.svg" />
                 }
 
                 <div className="close" >
-                    <img className="vector-stroke-icon" onClick={() => cart.removeDevice(deviceId, typeId)} alt="" src="/vector-stroke.svg" />
+                    <img className="vector-stroke-icon" onClick={() => cart.removeDevice(device)} alt="" src="/vector-stroke.svg" />
                 </div>
             </div>
         </div>

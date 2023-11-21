@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
+import Header from '../../Components/Header/Header';
 import CartDevice from '../../Components/CartDevice/CartDevice';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import CartResult from '../../Components/CartResult/CartResult';
@@ -21,12 +22,12 @@ const Cart = () => {
 
     return (
         <div className='cart_component'>
-
+            <Header/>
             <div className='cart_elements'>
                 <div className='cart_items'>
                     <CartFavHeader state={'cart'}/>
                     {cart.devices.map(device =>
-                        <CartDevice deviceId={device.deviceId} typeId={device.typeId} />
+                        <CartDevice device={device} />
                     )}
                 </div>
 

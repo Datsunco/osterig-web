@@ -20,8 +20,6 @@ const Login = () => {
         navigate('/favorites')
     }
 
-
-
     useEffect(() => {
         if (localStorage.getItem('token')) {
             store.checkAuth()

@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useCallback } from 'react';
 import CatalogComponent from '../../Components/CatalogComponent/CatalogComponent.jsx';
+import Header from '../../Components/Header/Header.jsx';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../index.js';
 import "./CatalogPage.css"
@@ -15,6 +16,7 @@ const CatalogPage = () => {
 
     return (
         <div className='catalog_page'>
+            <Header/>
             <CatalogComponent />
         </div>
     );

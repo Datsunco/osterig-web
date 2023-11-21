@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
+import Header from '../../Components/Header/Header';
 import FavoritesDevice from '../../Components/FavoritesDevice/FavoritesDevice';
 import DeviceItem from '../../Components/DeviceItem/DeviceItem';
 import CartFavHeader from '../../Components/Cart&FavHeader/CartFavHeader';
@@ -20,20 +21,13 @@ const Favorites = () => {
 
     return (
         <div className='favorite_component'>
+            <Header/>
             <div className='fav_elements'>
             <CartFavHeader state={'fav'} />
                 <div className='fav_items'>
                     {favorites.favorites.map(device =>
                         // <FavoritesDevice deviceId={device.deviceId} typeId={device.typeId} />
-                        <DeviceItem device={
-                            {productCode: "C908213",
-                            catalogNameEn: "TVS",
-                            productImageUrl: "https://assets.lcsc.com/images/lcsc/224x224/20230202_FUXINSEMI-SMF5-0A_C908213_front.jpg",
-                            brandNameEn: "Chipanalog",
-                            productModel: device.deviceId,
-                            currencyPrice: 127,
-                            catalogId: device.typeId,}
-                        }/>
+                        <DeviceItem device={device}/>
                         )}
                 </div>
             </div>

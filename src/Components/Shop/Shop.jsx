@@ -14,7 +14,8 @@ const Shop = () => {
             <div>
                 {store.devices.map(device =>
                     <Device productModel={device.productModel}
-                            catalogName={device.catalogName}
+                            // productCode={device.productCode} 
+                            // catalogName={device.catalogName}
                             productPriceList={device.productPriceList}
                             productImageUrl={device.productImageUrl}
                             catalogId={device.catalogId}/>

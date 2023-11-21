@@ -1,7 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Jost:wght@500&family=Roboto:wght@700&display=swap');
-@import url('https://fonts.cdnfonts.com/css/gilroy');
 
 .Header {
+    font-family: Gilroy;
     background-color: white;
     width: 100%;
     box-shadow: 0px 1px 6px 0px rgba(82, 82, 82, 0.10);

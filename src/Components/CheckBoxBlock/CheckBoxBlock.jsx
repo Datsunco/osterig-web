@@ -34,7 +34,7 @@ const CheckBoxBlock = ({ param }) => {
                     :
                     (param?.slice(0, 50).map(elemo =>
                         <div className={styles.box}>
-                            <input className={styles.check_box_block_elements_box} value={elemo.id} onChange={(e) => console.log(e.target.value)} type="checkbox" />
+                            <input onChange={() => onClickCheckBox(elemo)} className={styles.check_box_block_elements_box} value={elemo.id} checked={store.isSelectedparam(elemo)} type="checkbox" />
                             <span className={styles.check_box_block_elements_text}>{elemo.name}</span>
                         </div>
                     ))

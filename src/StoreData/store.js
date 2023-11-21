@@ -12,6 +12,8 @@ export default class Store {
     isParsed = false;
     devices = [{productId: 1},{productId: 2}]
     // params = {}
+
+    defaultUrl = "https://cdn-icons-png.flaticon.com/512/4021/4021581.png"
     params = {"Manufacturer": [
         {
             "name": "3PEAK",

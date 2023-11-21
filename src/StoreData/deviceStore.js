@@ -39,6 +39,7 @@ export default class DeviceStore {
         this._selectedType = {}
         makeAutoObservable(this)
     }
+
     productDetails = {
         "productId": 3520,
         "productCode": "C3131",

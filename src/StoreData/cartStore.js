@@ -22,16 +22,16 @@ export default class CartStore {
     sliceDevice(device){
         const changed = []
         this.devices.forEach(element => {
-            if (element.deviceId != device.deviceId)
-                changed.push({deviceId: element.deviceId, typeId: element.typeId})
+            if (element.productCode != device.productCode)
+                changed.push(element)
         });
         this.devices = changed
     }
 
-    async addDevice(productModel, catalogId) {
+    async addDevice(device) {
         try {
-            await cartService.addDevice(productModel, catalogId)
-            this.appendDevice({deviceId: productModel, typeId: catalogId})
+            await cartService.addDevice(device)
+            this.appendDevice(device)
 
         } catch (e) {
             console.log(e);
@@ -39,10 +39,10 @@ export default class CartStore {
     }
     
 
-    async removeDevice(deviceId, typeId) {
+    async removeDevice(device) {
         try {
-            await cartService.removeDevice(deviceId, typeId)
-            this.sliceDevice({deviceId, typeId})
+            await cartService.removeDevice(device)
+            this.sliceDevice(device)
 
         } catch (e) {
             console.log(e);
