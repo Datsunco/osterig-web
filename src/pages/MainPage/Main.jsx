@@ -31,10 +31,12 @@ const Main = () => {
             <Container>
                 <Header/>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
+                <div class="MainPageMargin">
                 <Row className='mt-2'>
                     <Info />
                     <Popular />
                 </Row>
+                </div>
             </Container>
             <div>
                 <TypeBar />

@@ -44,8 +44,8 @@ const Header = () => {
                 </div>
             </div>
             <div class="bottomHeader">
-                <div class="location"><div class="locationIMAGE"></div><div class="textMoscow">Москва</div></div>
                 <div class="ml-custom">
+                    <div class="textMoscow">Москва</div>
                     <div class="populars">Популярное 🔥</div>
                     <div class="resistors">Резисторы</div>
                     <div class="condensators">Конденсаторы</div>

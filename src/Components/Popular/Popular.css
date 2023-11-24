@@ -11,6 +11,10 @@
 
 .rowitems {
     display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
 }
 
 .rowitems * {
