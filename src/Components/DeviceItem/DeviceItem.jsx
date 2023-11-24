@@ -27,10 +27,13 @@ const DeviceItem = ({ device }) => {
                 if (device.productModel == dev.productCode)
                     setIsCart(!isCart)
             });
-            if (isFavorite === true){
-                // const heart = document.getElementById(device.productModel)
-                // heart.style.visibility = 'visible'
-            }
+            // if (isFavorite === true){
+            //     const heart = document.getElementById(device.productModel)
+            //     if (heart != null){
+            //         heart.style.visibility = 'visible'
+            //     }
+                
+            // }
 
     }, [favorites, cart, device, isFavorite, setIsCart, setIsFavorite])
 

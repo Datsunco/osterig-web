@@ -1,11 +1,14 @@
 .favorite_component{
+    
     width: 100%;
 }
 
 .fav_elements{
+    
     display: block;
     margin: auto;
-    width: 70%;
+    width: 80%;
+    margin-top: 50px;
 }
 
 .fav_items{
