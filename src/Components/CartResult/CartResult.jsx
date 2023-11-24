@@ -1,13 +1,18 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./CartResult.module.css"
 
 const CartResult = () => {
-    const { device } = useContext(Context)
+    const { device, cart} = useContext(Context)
+
+    useEffect(() => {
+        console.log(cart.getCartSumPrice())
+
+    }, [cart])
+
     return (
         <div className={styles.rectangleParent}>
-            {/* <div className={styles.frameChild} /> */}
             <div className={styles.frameWrapper}>
                 <div className={styles.frameContainer}>
                     <div className={styles.frameDiv}>
@@ -16,7 +21,7 @@ const CartResult = () => {
                                 <div className={styles.frameDiv}>
                                     <div className={styles.parent}>
                                         <div className={styles.div}>Товары</div>
-                                        <div className={styles.div1}>13 600 ₽</div>
+                                        <div className={styles.div1}>{cart.getCartSumPrice()} ₽</div>
                                     </div>
                                 </div>
                                 <div className={styles.group}>

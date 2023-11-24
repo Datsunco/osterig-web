@@ -44,7 +44,7 @@ const CartDevice = ({device}) => {
             </div>
             <div className="frame-div">
                 <div className="minus-wrapper">
-                    <div className="minus">
+                    <div className="minus" onClick={() => cart.changeDeviceAmount(device, false)}>
                         <img className="vector-icon" alt="" src="/vector3.svg" />
                     </div>
                 </div>
@@ -52,7 +52,7 @@ const CartDevice = ({device}) => {
                     <div className="div1">{device.count}</div>
                 </div>
                 <div className="plus-wrapper">
-                    <div className="plus">
+                    <div className="plus" onClick={() => cart.changeDeviceAmount(device, true)}>
                         <img className="vector-icon1" alt="" src="/vector4.svg" />
                     </div>
                 </div>

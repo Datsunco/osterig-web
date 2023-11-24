@@ -21,9 +21,8 @@ export default class CartService{
         }
     }
 
-    static async removeDevice(device){
+    static async removeDevice(device, count){
         try{
-            const count = 0
             return $api.post('/cart/remove', {
                 productModel: device.productModel, 
                 catalogId: device.catalogId, 

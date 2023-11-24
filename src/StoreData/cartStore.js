@@ -1,29 +1,88 @@
-import {makeAutoObservable} from "mobx";
+import { makeAutoObservable } from "mobx";
 import cartService from "../services/cartService";
 import axios from 'axios';
 
 export default class CartStore {
-    devices = [{deviceId: "443", typeId: "111"}]
+    devices = []
+    cartPrice = 0
 
     constructor() {
         makeAutoObservable(this);
     }
 
 
-    setDevices(devices){
+    setDevices(devices) {
         this.devices = devices
     }
 
+    getCartSumPrice() {
+        let changedPrice = 0
+        this.devices.forEach(element => {
+            const price = element?.price || element?.productPriceList[0].currencyPrice
+            // const minCount = element?.minCount || element?.productPriceList[0].ladder
+            const minCount = element?.count
+            changedPrice += price * minCount
+        });
+        console.log(changedPrice)
+        return changedPrice
+    }
 
-    appendDevice(device){
+
+    appendDevice(device) {
         this.devices.push(device)
     }
 
-    sliceDevice(device){
-        const changed = []
+    sliceDevice(device) {
+        let changed = []
         this.devices.forEach(element => {
-            if (element.productCode != device.productCode)
+            if (element.productCode != device.productCode) {
                 changed.push(element)
+            }
+
+        });
+        this.devices = changed
+    }
+
+    increaseDeviceCount(device) {
+        let changed = []
+        this.devices.forEach(element => {
+            if (element.productCode != device.productCode) {
+                changed.push(element)
+            } else {
+                changed.push({
+                    productModel: element.productModel,
+                    catalogId: element.catalogId,
+                    count: element.count + element.minCount,
+                    productCode: element.productCode,
+                    brandNameEn: element.brandNameEn,
+                    productImageUrl: element.productImageUrl,
+                    price: element.price,
+                    minCount: element.minCount
+                })
+            }
+
+        });
+        this.devices = changed
+    }
+
+    reduceDeviceCount(device) {
+        let changed = []
+        this.devices.forEach(element => {
+            if (element.productCode != device.productCode) {
+                changed.push(element)
+            } else {
+                changed.push({
+                    productModel: element.productModel,
+                    catalogId: element.catalogId,
+                    count: element.count - element.minCount,
+                    productCode: element.productCode,
+                    brandNameEn: element.brandNameEn,
+                    productImageUrl: element.productImageUrl,
+                    price: element.price,
+                    minCount: element.minCount
+                })
+            }
+
         });
         this.devices = changed
     }
@@ -37,12 +96,33 @@ export default class CartStore {
             console.log(e);
         }
     }
-    
 
     async removeDevice(device) {
         try {
-            await cartService.removeDevice(device)
+            await cartService.removeDevice(device, 0)
             this.sliceDevice(device)
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+
+    async changeDeviceAmount(device, sign) {
+        try {
+
+            if (sign == true) {
+                this.increaseDeviceCount(device)
+                await cartService.removeDevice(device, device.count + device.minCount)
+            } else if (sign == false) {
+                if (device.count - device.minCount > 0) {
+                    this.reduceDeviceCount(device)
+                    await cartService.removeDevice(device, device.count - device.minCount)
+                } else {
+                    this.removeDevice(device)
+                }
+            }
+
 
         } catch (e) {
             console.log(e);
