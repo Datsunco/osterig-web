@@ -11,10 +11,10 @@
 }
 
 .buttons {
-    width: auto;
-    height: auto;
+    width: 133px;
+    height: 15px;
     border-radius: 50px;
-    padding: 9px;
+    padding: 11px;
     background: linear-gradient(88.99deg, #00C6FF 0.27%, #0072FF 120.37%);
     color: #FFF;
     font-family: Gilroy;
@@ -25,10 +25,12 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 10px;
+    text-align: left;
+    vertical-align: middle;
 }
 
 .headerimages {
-    margin-left: 15px;
+    margin-left: auto;
 }
 
 div#navbarScroll {
@@ -58,6 +60,8 @@ div#navbarScroll {
     font-style: normal;
     font-weight: 600;
     line-height: 139%;
+    margin-top: 15px;
+    padding: 12px;
 }
 
 nav.bg-body.navbar.navbar-expand-lg.navbar-light {

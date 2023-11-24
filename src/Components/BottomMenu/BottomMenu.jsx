@@ -55,7 +55,7 @@ const BottomMenu = () => {
         </a>
         <div class="textP">
           <a class="textPop" href=''>Меню</a>
-          <br />
+          <br /><br />
           <a class="textYes" href=''>Главная</a>
           <br />
           <a class="textYes" href=''>Каталог</a>
@@ -69,13 +69,14 @@ const BottomMenu = () => {
         <div class="textP">
           <a class="textPop" href=''>Для клиентов</a>
           <br />
+          <br />
           <a class="textYes" href=''>Политика конфиденциальности</a>
           <br />
           <a class="textYes" href=''>Доставка и оплата</a>
         </div>
         <div class="textP">
           <a class="textPop" href=''>Реквизиты</a>
-          <br />
+          <br /><br />
           <a class="textYes" href=''>ИП Бархатова Анна Юрьевна</a>
           <br />
           <a class="textYes" href=''>ИНН: 032384275700</a>

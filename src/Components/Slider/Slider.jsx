@@ -36,7 +36,7 @@ const Slider = () => {
     }
 
     return (
-        <div className="card">
+        <div className="slider">
             <Galleria value={device.images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '425px' }} 
                 item={itemTemplate} thumbnail={thumbnailTemplate} />
         </div>

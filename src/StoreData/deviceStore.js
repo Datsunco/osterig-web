@@ -11,6 +11,7 @@ import diodes from "../static/DeviceTypeImages/diodes.png"
 import exel from "../static/DeviceTypeImages/exel.png"
 import inductors from "../static/DeviceTypeImages/inductors.png"
 import processors from "../static/DeviceTypeImages/processors.png"
+import hand from "../static/DeviceTypeImages/hand.png"
 
 
 export default class DeviceStore {
@@ -23,7 +24,7 @@ export default class DeviceStore {
             { id: 5, name: 'CONVERTERS', img: converters },
             { id: 6, name: 'DIODES', img: diodes },
             { id: 7, name: 'CONNECTORS', img: connectors },
-            { id: 8, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel },
+            { id: 1, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel},
         ]
         this._brands = [
             { id: 1, name: 'Chipanalog' },

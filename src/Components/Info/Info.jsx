@@ -13,12 +13,6 @@ const Info = observer(() => {
                 <h2 class="h2css">МАГАЗИН ЭЛЕКТРОННЫХ КОМПОНЕНТОВ</h2>
                 <button class="katalog">ПЕРЕЙТИ В КАТАЛОГ
                 <div class="strelka">
-                    <svg width="44" height="44" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <circle cx="22" cy="22" r="22" fill="#0071E3"/></svg>
-                    <div class='strelka1'>
-                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M17.5 2C17.5 1.17157 16.8284 0.5 16 0.500001L2.5 0.5C1.67157 0.5 1 1.17157 1 2C1 2.82843 1.67157 3.5 2.5 3.5H14.5V15.5C14.5 16.3284 15.1716 17 16 17C16.8284 17 17.5 16.3284 17.5 15.5L17.5 2ZM3.06066 17.0607L17.0607 3.06066L14.9393 0.93934L0.93934 14.9393L3.06066 17.0607Z" fill="white"/></svg>
-                    </div>
                 </div>
                 </button>
             </div>

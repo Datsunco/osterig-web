@@ -28,6 +28,7 @@ const VMenu = () => {
            <hr align="center" width="500" size="2" color="black" class='lineout'/>
           </div>
         </button>
+        <div class="xz"></div>
         {visible && <Row className='d-flex flex-column mt-3'>
         {description.map((info, index) => 
           <div class="mttop">

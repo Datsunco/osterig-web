@@ -1,15 +1,28 @@
 .chelka1 {
     display: flex;
-    margin-top:40px
+    margin-top: 40px;
+    align-items: center;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
+.vsetStrelka {
+    background-image: url(../../static/vsetStrelka.png);
+    width: 10px;
+    height: 20px;
+    background-size: 8px;
+    background-repeat: no-repeat;
+    vertical-align: center;
+    background-position: center center;
+    margin-left: auto;
+}
 
 .atovar1 {
-    margin: 0 0 0 auto;
-    border:NONE;
+    display: flex;
+    border: NONE;
     padding: 13px;
     border-radius: 10px;
-    color: #ffffff  ;
+    color: #ffffff;
     font-family: Gilroy;
     font-size: 14px;
     font-weight: 500;
@@ -17,7 +30,9 @@
     letter-spacing: 0em;
     text-align: left;
     background-color: #414141;
-    margin-right: 10%;
+    width: 170px;
+    height: 42px;
+    margin-left: auto;
 }
 
 .popular2 {
@@ -26,17 +41,24 @@
     font-weight: 700;
     line-height: 45px;
     letter-spacing: 0em;
-    text-align: left;   
+    text-align: left;
 }
 
 .list-group {
     background-color: #282828;
     height: auto;
-    /* width: 100%; */
-    padding: 30px;
     margin-top: 4%;
     border-radius: 0%;
     color: #FFFFFF;
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 26px;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    padding: 0 0 165px 0px;
 }
 
 
@@ -44,23 +66,28 @@
     margin-top: 4%;
     display: flex;
     flex-wrap: wrap;
-}   
+    margin-left: 8%;
+}
 
 .list-group-item.active {
-    width: 284px;
-    height: 315px;
+    width: 240px;
+    height: 295px;
     background-color: #282828;
     margin-bottom: 0px;
 }
 
+.list-group-item.active {
+    border: 2px solid #0071E3;
+}
+
 .list-group-item {
-    width: 284px;
-    height: 315px;
+    width: 240px;
+    height: 295px;
     border-radius: 13px;
-    margin-left: 15px;
-    margin-top: 25px;
     background: #282828;
-    border: 2px solid #666C77;;
+    border: 2px solid #666C77;
+    margin-left: 7px;
+    margin-top: 7px;
     padding: 30px;
     color: #FFFFFF;
 }
@@ -90,10 +117,5 @@
 }
 
 .list-group-item+.list-group-item.active {
-    margin-top: calc(25 * var(--bs-list-group-border-width));
-    border-top-width: var(--bs-list-group-border-width);
-}
-
-.alllist  {
-    margin-left: 6%;
+    border: 2px solid #0071E3;;
 }

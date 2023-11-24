@@ -12,11 +12,7 @@
     flex-wrap: wrap;
     height: auto;
     padding-top: 20px;
-    padding-left: 5%;
-}
-
-.topHeader * {
-    margin-left: 10px;
+    margin-left: 8%;
 }
 
 .bottomHeader {
@@ -24,17 +20,27 @@
     width: auto;
     flex-wrap: wrap;
     height: auto;
-    padding-left: 112px;
+    margin-left: 8%;
     padding-top: 7px;
     padding-bottom: 10px;
 }
 
 .bottomHeader * {
-    margin-left: 37px;
+    cursor: pointer;
+}
+
+.ml-custom {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.ml-custom * {
+    margin-left: 20px;
 }
 
 .logo {
-    margin-left: 70px;
+    margin-top: 8px;
+    cursor: pointer;
 }
 
 .catalog_button {
@@ -44,6 +50,7 @@
     width: 120px;
     height: 100%;
     margin-left: 60px;
+    cursor: pointer;
 }
 
 .catalog_text {
@@ -94,11 +101,19 @@
     background-color: #0071E3;
     border: none;
     background-image: url(../../static/lupa.png);
+    cursor: pointer;
+}
+
+.cursorP {
+    cursor: pointer;
 }
 
 .rightOptions {
     display: flex;
     margin-left: 70px;
+}
+.rightOptions * {
+    margin-left: 10px;
 }
 
 .orders {
@@ -116,7 +131,7 @@
     background-position: center center;
     height: 20px;
     width: 50px;
-    margin-left: 19px;
+    margin-left: 28px;
 }
 
 .basket {
@@ -137,6 +152,7 @@
     height: 37px;
     width: 37px;
     margin-left: 30px;
+    cursor: pointer;
 }
 
 .location {

@@ -24,8 +24,7 @@ const DevicePage = () => {
   return (
     <Container className='mt-3'>
       <Header/>
-      <Col md={4}>
-        <Row>
+      <div class="alltovarcard">
           <Slider />
           <div class="assh">
             <h2 class="cb">{device.productDetails.brandNameEn} {device.productDetails.productModel}</h2>
@@ -60,12 +59,8 @@ const DevicePage = () => {
               <div class="favorits12"><a href="#action1" data-rr-ui-event-key="#action1" class="nav-link"></a></div>
             </div>
           </div>
-        </Row>
+          </div>
         <PopularTovar />
-      </Col>
-
-      
-      {/* </Row> */}
     </Container>
   );
 }

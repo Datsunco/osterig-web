@@ -185,4 +185,15 @@
     display: block;
     align-items: center;
     justify-content: space-around;
+    margin-left: 16%;
+    border-radius: 20px;
+}
+
+.alltovarcard {
+    display: flex;
+    margin-top: 5%;
+}
+
+.slider {
+    margin-left: 8%;
 }
