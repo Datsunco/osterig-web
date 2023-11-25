@@ -16,11 +16,14 @@ const Search = () => {
     const [model, setModel] = useState('')
 
     useEffect(() => {
-        // if (state) {
+        console.log(state)
+        if (state?.from === "search") {
+            console.log("penis")
+        }else{
             store.setCurrentCatalogId(state.catalogId)
             store.parse(state.catalogId, store.seletedParams)
             store.parse_params(state.catalogId, store.seletedParams)
-        // }
+        }
     }, [store, state])
 
 
@@ -29,7 +32,8 @@ const Search = () => {
             <Header />
             <div className='search_page'>
 
-                <TypePreview childCatalogs={state.childs ? state.childs : null}
+                <TypePreview from={state?.from}
+                    childCatalogs={state.childs ? state.childs : null}
                     parentCatalogName={state.parentCatalogName}
                     parentcatalogId={state.parentcatalogId}
                     catalogName={state.catalogNameEn} />
@@ -49,7 +53,7 @@ const Search = () => {
                             // null)
                           })
                     } */}
-                        {store?.params ?
+                        {state?.from != "search" ?
                             <div>
                                 <CheckBoxBlock param={store?.params["Manufacturer"] ? store?.params["Manufacturer"] : null} />
                                 <CheckBoxBlock param={store?.params["Package"] ? store?.params["Package"] : null} />

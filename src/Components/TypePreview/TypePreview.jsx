@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import styles from "./TypePreview.module.css"
 import { useNavigate } from 'react-router-dom';
 
-const TypePreview = ({ childCatalogs, catalogName, parentCatalogName, parentcatalogId }) => {
+const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, parentcatalogId }) => {
     const navigate = useNavigate()
     const { store } = useContext(Context)
 

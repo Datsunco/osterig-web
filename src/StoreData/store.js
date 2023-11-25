@@ -3,6 +3,7 @@ import AuthService from "../services/authService";
 import ProxyService from "../services/proxyService";
 import axios from 'axios';
 
+
 //import {API_URL} from "../http";
 
 export default class Store {
@@ -1156,11 +1157,12 @@ export default class Store {
     }
 
     async search(keyword){
+        this.setParsed(false)
         try{
             const response = await ProxyService.search(keyword);
             this.setSearchedDevices(response)
-            console.log(response?.data?.result?.productSearchResultVO?.productList)
-            console.log(response?.data?.result?.productSearchResultVO?.productList)
+            return response
+            
         } catch(e){
             console.log(e);
             console.log(e.response?.data?.message);

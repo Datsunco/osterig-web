@@ -1,15 +1,42 @@
-import React from 'react';
+import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router';
 import './Header.css'
 import LogoSVG from './LogoSVG';
+import { Context } from '../..';
+import { observer } from 'mobx-react-lite';
+import { DEVICE_ROUTE } from "../../utils/consts";
 
 const Header = () => {
     const navigate = useNavigate()
+    const { store } = useContext(Context)
+    const [inputValue, setInputValue] = useState("")
 
     const onClickCatalog = (path) => {
         
         navigate(`/${path}`)
     }
+
+    const onClickSearch = async () => {
+        //console.log(inputValue)
+        const response = await store.search(inputValue)
+        console.log(response?.data?.result?.productSearchResultVO?.productList)
+        if (response?.data?.result?.isToDetail === true){
+            navigate(DEVICE_ROUTE + '/' + inputValue, { state: { productCode: inputValue } })
+        }else{
+            navigate("/search", 
+                {
+                state: {
+                    // childs: response.data.result.catalogVOS?.[0],
+                    from: "search"
+                    }
+                }
+                
+            )
+        }
+        
+        // console.log()
+    }
+
 
     return (
         <div className='Header'>
@@ -24,8 +51,8 @@ const Header = () => {
                     <p className='catalog_text'>Каталог</p>
                 </div>
                 <div class="search">
-                    <input class="searchInput" type="text" placeholder="Искать товары" />
-                    <button class="searchLupa"></button>
+                    <input value={inputValue} onChange={(e) => setInputValue(e.target.value)} class="searchInput" type="text" placeholder="Искать товары" />
+                    <button class="searchLupa" onClick={() => onClickSearch()}></button>
                 </div>
                 <div class="rightOptions">
                     <div>
@@ -56,4 +83,4 @@ const Header = () => {
     );
 };
 
-export default Header;
+export default observer(Header);
