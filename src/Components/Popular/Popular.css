@@ -1,36 +1,60 @@
-.chelka {
-    display: flex;
-    margin-top:40px
+.PopularBody {
+    margin-right: 8%;
 }
 
-.atovar {
-    margin: 0 0 0 auto;
-    border:NONE;
-    padding: 13px;
-    border-radius: 10px;
+.chelka {
+    display: flex;
+    margin-top: 40px;
+    align-items: center;
+    margin-left: 8%;
+}
+
+.rowitems {
+    display: flex;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.rowitems * {
+    margin-left: 1%;
+}
+
+.alltovars {
     color: #0071E3;
     font-family: Gilroy;
     font-size: 14px;
+    font-style: normal;
     font-weight: 500;
-    line-height: 17px;
-    letter-spacing: 0em;
-    text-align: left;
+    line-height: normal;
+    width: 132px;
+    height: 42px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 6px;
+    margin-left: auto;
+}
+
+.heart_icon_device {
+    margin-left: 78%;
 }
 
 .tovars {
-    background: rgb(45,135,247);
-    background: linear-gradient(135deg, rgba(45,135,247,1) 5%, rgba(0,114,255,1) 45%, rgba(53,53,53,1) 100%);
+    background: rgb(45, 135, 247);
+    background: linear-gradient(135deg, rgba(45, 135, 247, 1) 5%, rgba(0, 114, 255, 1) 45%, rgba(53, 53, 53, 1) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .popular1 {
+    color: #353535;
     font-family: Gilroy;
     font-size: 36px;
+    font-style: normal;
     font-weight: 700;
-    line-height: 45px;
-    letter-spacing: 0em;
-    text-align: left;   
+    line-height: normal;
+    margin-left: 1%;
 }
 
 .popular {

@@ -13,11 +13,13 @@
     justify-content: center;
     display: flex;
     height: 382px;
-    width: 100%;
+    width: 1253px;
     margin-top: 2%; 
     background: rgb(107,0,120);
     background: linear-gradient(135deg, rgba(107,0,120,1) 5%, rgba(44,31,140,1) 22%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 61%, rgba(107,0,120,1) 76%, rgba(44,31,140,1) 88%);
     border-radius: 20px;
+    margin: auto;
+    margin-top: 3%;
 }
 
 
@@ -33,7 +35,7 @@
     align-items: center;
     display: flex;
     height: 54px;
-    width: 345px;
+    width: 290px;
     margin: 0 auto;
     border-radius: 60px;
     background-color: white;
@@ -47,14 +49,17 @@
     border: none;
 }
 
-.strelka1 {
-    margin-top: -81%;
-    margin-left: 28%;
-}
-
 .strelka {
-    margin-left: 16%;
-    margin-top: -3%;
+        width: 44px;
+        height: 44px;
+        background-image: url(../../static/arrow.png);
+        background-size: 15px;
+        background-repeat: no-repeat;
+        vertical-align: center;
+        background-color: #0071E3;;
+        background-position: center center;
+        border-radius: 40px;
+        margin-left: 31px;
 }
 
 .description {
@@ -64,11 +69,11 @@
     flex-wrap: wrap;
     align-items: center;
     color: #2D2D2D;
-    margin-left: 7px;
+    justify-content: center;
 }
 
 .op {
-    width: 284px;
+    width: 262px;
     height: 206px;
     background-color: #F8F8F8;
     padding: 20px;
@@ -80,7 +85,9 @@
     line-height: 25px;
     letter-spacing: 0em;
     margin-top: 40px;
-    margin-left: 50px;
+    margin-left: 1%;
+    border-radius: 13px;
+    box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.13);
 }
 
 .text1 {
@@ -100,7 +107,7 @@
 }
 
 .op1 {
-    width: 284px;
+    width: 262px;
     height: 206px;
     background-color: #F8F8F8;
     padding: 20px;
@@ -112,4 +119,5 @@
     line-height: 25px;
     letter-spacing: 0em;
     margin-top: 40px;
+    box-shadow: 1px 1px 13px 0px rgba(0, 0, 0, 0.13);
 }

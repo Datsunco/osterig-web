@@ -1,4 +1,20 @@
 .rowitems{
     display: flex;
     flex-direction: row;
+    margin-left: 8%;
+}
+
+.atovar12 {
+    color: #0071E3;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 132px;
+    height: 42px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 6px;
+    margin-left: 31%;
 }

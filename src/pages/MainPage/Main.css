@@ -4,3 +4,9 @@
     font-style: normal;
     src:  url(../../Fonts/Gilroy-Semibold.ttf) format("truetype")
 }
+
+.MainPageMargin {
+    margin-left: 8%;
+    margin-right: 8%;
+    margin: auto;
+}
