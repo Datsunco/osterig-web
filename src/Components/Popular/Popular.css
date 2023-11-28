@@ -1,18 +1,15 @@
 .PopularBody {
-    width: 1200px;
-    margin: auto;
+    margin-right: 8%;
 }
 
 .chelka {
     display: flex;
-    width: 1200px;
+    margin-top: 40px;
     align-items: center;
-    margin: auto;
-
+    margin-left: 8%;
 }
 
 .rowitems {
-    gap: 15px;
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
@@ -20,9 +17,9 @@
     flex-wrap: nowrap;
 }
 
-/* .rowitems * {
+.rowitems * {
     margin-left: 1%;
-} */
+}
 
 .alltovars {
     color: #0071E3;
@@ -37,6 +34,9 @@
     border: none;
     border-radius: 6px;
     margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .heart_icon_device {
@@ -46,19 +46,28 @@
 .tovars {
     background: rgb(45, 135, 247);
     background: linear-gradient(135deg, rgba(45, 135, 247, 1) 5%, rgba(0, 114, 255, 1) 45%, rgba(53, 53, 53, 1) 100%);
-    -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
 .popular1 {
     color: #353535;
     font-family: Gilroy;
-    font-size: 36px;
+    font-size: 20px;
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    margin-left: 1%;
 }
 
 .popular {
     padding: 50px;
+}
+
+.rowitems {
+    margin-left: 2px;
+}
+
+.strelka1SVG {
+    margin-top: 4.3px;
+    margin-left: 6px;
 }

@@ -1,18 +1,9 @@
 .chelka1 {
-    width: 1200px;
     display: flex;
     margin-top: 40px;
     align-items: center;
-    margin: auto;
-}
-
-.pop {
-    margin: auto;
-    gap: 24px;
-    width: 1206px;
-    margin-top: 4%;
-    display: flex;
-    flex-wrap: wrap;
+    margin-left: 8%;
+    margin-right: 8%;
 }
 
 .vsetStrelka {
@@ -46,7 +37,7 @@
 
 .popular2 {
     font-family: Gilroy;
-    font-size: 36px;
+    font-size: 23px;
     font-weight: 700;
     line-height: 45px;
     letter-spacing: 0em;
@@ -54,7 +45,6 @@
 }
 
 .list-group {
-    width: 100%;
     background-color: #282828;
     height: auto;
     margin-top: 4%;
@@ -72,29 +62,37 @@
 }
 
 
-
+.pop {
+    margin-top: 4%;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 8%;
+}
 
 .list-group-item.active {
-    width: 219px;
-    height: 250px;
+    width: 240px;
+    height: 295px;
     background-color: #282828;
     margin-bottom: 0px;
 }
 
+.list-group-item.active {
+    border: 2px solid #0071E3;
+}
 
 .list-group-item {
-    width: 219px;
-    height: 250px;
-    flex-shrink: 0;
+    width: 240px;
+    height: 295px;
     border-radius: 13px;
     background: #282828;
     border: 2px solid #666C77;
+    margin-left: 7px;
     margin-top: 7px;
     padding: 30px;
     color: #FFFFFF;
 }
 
-/* .list-group-item+.list-group-item {
+.list-group-item+.list-group-item {
     border-top-width: 2px;
 }
 
@@ -106,20 +104,18 @@
 .list-group-item:last-child {
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
-} */
+}
 
 .components12 {
-    width: 100%;
-    height: 200px;
     display: flex;
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+    height: auto;
+    width: auto;
+    margin-top: 37%;
 }
 
-.type_bar_img{
-    width: 75px;
-    margin: auto;
-}
-
-.list-group-item+.list-group-item.active {
-    border: 2px solid #0071E3;
-    ;
+.list-group-item:hover {
+    border: 2px solid #0071E3;;
 }

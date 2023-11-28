@@ -1,3 +1,4 @@
+
 .h2css {
     font-family: Gilroy;
     font-size: 30px;
@@ -15,11 +16,14 @@
     height: 382px;
     width: 1253px;
     margin-top: 2%; 
-    background: rgb(107,0,120);
-    background: linear-gradient(135deg, rgba(107,0,120,1) 5%, rgba(44,31,140,1) 22%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 61%, rgba(107,0,120,1) 76%, rgba(44,31,140,1) 88%);
+    background-color: black;
     border-radius: 20px;
     margin: auto;
     margin-top: 3%;
+    background-image: url(../../static/bggradient.png);
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 
@@ -31,12 +35,11 @@
 }
 
 .katalog {
-    padding-left: 20px; 
     justify-content: center;
     align-items: center;
     display: flex;
     height: 54px;
-    width: 300px;
+    width: 290px;
     margin: 0 auto;
     border-radius: 60px;
     background-color: white;
@@ -60,7 +63,7 @@
         background-color: #0071E3;;
         background-position: center center;
         border-radius: 40px;
-        margin-left: 20px;
+        margin-left: 31px;
 }
 
 .description {
