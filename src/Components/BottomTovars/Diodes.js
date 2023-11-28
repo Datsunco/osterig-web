@@ -31,7 +31,7 @@ const Popular = () => {
                 </div>
             </div>
             <div class="rowitems">
-                {device.hotProducts.slice(0, 5).map(device =>
+                {device.hotProducts.map(device =>
                     <DeviceItem key={device.id} device={device} />
                 )}
             </div>

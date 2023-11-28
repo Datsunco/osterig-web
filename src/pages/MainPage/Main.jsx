@@ -8,9 +8,8 @@ import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import TypeBar from '../../Components/TypeBar/TypeBar';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
-
-
 import './Main.css'
+import Resistors from '../../Components/BottomTovars/Resistors';
 
 
 const Main = () => {
@@ -41,7 +40,7 @@ const Main = () => {
             </Container>
             <div>
                 <TypeBar />
-                {/* <Resistors /> */}
+                <Resistors/>
             </div>
             <BottomMenu />
         </div>

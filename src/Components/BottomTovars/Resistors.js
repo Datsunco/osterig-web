@@ -3,19 +3,10 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../..";
 import { Row } from "react-bootstrap";
 import DeviceItem from "../DeviceItem/DeviceItem";
-import "./Popular.css"
+import "./All.css"
 
-const Popular = () => {
+const Resisors = () => {
     const { device, favorites, cart } = useContext(Context)
-
-    // useEffect(() => {
-    //     if (localStorage.getItem('token')) {
-    //         device.parseHotProducts()
-    //         favorites.getFavorites()
-    //         cart.getDevices()
-    //     }
-
-    // }, [device, favorites, cart])
 
     return (
         <div class="PopularBody">
@@ -31,7 +22,7 @@ const Popular = () => {
                 </div>
             </div>
             <div class="rowitems">
-                {device.hotProducts.slice(0, 5).map(device =>
+                {device.hotProducts.map(device =>
                     <DeviceItem key={device.id} device={device} />
                 )}
             </div>
@@ -39,6 +30,6 @@ const Popular = () => {
     );
 };
 
-export default observer(Popular);
+export default observer(Resisors);
 
     
