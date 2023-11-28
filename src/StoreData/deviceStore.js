@@ -17,14 +17,14 @@ import hand from "../static/DeviceTypeImages/hand.png"
 export default class DeviceStore {
     constructor() {
         this._types = [
-            { id: 1, name: 'RESISTORS', img: resistor },
+            { id: 0, name: 'RESISTORS', img: resistor },
             { id: 2, name: 'CAPACITORS', img: capacitors },
             { id: 3, name: 'INDUCTORS', img: inductors },
             { id: 4, name: 'PROCESSORS', img: processors },
             { id: 5, name: 'CONVERTERS', img: converters },
             { id: 6, name: 'DIODES', img: diodes },
             { id: 7, name: 'CONNECTORS', img: connectors },
-            { id: 1, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel},
+            { id: 8, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel},
         ]
         this._brands = [
             { id: 1, name: 'Chipanalog' },

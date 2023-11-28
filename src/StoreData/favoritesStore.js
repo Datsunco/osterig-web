@@ -90,9 +90,12 @@ export default class FavoritesStore {
             const favorites = await favoritesService.getFavorites()
             console.log(favorites.data)
             this.setFavorites(favorites.data)
-            this.setIsLoaded()
+            
         } catch (e) {
             console.log(e);
+        }
+        finally{
+            this.setIsLoaded()
         }
     }
 

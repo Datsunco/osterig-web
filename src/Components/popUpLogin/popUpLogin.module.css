@@ -1,0 +1,187 @@
+.popup_background {
+    background: rgba(0, 0, 0, 0.30);
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 1000px;
+}
+
+.popup_login_main_block {
+    margin-top: 280px;
+    margin-left: 380px;
+
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    width: 542px;
+    height: 417px;
+    border-radius: 29px;
+    background: white;
+    z-index: 1000;
+    /* margin: auto; */
+
+}
+
+.popup_login_sec_block {
+    margin-top: 280px;
+    margin-left: 380px;
+
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    width: 542px;
+    height: 417px;
+    border-radius: 29px;
+    background: white;
+    /* margin: auto; */
+    z-index: 1000;
+}
+
+.popup_login_four_block {
+    margin-top: 280px;
+    margin-left: 380px;
+
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    width: 542px;
+    height: 556px;
+    border-radius: 29px;
+    background: white;
+    /* margin: auto; */
+    z-index: 1000;
+}
+
+.popup_login_main_block_all {
+    margin: auto;
+    /* height: 450px; */
+}
+
+.popup_login_top_block_log {
+    margin: auto;
+    margin-bottom: 35px;
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup_login_top_block_reg {
+    margin: auto;
+    margin-bottom: 35px;
+    width: 450px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup_login_top_block_reg_pass {
+    margin: auto;
+    margin-bottom: 18px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup_login_top_block_logo {
+    margin: auto;
+    margin-bottom: 35px;
+    flex-shrink: 0;
+}
+
+.popup_login_top_block_text {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+.popup_login_input_block {
+    /* gap: 15px; */
+    display: flex;
+    margin-bottom: 75px;
+    flex-direction: column;
+}
+
+.popup_login_input_block_reg_pass{
+    gap: 15px;
+    display: flex;
+    margin-bottom: 75px;
+    flex-direction: column;
+}
+
+.popup_login_input {
+    padding-left: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #E6E6E6;
+    box-shadow: 1px 1px 9.2px 0px rgba(0, 0, 0, 0.10) inset;
+    width: 463px;
+    height: 50px;
+    flex-shrink: 0;
+    color: #A3A3A3;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.32px;
+}
+
+.popup_login_input_text {
+    margin-bottom: 10px;
+    color: #000;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+}
+
+
+.popup_login_buttons_block {
+    margin: auto;
+    /* width: 375px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.popup_login_buttons_block_regist {
+    border: none;
+    width: 478px;
+    display: inline-flex;
+    padding: 15px 205px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: var(--System-Blue, #0071E3);
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.popup_login_buttons_block_login {
+    border: none;
+    padding: 0;
+    margin: auto;
+    width: 140px;
+    color: #7C7C7C;
+    font-family: Gilroy;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: 0.24px;
+    text-transform: uppercase;
+}

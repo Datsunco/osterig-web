@@ -1,0 +1,176 @@
+.frameChild {
+    position: absolute;
+    background-color: var(--gray-1);
+    height: 122.7px;
+}
+
+.frameChild,
+.frameContainer,
+.frameItem {
+    width: 100.3px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.frameItem {
+    /* position: relative; */
+    /* height: 122.7px;
+    object-fit: cover;
+    margin-top: -122px; */
+}
+
+.frameContainer {
+    height: 122px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.div {
+    align-self: stretch;
+    position: relative;
+}
+
+.div {
+    line-height: 130%;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+
+
+.caIs3082wx {
+    color: var(--Gray-4, #797C81);
+    font-family: Gilroy;
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 13px */
+    text-transform: uppercase;
+}
+
+.chipanalog {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 120%;
+    /* 14.4px */
+}
+
+.chipanalogParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+    font-size: var(--font-size-3xs);
+    color: var(--gray-4);
+}
+
+.b {
+    align-self: stretch;
+    position: relative;
+    font-size: 18px;
+    letter-spacing: -0.04em;
+    line-height: 120%;
+}
+
+.frameGroup,
+.parent {
+    display: flex;
+    align-items: flex-start;
+}
+
+.parent {
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+}
+
+.frameGroup {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 20px;
+    z-index: 0;
+}
+
+.div2,
+.icon {
+    position: relative;
+}
+
+.div2 {
+    line-height: 130%;
+    text-transform: uppercase;
+    font-weight: 600;
+}
+
+.icon {
+    width: 12px;
+    height: 12px;
+    display: none;
+}
+
+.secondaryButton {
+    align-self: stretch;
+    border-radius: var(--br-881xl);
+    height: 36px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    gap: var(--gap-5xs);
+    z-index: 1;
+}
+
+.vectorStrokeIcon {
+    position: relative;
+    width: 8px;
+    height: 8px;
+}
+
+.close,
+.frameParent {
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.close {
+    margin: 0 !important;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 16px;
+    height: 16px;
+    flex-direction: row;
+    align-items: center;
+    padding: 3.3333585262298584px;
+    z-index: 2;
+}
+
+.frameParent {
+    border-radius: 20px;
+    background-color: var(--white);
+    box-shadow: 0-30px 45px rgba(0, 0, 0, 0.09),
+        0 30px 45px rgba(11, 19, 31, 0.09);
+    width: 298px;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    position: relative;
+    gap: 25px;
+    text-align: left;
+    font-size: var(--font-size-xs);
+    color: var(--color-gray-100);
+    font-family: Gilroy
+}

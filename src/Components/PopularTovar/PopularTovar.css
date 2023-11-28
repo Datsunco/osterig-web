@@ -1,8 +1,10 @@
 .rowitems{
     display: flex;
     flex-direction: row;
-    margin-left: 8%;
+    width: 1200px;
+    margin: auto;
 }
+
 
 .atovar12 {
     color: #0071E3;

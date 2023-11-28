@@ -249,3 +249,21 @@
     vertical-align: center;
     background-position: 7px center;
 }
+
+.header_fav_count {
+    position: absolute;
+    margin-left: 57px;
+    margin-top: -5px;
+    width: 16px;
+    height: 13px;
+    flex-shrink: 0;
+    border-radius: 11px;
+    background: var(--system-red-01, #FC3F1D);
+    color: var(--SystemWhite, #FFF);
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 11px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}

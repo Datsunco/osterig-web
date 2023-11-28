@@ -19,6 +19,14 @@
     line-height: normal;
 }
 
+.device_page_favorite_block{
+    margin: auto;
+    padding: 25px 25px 25px 30px;
+    width: 225px;
+    display: flex;
+    margin-left: 34px;
+}
+
 .agn {
     align-items: center;
     display: flex;
@@ -135,6 +143,7 @@
 }
 
 .vkorzinu {
+    width: 225px;
     border-radius: 7px;
     background-color: #0071E3;
     color: #FFF;
@@ -167,7 +176,6 @@
     line-height: 130%;
     /* 18.2px */
     text-transform: uppercase;
-    margin-left: 29%;
 }
 
 .dhg {
@@ -185,7 +193,7 @@
     display: block;
     align-items: center;
     justify-content: space-around;
-    margin-left: 16%;
+    margin-left: 100px;
     border-radius: 20px;
 }
 

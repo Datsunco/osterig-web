@@ -31,11 +31,12 @@
 }
 
 .katalog {
+    padding-left: 20px; 
     justify-content: center;
     align-items: center;
     display: flex;
     height: 54px;
-    width: 290px;
+    width: 300px;
     margin: 0 auto;
     border-radius: 60px;
     background-color: white;
@@ -59,7 +60,7 @@
         background-color: #0071E3;;
         background-position: center center;
         border-radius: 40px;
-        margin-left: 31px;
+        margin-left: 20px;
 }
 
 .description {

@@ -1,15 +1,18 @@
 .PopularBody {
-    margin-right: 8%;
+    width: 1200px;
+    margin: auto;
 }
 
 .chelka {
     display: flex;
-    margin-top: 40px;
+    width: 1200px;
     align-items: center;
-    margin-left: 8%;
+    margin: auto;
+
 }
 
 .rowitems {
+    gap: 15px;
     display: flex;
     overflow-x: auto;
     white-space: nowrap;
@@ -17,9 +20,9 @@
     flex-wrap: nowrap;
 }
 
-.rowitems * {
+/* .rowitems * {
     margin-left: 1%;
-}
+} */
 
 .alltovars {
     color: #0071E3;
@@ -54,13 +57,8 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    margin-left: 1%;
 }
 
 .popular {
     padding: 50px;
-}
-
-.rowitems {
-    margin-left: 2px;
 }

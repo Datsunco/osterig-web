@@ -1,11 +1,12 @@
 import { observer } from "mobx-react-lite";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { Context } from "../..";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import './TypeBar.css';
 
 
 const TypeBar = () => {
+  const [ selectedType, setSelectedType ] = useState(2)
   const { device } = useContext(Context)
   return (
     <ListGroup>
@@ -20,13 +21,13 @@ const TypeBar = () => {
         {device.types.map(type =>
           <ListGroupItem
             style={{ cursor: 'pointer' }}
-            active={type.id === device.selectedType.id}
-            onClick={() => device.setSelectedType(type)}
+            active={type.id == device.selectedType}
+            onClick={() => device.setSelectedType(type.id) || console.log(type.id)}
             key={type.id}
           >
             {type.name}
-            <div class='components12'>
-              <img src={type.img} />
+            <div className='components12'>
+              <img className="type_bar_img" src={type.img} />
             </div>
           </ListGroupItem>
         )}

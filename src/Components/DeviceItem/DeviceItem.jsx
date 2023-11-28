@@ -18,7 +18,6 @@ const DeviceItem = ({ device }) => {
     };
 
     useEffect(() => {
-        console.log(device)
             favorites.favorites.forEach(fav => {
                 if (device.productCode == fav.productCode)
                     setIsFavorite(true)

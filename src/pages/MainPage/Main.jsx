@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
+import PopUpLogin from '../../Components/popUpLogin/popUpLogin';
 import Header from '../../Components/Header/Header';
 import Popular from '../../Components/Popular/Popular';
 import Info from '../../Components/Info/Info';
