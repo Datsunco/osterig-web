@@ -3,17 +3,16 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../..";
 import { Row } from "react-bootstrap";
 import DeviceItem from "../DeviceItem/DeviceItem";
-import "./Popular.css"
 import { useNavigate } from "react-router-dom";
 
-const Popular = () => {
+const Capacitors = () => {
     const navigate = useNavigate()
     const { device, favorites, cart } = useContext(Context)
 
     return (
-        <div class="PopularBody">
+        <div class="PopularBody1">
                 <div class="chelka">
-                    <div class="popular1"><h1>ПОПУЛЯРНЫЕ <h class="tovars">ТОВАРЫ</h></h1></div>
+                    <div class="popular1"><h1>CAPACITORS</h1></div>
                     <button class="alltovars" onClick={() => navigate("/catalog")}>
                         Все товары 
                         <svg width="6" style={{marginLeft: '20px'}} height="11" viewBox="0 0 6 11" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.45962 5.95962C5.71346 5.70578 5.71346 5.29422 5.45962 5.04038L1.32304 0.903806C1.0692 0.649965 0.657647 0.649965 0.403806 0.903806C0.149965 1.15765 0.149965 1.5692 0.403806 1.82304L4.08076 5.5L0.403806 9.17696C0.149965 9.4308 0.149965 9.84235 0.403806 10.0962C0.657647 10.35 1.0692 10.35 1.32304 10.0962L5.45962 5.95962ZM4 6.15H5V4.85H4V6.15Z" fill="#0071E3" /></svg>
@@ -28,4 +27,4 @@ const Popular = () => {
     );
 };
 
-export default observer(Popular);
+export default observer(Capacitors);

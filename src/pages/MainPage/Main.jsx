@@ -9,8 +9,14 @@ import TypeBar from '../../Components/TypeBar/TypeBar';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 
-
 import './Main.css'
+import Resistors from '../../Components/BottomProducts/Resistors';
+import Capacitors from '../../Components/BottomProducts/Capacitors';
+import Inductors from '../../Components/BottomProducts/Inductors';
+import Processors from '../../Components/BottomProducts/Processors';
+import Сonverters from '../../Components/BottomProducts/Сonverters';
+import Diodes from '../../Components/BottomProducts/Diodes';
+import Connectors from '../../Components/BottomProducts/Connectors';
 
 
 const Main = () => {
@@ -29,8 +35,8 @@ const Main = () => {
 
     return (
         <div>
-            <Container>
                 <Header/>
+                <Container>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
                 <div class="MainPageMargin">
                 <Row className='mt-2'>
@@ -41,7 +47,13 @@ const Main = () => {
             </Container>
             <div>
                 <TypeBar />
-                {/* <Resistors /> */}
+                <Resistors/>
+                <Capacitors/>
+                <Inductors/>
+                <Processors/>
+                <Сonverters/>
+                <Diodes/>
+                <Connectors/>
             </div>
             <BottomMenu />
         </div>

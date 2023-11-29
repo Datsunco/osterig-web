@@ -15,11 +15,14 @@
     height: 382px;
     width: 1253px;
     margin-top: 2%; 
-    background: rgb(107,0,120);
-    background: linear-gradient(135deg, rgba(107,0,120,1) 5%, rgba(44,31,140,1) 22%, rgba(0,0,0,1) 35%, rgba(0,0,0,1) 61%, rgba(107,0,120,1) 76%, rgba(44,31,140,1) 88%);
     border-radius: 20px;
     margin: auto;
     margin-top: 3%;
+    background-color: black;
+    background-image: url(../../static/bgGradient.png);
+    background-position: center center;
+    background-size: 100%;
+    background-repeat: no-repeat;
 }
 
 

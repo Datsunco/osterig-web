@@ -7,6 +7,7 @@ import DeviceItem from '../../Components/DeviceItem/DeviceItem';
 import CartFavHeader from '../../Components/Cart&FavHeader/CartFavHeader';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import './Favorites.css'
+import PopularTovar from '../../Components/PopularTovar/PopularTovar';
 
 const Favorites = () => {
     const { cart, favorites } = useContext(Context)
@@ -31,7 +32,7 @@ const Favorites = () => {
                         )}
                 </div>
             </div>
-
+            <PopularTovar/>
             <BottomMenu />
             {/* {favorites.favorites.map(favorite => 
                 <FavoritesDevice deviceId={favorite.deviceId} typeId={favorite.typeId}/>
