@@ -37,14 +37,18 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
             </h6>
             <h1 className={styles.type_preview_block_text}>{catalogName}</h1>
             <div className={styles.type_preview_subtype_elements}>
-                {JSON.parse(childCatalogs) != null ? JSON.parse(childCatalogs).map(child =>
-                    <div className={styles.type_preview_subtype_element} onClick={() => onClickCatalog(child)}>
-                        <a className={styles.type_preview_subtype_text}>
-                            {child.catalogNameEn}
-                            <b className={styles.type_preview_subtype_num}> ({child.productNum})</b>
-                        </a>
-                    </div>
-                )
+                {JSON.parse(childCatalogs) != null ?
+                    JSON.parse(childCatalogs).map(child =>
+                        child.productNum != 0 ?
+                            <div className={styles.type_preview_subtype_element} onClick={() => onClickCatalog(child)}>
+                                <a className={styles.type_preview_subtype_text}>
+                                    {child.catalogNameEn}
+                                    <b className={styles.type_preview_subtype_num}> ({child.productNum})</b>
+                                </a>
+                            </div>
+                        :
+                            null
+                    )
                     :
                     null
                 }

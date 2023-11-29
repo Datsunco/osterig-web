@@ -2,9 +2,9 @@ import React,{ useContext} from 'react';
 import { Context } from "../..";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from 'react-router-dom';
-import styles from "./SubCatalog.module.css"
+import styles from "./HeaderSubCatalog.module.css"
 
-const SubCatalog = ({ catalogElement, onTag}) => {
+const HeaderSubCatalog = ({ catalogElement, onTag}) => {
   const navigate = useNavigate()
     const { catalog } = useContext(Context)
 
@@ -29,4 +29,4 @@ const SubCatalog = ({ catalogElement, onTag}) => {
     );
 };
 
-export default observer(SubCatalog);
+export default observer(HeaderSubCatalog);

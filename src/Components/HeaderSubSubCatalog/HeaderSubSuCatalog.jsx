@@ -2,9 +2,9 @@ import React, { useContext, useEffect } from 'react';
 import { Context } from "../..";
 import { observer } from "mobx-react-lite";
 import { useNavigate } from 'react-router-dom';
-import styles from "./SubSubCatalog.module.css"
+import styles from "./HeaderSubSubCatalog.module.css"
 
-const SubSubCatalog = ({ catalogElement }) => {
+const HeaderSubSubCatalog = ({ catalogElement }) => {
     const navigate = useNavigate()
     const { catalog, userStore } = useContext(Context)
 
@@ -26,7 +26,7 @@ const SubSubCatalog = ({ catalogElement }) => {
                 {catalogElement.catalogNameEn}
             </b>
             <div className={styles.catalogTypesBlockElements}>
-                {catalogElement.childCatelogs.map(child => (
+                {catalogElement.childCatelogs.slice(0,9).map(child => (
                     child.productNum != 0 ? 
                     <div className={styles.block} onClick={() => onClickCatalog(child)}>
                         <div className={styles.catalogTypesElement}>
@@ -46,4 +46,4 @@ const SubSubCatalog = ({ catalogElement }) => {
     );
 };
 
-export default observer(SubSubCatalog);
+export default observer(HeaderSubSubCatalog);
