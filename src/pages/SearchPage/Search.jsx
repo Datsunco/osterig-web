@@ -7,10 +7,11 @@ import Shop from '../../Components/Shop/Shop';
 import CheckBoxBlock from '../../Components/CheckBoxBlock/CheckBoxBlock';
 import TypePreview from '../../Components/TypePreview/TypePreview';
 import DeviceItem from '../../Components/DeviceItem/DeviceItem';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const Search = () => {
     const { state } = useLocation()
+    const { id } = useParams()
     const { favorites, cart, store, device } = useContext(Context)
 
     const [model, setModel] = useState('')
@@ -20,9 +21,9 @@ const Search = () => {
         if (state?.from === "search") {
             console.log("penis")
         }else{
-            store.setCurrentCatalogId(state.catalogId)
-            store.parse(state.catalogId, store.seletedParams)
-            store.parse_params(state.catalogId, store.seletedParams)
+            store.setCurrentCatalogId(id)
+            store.parse(id, store.seletedParams)
+            store.parse_params(id, store.seletedParams)
         }
     }, [store, state])
 
@@ -33,10 +34,10 @@ const Search = () => {
             <div className='search_page'>
 
                 <TypePreview from={state?.from}
-                    childCatalogs={state.childs ? state.childs : null}
-                    parentCatalogName={state.parentCatalogName}
-                    parentcatalogId={state.parentcatalogId}
-                    catalogName={state.catalogNameEn} />
+                    childCatalogs={state?.childs ? state.childs : null}
+                    parentCatalogName={state?.parentCatalogName}
+                    parentcatalogId={state?.parentcatalogId}
+                    catalogName={state?.catalogNameEn} />
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
                         {/* {

@@ -190,15 +190,19 @@
     display: block;
     align-items: center;
     justify-content: space-around;
-    margin-left: 100px;
+    /* margin-left: 100px; */
     border-radius: 20px;
+    margin-left: auto;
 }
 
 .alltovarcard {
+    width: 1211px;
+
     display: flex;
-    margin-top: 5%;
+    margin: auto;
+    margin-top: 158px;
 }
 
 .slider {
-    margin-left: 8%;
+    /* margin-left: 8%; */
 }
