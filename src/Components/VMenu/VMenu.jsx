@@ -13,7 +13,7 @@ const description = [
   {id:6, title:'Number of Circuit',discription:'1'}
 ]
 
-const VMenu = () => {
+const VMenu = ({params}) => {
     const [visible, setVisible] = React.useState(false);
     return (
       <div class="bgcqa">
@@ -30,13 +30,13 @@ const VMenu = () => {
         </button>
         <div class="xz"></div>
         {visible && <Row className='d-flex flex-column mt-3'>
-        {description.map((info, index) => 
+        {params.map((info, index) => 
           <div class="mttop">
-            <Row key={info.id}
+            <Row key={info.index}
           style={{background:index % 2 === 0 ? '#F1F3F4;' : '#F1F3F4;', padding:0}}
           >
             <div class='td'>
-              <div class="infot">{info.title}:</div><div class='infod'>{info.discription}</div>
+              <div class="infot">{info.paramNameEn}:</div><div class='infod'>{info.paramValueEn}</div>
             </div>
           </Row> 
           </div>

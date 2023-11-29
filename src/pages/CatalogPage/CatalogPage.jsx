@@ -9,6 +9,7 @@ const CatalogPage = () => {
     const {catalog} = useContext(Context)
 
     useEffect(() => {
+        window.scrollTo(0, 0)
         if (localStorage.getItem('token')) {
             catalog.getCatalogs()
         }

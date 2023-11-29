@@ -5,23 +5,25 @@ import VMenu from '../../Components/VMenu/VMenu';
 import PopularTovar from '../../Components/PopularTovar/PopularTovar';
 import { observer } from 'mobx-react-lite';
 import "./DevicePage.css"
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useContext } from 'react';
 import { Context } from '../..';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 
 
 const DevicePage = () => {
+  const {id} = useParams()
   const { state } = useLocation()
-  const { productCode } = state
+  // const { productCode } = state
   const { cart, device } = useContext(Context)
 
   useEffect(() => {
-    device.parseProductDetails(productCode)
-    device.parseSameProducts(productCode)
+    window.scrollTo(0, 0)
+    device.parseProductDetails(id)
+    device.parseSameProducts(id)
   }, [])
 
-  const deviceData = { id: 3, name: 'Iphone 7', price: 25000, rating: 5, img: 'https://ironfriends.ru/wp-content/uploads/2022/10/03_iPhone_13.jpg' }
+  // const deviceData = { id: 3, name: 'Iphone 7', price: 25000, rating: 5, img: 'https://ironfriends.ru/wp-content/uploads/2022/10/03_iPhone_13.jpg' }
   return (
     <Container className='mt-3'>
       <Header />
@@ -49,9 +51,9 @@ const DevicePage = () => {
             <a class="reddownload" href={device.productDetails.pdfUrl}>Скачать</a>
             <h class='pdf'>PDF, 340 КБ</h>
           </div>
-          <div class='lastprice'>{deviceData.price}</div>
-          <div class='newprice'>от {deviceData.price} ₽</div>
-          <VMenu />
+          <div class='lastprice'>{device.productDetails.productPriceList?.[0].productPrice}</div>
+          <div class='newprice'>от {device.productDetails.productPriceList?.[0].productPrice} ₽</div>
+          <VMenu params={device.productDetails.paramVOList}/>
           <br />
 
           <div class='dhg'>

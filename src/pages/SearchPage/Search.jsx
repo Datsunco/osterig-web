@@ -10,7 +10,7 @@ import DeviceItem from '../../Components/DeviceItem/DeviceItem';
 import { useLocation } from 'react-router-dom';
 
 const Search = () => {
-    const { state } = useLocation()
+    const { state } = useLocation() 
     const { favorites, cart, store, device } = useContext(Context)
 
     const [model, setModel] = useState('')

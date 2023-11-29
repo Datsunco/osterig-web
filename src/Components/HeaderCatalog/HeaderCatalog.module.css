@@ -1,7 +1,8 @@
 
 .homeDesktop {
-    margin-top: 140px;
-    width: 1250px;
+    margin-top: 35px;
+    height: 458px;
+    width: 1150px;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -15,15 +16,23 @@
 
 .catalogSubdirectoryBlock {
     display: block;
-    width: 405px;
+    width: 375px;
+    height: 393px;
+}
+
+.catalogSubdirectoryBlock_2{
+    display: block;
+    width: 375px;
+    height: 393px;
+    margin-left: 20px;
 }
 
 .separatorIcon {
     width: 1px;
-    height: 791px;
+    height: 406px;
     display: block;
     margin-left: 15px;
-    background: black;
+    background: #D4D4D4;
 }
 
 .typeHeader{
@@ -54,9 +63,10 @@
 }
 
 .catalog {
-    margin-left: 50px;
+
+    /* margin-left: 50px; */
     display: flex;
     flex-direction: row;
-    width: 936px;
-    height: 790px;
+    width: 1100px;
+    height: 405px;
 } 
