@@ -20,6 +20,12 @@
     border-radius: 29px;
     background: white;
     z-index: 1000;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
     /* margin: auto; */
 
 }
@@ -105,7 +111,7 @@
     flex-direction: column;
 }
 
-.popup_login_input_block_reg_pass{
+.popup_login_input_block_reg_pass {
     gap: 15px;
     display: flex;
     margin-bottom: 75px;

@@ -32,7 +32,7 @@ const Favorites = () => {
                         )}
                 </div>
             </div>
-            <PopularTovar/>
+            {/* <PopularTovar/> */}
             <BottomMenu />
             {/* {favorites.favorites.map(favorite => 
                 <FavoritesDevice deviceId={favorite.deviceId} typeId={favorite.typeId}/>
