@@ -19,13 +19,13 @@ const BottomMenu = () => {
               <div class="headerimages"><img src={dom}></img></div>
             </div>
           </Navbar.Brand>
-          <div class="textY"><h>Москва, ул. Михалковская,<br /> дом 63Б строение 1, офис 3/1</h></div>
+          <div class="textY"><h>Москва, ул. Михалковская,<br/>  дом 63Б строение 1, офис 3/1</h></div>
         </div>
         <div class="connection">
           <Navbar.Brand href="" onclick={() => navigate(MAINPAGE_ROUTE)}>
             <div class="buttons">
               ЗВОНИТЕ
-              <div class="headerimages"><img src={email}></img></div>
+              <div class="headerimages"><img src={phone}></img></div>
             </div>
           </Navbar.Brand>
           <div class="textY"><h>8 993 266-55-96</h></div>
@@ -34,7 +34,7 @@ const BottomMenu = () => {
           <Navbar.Brand href="" onclick={() => navigate(MAINPAGE_ROUTE)}>
             <div class="buttons">
               ПИШИТЕ
-              <div class="headerimages"><img src={phone}></img></div>
+              <div class="headerimages"><img src={email}></img></div>
             </div>
           </Navbar.Brand>
           <div class="textY"><h>info@osterrig.ru</h></div>
@@ -55,32 +55,21 @@ const BottomMenu = () => {
         </a>
         <div class="textP">
           <a class="textPop" href=''>Меню</a>
-          <br /><br />
           <a class="textYes" href=''>Главная</a>
-          <br />
           <a class="textYes" href=''>Каталог</a>
-          <br />
           <a class="textYes" href=''>Заказы</a>
-          <br />
           <a class="textYes" href=''>Избранное</a>
-          <br />
           <a class="textYes" href=''>Корзина</a>
         </div>
         <div class="textP">
           <a class="textPop" href=''>Для клиентов</a>
-          <br />
-          <br />
           <a class="textYes" href=''>Политика конфиденциальности</a>
-          <br />
           <a class="textYes" href=''>Доставка и оплата</a>
         </div>
         <div class="textP">
           <a class="textPop" href=''>Реквизиты</a>
-          <br /><br />
           <a class="textYes" href=''>ИП Бархатова Анна Юрьевна</a>
-          <br />
           <a class="textYes" href=''>ИНН: 032384275700</a>
-          <br />
           <a class="textYes" href=''>ОГРН/ОГРНИП: 318502900056762</a>
         </div>
         <div class="autors">

@@ -77,6 +77,9 @@
     background-color: white;
     width: 100%;
     box-shadow: 0px 1px 6px 0px rgba(82, 82, 82, 0.10);
+    position: fixed;
+    z-index: 100;
+    margin-top: -50px;
 }
 
 .topHeader {
@@ -85,7 +88,6 @@
     flex-wrap: wrap;
     height: auto;
     padding-top: 20px;
-    margin-left: 8%;
     justify-content: center;
 }
 
@@ -94,9 +96,16 @@
     width: auto;
     flex-wrap: wrap;
     height: auto;
-    margin-left: 8%;
+    margin-left: 10%;
     padding-top: 7px;
     padding-bottom: 10px;
+    color: #363636;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.3px;
 }
 
 .bottomHeader * {
@@ -122,7 +131,7 @@
     border-radius: 5px;
     background: #0071E3;
     width: 120px;
-    height: 100%;
+    height: 40px;
     margin-left: 60px;
     cursor: pointer;
 }
@@ -140,7 +149,7 @@
 }
 
 .catalog_image {
-    margin-top: 15px;
+    margin-top: 13px;
     margin-left: 17px;
 }
 
@@ -205,7 +214,7 @@
     background-position: center center;
     height: 20px;
     width: 50px;
-    margin-left: 28px;
+    margin-left: 20px;
 }
 
 .basket {
@@ -214,7 +223,7 @@
     background-position: center center;
     height: 20px;
     width: 50px;
-    margin-left: 13px;
+    margin-left: 12px;
 }
 
 .profile {
@@ -235,14 +244,13 @@
 }
 
 .textMoscow {
-    margin-left: 0;
+    margin-left: 10px !important;
     background-image: url(../../static/location.png);
     background-repeat: no-repeat;
     background-size: cover;
     height: 21.6px;
     width: 60px;
     margin-left: 0;
-
     background-size: 15px;
     background-repeat: no-repeat;
     padding-left: 30px;
@@ -252,7 +260,7 @@
 
 .header_fav_count {
     position: absolute;
-    margin-left: 57px;
+    margin-left: 47px;
     margin-top: -5px;
     width: 16px;
     height: 13px;
@@ -266,4 +274,14 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+}
+
+.text-padding-top {
+    color: #494949;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    letter-spacing: -0.3px;
 }

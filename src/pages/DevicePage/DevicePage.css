@@ -19,12 +19,11 @@
     line-height: normal;
 }
 
-.device_page_favorite_block{
+.device_page_favorite_block {
     margin: auto;
-    padding: 25px 25px 25px 30px;
-    width: 225px;
+    width: 130px;
     display: flex;
-    margin-left: 34px;
+    margin-left: 157px;
 }
 
 .agn {
@@ -90,6 +89,7 @@
     font-weight: 500;
     line-height: normal;
     text-transform: uppercase;
+    margin-left: 10px;
 }
 
 .bka1 {
@@ -112,8 +112,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: 100%;
-    /* 18px */
-    letter-spacing: -0.72px;
+    letter-spacing: normal;
     text-decoration-line: strikethrough;
     text-transform: uppercase;
     text-decoration: line-through;
@@ -127,8 +126,7 @@
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
-    /* 36px */
-    letter-spacing: -1.44px;
+    letter-spacing: normal;
 }
 
 .harakter {
@@ -164,7 +162,7 @@
     width: 20px;
     background-repeat: no-repeat;
     visibility: visible;
-    margin-left: 2%;
+    margin-left: 7%;
 }
 
 .izbr {
@@ -173,8 +171,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
-    line-height: 130%;
-    /* 18.2px */
+    line-height: 130%;  
     text-transform: uppercase;
 }
 

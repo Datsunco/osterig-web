@@ -16,11 +16,11 @@
     height: 382px;
     width: 1253px;
     margin-top: 2%; 
-    background-color: black;
     border-radius: 20px;
     margin: auto;
     margin-top: 3%;
-    background-image: url(../../static/bggradient.png);
+    background-color: black;
+    background-image: url(../../static/bgGradient.png);
     background-position: center center;
     background-size: 100%;
     background-repeat: no-repeat;

@@ -8,15 +8,6 @@ import "./Popular.css"
 const Popular = () => {
     const { device, favorites, cart } = useContext(Context)
 
-    // useEffect(() => {
-    //     if (localStorage.getItem('token')) {
-    //         device.parseHotProducts()
-    //         favorites.getFavorites()
-    //         cart.getDevices()
-    //     }
-
-    // }, [device, favorites, cart])
-
     return (
         <div class="PopularBody">
             <div>
@@ -31,9 +22,9 @@ const Popular = () => {
                 </div>
             </div>
             <div class="rowitems">
-                {device.hotProducts.slice(0, 5).map(device =>
-                    <DeviceItem key={device.id} device={device} />
-                )}
+            {device.hotProducts.slice(0, 5).map(device =>
+                        <DeviceItem key={device.id} device={device} />
+                    )}
             </div>
         </div>
     );

@@ -37,7 +37,7 @@
 
 .popular2 {
     font-family: Gilroy;
-    font-size: 23px;
+    font-size: 24px;
     font-weight: 700;
     line-height: 45px;
     letter-spacing: 0em;
@@ -67,17 +67,6 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 8%;
-}
-
-.list-group-item.active {
-    width: 240px;
-    height: 295px;
-    background-color: #282828;
-    margin-bottom: 0px;
-}
-
-.list-group-item.active {
-    border: 2px solid #0071E3;
 }
 
 .list-group-item {
