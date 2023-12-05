@@ -7,6 +7,7 @@ import { observer } from 'mobx-react-lite';
 import { DEVICE_ROUTE } from "../../utils/consts";
 import PopUpLogin from '../popUpLogin/popUpLogin';
 import HeaderCatalog from '../HeaderCatalog/HeaderCatalog';
+import PopUpNotice from '../popUpNotice/popUpNotice';
 
 const Header = () => {
     const avaRef = useRef(null)
@@ -163,6 +164,14 @@ const Header = () => {
                     <HeaderCatalog />
                 </div> */}
             </div>
+            <PopUpNotice device={
+                {
+                productImageUrl:"https://n-biz86.ru/800/600/https/free-images.com/or/793e/letter_letter_black_bold.jpg",
+                brandNameEn:"asd",
+                catalogNameEn:'dain',
+                productPriceList:'12312',
+            }
+            }/>
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={avaRef} />
         </div>
     );

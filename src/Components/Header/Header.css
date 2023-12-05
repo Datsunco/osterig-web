@@ -72,6 +72,23 @@
     }
 }
 
+@media (max-width: 1300px) {
+    .bottomHeader {
+        margin-left: 14% !important;
+    }
+}
+
+@media (max-width: 1500px) {
+    .bottomHeader {
+        margin-left: 10.5% !important;
+    }
+}
+
+@media (max-width: 1600px) {
+    .bottomHeader {
+        margin-left: 19.5% !important;
+    }
+}
 .Header {
     font-family: Gilroy;
     background-color: white;
@@ -80,7 +97,6 @@
     position: fixed;
     z-index: 100;
     top: 0;
-    /* margin-top: -50px; */
 }
 
 .topHeader {
