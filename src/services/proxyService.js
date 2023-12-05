@@ -66,4 +66,13 @@ export default class ProxyService {
         }
 
     }
+
+    static async onLevel(keyword) {
+        try {
+            return $api.get(`/proxy/onlevel/${keyword}`)
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
 }

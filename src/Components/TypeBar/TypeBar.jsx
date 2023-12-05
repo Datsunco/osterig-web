@@ -3,9 +3,11 @@ import React, { useContext, useState } from "react";
 import { Context } from "../..";
 import { ListGroup, ListGroupItem } from "react-bootstrap";
 import './TypeBar.css';
+import { useNavigate } from "react-router-dom";
 
 
 const TypeBar = () => {
+  const navigate = useNavigate()
   const [ selectedType, setSelectedType ] = useState(2)
   const { device } = useContext(Context)
   return (
@@ -13,7 +15,7 @@ const TypeBar = () => {
       <div class="chelka1">
         <div class="popular2"><h1>ПРОДУКЦИЯ</h1></div>
         <button class="atovar1">
-          <div class="vset">Все товары</div>
+          <div class="vset" onClick={() => navigate("/catalog")}>Все товары</div>
           <div class="vsetStrelka"></div>
         </button>
       </div>
@@ -22,7 +24,7 @@ const TypeBar = () => {
           <ListGroupItem
             style={{ cursor: 'pointer' }}
             active={type.id == device.selectedType}
-            onClick={() => device.setSelectedType(type.id) || console.log(type.id)}
+            // onClick={}
             key={type.id}
           >
             {type.name}

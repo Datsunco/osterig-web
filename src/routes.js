@@ -30,7 +30,7 @@ export const publicRoutes = [
         Component: Favorites,
     },
     {
-        path: SEARCH_ROUTE,
+        path: SEARCH_ROUTE+ '/:id',
         Component: Search,
     },
     {

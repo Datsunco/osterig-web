@@ -7,56 +7,41 @@ import Shop from '../../Components/Shop/Shop';
 import CheckBoxBlock from '../../Components/CheckBoxBlock/CheckBoxBlock';
 import TypePreview from '../../Components/TypePreview/TypePreview';
 import DeviceItem from '../../Components/DeviceItem/DeviceItem';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useParams } from 'react-router-dom';
 
 const Search = () => {
     const { state } = useLocation() 
-    const { favorites, cart, store, device } = useContext(Context)
-
-    const [model, setModel] = useState('')
+    const { store } = useContext(Context)
+    const { id } = useParams()
 
     useEffect(() => {
         console.log(state)
         if (state?.from === "search") {
             console.log("penis")
         }else{
-            store.setCurrentCatalogId(state.catalogId)
-            store.parse(state.catalogId, store.seletedParams)
-            store.parse_params(state.catalogId, store.seletedParams)
+            store.setCurrentCatalogId(id)
+            store.onLevel(id)
+            store.parse(id, store.seletedParams)
+            store.parse_params(id, store.seletedParams)
         }
-    }, [store, state])
+    }, [store, state, id])
 
 
     return (
         <div>
             <Header />
             <div className='search_page'>
-
-                <TypePreview from={state?.from}
-                    childCatalogs={state.childs ? state.childs : null}
-                    parentCatalogName={state.parentCatalogName}
-                    parentcatalogId={state.parentcatalogId}
-                    catalogName={state.catalogNameEn} />
+                    <TypePreview from={store.parentName}
+                    childCatalogs={store.childCatalogs}
+                    parentCatalogName={store.parentName}
+                    parentcatalogId={store.parentId}
+                    catalogName={store.catalogName} />
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
-                        {/* {
-                        Object.keys(store?.params).forEach(function(key, index) {
-                            if (key != "totalCount" && key != "paramNameValueMap" ){
-                                // console.log(store?.params[key], "lol")
-                                // <CheckBoxBlock param = {store?.params[key] ? console.log(store?.params[key], "lol"): null} />
-                                <CheckBoxBlock param = {store?.params[key] } />
-                            }
-                            // (key != "totalCount" || key != "paramNameValueMap" ?
-                            // // 
-                            // console.log(key)
-                            // :
-                            // null)
-                          })
-                    } */}
                         {state?.from != "search" ?
                             <div>
-                                <CheckBoxBlock param={store?.params["Manufacturer"] ? store?.params["Manufacturer"] : null} />
-                                <CheckBoxBlock param={store?.params["Package"] ? store?.params["Package"] : null} />
+                                <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
+                                <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />
                             </div>
                             :
                             null

@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./TypePreview.module.css"
@@ -10,14 +10,7 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
 
     const onClickCatalog = (child) => {
         store.setSelectedParam([])
-        navigate("/search", {
-            state: {
-                catalogId: child.catalogId,
-                childs: JSON.stringify(child.childCatelogs),
-                catalogNameEn: child.catalogNameEn,
-                parentCatalogName: child?.parentName
-            }
-        })
+        navigate(`/search/${child.catalogId}`)
     }
 
     const onClickSelectedParam = (param) => {
@@ -25,6 +18,10 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
         store.parse(store.currentCatalogId, store.seletedParams)
         store.parse_params(store.currentCatalogId, store.seletedParams)
     }
+
+    useEffect(() => {
+        console.log(childCatalogs)
+    })
 
 
     return (
@@ -37,8 +34,8 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
             </h6>
             <h1 className={styles.type_preview_block_text}>{catalogName}</h1>
             <div className={styles.type_preview_subtype_elements}>
-                {JSON.parse(childCatalogs) != null ?
-                    JSON.parse(childCatalogs).map(child =>
+                {childCatalogs != null ?
+                    childCatalogs.map(child =>
                         child.productNum != 0 ?
                             <div className={styles.type_preview_subtype_element} onClick={() => onClickCatalog(child)}>
                                 <a className={styles.type_preview_subtype_text}>

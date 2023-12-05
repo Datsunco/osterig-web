@@ -17,7 +17,7 @@ import hand from "../static/DeviceTypeImages/hand.png"
 export default class DeviceStore {
     constructor() {
         this._types = [
-            { id: 0, name: 'RESISTORS', img: resistor },
+            { id: 0, name: 'RESISTORS', img: resistor, catalogId: 312},
             { id: 2, name: 'CAPACITORS', img: capacitors },
             { id: 3, name: 'INDUCTORS', img: inductors },
             { id: 4, name: 'PROCESSORS', img: processors },

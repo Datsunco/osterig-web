@@ -1005,6 +1005,12 @@ export default class Store {
     }
     seletedParams = []
     currentCatalogId = null
+    childCatalogs = []
+    parentName = null
+    catalogName = ""
+    parentId = null
+
+    
     // newSelectedParams = {
     //     "brandIdList": null, 
     //     "encapValueList": null
@@ -1049,6 +1055,16 @@ export default class Store {
 
     setCurrentCatalogId(catalogId){
         this.currentCatalogId = catalogId
+    }
+
+    setSearchData(data){
+        console.log(data.childCatelogs)
+        this.currentCatalogId = data.catalogId
+        this.parentId = data.parentId
+        this.parentName = data.parentName
+        this.catalogName = data.catalogNameEn
+        this.childCatalogs = data.childCatelogs
+
     }
 
     sliceSelectedParam(param){
@@ -1169,6 +1185,19 @@ export default class Store {
 
         }finally{
             this.setParsed(true)
+        }
+    }
+
+    async onLevel(keyword){
+        try{
+            const response = await ProxyService.onLevel(keyword);
+            this.setSearchData(response.data.result)
+            return response
+            
+        } catch(e){
+            console.log(e);
+            console.log(e.response?.data?.message);
+
         }
     }
 

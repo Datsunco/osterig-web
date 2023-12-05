@@ -14,9 +14,9 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
     const [isLogin, setIsLogin] = useState(false)
 
     useEffect(() => {
-        console.log(opened)
-        console.log(ava)
-        console.log(loginPopUpRef)
+        // console.log(opened)
+        // console.log(ava)
+        // console.log(loginPopUpRef)
         if (opened == false) return;
 
         const handleClick = (e) => {
