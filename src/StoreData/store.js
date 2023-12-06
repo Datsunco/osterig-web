@@ -4,15 +4,12 @@ import ProxyService from "../services/proxyService";
 import axios from 'axios';
 
 
-//import {API_URL} from "../http";
-
 export default class Store {
     user = {}
     isAuth = false;
     isLoading = false;
     isParsed = false;
     devices = [{productId: 1},{productId: 2}]
-    // params = {}
 
     defaultUrl = "https://cdn-icons-png.flaticon.com/512/4021/4021581.png"
     params = {"Manufacturer": [
@@ -1005,10 +1002,6 @@ export default class Store {
     }
     seletedParams = []
     currentCatalogId = null
-    // newSelectedParams = {
-    //     "brandIdList": null, 
-    //     "encapValueList": null
-    // }
 
     constructor() {
         makeAutoObservable(this);
@@ -1081,13 +1074,11 @@ export default class Store {
         else{
             return false
         }
-        // return false
     }
 
     async login(email, password) {
         try {
             const response = await AuthService.login(email, password);
-            //console.log(process.env.SERVER_API_URL)
             console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
@@ -1146,10 +1137,6 @@ export default class Store {
             const response = await ProxyService.parse_params(catalogId, seletedParams);
             console.log(response?.data?.result)
             this.setParams(response?.data?.result)
-            // Object.keys(response?.data?.result).forEach(function(key, index) {
-            //     console.log(key)
-            //     console.log(response?.data?.result[key])
-            //   })
         } catch(e){
             console.log(e);
 

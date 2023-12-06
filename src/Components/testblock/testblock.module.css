@@ -1,0 +1,32 @@
+.main{
+    display: block;
+    width: 200px;
+    /* height: 500px; */
+    background: green;
+}
+
+.firstchild{
+    height: 200px;
+    width: 200px;
+    border: 2px solid aqua;
+}
+
+.secchild{
+    height: 50px;
+    width: 200px;
+    border: 2px solid red;
+}
+
+.thirdchild{
+    height: 50px;
+    width: 200px;
+    border: 2px solid yellow;
+    /* overflow-wrap: normal; */
+    
+}
+
+.text{
+    overflow: hidden;
+    word-break: break-word;
+    flex-wrap: nowrap;
+}

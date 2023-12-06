@@ -15,7 +15,7 @@ const Header = () => {
     const [opened, setOpened] = useState(false)
     const [catalogOpen, setCatalogOpen] = useState(false)
     const navigate = useNavigate()
-    const { favorites, cart, store, catalog } = useContext(Context)
+    const { favorites, search, store, catalog } = useContext(Context)
     const [inputValue, setInputValue] = useState("")
 
     const onClickButton = (path) => {
@@ -32,15 +32,12 @@ const Header = () => {
             navigate("/search",
                 {
                     state: {
-                        // childs: response.data.result.catalogVOS?.[0],
                         from: "search"
                     }
                 }
 
             )
         }
-
-        // console.log()
     }
 
     const onClickOutsideForm = () => {
@@ -60,12 +57,9 @@ const Header = () => {
     }
 
     const onClickAVA = () => {
-        console.log("penis")
         const form = document.getElementById("form")
         form.style.display = "block"
         setOpened(true)
-
-
     }
 
     const onClickCatalog = () => {
@@ -73,9 +67,6 @@ const Header = () => {
 
     }
 
-    const [value, SetValue] = useState('')
-
-    const filtredSearch = //тут остановился zxc
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -107,16 +98,8 @@ const Header = () => {
                             <p className='catalog_text'>Каталог</p>
                         </div>
                     }
-                    {/* <div className='catalog_button' onClick={() => onClickCatalog()}>
-                         <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
-                             <line x1="1" y1="1" x2="15" y2="1" stroke="white" stroke-width="2" stroke-linecap="round" />
-                             <line x1="1" y1="7" x2="9.5" y2="7" stroke="white" stroke-width="2" stroke-linecap="round" />
-                             <line x1="1" y1="13" x2="15" y2="13" stroke="white" stroke-width="2" stroke-linecap="round" />
-                         </svg>
-                         <p className='catalog_text'>Каталог</p>
-                     </div> */}
                     <div class="search">
-                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value) & SetValue(e.target.value)}
+                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value) & search.getPreWord(e.target.value)}
                             class="searchInput" type="text" placeholder="Искать товары" />
                         <button class="searchLupa" onClick={() => onClickSearch()}></button>
                     </div>
@@ -135,7 +118,11 @@ const Header = () => {
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
                         <div class="profile" useRef={avaRef} onClick={onClickAVA}></div>
+                        {inputValue != 0 ?
                         <SearchInfo/>
+                        :null
+                        }
+                        
                     </div>
                 </div>
                 {catalogOpen == false ?

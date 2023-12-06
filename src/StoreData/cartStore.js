@@ -1,6 +1,5 @@
 import { makeAutoObservable } from "mobx";
 import cartService from "../services/cartService";
-import axios from 'axios';
 
 export default class CartStore {
     devices = []

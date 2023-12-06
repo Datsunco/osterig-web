@@ -55,6 +55,7 @@ const Main = () => {
                 <Diodes/>
                 <Connectors/>
             </div>
+
             <BottomMenu />
         </div>
 
