@@ -7,17 +7,26 @@ import { observer } from 'mobx-react-lite';
 import { DEVICE_ROUTE } from "../../utils/consts";
 import PopUpLogin from '../popUpLogin/popUpLogin';
 import HeaderCatalog from '../HeaderCatalog/HeaderCatalog';
+import ProfileBlock from '../ProfileBlock/ProfileBlock';
 
 const Header = () => {
     const avaRef = useRef(null)
     const [opened, setOpened] = useState(false)
-    const [catalogOpen, setCatalogOpen] = useState(false)
     const navigate = useNavigate()
     const { favorites, cart, store, catalog } = useContext(Context)
     const [inputValue, setInputValue] = useState("")
 
-    const onClickButton = (path) => {
 
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            favorites.getFavorites()
+            cart.getDevices()
+        }else{
+            store.checkAuth()
+        }
+    }, [store, favorites, cart])
+
+    const onClickButton = (path) => {
         navigate(`/${path}`)
     }
 
@@ -30,15 +39,12 @@ const Header = () => {
             navigate("/search",
                 {
                     state: {
-                        // childs: response.data.result.catalogVOS?.[0],
                         from: "search"
                     }
                 }
 
             )
         }
-
-        // console.log()
     }
 
     const onClickOutsideForm = () => {
@@ -46,7 +52,7 @@ const Header = () => {
         if (opened == true) {
             console.log("2")
             form.style.display = "none"
-            setOpened(false)
+            // setOpened(false)
         }
         else {
             console.log("1")
@@ -58,17 +64,13 @@ const Header = () => {
     }
 
     const onClickAVA = () => {
-        console.log("penis")
-        const form = document.getElementById("form")
+        const form = document.getElementById("profileblock")
         form.style.display = "block"
         setOpened(true)
-
-
     }
 
     const onClickCatalog = () => {
-        setCatalogOpen(!catalogOpen)
-
+        catalog.setCatalogOpen(!catalog.catalogOpen)
     }
 
     useEffect(() => {
@@ -83,7 +85,7 @@ const Header = () => {
             <div className='Header'>
                 <div class="topHeader">
                     <div class="logo" onClick={() => onClickButton("mainpage")}><LogoSVG /></div>
-                    {catalogOpen == false ?
+                    {catalog.catalogOpen == false ?
                         <div className='catalog_button' onClick={() => onClickCatalog()}>
                             <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
                                 <line x1="1" y1="1" x2="15" y2="1" stroke="white" stroke-width="2" stroke-linecap="round" />
@@ -101,14 +103,6 @@ const Header = () => {
                             <p className='catalog_text'>Каталог</p>
                         </div>
                     }
-                    {/* <div className='catalog_button' onClick={() => onClickCatalog()}>
-                         <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
-                             <line x1="1" y1="1" x2="15" y2="1" stroke="white" stroke-width="2" stroke-linecap="round" />
-                             <line x1="1" y1="7" x2="9.5" y2="7" stroke="white" stroke-width="2" stroke-linecap="round" />
-                             <line x1="1" y1="13" x2="15" y2="13" stroke="white" stroke-width="2" stroke-linecap="round" />
-                         </svg>
-                         <p className='catalog_text'>Каталог</p>
-                     </div> */}
                     <div class="search">
                         <input value={inputValue} onChange={(e) => setInputValue(e.target.value)}
                             class="searchInput" type="text" placeholder="Искать товары" />
@@ -131,7 +125,7 @@ const Header = () => {
                         <div class="profile" useRef={avaRef} onClick={onClickAVA}></div>
                     </div>
                 </div>
-                {catalogOpen == false ?
+                {catalog.catalogOpen == false ?
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
@@ -164,6 +158,7 @@ const Header = () => {
                 </div> */}
             </div>
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={avaRef} />
+            <ProfileBlock onProfileClick={() => onClickAVA()} />
         </div>
     );
 };

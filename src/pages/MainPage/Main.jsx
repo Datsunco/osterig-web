@@ -26,8 +26,8 @@ const Main = () => {
     useEffect(() => {
         if (localStorage.getItem('token')) {
             device.parseHotProducts()
-            favorites.getFavorites()
-            cart.getDevices()
+            // favorites.getFavorites()
+            // cart.getDevices()
         }
     }, [device, favorites, cart])
 

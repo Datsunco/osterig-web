@@ -6,19 +6,12 @@ import styles from "./SubSubCatalog.module.css"
 
 const SubSubCatalog = ({ catalogElement }) => {
     const navigate = useNavigate()
-    const { catalog, userStore } = useContext(Context)
+    const { catalog, userStore, store} = useContext(Context)
 
     const onClickCatalog = (child) => {
-        navigate("/search", {
-            state: {
-                catalogId: child.catalogId,
-                childs: JSON.stringify(child.childCatelogs),
-                catalogNameEn: child.catalogNameEn,
-                parentcatalogId: catalogElement.catalogId,
-                parentCatalogName: child?.parentName
-            }
-        })
-    }
+        navigate(`/search/${child.catalogId}`)
+        catalog.setCatalogOpen(!catalog.catalogOpen)
+      }
 
     return (
         <div id={catalogElement.catalogId} className={styles.catalogTypesBlock}>

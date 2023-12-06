@@ -27,8 +27,8 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
     return (
         <div className={styles.type_preview_block}>
             <h6 className={styles.type_path}>
-                <a href='/mainpage'>Home</a>
-                /<a href='/catalog'>Catalog</a>
+                <a href='/mainpage' className={styles.navigation_link}>Home</a>
+                /<a href='/catalog' className={styles.navigation_link}>Catalog</a>
                 /<a onClick={() => onClickCatalog({ catalogId: parentcatalogId })}>{parentCatalogName}</a>
                 /{catalogName}
             </h6>

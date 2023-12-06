@@ -6,10 +6,11 @@ import styles from "./HeaderSubCatalog.module.css"
 
 const HeaderSubCatalog = ({ catalogElement, onTag}) => {
   const navigate = useNavigate()
-    const { catalog } = useContext(Context)
+    const { catalog, store} = useContext(Context)
 
     const onClickCatalog = (child) => {
       navigate(`/search/${child.catalogId}`)
+      catalog.setCatalogOpen(!catalog.catalogOpen)
     }
 
     return (

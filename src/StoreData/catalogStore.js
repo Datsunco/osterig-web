@@ -275,11 +275,16 @@ export default class CatalogStore {
         ],
         "productNum": 13112
     }]
+    catalogOpen = false
 
     activeCatalog = 601
 
     constructor() {
         makeAutoObservable(this);
+    }
+
+    setCatalogOpen(bool) {
+        this.catalogOpen = bool;
     }
 
 

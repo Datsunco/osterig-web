@@ -9,10 +9,7 @@ const SubCatalog = ({ catalogElement, onTag}) => {
     const { catalog } = useContext(Context)
 
     const onClickCatalog = (child) => {
-      navigate("/search", {state: {
-        catalogId: child.catalogId,
-        childs: JSON.stringify(child.childCatelogs),
-        catalogNameEn: child.catalogNameEn}})
+      navigate(`/search/${child.catalogId}`)
     }
 
     return (

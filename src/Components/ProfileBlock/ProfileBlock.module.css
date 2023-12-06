@@ -1,0 +1,129 @@
+.profile_back {
+    top: 22px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    height: 300px;
+    width: 1200px;
+    
+}
+
+.profile_component {
+    position: fixed;
+    top: 22px;
+    right: 0;
+    left: 920px;
+    z-index: 101;
+    width: 265px;
+    height: 259px;
+    padding-top: 22px;
+    border-radius: 22px;
+    box-shadow: 0px 30px 45px 0px rgba(0, 0, 0, 0.09), 0px -30px 45px 0px rgba(0, 0, 0, 0.09);
+    background: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+    display: none;
+    
+}
+
+.profile_data_block {
+    width: 230px;
+    margin: auto;
+    margin-bottom: 20px;
+    display: flex;
+}
+
+.nickname_text {
+    margin-top: 10px;
+    color: #252525;
+    font-family: Gilroy;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+
+}
+
+.email_text {
+    margin-top: 10px;
+    margin-bottom: 0px;
+    color: #9A9A9A;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile_img_block {
+    margin-left: 20px;
+    width: 43px;
+    height: 43px;
+    flex-shrink: 0;
+    border-radius: 30px;
+    border: 3px solid #0071E3;
+}
+
+.profile_buttons_block {
+    width: 230px;
+    margin: auto;
+
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+
+.orders_button,
+.settings_button,
+.favorites_button {
+    padding: 0;
+    margin-bottom: 10px;
+    border: none;
+    background: white;
+    color: #252525;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.profile_login_block {
+    margin-top: 17px;
+    width: 265px;
+    height: 57px;
+    display: inline-flex;
+    height: 57px;
+    border-radius: 0 0 22px 22px;
+    /* padding: 12px 46px 12px 23px; */
+    align-items: center;
+    flex-shrink: 0;
+    background: #282828;
+}
+
+.login_button_block {
+    display: flex;
+    flex-direction: row;
+    height: 33px;
+    width: 230px;
+    margin: auto;
+}
+
+.login_button {
+    width: 170px;
+    height: 17px;
+    margin-left: 10px;
+    /* margin-bottom: 20px; */
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #282828;
+    border: none;
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}

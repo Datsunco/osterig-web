@@ -2,6 +2,7 @@ import {makeAutoObservable} from "mobx";
 import AuthService from "../services/authService";
 import ProxyService from "../services/proxyService";
 import axios from 'axios';
+import $api from "../http";
 
 
 //import {API_URL} from "../http";
@@ -1009,6 +1010,7 @@ export default class Store {
     parentName = null
     catalogName = ""
     parentId = null
+    catalogOpen = false
 
     
     // newSelectedParams = {
@@ -1067,6 +1069,10 @@ export default class Store {
 
     }
 
+    setCatalogOpen(bool) {
+        this.catalogOpen = bool;
+    }
+
     sliceSelectedParam(param){
         const changed = []
         let flag = false
@@ -1103,8 +1109,6 @@ export default class Store {
     async login(email, password) {
         try {
             const response = await AuthService.login(email, password);
-            //console.log(process.env.SERVER_API_URL)
-            console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
@@ -1204,14 +1208,14 @@ export default class Store {
     async checkAuth() {
         this.setLoading(true);
         try {
-            const response = await axios.get(`http://localhost:5000/api/user/refresh`, {withCredentials: true})
+            // const response = await $api.get(`/user/refresh`);
+            const response = await axios.get(`https://osterig-server.vercel.app/api/user/refresh`, {withCredentials: true})
             console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (e) {
             console.log(e)
-            console.log(e.response?.data?.message);
         } finally {
             this.setLoading(false);
         }
