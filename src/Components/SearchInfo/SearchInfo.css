@@ -1,0 +1,53 @@
+.searchInfo {
+    position: absolute;
+    width: 459px;
+    height: auto;
+    background-color: #fff;
+    margin-left: -512px;
+    margin-top: 45px;
+    border-radius: 8px;
+    box-shadow: 2px 2px 6.2px 0px rgba(0, 0, 0, 0.10);
+}
+
+.CatTextSeatchInfo {
+    width: 420px;
+    border-radius: 3px;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: 3px;
+}
+
+.TextSearchInfo {
+    color: #ADADAD;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    margin-top: 8px;
+}
+
+.ProdTextSeatchInfo {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 22px;
+    letter-spacing: -0.3px;
+    width: 420px;
+    border-radius: 3px;
+    margin-top:3px;
+    cursor: pointer;
+    padding: 5px;
+    margin-left: 3px;
+}
+
+.ProdTextSeatchInfo:hover {
+    background: #F4F4F4;
+}
+
+.CatTextSeatchInfo:hover {
+    background: #F4F4F4;
+}

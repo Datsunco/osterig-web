@@ -8,6 +8,7 @@ import { DEVICE_ROUTE } from "../../utils/consts";
 import PopUpLogin from '../popUpLogin/popUpLogin';
 import HeaderCatalog from '../HeaderCatalog/HeaderCatalog';
 import PopUpNotice from '../popUpNotice/popUpNotice';
+import SearchInfo from '../SearchInfo/SearchInfo';
 
 const Header = () => {
     const avaRef = useRef(null)
@@ -72,6 +73,10 @@ const Header = () => {
 
     }
 
+    const [value, SetValue] = useState('')
+
+    const filtredSearch = //тут остановился zxc
+
     useEffect(() => {
         if (localStorage.getItem('token')) {
             catalog.getCatalogs()
@@ -111,7 +116,7 @@ const Header = () => {
                          <p className='catalog_text'>Каталог</p>
                      </div> */}
                     <div class="search">
-                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value)}
+                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value) & SetValue(e.target.value)}
                             class="searchInput" type="text" placeholder="Искать товары" />
                         <button class="searchLupa" onClick={() => onClickSearch()}></button>
                     </div>
@@ -130,6 +135,7 @@ const Header = () => {
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
                         <div class="profile" useRef={avaRef} onClick={onClickAVA}></div>
+                        <SearchInfo/>
                     </div>
                 </div>
                 {catalogOpen == false ?
@@ -166,12 +172,12 @@ const Header = () => {
             </div>
             <PopUpNotice device={
                 {
-                productImageUrl:"https://n-biz86.ru/800/600/https/free-images.com/or/793e/letter_letter_black_bold.jpg",
-                brandNameEn:"asd",
-                catalogNameEn:'dain',
-                productPriceList:'12312',
-            }
-            }/>
+                    productImageUrl: "https://n-biz86.ru/800/600/https/free-images.com/or/793e/letter_letter_black_bold.jpg",
+                    brandNameEn: "asd",
+                    catalogNameEn: 'dain',
+                    productPriceList: '12312',
+                }
+            } />
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={avaRef} />
         </div>
     );
