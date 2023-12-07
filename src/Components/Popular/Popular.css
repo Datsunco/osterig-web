@@ -21,9 +21,10 @@
     width: 1230px;
 }
 
-/* .rowitems * {
-    margin-left: 1%;
-} */
+.strelka1SVG {
+    margin-left: 9px;
+    margin-top: 2px;
+}   
 
 .alltovars {
     color: #0071E3;
@@ -38,6 +39,10 @@
     border: none;
     border-radius: 6px;
     margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
 }
 
 .tovars {
