@@ -8,6 +8,7 @@ import CheckBoxBlock from '../../Components/CheckBoxBlock/CheckBoxBlock';
 import TypePreview from '../../Components/TypePreview/TypePreview';
 import DeviceItem from '../../Components/DeviceItem/DeviceItem';
 import { useLocation, useParams } from 'react-router-dom';
+import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 
 const Search = () => {
     const { state } = useLocation() 
@@ -55,6 +56,7 @@ const Search = () => {
                     </div>
                 </div>
             </div>
+            <BottomMenu/>
         </div>
     );
 };
