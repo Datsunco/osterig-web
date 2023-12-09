@@ -20,6 +20,7 @@
 }
 
 .atovar1 {
+    cursor: pointer;
     display: flex;
     border: NONE;
     padding: 13px;

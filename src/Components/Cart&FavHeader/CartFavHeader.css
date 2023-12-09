@@ -6,4 +6,9 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
+    cursor: pointer;
+}
+
+.cart_header_mid {
+    color: black;
 }

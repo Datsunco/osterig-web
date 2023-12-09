@@ -62,7 +62,7 @@ const DeviceItem = ({ device }) => {
                 </div>
                 <div class="text13">{device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice}
                 </div>
-                <button onClick={() => toggleFavorite()} class="busket1" href=''>В корзину</button>
+                <button onClick={() => cart.addDevice(device)} class="busket1" href=''>В корзину</button>
             </div>
         </div>
     );

@@ -110,17 +110,17 @@ const Header = () => {
                     {catalog.catalogOpen == false ?
                         <div className='catalog_button' onClick={() => onClickCatalog()}>
                             <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
-                                <line x1="1" y1="1" x2="15" y2="1" stroke="white" stroke-width="2" stroke-linecap="round" />
-                                <line x1="1" y1="7" x2="9.5" y2="7" stroke="white" stroke-width="2" stroke-linecap="round" />
-                                <line x1="1" y1="13" x2="15" y2="13" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                <line x1="1" y1="1" x2="15" y2="1" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                <line x1="1" y1="7" x2="9.5" y2="7" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                <line x1="1" y1="13" x2="15" y2="13" stroke="white" strokeWidth="2" strokeLinecap="round" />
                             </svg>
                             <p className='catalog_text'>Каталог</p>
                         </div>
                         :
                         <div className='catalog_button' onClick={() => onClickCatalog()}>
                             <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="14" height="15" viewBox="0 0 14 15" fill="none">
-                                <path d="M1 1.85715L13 13" stroke="white" stroke-width="2" stroke-linecap="round" />
-                                <path d="M1 13L13 1.85714" stroke="white" stroke-width="2" stroke-linecap="round" />
+                                <path d="M1 1.85715L13 13" stroke="white" strokeWidth="2" strokeLinecap="round" />
+                                <path d="M1 13L13 1.85714" stroke="white" strokeWidth="2" strokeLinecap="round" />
                             </svg>
                             <p className='catalog_text'>Каталог</p>
                         </div>
