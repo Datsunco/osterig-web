@@ -8,33 +8,40 @@ import LogoSVG from '../Header/LogoSVG';
 const PopUpLogin = ({ opened, onClose, ava }) => {
     const { store } = useContext(Context)
     const loginPopUpRef = useRef(null)
+    const loginSecPopUpRef = useRef(null)
+    const regPopUpRef = useRef(null)
+    const regSecPopUpRef = useRef(null)
     const [emailValue, setEmailValue] = useState("")
     const [passValue, setPassValue] = useState("")
     const [confirmPassValue, setConfirmPassValue] = useState("")
     const [isLogin, setIsLogin] = useState(false)
 
     useEffect(() => {
-        // console.log(opened)
-        // console.log(ava)
-        // console.log(loginPopUpRef)
-        if (opened == false) return;
+        if (opened == false) {
+            document.body.style.overflowY =  'scroll'
+            return;
+        } else document.body.style.overflowY =  'hidden'
+        
 
         const handleClick = (e) => {
-            console.log(1)
-            if (!loginPopUpRef.current && !ava.current.contains(e.target)) return;
-            //&& !ava.current.contains(e.target)
-            if (!loginPopUpRef.current.contains(e.target)) {
+            if (opened == false) return
+            console.log(loginPopUpRef)
+            console.log(ava)
+            if (!loginPopUpRef.current && !ava.current && !loginSecPopUpRef.current && !regPopUpRef.current && !regSecPopUpRef.current) return;
+            
+            if (!loginPopUpRef.current?.contains(e.target) && !ava.current?.contains(e.target) && !loginSecPopUpRef.current?.contains(e.target) && !regPopUpRef.current?.contains(e.target) && !regSecPopUpRef.current?.contains(e.target)) {
                 console.log("close")
-                // onClose()
+                onClose()
             }
         }
 
+        document.body.style.overflowY =  'hidden'
         document.addEventListener("click", handleClick)
 
         return () => {
             document.removeEventListener("click", handleClick)
         }
-    }, [opened, onClose, ava])
+    }, [opened, onClose,loginPopUpRef, ava])
 
     const handleLoginClick = () => {
         let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
@@ -65,6 +72,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
         form.style.display = "none"
         const form2 = document.getElementById("screen3")
         form2.style.display = "flex"
+        // loginPopUpRef = document.getElementById("screen3")
 
     }
     const handleLogClick = () => {
@@ -72,6 +80,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
         form.style.display = "none"
         const form2 = document.getElementById("screen1")
         form2.style.display = "flex"
+        // loginPopUpRef = document.getElementById("screen1")
 
     }
 
@@ -95,7 +104,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
 
     return (
         <div className={styles.popup_background} id="form">
-            <div ref={loginPopUpRef} className={styles.popup_login_main_block} id="screen1">
+            <div ref={loginPopUpRef}  useRef={loginPopUpRef} className={styles.popup_login_main_block} id="screen1">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_log}>
                         <div className={styles.popup_login_top_block_logo}>
@@ -118,7 +127,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                     </div>
                 </div>
             </div>
-            <div ref={loginPopUpRef} className={styles.popup_login_sec_block} id="screen2">
+            <div ref={loginSecPopUpRef}  useRef={loginSecPopUpRef} className={styles.popup_login_sec_block} id="screen2">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_log}>
                         <div className={styles.popup_login_top_block_logo}>
@@ -141,7 +150,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                     </div>
                 </div>
             </div>
-            <div ref={loginPopUpRef} className={styles.popup_login_sec_block} id="screen3">
+            <div ref={regPopUpRef}  useRef={regPopUpRef}  className={styles.popup_login_sec_block} id="screen3">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_reg}>
                         <div className={styles.popup_login_top_block_logo}>
@@ -164,7 +173,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                     </div>
                 </div>
             </div>
-            <div ref={loginPopUpRef} className={styles.popup_login_four_block} id="screen4">
+            <div ref={regSecPopUpRef}  useRef={regSecPopUpRef} className={styles.popup_login_four_block} id="screen4">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_reg_pass}>
                         <div className={styles.popup_login_top_block_logo}>

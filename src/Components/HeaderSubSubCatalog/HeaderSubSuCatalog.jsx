@@ -10,6 +10,7 @@ const HeaderSubSubCatalog = ({ catalogElement }) => {
 
     const onClickCatalog = (child) => {
         navigate(`/search/${child.catalogId}`)
+        catalog.setCatalogOpen(!catalog.catalogOpen)
     }
 
     return (

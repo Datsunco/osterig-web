@@ -12,11 +12,11 @@ import { useLocation, useParams } from 'react-router-dom';
 const Search = () => {
     const { state } = useLocation() 
     const { store } = useContext(Context)
-    const { id } = useParams()
+    const { id, type } = useParams()
 
     useEffect(() => {
-        console.log(state)
-        if (state?.from === "search") {
+        if (type === "search") {
+            store.search(id)
             console.log("penis")
         }else{
             store.setCurrentCatalogId(id)
@@ -31,14 +31,14 @@ const Search = () => {
         <div>
             <Header />
             <div className='search_page'>
-                    <TypePreview from={store.parentName}
+                    <TypePreview from={type}
                     childCatalogs={store.childCatalogs}
                     parentCatalogName={store.parentName}
                     parentcatalogId={store.parentId}
                     catalogName={store.catalogName} />
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
-                        {state?.from != "search" ?
+                        {type != "search" ?
                             <div>
                                 <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
                                 <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />

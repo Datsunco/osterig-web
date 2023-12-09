@@ -11,7 +11,10 @@ import ProfileBlock from '../ProfileBlock/ProfileBlock';
 
 const Header = () => {
     const avaRef = useRef(null)
+    const exceptRef = useRef(null)
+    const profileRef = useRef(null)
     const [opened, setOpened] = useState(false)
+    const [profileOpened, setprofileOpened] = useState(false)
     const navigate = useNavigate()
     const { favorites, cart, store, catalog } = useContext(Context)
     const [inputValue, setInputValue] = useState("")
@@ -19,12 +22,30 @@ const Header = () => {
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
+            store.setAuth(true)
             favorites.getFavorites()
             cart.getDevices()
         }else{
             store.checkAuth()
         }
     }, [store, favorites, cart])
+
+    useEffect(() => {
+        if (profileOpened == false) return;
+
+        const handleClick = (e) => {
+            if (!profileRef.current) return;
+            if (!profileRef.current.contains(e.target)  && !avaRef.current.contains(e.target)) {
+                setprofileOpened(false)
+            }
+        }
+
+        document.addEventListener("click", handleClick)
+
+        return () => {
+            document.removeEventListener("click", handleClick)
+        }
+    }, [profileOpened, opened])
 
     const onClickButton = (path) => {
         navigate(`/${path}`)
@@ -36,26 +57,19 @@ const Header = () => {
         if (response?.data?.result?.isToDetail === true) {
             navigate(DEVICE_ROUTE + '/' + inputValue, { state: { productCode: inputValue } })
         } else {
-            navigate("/search",
-                {
-                    state: {
-                        from: "search"
-                    }
-                }
-
-            )
+            navigate(`/search/${inputValue}/search`)
         }
     }
 
     const onClickOutsideForm = () => {
         const form = document.getElementById("form")
         if (opened == true) {
-            console.log("2")
+            // console.log("2")
             form.style.display = "none"
-            // setOpened(false)
+            setOpened(false)
         }
         else {
-            console.log("1")
+            // console.log("1")
             form.style.display = "block"
             setOpened(true)
         }
@@ -64,9 +78,17 @@ const Header = () => {
     }
 
     const onClickAVA = () => {
-        const form = document.getElementById("profileblock")
+        // const form = document.getElementById("profileblock")
+        // form.style.display = "block"
+        setprofileOpened(true)
+    }
+
+    const onClickAuthorization = () => {
+        
+        const form = document.getElementById("form")
         form.style.display = "block"
         setOpened(true)
+        
     }
 
     const onClickCatalog = () => {
@@ -82,7 +104,7 @@ const Header = () => {
 
     return (
         <div>
-            <div className='Header'>
+            <div className='Header' onScroll={onClickCatalog}>
                 <div class="topHeader">
                     <div class="logo" onClick={() => onClickButton("mainpage")}><LogoSVG /></div>
                     {catalog.catalogOpen == false ?
@@ -122,7 +144,7 @@ const Header = () => {
                             <div class="basket"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
-                        <div class="profile" useRef={avaRef} onClick={onClickAVA}></div>
+                        <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
                     </div>
                 </div>
                 {catalog.catalogOpen == false ?
@@ -142,23 +164,18 @@ const Header = () => {
                         <HeaderCatalog />
                     </div>
                 }
-                {/* <div class="bottomHeader">
-                    <div class="ml-custom">
-                        <div class="textMoscow">Москва</div>
-                        <div class="populars">Популярное 🔥</div>
-                        <div class="resistors">Резисторы</div>
-                        <div class="condensators">Конденсаторы</div>
-                        <div class="inductors">Индукторы</div>
-                        <div class="processors">Процессоры</div>
-                        <div class="preobrazovateli">Преобразователи</div>
-                    </div>
-                </div> */}
-                {/* <div class="caalogHeader">
-                    <HeaderCatalog />
-                </div> */}
             </div>
-            <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={avaRef} />
-            <ProfileBlock onProfileClick={() => onClickAVA()} />
+            <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} />
+            <div useRef={profileRef} ref={profileRef}>
+            { profileOpened ?
+                <div  ref={exceptRef} useRef={exceptRef}>
+                <ProfileBlock onProfileClick={onClickAuthorization}/>
+                </div>
+                :
+                null
+            }
+            
+            </div>
         </div>
     );
 };

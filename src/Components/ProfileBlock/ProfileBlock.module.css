@@ -24,8 +24,7 @@
     background: #FFF;
     margin-left: auto;
     margin-right: auto;
-    display: none;
-    
+    /* display: block; */
 }
 
 .profile_data_block {
@@ -36,7 +35,10 @@
 }
 
 .nickname_text {
+    display: block;
+    overflow: hidden;
     margin-top: 10px;
+    width: 150px;
     color: #252525;
     font-family: Gilroy;
     font-size: 18px;

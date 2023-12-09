@@ -1139,9 +1139,9 @@ export default class Store {
 
     async logout() {
         try {
-            const response = await AuthService.logout();
             localStorage.removeItem('token');
             this.setAuth(false);
+            const response = await AuthService.logout();
             this.setUser({});
         } catch (e) {
             console.log(e.response?.data?.message);
