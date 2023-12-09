@@ -18,7 +18,7 @@ const Header = () => {
     const [opened, setOpened] = useState(false)
     const [profileOpened, setprofileOpened] = useState(false)
     const navigate = useNavigate()
-    const { favorites, search, store, catalog } = useContext(Context)
+    const { favorites, search, store, catalog, cart} = useContext(Context)
     const [inputValue, setInputValue] = useState("")
 
 
