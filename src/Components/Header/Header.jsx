@@ -18,7 +18,7 @@ const Header = () => {
     const [opened, setOpened] = useState(false)
     const [profileOpened, setprofileOpened] = useState(false)
     const navigate = useNavigate()
-    const { favorites, search, store, catalog, cart} = useContext(Context)
+    const { favorites, search, store, catalog, cart } = useContext(Context)
     const [inputValue, setInputValue] = useState("")
 
 
@@ -27,17 +27,18 @@ const Header = () => {
             store.setAuth(true)
             favorites.getFavorites()
             cart.getDevices()
-        }else{
+        } else {
             store.checkAuth()
         }
     }, [store, favorites, cart])
 
     useEffect(() => {
+        console.log(avaRef)
         if (profileOpened == false) return;
 
         const handleClick = (e) => {
             if (!profileRef.current) return;
-            if (!profileRef.current.contains(e.target)  && !avaRef.current.contains(e.target)) {
+            if (!profileRef.current.contains(e.target) && !avaRef.current?.contains(e.target)) {
                 setprofileOpened(false)
             }
         }
@@ -47,7 +48,7 @@ const Header = () => {
         return () => {
             document.removeEventListener("click", handleClick)
         }
-    }, [profileOpened, opened])
+    }, [profileOpened, opened, avaRef, profileRef])
 
     const onClickButton = (path) => {
         navigate(`/${path}`)
@@ -66,12 +67,10 @@ const Header = () => {
     const onClickOutsideForm = () => {
         const form = document.getElementById("form")
         if (opened == true) {
-            // console.log("2")
             form.style.display = "none"
             setOpened(false)
         }
         else {
-            // console.log("1")
             form.style.display = "block"
             setOpened(true)
         }
@@ -80,11 +79,12 @@ const Header = () => {
     }
 
     const onClickAVA = () => {
+        console.log(1)
         setprofileOpened(true)
     }
 
     const onClickAuthorization = () => {
-        
+
         const form = document.getElementById("form")
         form.style.display = "block"
         setOpened(true)
@@ -144,10 +144,10 @@ const Header = () => {
                             <div class="basket"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
-                        <div class="profile" useRef={avaRef} onClick={onClickAVA}></div>
+                        <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
                         {inputValue != 0 ?
-                        <SearchInfo/>
-                        :null
+                            <SearchInfo />
+                            : null
                         }
                     </div>
                 </div>
@@ -171,14 +171,14 @@ const Header = () => {
             </div>
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} />
             <div useRef={profileRef} ref={profileRef}>
-            { profileOpened ?
-                <div  ref={exceptRef} useRef={exceptRef}>
-                <ProfileBlock onProfileClick={onClickAuthorization}/>
-                </div>
-                :
-                null
-            }
-            
+                {profileOpened == true ?
+                    <div ref={exceptRef} useRef={exceptRef}>
+                        <ProfileBlock onProfileClick={onClickAuthorization} />
+                    </div>
+                    :
+                    null
+                }
+
             </div>
             <PopUpNotice device={
                 {
@@ -188,7 +188,6 @@ const Header = () => {
                     productPriceList: '12312',
                 }
             } />
-            <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={avaRef} />
         </div>
     );
 };

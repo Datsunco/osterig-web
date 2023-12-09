@@ -89,6 +89,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
         if (store.isAuth == true) {
             const form2 = document.getElementById("form")
             form2.style.display = "none"
+            document.body.style.overflowY =  'scroll'
         }
     }
 
@@ -98,6 +99,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
             if (store.isAuth == true) {
                 const form2 = document.getElementById("form")
                 form2.style.display = "none"
+                document.body.style.overflowY =  'scroll'
             }
         }
     }

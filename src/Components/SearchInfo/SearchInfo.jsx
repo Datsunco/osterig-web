@@ -32,9 +32,6 @@ const SearchInfo = () => {
                     :
                     null
                 }
-                {/* <div class="ProdTextSeatchInfo">Aluminum Case/Porcelain Tube Resistance</div>
-                <div class="ProdTextSeatchInfo">Aluminum Case/Porcelain Tube Resistance</div>
-                <div class="ProdTextSeatchInfo">Aluminum Case/Porcelain Tube Resistance</div> */}
             </div>
         </div>
     );

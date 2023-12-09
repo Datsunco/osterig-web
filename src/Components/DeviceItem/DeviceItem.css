@@ -18,7 +18,7 @@
 .heart_icon_device {
     visibility: hidden;
     position: absolute;
-    margin-top: -300px;
+    margin-top: 20px;
     margin-left: 190px;
 }
 
