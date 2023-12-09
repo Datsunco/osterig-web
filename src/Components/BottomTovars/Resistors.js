@@ -3,9 +3,9 @@ import React, { useContext, useEffect } from "react";
 import { Context } from "../..";
 import { Row } from "react-bootstrap";
 import DeviceItem from "../DeviceItem/DeviceItem";
-import "./Popular.css"
+import "./All.css"
 
-const Popular = () => {
+const Resisors = () => {
     const { device, favorites, cart } = useContext(Context)
 
     return (
@@ -22,14 +22,14 @@ const Popular = () => {
                 </div>
             </div>
             <div class="rowitems">
-            {device.hotProducts.slice(0, 5).map(device =>
-                        <DeviceItem key={device.id} device={device} />
-                    )}
+                {device.hotProducts.map(device =>
+                    <DeviceItem key={device.id} device={device} />
+                )}
             </div>
         </div>
     );
 };
 
-export default observer(Popular);
+export default observer(Resisors);
 
     

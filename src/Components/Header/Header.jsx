@@ -8,6 +8,8 @@ import { DEVICE_ROUTE } from "../../utils/consts";
 import PopUpLogin from '../popUpLogin/popUpLogin';
 import HeaderCatalog from '../HeaderCatalog/HeaderCatalog';
 import ProfileBlock from '../ProfileBlock/ProfileBlock';
+import PopUpNotice from '../popUpNotice/popUpNotice';
+import SearchInfo from '../SearchInfo/SearchInfo';
 
 const Header = () => {
     const avaRef = useRef(null)
@@ -16,7 +18,7 @@ const Header = () => {
     const [opened, setOpened] = useState(false)
     const [profileOpened, setprofileOpened] = useState(false)
     const navigate = useNavigate()
-    const { favorites, cart, store, catalog } = useContext(Context)
+    const { favorites, search, store, catalog } = useContext(Context)
     const [inputValue, setInputValue] = useState("")
 
 
@@ -78,8 +80,6 @@ const Header = () => {
     }
 
     const onClickAVA = () => {
-        // const form = document.getElementById("profileblock")
-        // form.style.display = "block"
         setprofileOpened(true)
     }
 
@@ -88,12 +88,12 @@ const Header = () => {
         const form = document.getElementById("form")
         form.style.display = "block"
         setOpened(true)
-        
     }
 
     const onClickCatalog = () => {
         catalog.setCatalogOpen(!catalog.catalogOpen)
     }
+
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -126,7 +126,7 @@ const Header = () => {
                         </div>
                     }
                     <div class="search">
-                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value)}
+                        <input value={inputValue} onChange={(e) => setInputValue(e.target.value) & search.getPreWord(e.target.value)}
                             class="searchInput" type="text" placeholder="Искать товары" />
                         <button class="searchLupa" onClick={() => onClickSearch()}></button>
                     </div>
@@ -144,7 +144,11 @@ const Header = () => {
                             <div class="basket"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
-                        <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
+                        <div class="profile" useRef={avaRef} onClick={onClickAVA}></div>
+                        {inputValue != 0 ?
+                        <SearchInfo/>
+                        :null
+                        }
                     </div>
                 </div>
                 {catalog.catalogOpen == false ?
@@ -176,6 +180,15 @@ const Header = () => {
             }
             
             </div>
+            <PopUpNotice device={
+                {
+                    productImageUrl: "https://n-biz86.ru/800/600/https/free-images.com/or/793e/letter_letter_black_bold.jpg",
+                    brandNameEn: "asd",
+                    catalogNameEn: 'dain',
+                    productPriceList: '12312',
+                }
+            } />
+            <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={avaRef} />
         </div>
     );
 };

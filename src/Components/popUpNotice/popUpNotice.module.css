@@ -167,10 +167,16 @@
     flex-direction: column;
     align-items: flex-start;
     padding: 20px;
-    position: relative;
+    position: fixed;
     gap: 25px;
+    margin-top: -28px;
+    right: 113px;
+    z-index: 100;
     text-align: left;
     font-size: var(--font-size-xs);
     color: var(--color-gray-100);
-    font-family: Gilroy
+    background-color: red;
+    font-family: Gilroy;
+
+    visibility: hidden;
 }

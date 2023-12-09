@@ -8,8 +8,6 @@ import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import TypeBar from '../../Components/TypeBar/TypeBar';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
-
-import './Main.css'
 import Resistors from '../../Components/BottomProducts/Resistors';
 import Capacitors from '../../Components/BottomProducts/Capacitors';
 import Inductors from '../../Components/BottomProducts/Inductors';
@@ -17,6 +15,8 @@ import Processors from '../../Components/BottomProducts/Processors';
 import Сonverters from '../../Components/BottomProducts/Сonverters';
 import Diodes from '../../Components/BottomProducts/Diodes';
 import Connectors from '../../Components/BottomProducts/Connectors';
+
+import './Main.css'
 
 
 const Main = () => {
@@ -55,6 +55,7 @@ const Main = () => {
                 <Diodes/>
                 <Connectors/>
             </div>
+
             <BottomMenu />
         </div>
 

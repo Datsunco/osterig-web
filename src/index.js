@@ -7,6 +7,7 @@ import FavoritesStore from './StoreData/favoritesStore';
 import CartStore from './StoreData/cartStore';
 import DeviceStore from './StoreData/deviceStore';
 import CatalogStore from './StoreData/catalogStore';
+import SearchStore from './StoreData/searchStore';
 
 const store = new Store()
 
@@ -21,7 +22,8 @@ root.render(
       favorites: new FavoritesStore(),
       cart: new CartStore(),
       device: new DeviceStore(),
-      catalog: new CatalogStore()
+      catalog: new CatalogStore(),
+      search: new SearchStore()
     }}>
     <App />
     </Context.Provider>

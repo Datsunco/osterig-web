@@ -4,22 +4,22 @@
     width: 229px;
     height: 344px;
     border-radius: 10px;
-    padding:0;
+    padding: 0;
     background-color: #F5F5F7;
-    display: flex;
     align-items: center;
     justify-content: center;
     margin-left: 0px;
 }
 
-.md3:hover .heart_icon_device{
+.md3:hover .heart_icon_device {
     visibility: visible;
 }
 
-
-.heart_icon_device{
+.heart_icon_device {
     visibility: hidden;
-    margin-left: 180px;
+    position: absolute;
+    margin-top: -300px;
+    margin-left: 190px;
 }
 
 
@@ -28,10 +28,25 @@
     border-radius: 15px;
     height: 150px;
     width: 150px;
+    display: block;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin-top: 20px;
 }
 
 .card.border-light {
     background-color: #F5F5F7;
+    padding-top: 25px;
+}
+
+.card2 {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
 }
 
 .mt-3.col-md-3 {
@@ -50,6 +65,9 @@
     text-align: center;
     margin-top: 4px;
     color: #8B8B8B;
+    word-wrap: break-word;
+    width: 207px;
+    word-break: break-word;
 }
 
 .text12 {
@@ -59,10 +77,14 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
+    margin-top: 3px;
     letter-spacing: -0.30000001192092896px;
     text-align: center;
     color: black;
-    margin-top: 4px;
+    text-align: center;
+    white-space: normal !important; 
+    width: 215px;
+    word-break: break-word;
 }
 
 .text13 {
@@ -73,12 +95,12 @@
     line-height: 22px;
     letter-spacing: 0px;
     text-align: center;
-    margin-top: 4px;
+    height: 25px;
 }
 
 .busket1 {
     text-align: center;
-    margin-top: 20px;
+    margin: auto;
     border: none;
     background-color: #0071E3;
     width: 149px;
@@ -93,11 +115,19 @@
     visibility: hidden;
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
+    position: absolute;
+    margin-top: 10px;
+    margin-left: 40px
 }
 
 .md3:hover .busket1 {
     visibility: visible;
-    opacity: 1;  
+    position: static;
+    opacity: 1;
+}
+
+.md3:hover .amg {
+    margin-top: 15px;
 }
 
 .favorits1 {
@@ -112,7 +142,7 @@
     transition: visibility 0s, opacity 0.5s linear;
 }
 
-.favorits2{
+.favorits2 {
     background-image: url(../../static/basket.png);
     height: 18px;
     width: 20px;
@@ -137,7 +167,7 @@
 
 .atovar {
     margin: 0 0 0 auto;
-    border:NONE;
+    border: NONE;
     padding: 13px;
     border-radius: 10px;
     color: #0071E3;
@@ -150,8 +180,8 @@
 }
 
 .tovars {
-    background: rgb(45,135,247);
-    background: linear-gradient(135deg, rgba(45,135,247,1) 5%, rgba(0,114,255,1) 45%, rgba(53,53,53,1) 100%);
+    background: rgb(45, 135, 247);
+    background: linear-gradient(135deg, rgba(45, 135, 247, 1) 5%, rgba(0, 114, 255, 1) 45%, rgba(53, 53, 53, 1) 100%);
     -webkit-text-fill-color: transparent;
 }
 
@@ -161,7 +191,7 @@
     font-weight: 700;
     line-height: 45px;
     letter-spacing: 0em;
-    text-align: left;   
+    text-align: left;
 }
 
 .popular {

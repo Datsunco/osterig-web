@@ -16,23 +16,22 @@ const DeviceItem = ({ device }) => {
         console.log('chech')
         setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
     };
-
     useEffect(() => {
-            favorites.favorites.forEach(fav => {
-                if (device.productCode == fav.productCode)
-                    setIsFavorite(true)
-            });
-            cart.devices.forEach(dev => {
-                if (device.productModel == dev.productCode)
-                    setIsCart(!isCart)
-            });
-            // if (isFavorite === true){
-            //     const heart = document.getElementById(device.productModel)
-            //     if (heart != null){
-            //         heart.style.visibility = 'visible'
-            //     }
-                
-            // }
+        favorites.favorites.forEach(fav => {
+            if (device.productCode == fav.productCode)
+                setIsFavorite(true)
+        });
+        cart.devices.forEach(dev => {
+            if (device.productModel == dev.productCode)
+                setIsCart(!isCart)
+        });
+        // if (isFavorite === true){
+        //     const heart = document.getElementById(device.productModel)
+        //     if (heart != null){
+        //         heart.style.visibility = 'visible'
+        //     }
+
+        // }
 
     }, [favorites, cart, device, isFavorite, setIsCart, setIsFavorite])
 
@@ -40,38 +39,39 @@ const DeviceItem = ({ device }) => {
         <div className={"mt-3"}>
             <div class="md3">
                 {isFavorite == true ?
-                    <img className="heart_icon_device" 
-                    id={device.productModel}
-                     onClick={() => favorites.removeFavorite(device) && toggleFavorite()}
-                      alt=""
-                       src="/activeheart.svg" />
+                    <img className="heart_icon_device"
+                        id={device.productModel}
+                        onClick={() => favorites.removeFavorite(device) && toggleFavorite()}
+                        alt=""
+                        src="/activeheart.svg" />
                     :
                     <img className="heart_icon_device"
-                    id={device.productModel} 
-                    onClick={() => favorites.addFavorite(device) && toggleFavorite()} 
-                    alt="" 
-                    src="/heart.svg" />
+                        id={device.productModel}
+                        onClick={() => favorites.addFavorite(device) && toggleFavorite()}
+                        alt=""
+                        src="/heart.svg" />
                 }
                 <Card
-                    style={{ width: 150, cursor: 'pointer' }}
+                    style={{ width: 150, cursor: 'pointer', margin:'auto'}}
                     border={"light"}
                     class="card"
                     onClick={() => navigate(DEVICE_ROUTE + '/' + device.productCode, { state: { productCode: device.productCode } })}>
                     <div className="amg">
-                        <Image  className="amg" width={150} height={149} 
-                        src={device.productImageUrlBig || device.productImageUrlBig || device.productImageUrl || store.defaultUrl} />
+                        <Image className="amg" width={150} height={149}
+                            src={device.productImageUrlBig || device.productImageUrlBig || device.productImageUrl || store.defaultUrl} />
                         {/* ? device.productImageUrlBig : device.productImageUrlBig */}
                     </div>
-                    <div className="mt-1 d-flex" justify-content-between align-items-center class="card2">
 
-                        <div class="text11">{device.brandNameEn}</div>
-                        <div class="text12">{device.productModel}</div>
-                    </div>
-                    <div class="text13">{ device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice }
-                    </div>
                     {/* != null ? device?.currencyPrice : device?.productPriceList[0].currencyPrice */}
                 </Card>
-                <button onClick={() => cart.addDevice(device)} class="busket1" href=''>В корзину</button>
+                <div className="mt-1 d-flex" justify-content-between align-items-center class="card2">
+
+                    <div class="text11">{device.brandNameEn}</div>
+                    <div class="text12">{device.productModel}</div>
+                </div>
+                <div class="text13">{device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice}
+                </div>
+                <button onClick={() => toggleFavorite()} class="busket1" href=''>В корзину</button>
             </div>
         </div>
     );
