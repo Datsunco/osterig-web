@@ -26,14 +26,15 @@ const Header = () => {
         if (localStorage.getItem('token')) {
             store.setAuth(true)
             favorites.getFavorites()
-            cart.getDevices()
+            const resp = cart.getDevices()
+            if (resp.status === 401) store.checkAuth()
         } else {
             store.checkAuth()
         }
     }, [store, favorites, cart])
 
     useEffect(() => {
-        if (profileOpened == false) return;
+        if (profileOpened === false) return;
 
         const handleClick = (e) => {
             if (!profileRef.current) return;
@@ -64,7 +65,7 @@ const Header = () => {
 
     const onClickOutsideForm = () => {
         const form = document.getElementById("form")
-        if (opened == true) {
+        if (opened === true) {
             form.style.display = "none"
             setOpened(false)
         }
@@ -104,7 +105,7 @@ const Header = () => {
             <div className='Header' onScroll={onClickCatalog}>
                 <div class="topHeader">
                     <div class="logo" onClick={() => onClickButton("mainpage")}><LogoSVG /></div>
-                    {catalog.catalogOpen == false ?
+                    {catalog.catalogOpen === false ?
                         <div className='catalog_button' onClick={() => onClickCatalog()}>
                             <svg className='catalog_image' xmlns="http://www.w3.org/2000/svg" width="16" height="14" viewBox="0 0 16 14" fill="none">
                                 <line x1="1" y1="1" x2="15" y2="1" stroke="white" stroke-width="2" stroke-linecap="round" />
@@ -142,13 +143,13 @@ const Header = () => {
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
                         <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
-                        {inputValue != 0 ?
+                        {inputValue !== 0 ?
                             <SearchInfo />
                             : null
                         }
                     </div>
                 </div>
-                {catalog.catalogOpen == false ?
+                {catalog.catalogOpen === false ?
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
@@ -168,7 +169,7 @@ const Header = () => {
             </div>
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} />
             <div useRef={profileRef} ref={profileRef}>
-                {profileOpened == true ?
+                {profileOpened === true ?
                     <div ref={exceptRef} useRef={exceptRef}>
                         <ProfileBlock onProfileClick={onClickAuthorization} />
                     </div>
@@ -177,14 +178,7 @@ const Header = () => {
                 }
 
             </div>
-            <PopUpNotice device={
-                {
-                    productImageUrl: "https://n-biz86.ru/800/600/https/free-images.com/or/793e/letter_letter_black_bold.jpg",
-                    brandNameEn: "asd",
-                    catalogNameEn: 'dain',
-                    productPriceList: '12312',
-                }
-            } />
+            <PopUpNotice/>
         </div>
     );
 };
