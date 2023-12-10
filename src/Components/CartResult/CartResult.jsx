@@ -8,7 +8,6 @@ const CartResult = () => {
 
     useEffect(() => {
         console.log(cart.getCartSumPrice())
-
     }, [cart])
 
     return (

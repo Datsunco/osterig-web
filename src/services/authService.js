@@ -14,8 +14,7 @@ export default class AuthService{
     
     static async addFavorite(deviceId, typeId){
         try{
-            console.log(deviceId, typeId)
-        return $api.post('/favorites/add', {deviceId, typeId})
+            return $api.post('/favorites/add', {deviceId, typeId})
         }catch(e){
             console.log(e)
         }

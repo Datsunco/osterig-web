@@ -19,10 +19,6 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
         store.parse_params(store.currentCatalogId, store.seletedParams)
     }
 
-    useEffect(() => {
-        console.log(childCatalogs)
-    })
-
 
     return (
         <div className={styles.type_preview_block}>

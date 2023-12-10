@@ -25,12 +25,9 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
 
         const handleClick = (e) => {
             if (opened == false) return
-            console.log(loginPopUpRef)
-            console.log(ava)
             if (!loginPopUpRef.current && !ava.current && !loginSecPopUpRef.current && !regPopUpRef.current && !regSecPopUpRef.current) return;
             
             if (!loginPopUpRef.current?.contains(e.target) && !ava.current?.contains(e.target) && !loginSecPopUpRef.current?.contains(e.target) && !regPopUpRef.current?.contains(e.target) && !regSecPopUpRef.current?.contains(e.target)) {
-                console.log("close")
                 onClose()
             }
         }

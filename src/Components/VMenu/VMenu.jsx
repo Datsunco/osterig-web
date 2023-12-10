@@ -17,7 +17,6 @@ const VMenu = ({params}) => {
     const [visible, setVisible] = React.useState(false);
     return (
       <div class="bgcqa">
-         {/* <style>{}</style> */}
         <button class="qweqas" onClick={() => setVisible(!visible)}>
           <div class="dflexand">
             <h class='harakter'>Характеристики</h>
@@ -30,7 +29,7 @@ const VMenu = ({params}) => {
         </button>
         <div class="xz"></div>
         {visible && <Row className='d-flex flex-column mt-3'>
-        {params.map((info, index) => 
+        {params?.map((info, index) => 
           <div class="mttop">
             <Row key={info.index}
           style={{background:index % 2 === 0 ? '#F1F3F4;' : '#F1F3F4;', padding:0}}

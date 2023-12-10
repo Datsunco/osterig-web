@@ -10,12 +10,10 @@ const Device = ({ productModel, catalogName, productPriceList, productImageUrl, 
     const [isCart, setIsCart] = useState(false);
 
     const toggleFavorite = () => {
-        console.log('chech')
         setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
     };
 
     const toggleCart = () => {
-        console.log('chech')
         setIsCart(!isCart); // Инвертируем текущее состояние избранного
     };
 

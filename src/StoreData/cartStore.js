@@ -18,11 +18,9 @@ export default class CartStore {
         let changedPrice = 0
         this.devices.forEach(element => {
             const price = element?.price || element?.productPriceList[0].currencyPrice
-            // const minCount = element?.minCount || element?.productPriceList[0].ladder
             const minCount = element?.count
             changedPrice += price * minCount
         });
-        console.log(changedPrice)
         return changedPrice
     }
 
