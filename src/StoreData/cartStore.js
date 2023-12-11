@@ -100,8 +100,9 @@ export default class CartStore {
 
     async removeDevice(device) {
         try {
-            await cartService.removeDevice(device, 0)
             this.sliceDevice(device)
+            await cartService.removeDevice(device, 0)
+            
 
         } catch (e) {
             console.log(e);

@@ -17,7 +17,7 @@ const PopUpNotice = ({ device }) => {
       const timer = setTimeout(() => {
         setShowMessage(false);
         cart.setPreviewAddedDevice(null)
-      }, 500000);
+      }, 5000);
 
       return () => {
         clearTimeout(timer); // Очищаем таймер при размонтировании компонента
