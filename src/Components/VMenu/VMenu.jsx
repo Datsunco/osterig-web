@@ -22,7 +22,7 @@ const VMenu = ({params}) => {
           <div class="dflexand">
             <h class='harakter'>Характеристики</h>
            <div class='svgd'>
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L20 12M12 4.00002L12 20" stroke="#1A1A1A" stroke-width="2" stroke-linecap="square" stroke-linejoin="round"/></svg>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12L20 12M12 4.00002L12 20" stroke="#1A1A1A" strokeWidth="2" strokeLinecap="square" stroke-linejoin="round"/></svg>
            </div>
            <br/>
            <hr align="center" width="500" size="2" color="#BFC2C7" class='lineout'/>
@@ -47,6 +47,6 @@ const VMenu = ({params}) => {
   };
   
   const root = document.querySelector('#root');
-  ReactDOM.render(<VMenu />, root );
+  
 
   export default observer(VMenu);

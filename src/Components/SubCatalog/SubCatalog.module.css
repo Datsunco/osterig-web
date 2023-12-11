@@ -10,6 +10,7 @@
     justify-content: space-between;
     padding: var(--padding-xs) var(--padding-mid);
     box-sizing: border-box;
+    cursor: pointer;
 }
 
 .catalog_element:hover{
