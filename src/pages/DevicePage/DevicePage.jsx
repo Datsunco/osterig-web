@@ -21,6 +21,8 @@ const DevicePage = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
     device.parseProductDetails(id)
+    setIsCart(false)
+    setIsFavorite(false)
     device.parseSameProducts(id)
   }, [id])
 
@@ -35,18 +37,20 @@ const DevicePage = () => {
 
       favorites.favorites.forEach(dev => {
         if (id == dev.productCode) {
-          console.log('yes')
           setIsFavorite(true)
         }
       });
     }
 
-    // if (!favorites.isLoaded) {
-    //   return
-    // }
     checkIsAded();
 
   }, [favorites.favorites, cart.devices])
+
+  const addToCart = () => {
+    cart.addDevice(device.productDetails) 
+    setIsCart(true) 
+    cart.setPreviewAddedDevice(device.productDetails)
+  }
 
   // const toggleFavorite = () => {
   //   setIsFavorite(!isFavorite)
@@ -93,9 +97,9 @@ const DevicePage = () => {
             {device.productDetails.productPriceList?.[0].discountRate != 1 ?
               <>
                 <div class='lastprice'>
-                  {device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice}
+                  { device.productDetails.productPriceList?.[0].productPrice} ₽
                 </div>
-                <div class='newprice'>от {device.productDetails.productPriceList?.[0].productPrice} ₽</div>
+                <div class='newprice'>от { device.productDetails.productPriceList?.[0].discountRate *device.productDetails.productPriceList?.[0].productPrice} ₽</div>
               </>
               :
               <div class='newprice'>от {device.productDetails.productPriceList?.[0].productPrice} ₽</div>
@@ -106,7 +110,7 @@ const DevicePage = () => {
 
             <div class='dhg'>
               {!isCart ?
-                <button onClick={() => cart.addDevice(device.productDetails) && setIsCart(true)}
+                <button onClick={() => addToCart()}
                   class="vkorzinu" >
                   Добавить в корзину
                 </button>
@@ -124,16 +128,14 @@ const DevicePage = () => {
 
               <div className='device_page_favorite_block'>
                 {!isFavorite ?
-                  <div className='devcie_page_fav_button' onClick={() => favorites.addFavorite(device.productDetails)}>
+                  <div className='devcie_page_fav_button' onClick={() => favorites.addFavorite(device.productDetails) && setIsFavorite(true)}>
                     <a class='izbr' >В ИЗБРАННОЕ</a>
                     <div class="favorits12">
                     </div>
                   </div>
                   :
-                  <div className='devcie_page_fav_button' onClick={() => favorites.addFavorite(device.productDetails)}>
+                  <div className='devcie_page_fav_button'>
                     <a class='izbr' >В ИЗБРАННОM</a>
-                    {/* <div class="fav_act_heart">
-                </div> */}
                     <img className="fav_act_heart"
                       src="/activeheart.svg" />
                   </div>

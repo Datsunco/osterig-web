@@ -4,11 +4,15 @@ import cartService from "../services/cartService";
 export default class CartStore {
     devices = []
     cartPrice = 0
+    previewAddedDevice = null
 
     constructor() {
         makeAutoObservable(this);
     }
 
+    setPreviewAddedDevice(device) {
+        this.previewAddedDevice = device
+    }
 
     setDevices(devices) {
         this.devices = devices
@@ -96,8 +100,9 @@ export default class CartStore {
 
     async removeDevice(device) {
         try {
-            await cartService.removeDevice(device, 0)
             this.sliceDevice(device)
+            await cartService.removeDevice(device, 0)
+            
 
         } catch (e) {
             console.log(e);
@@ -130,6 +135,7 @@ export default class CartStore {
         try {
             const devices = await cartService.getDevices()
             this.setDevices(devices.data)
+            return devices
         } catch (e) {
             console.log(e);
         }
