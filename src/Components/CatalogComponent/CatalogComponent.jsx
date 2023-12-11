@@ -16,7 +16,6 @@ const CatalogComponent = () => {
   }, [catalog])
 
   const onClickCatalog = (catalogId) => {
-    console.log(1)
     navigate("/search", {state: {catalogId}})
   }
 

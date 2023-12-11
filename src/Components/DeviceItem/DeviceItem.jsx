@@ -13,7 +13,6 @@ const DeviceItem = ({ device }) => {
     const navigate = useNavigate();
 
     const toggleFavorite = () => {
-        console.log('chech')
         setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
     };
     useEffect(() => {

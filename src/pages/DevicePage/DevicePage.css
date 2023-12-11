@@ -122,7 +122,6 @@
     text-decoration-line: strikethrough;
     text-transform: uppercase;
     text-decoration: line-through;
-    margin-top: 14%;
 }
 
 .newprice {
@@ -163,6 +162,22 @@
     cursor: pointer;
 }
 
+.vkorzine {
+    width: 225px;
+    border-radius: 7px;
+    /* background-color: #0071E3; */
+    color: blue;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    /* 18.2px */
+    text-transform: uppercase;
+    padding: 22px;
+    border: none;
+}
+
 .favorits12 {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAASCAYAAABb0P4QAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAADvSURBVHgBpZQNEYMwDIUfUzAJlYAEJOAAJMwBSMABOJiEbQqYg90UMAdbA8kIHT+l++4e/SF9vTYBYCS2qq06qze3NDYqJvGI6ck4YEkFay0mEzOjJiu1G7XlzMLSiWnUOzrld6LGPLlacFqIqbSH3IfBMiVrCcMeXcQdIsJ/9D4Hq6faJZSY2xcZ3nmQIxwxvNEjwVhTR+zHWD3YI5XJC9YzvUbDa1t3F8l2AX+k2DvM5CDF9MvwNZsc1SX3NNVmOTbQpmdME0X9eo+ZQGUgmaPWsFqMd5ZgJ8YxdTcIwmA4thzxirBa/aHE8EfZ5ANcWmap5MR82gAAAABJRU5ErkJggg==);
     height: 18px;
@@ -178,7 +193,7 @@
     font-size: 14px;
     font-style: normal;
     font-weight: 700;
-    line-height: 130%;  
+    line-height: 130%;
     text-transform: uppercase;
 }
 
@@ -190,8 +205,8 @@
 .assh {
     width: 540px;
     height: auto;
-    font-size:32; 
-    border: 12px; 
+    font-size: 32;
+    border: 12px;
     background-color: #F1F3F4;
     padding: 20px;
     display: block;
@@ -210,6 +225,38 @@
     margin-top: 158px;
 }
 
-.slider {
-    /* margin-left: 8%; */
+.download_button {
+    margin-bottom: 70px;
 }
+
+.devcie_page_fav_button {
+    display: flex;
+    width: 200px;
+}
+
+.fav_act_heart {
+    margin-left: 20px;
+}
+
+.loading {
+    width: 540px;
+    height: 545px;
+    display: block;
+    border-radius: 20px;
+    margin-left: auto;
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff); /* Градиентный переход */
+    background-size: 200% 200%; /* Размер фона */
+    animation: gradientShift 2s infinite; /* Анимация */
+  }
+  
+  @keyframes gradientShift {
+    0% {
+      background-position: 0% 50%; /* Начальное положение градиента */
+    }
+    50% {
+      background-position: 100% 50%; /* Положение градиента на середине анимации */
+    }
+    100% {
+      background-position: 0% 50%; /* Конечное положение градиента */
+    }
+  }

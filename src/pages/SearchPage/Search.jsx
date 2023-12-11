@@ -18,7 +18,6 @@ const Search = () => {
     useEffect(() => {
         if (type === "search") {
             store.search(id)
-            console.log("penis")
         }else{
             store.setCurrentCatalogId(id)
             store.onLevel(id)

@@ -1051,7 +1051,6 @@ export default class Store {
     }
 
     setSearchData(data){
-        console.log(data.childCatelogs)
         this.currentCatalogId = data.catalogId
         this.parentId = data.parentId
         this.parentName = data.parentName
@@ -1110,7 +1109,6 @@ export default class Store {
     async registration(email, password) {
         try {
             const response = await AuthService.registration(email, password);
-            console.log(response)
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
@@ -1196,7 +1194,6 @@ export default class Store {
         try {
             // const response = await $api.get(`/user/refresh`);
             const response = await axios.get(`https://osterig-server.vercel.app/api/user/refresh`, {withCredentials: true})
-            console.log(response);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);

@@ -12,7 +12,6 @@ const CartDevice = ({device}) => {
     const [isFavorite, setIsFavorite] = useState(false);
 
     const toggleFavorite = () => {
-        console.log('chech')
         setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
     };
 

@@ -33,7 +33,6 @@ const Header = () => {
     }, [store, favorites, cart])
 
     useEffect(() => {
-        console.log(avaRef)
         if (profileOpened == false) return;
 
         const handleClick = (e) => {
@@ -56,7 +55,6 @@ const Header = () => {
 
     const onClickSearch = async () => {
         const response = await store.search(inputValue)
-        console.log(response?.data?.result?.productSearchResultVO?.productList)
         if (response?.data?.result?.isToDetail === true) {
             navigate(DEVICE_ROUTE + '/' + inputValue, { state: { productCode: inputValue } })
         } else {
@@ -79,7 +77,6 @@ const Header = () => {
     }
 
     const onClickAVA = () => {
-        console.log(1)
         setprofileOpened(true)
     }
 

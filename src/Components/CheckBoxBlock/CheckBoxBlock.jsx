@@ -15,10 +15,6 @@ const CheckBoxBlock = ({ param }) => {
         //store.appendSelectedParam(param)
     }
 
-    // useEffect(() => {
-    //     console.log(1)
-    //     // console.log(param)
-    // }, [param])
 
     return (
         <div className={styles.check_box_block}>

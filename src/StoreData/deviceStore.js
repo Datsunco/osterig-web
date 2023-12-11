@@ -17,29 +17,19 @@ import hand from "../static/DeviceTypeImages/hand.png"
 export default class DeviceStore {
     constructor() {
         this._types = [
-            { id: 0, name: 'RESISTORS', img: resistor, catalogId: 312},
+            { id: 0, name: 'RESISTORS', img: resistor, catalogId: 312 },
             { id: 2, name: 'CAPACITORS', img: capacitors },
             { id: 3, name: 'INDUCTORS', img: inductors },
             { id: 4, name: 'PROCESSORS', img: processors },
             { id: 5, name: 'CONVERTERS', img: converters },
             { id: 6, name: 'DIODES', img: diodes },
             { id: 7, name: 'CONNECTORS', img: connectors },
-            { id: 8, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel},
-        ]
-        this._brands = [
-            { id: 1, name: 'Chipanalog' },
-            { id: 2, name: 'Apple' },
-        ]
-        this._devices = [
-            { id: 1, name: 'CA-IS3082WX', price: '127,2₽', rating: 5, img: image1 },
-            { id: 2, name: 'CA-IS3082WX', price: '127,2₽', rating: 5, img: image1 },
-            { id: 3, name: 'CA-IS3082WX', price: '127,2₽', rating: 5, img: image1 },
-            { id: 4, name: 'CA-IS3082WX', price: '127,2₽', rating: 5, img: image1 },
-            { id: 5, name: 'CA-IS3082WX', price: '127,2₽', rating: 5, img: image1 },
+            { id: 8, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel },
         ]
         this._selectedType = {}
         makeAutoObservable(this)
     }
+    isDetailsLoaded = false
     productDetails = {
         "productId": 3520,
         "productCode": "C3131",
@@ -182,7 +172,7 @@ export default class DeviceStore {
         "isAddNotice": null,
         "subscribeQuantity": null
     }
-    sameProducts = [ {
+    sameProducts = [{
         "size": null,
         "productCode": "C1008",
         "catalogNameEn": "Ferrite Beads",
@@ -273,26 +263,12 @@ export default class DeviceStore {
         "currencyPrice": 0.0111
     }]
     hotProducts = []
-    images = [
-        {
-            itemImageSrc: "https://assets.lcsc.com/images/lcsc/900x900/20221228_Xucheng-Elec-C3131_C3131_front.jpg",
-            thumbnailImageSrc: "https://assets.lcsc.com/images/lcsc/900x900/20221228_Xucheng-Elec-C3131_C3131_front.jpg",
-            alt: 'Description for Image 1',
-            title: 'Title 1'
-        },
-        {
-            itemImageSrc: "https://assets.lcsc.com/images/lcsc/900x900/20221228_Xucheng-Elec-C3131_C3131_back.jpg",
-            thumbnailImageSrc: "https://assets.lcsc.com/images/lcsc/900x900/20221228_Xucheng-Elec-C3131_C3131_back.jpg",
-            alt: 'Description for Image 1',
-            title: 'Title 1'
-        },
-        {
-            itemImageSrc: "https://assets.lcsc.com/images/lcsc/900x900/20221228_Xucheng-Elec-C3131_C3131_blank.jpg",
-            thumbnailImageSrc:    "https://assets.lcsc.com/images/lcsc/900x900/20221228_Xucheng-Elec-C3131_C3131_blank.jpg",
-            alt: 'Description for Image 1',
-            title: 'Title 1'
-        },
-    ]
+    images = []
+    
+
+    setDetailsIsLoaded(bool){
+        this.isDetailsLoaded = bool
+    }
 
     setTypes(types) {
         this._types = types
@@ -324,7 +300,7 @@ export default class DeviceStore {
 
     setImages(images) {
         const newImages = []
-        images.forEach(image => {
+        images.slice(0,3).forEach(image => {
             newImages.push({
                 itemImageSrc: image,
                 thumbnailImageSrc: image,
@@ -332,6 +308,15 @@ export default class DeviceStore {
                 title: 'Title 1'
             })
         });
+        if (newImages.length == 0){
+            newImages.push(
+                {
+                    itemImageSrc: "https://cdn-icons-png.flaticon.com/512/4021/4021581.png",
+                    thumbnailImageSrc: "https://cdn-icons-png.flaticon.com/512/4021/4021581.png",
+                    alt: 'Description for Image 1',
+                    title: 'Title 1'
+                })
+            }
         this.images = newImages
     }
 
@@ -365,17 +350,20 @@ export default class DeviceStore {
             const response = await proxyService.parseHotProducts();
             this.setHotProducts(response.data.result.hotProduct)
         } catch (e) {
-
+            console.log(e)
         }
     }
 
     async parseProductDetails(productCode) {
+        this.setDetailsIsLoaded(false)
         try {
             const response = await proxyService.parseProductDetails(productCode);
             this.setProductDetails(response.data.result)
             this.setImages(response.data.result.productImages)
         } catch (e) {
-
+            console.log(e)
+        } finally{
+            this.setDetailsIsLoaded(true)
         }
     }
 
@@ -384,7 +372,7 @@ export default class DeviceStore {
             const response = await proxyService.parseSameProducts(productCode);
             this.setSameProducts(response.data.result.recommends)
         } catch (e) {
-
+            console.log(e)
         }
     }
 }
