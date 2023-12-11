@@ -10,4 +10,13 @@ export default class SearchService {
         }
 
     }
+
+    static async getPreLink(type, keyword) {
+        try {
+            return $api.get(`/proxy/pre/link/${type}/${keyword}`)
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
 }

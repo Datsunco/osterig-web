@@ -28,7 +28,7 @@ const Slider = () => {
     }, [])
 
     const itemTemplate = (item) => {
-        return <img src={item.itemImageSrc} alt={item.alt} style={{ width: '100%', borderRadius: '17px'}} />
+        return <img src={item?.itemImageSrc} alt={item.alt} style={{ width: '100%', borderRadius: '17px'}} />
     }
 
     const thumbnailTemplate = (item) => {

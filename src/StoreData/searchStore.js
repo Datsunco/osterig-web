@@ -21,4 +21,20 @@ export default class SearchStore {
             console.log(e);
         }
     }
+
+    async getPreLink(type, keyword) {
+        try {
+            const response = await searchService.getPreLink(type, keyword)
+            if (response.data.result){
+                const start = response.data.result.lastIndexOf('C');
+                const end = response.data.result.lastIndexOf('.');
+                console.log(response.data.result.slice(start, end))
+                console.log(response.data.result)
+                return response.data.result.slice(start, end)
+            }
+            return null
+        } catch (e) {
+            console.log(e);
+        }
+    }
 }

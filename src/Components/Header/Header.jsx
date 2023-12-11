@@ -81,6 +81,10 @@ const Header = () => {
         setprofileOpened(true)
     }
 
+    const onClickSuggestion = () => {
+        setInputValue('')
+    }
+
     const onClickAuthorization = () => {
 
         const form = document.getElementById("form")
@@ -143,8 +147,8 @@ const Header = () => {
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
                         <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
-                        {inputValue !== 0 ?
-                            <SearchInfo />
+                        {inputValue.length != 0 ?
+                            <SearchInfo onClose={onClickSuggestion}/>
                             : null
                         }
                     </div>
