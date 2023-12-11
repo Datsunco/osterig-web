@@ -8,6 +8,7 @@
     text-align: left;
     margin-top: 15%;
     color: white;
+    cursor: default;
 }
 
 .info1 {
@@ -82,6 +83,7 @@
     background-color: #F8F8F8;
     padding: 20px;
     text-align: left;
+    cursor: default;
     border-radius: 20px;
     font-family: Gilroy;
     font-size: 20px;
@@ -112,6 +114,7 @@
 
 .op1 {
     width: 262px;
+    cursor: default;
     height: 206px;
     background-color: #F8F8F8;
     padding: 20px;

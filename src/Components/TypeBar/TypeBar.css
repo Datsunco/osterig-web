@@ -45,6 +45,7 @@
     line-height: 45px;
     letter-spacing: 0em;
     text-align: left;
+    cursor: default;
 }
 
 .list-group {

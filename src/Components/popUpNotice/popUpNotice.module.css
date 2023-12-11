@@ -36,6 +36,7 @@
     line-height: 130%;
     text-transform: uppercase;
     font-weight: 500;
+    cursor: default;
 }
 
 
@@ -49,6 +50,7 @@
     line-height: 130%;
     /* 13px */
     text-transform: uppercase;
+    cursor: default;
 }
 
 .chipanalog {
@@ -130,6 +132,7 @@
     box-sizing: border-box;
     gap: var(--gap-5xs);
     z-index: 1;
+    cursor: pointer;
 }
 
 .vectorStrokeIcon {
@@ -138,7 +141,13 @@
     height: 8px;
 }
 
-.close,
+.close {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
 .frameParent {
     display: flex;
     justify-content: center;
@@ -176,7 +185,7 @@
     font-size: var(--font-size-xs);
     color: var(--color-gray-100);
     background-color: red;
-    font-family: Gilroy;
+    font-family: Gilroy;    
 
     visibility: visible;
 }
