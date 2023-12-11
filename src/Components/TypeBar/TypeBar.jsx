@@ -21,17 +21,17 @@ const TypeBar = () => {
       </div>
       <div class="pop">
         {device.types.map(type =>
+          <a href={type.idHref}>
           <ListGroupItem
             style={{ cursor: 'pointer' }}
             active={type.id == device.selectedType}
-            // onClick={}
             key={type.id}
           >
             {type.name}
             <div className='components12'>
               <img className="type_bar_img" src={type.img} />
             </div>
-          </ListGroupItem>
+          </ListGroupItem></a>
         )}
       </div>
     </ListGroup>

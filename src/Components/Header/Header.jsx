@@ -155,12 +155,12 @@ const Header = () => {
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
-                            <div class="populars">Популярное 🔥</div>
-                            <div class="resistors">Резисторы</div>
-                            <div class="condensators">Конденсаторы</div>
-                            <div class="inductors">Индукторы</div>
-                            <div class="processors">Процессоры</div>
-                            <div class="preobrazovateli">Преобразователи</div>
+                            <a class="populars" href="#popularId">Популярное 🔥</a>
+                            <a class="resistors" href="#res">Резисторы</a>
+                            <a class="condensators" href="#cap">Конденсаторы</a>
+                            <a class="inductors" href="#ind">Индукторы</a>
+                            <a class="processors" href="#pro">Процессоры</a>
+                            <a class="preobrazovateli" href="#con">Преобразователи</a>
                         </div>
                     </div>
                     :
