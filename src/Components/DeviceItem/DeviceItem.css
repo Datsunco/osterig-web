@@ -63,7 +63,7 @@
     line-height: 22px;
     letter-spacing: -0.30000001192092896px;
     text-align: center;
-    margin-top: 4px;
+    margin-top: 3px;
     color: #8B8B8B;
     word-wrap: break-word;
     width: 207px;
@@ -77,12 +77,11 @@
     font-size: 16px;
     font-weight: 500;
     line-height: 22px;
-    margin-top: 3px;
     letter-spacing: -0.30000001192092896px;
     text-align: center;
     color: black;
     text-align: center;
-    white-space: normal !important; 
+    white-space: normal !important;
     width: 215px;
     word-break: break-word;
 }
@@ -116,18 +115,84 @@
     opacity: 0;
     transition: visibility 0s, opacity 0.5s linear;
     position: absolute;
-    margin-top: 10px;
-    margin-left: 40px
+    margin-top: 40px;
+    margin-top: 300px;
+    margin-left: 40px;
 }
+
+.busketUzhe { /* Уже в корзине */
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 40px;
+    width: 149px;
+    height: 32px;
+    background-color: #F5F5F7;
+    border: none;
+
+    color: var(--System-Blue, #0071E3);
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.md3:hover .busketUzhe { /* Уже в корзине hover */
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 0.2s linear;
+}
+
+
+.busketNetu {  /* Нет в наличии */
+    position: absolute;
+    margin-top: 300px;
+    margin-left: 40px;
+    width: 149px;
+    height: 32px;
+    background-color: #F5F5F7;
+    border: none;
+
+    color: var(--System-Blue, #0071E3);
+    text-align: center;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 22px;
+    letter-spacing: -0.5px;
+    display: flex;
+    justify-content: center;
+    visibility: hidden;
+}
+
+.md3:hover .busketNetu { /* Нет в наличии hover */
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 1s, opacity 0.2s linear;
+}
+
+.svgGalka {
+    height: 20px;
+    width: 20px;
+    margin-top: 2px;
+}
+
 
 .md3:hover .busket1 {
     visibility: visible;
-    position: static;
     opacity: 1;
+    transition: visibility 1s, opacity 0.2s linear;
 }
 
 .md3:hover .amg {
     margin-top: 15px;
+    transition: margin-top 0.2s;
 }
 
 .favorits1 {
