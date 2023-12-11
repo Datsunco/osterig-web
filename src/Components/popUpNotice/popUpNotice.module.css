@@ -12,13 +12,6 @@
     flex-shrink: 0;
 }
 
-.frameItem {
-    /* position: relative; */
-    /* height: 122.7px;
-    object-fit: cover;
-    margin-top: -122px; */
-}
-
 .frameContainer {
     height: 122px;
     display: flex;
