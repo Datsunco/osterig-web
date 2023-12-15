@@ -26,7 +26,6 @@ const CartDevice = ({device}) => {
 
 
     return (
-
         <div className="frame-parent">
             <div className="frame-group">
                 <div className="frame-child" />

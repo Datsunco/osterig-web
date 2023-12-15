@@ -29,7 +29,7 @@ const Cart = () => {
                 <div className='cart_elements'>
                     <div className='cart_items'>
                         <CartFavHeader state={'cart'} />
-                        {cart.devices.map(device =>
+                        {cart.devices.slice(0).reverse().map(device =>
                             <CartDevice device={device} />
                         )}
                     </div>
