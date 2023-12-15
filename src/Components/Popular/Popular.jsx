@@ -11,7 +11,7 @@ const Popular = () => {
     return (
         <div class="PopularBody">
             <div>
-                <div class="chelka">
+                <div class="chelka" id="popularId">
                     <div class="popular1"><h1>ПОПУЛЯРНЫЕ <h class="tovars">ТОВАРЫ</h></h1></div>
                     <button class="alltovars">
                         Все товары 

@@ -332,3 +332,7 @@
 input:focus + div#searchInfo {
     visibility: visible;
 }
+
+.populars,.resistors,.condensators,.inductors,.processors,.preobrazovateli {
+    color: #363636;
+}
