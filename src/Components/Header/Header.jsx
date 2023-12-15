@@ -107,6 +107,7 @@ const Header = () => {
     return (
         <div>
             <div className='Header' onScroll={onClickCatalog}>
+            <div class="asdqwe">
                 <div class="topHeader">
                     <div class="logo" onClick={() => onClickButton("mainpage")}><LogoSVG /></div>
                     {catalog.catalogOpen === false ?
@@ -170,7 +171,7 @@ const Header = () => {
                         <HeaderCatalog />
                     </div>
                 }
-            </div>
+            </div></div>
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} />
             <div useRef={profileRef} ref={profileRef}>
                 {profileOpened === true ?
