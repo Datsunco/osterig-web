@@ -134,6 +134,7 @@ const Header = () => {
                         <button class="searchLupa" onClick={() => onClickSearch()}></button>
                     </div>
                     <div class="rightOptions">
+                        <div class="margerZ">
                         <div class="cursorP">
                             <div class="orders"></div>
                             <div class='text-padding-top'>Заказы</div>
@@ -146,6 +147,7 @@ const Header = () => {
                         <div class="cursorP" onClick={() => onClickButton("cart")}>
                             <div class="basket"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
+                        </div>
                         </div>
                         <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
                         {inputValue.length != 0 ?

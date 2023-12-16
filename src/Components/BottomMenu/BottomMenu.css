@@ -85,7 +85,7 @@ nav.bg-body.navbar.navbar-expand-lg.navbar-light {
     height: 188px;
     background-color: #282828;
     align-items: flex-start;
-    margin-top: -80px;
+    margin-top: -185px;
 }
 
 .textP {
@@ -170,6 +170,11 @@ a {
     text-align: right;
     margin-left: 225px;
     margin-top: -12px;
+}
+
+.noWrapL {
+    width: 2000px;
+    background-color: #282828;
 }
 
 .code {

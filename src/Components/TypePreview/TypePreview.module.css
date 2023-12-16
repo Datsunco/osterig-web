@@ -74,9 +74,19 @@
     background: var(--System-Blue, #0071E3);
 }
 
-.selected_param_img{
+.selected_param_img {
     margin-left: 10px;
+    height: 9px;
+    width: 9px;
+    margin-top: 13.5px;
 }
+
+.selected_param_img:hover {
+    filter: brightness(0);
+    transition: all 0.3s;
+}
+
+
 
 .navigation_link{
     color: #717171;

@@ -1,7 +1,7 @@
 .rowitems{
     display: flex;
     flex-direction: row;
-    width: 1220px;
+    width: 1206px;
     margin: auto;
 }
 
@@ -20,4 +20,18 @@
     border-radius: 6px;
     margin-left: auto;
     cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.atovar12:hover {
+    background-color: #0071E3;
+    color:aliceblue;
+    transition: all 0.5s;
+}
+
+.atovar12:hover .filter-green{
+    filter: brightness(0) invert(24);
+    transition: all 0.3s;
 }

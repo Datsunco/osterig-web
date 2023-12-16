@@ -45,3 +45,8 @@
  .check_box_button_img {
      margin-left: 8px;
  }
+
+ .check_box_button_img1 {
+    margin-left: 8px;
+    rotate: 180deg;
+}

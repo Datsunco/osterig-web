@@ -66,7 +66,7 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
                         <div className={styles.selected_param_block}>
                             <b className={styles.param_text}>{param.name}</b>
                         </div>
-                        <img onClick={() => onClickSelectedParam(param)} className={styles.selected_param_img} src='./cross.svg' />
+                        <img onClick={() => onClickSelectedParam(param)} className={styles.selected_param_img} src='../cross.png' />
                     </div>
                 )}
             </div>

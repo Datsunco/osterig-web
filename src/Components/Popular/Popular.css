@@ -1,15 +1,13 @@
 .PopularBody {
-    width: 1200px;
+    width: 1258px;
     margin: auto;
     margin-top: -100px;
     padding-top: 100px;
 }
 
-
-
 .chelka {
     display: flex;
-    width: 1200px;
+    width: 1206px;
     align-items: center;
     margin: auto;
     margin-top: -100px;
@@ -23,7 +21,7 @@
     overflow-x: auto;
     display: flex;
     flex-wrap: nowrap;
-    width: 1230px;
+    width: 1260px;
 }
 
 .strelka1SVG {
@@ -49,6 +47,17 @@
     flex-wrap: wrap;
     align-content: center;
     justify-content: center;
+}
+
+.alltovars:hover {
+    background-color: #0071E3;
+    color:aliceblue;
+    transition: all 0.5s;
+}
+
+.alltovars:hover .filter-green{
+    filter: brightness(0) invert(24);
+    transition: all 0.3s;
 }
 
 .tovars {
