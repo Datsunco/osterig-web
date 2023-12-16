@@ -89,6 +89,17 @@
 .ml-custom {
     display: flex;
     flex-wrap: wrap;
+    margin-left: -9px;
+}
+
+a.populars {
+    margin-left: 39px;
+    background-image: url(../../static/Fire.png);
+    background-repeat: no-repeat;
+    background-position: right;
+    height: 22px;
+    width: 100px;
+    background-size: 15px;
 }
 
 .ml-custom * {
@@ -183,8 +194,9 @@
     background-image: url(../../static/order.png);
     background-repeat: no-repeat;
     background-position: center center;
-    height: 20px;
+    height: 21px;
     width: 50px;
+    background-size: 20px;
     margin-left: 8px;
 }
 
@@ -192,8 +204,9 @@
     background-image: url(../../static/favorite.png);
     background-repeat: no-repeat;
     background-position: center center;
-    height: 20px;
+    height: 21px;
     width: 50px;
+    background-size: 20px;
     margin-left: 20px;
 }
 
@@ -201,9 +214,10 @@
     background-image: url(../../static/basket.png);
     background-repeat: no-repeat;
     background-position: center center;
-    height: 20px;
+    height: 21px;
     width: 50px;
     margin-left: 12px;
+    background-size: 20px;
 }
 
 .margerZ {

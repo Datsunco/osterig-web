@@ -10,6 +10,27 @@
     justify-content: center;
 }
 
+
+.text13:not(:hover) {
+    transition: margin-top 1s ease;
+}
+
+.busket1:not(:hover) {
+    transition: visibility 10s ease;
+}
+
+.text12:not(:hover) {
+    transition: margin-top 1s ease;
+}
+
+.text11:not(:hover) {
+    transition: margin-top 1s ease;
+}
+
+.amg:not(:hover) {
+    transition: margin-top 1s ease;
+}
+
 .md3:hover .heart_icon_device {
     visibility: visible;
 }
@@ -19,6 +40,8 @@
     position: absolute;
     margin-top: 20px;
     margin-left: 190px;
+    height: 20px;
+    width: 20px;
 }
 
 
@@ -62,7 +85,7 @@
     line-height: 22px;
     letter-spacing: -0.30000001192092896px;
     text-align: center;
-    margin-top: 3px;
+    margin-top: 17px;
     color: #8B8B8B;
     word-wrap: break-word;
     width: 207px;
@@ -83,6 +106,7 @@
     white-space: normal !important;
     width: 215px;
     word-break: break-word;
+    margin-top: -5px;
 }
 
 .text13 {
@@ -94,6 +118,7 @@
     letter-spacing: 0px;
     text-align: center;
     height: 25px;
+    margin-top: 30px;
 }
 
 .busket1 {
@@ -176,6 +201,11 @@
     transition: visibility 1s, opacity 0.2s linear;
 }
 
+.md3:hover .text13 {
+    transition: margin-top 0.3s, opacity 0.2s linear;
+    margin-top: 12px;
+}
+
 .svgGalka {
     height: 20px;
     width: 20px;
@@ -186,7 +216,7 @@
 .md3:hover .busket1 {
     visibility: visible;
     opacity: 1;
-    transition: visibility 1s, opacity 0.2s linear;
+    transition: visibility 1s, opacity 0.8s linear;
 }
 
 .md3:hover .amg {

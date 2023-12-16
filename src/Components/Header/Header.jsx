@@ -160,7 +160,7 @@ const Header = () => {
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
-                            <a class="populars" href="#popularId">Популярное 🔥</a>
+                            <a class="populars" href="#popularId">Популярное <div class="firepng"></div></a>
                             <a class="resistors" href="#res">Резисторы</a>
                             <a class="condensators" href="#cap">Конденсаторы</a>
                             <a class="inductors" href="#ind">Индукторы</a>
