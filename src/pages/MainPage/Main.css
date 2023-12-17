@@ -5,6 +5,12 @@
     src:  url(../../Fonts/Gilroy-Semibold.ttf) format("truetype")
 }
 
+@font-face {
+    font-family: GloryBold;
+    font-weight: bold;
+    src:  url(../../Fonts/gilroy-bold.ttf) format("truetype")
+}
+
 .MainPageMargin {
     margin-left: 8%;
     margin-right: 8%;

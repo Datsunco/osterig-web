@@ -85,7 +85,7 @@ nav.bg-body.navbar.navbar-expand-lg.navbar-light {
     height: 188px;
     background-color: #282828;
     align-items: flex-start;
-    margin-top: -80px;
+    margin-top: -185px;
 }
 
 .textP {
@@ -97,7 +97,7 @@ nav.bg-body.navbar.navbar-expand-lg.navbar-light {
     align-content: center;
     justify-content: center;
     align-items: flex-start;
-    
+
 }
 
 .textPop {
@@ -111,7 +111,7 @@ nav.bg-body.navbar.navbar-expand-lg.navbar-light {
 }
 
 a {
-    text-decoration:none;
+    text-decoration: none;
 }
 
 .textYes {
@@ -137,7 +137,7 @@ a {
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: SF Pro Display;
+    font-family: "Courier New";
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
@@ -145,12 +145,12 @@ a {
     color: #FFF;
     margin-top: 8px;
     text-align: right;
-    margin-left: 4px;
+    margin-left: 6px;
 }
 
 .des {
     color: #FFF;
-    font-family: SF Pro Display;
+    font-family: "Courier New";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -162,7 +162,7 @@ a {
 
 .des1 {
     color: #FFF;
-    font-family: SF Pro Display;
+    font-family: "Courier New";
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
@@ -172,18 +172,25 @@ a {
     margin-top: -12px;
 }
 
+.noWrapL {
+    width: 2000px;
+    background-color: #282828;
+}
+
 .code {
-    background: linear-gradient(90deg, rgba(255,255,255,1) 17%, rgba(0,17,255,1) 49%, rgba(255,0,0,1) 96%);
+    background: linear-gradient(to right, #ff3366, #9933cc);
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    font-family: SF Pro Display;
+    font-family: "Courier New";
     font-size: 14px;
     font-style: normal;
     font-weight: 600;
     line-height: normal;
-    color: #FFF;
     margin-top: -12px;
     text-align: right;
     margin-left: 14px;
+    font-weight: bold;
+    text-align: center;
+    margin-left: 8px;
 }

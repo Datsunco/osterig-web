@@ -40,12 +40,12 @@ const CheckBoxBlock = ({ param }) => {
             {isShowAll == false ?
                 <div className={styles.check_box_button_show} onClick={() => setIsShowAll(!isShowAll)}>
                     <b className={styles.check_box_button_text}>Показать все</b>
-                    <img className={styles.check_box_button_img} src='./arrow-checkbox.svg' />
+                    <img className={styles.check_box_button_img} src='../arrow-checkbox.png' />
                 </div>
                 :
                 <div className={styles.check_box_button_show} onClick={() => setIsShowAll(!isShowAll)}>
                     <b className={styles.check_box_button_text}>Скрыть</b>
-                    <img className={styles.check_box_button_img} src='./arrow-checkbox.svg' />
+                    <img className={styles.check_box_button_img1} src='../arrow-checkbox.png' />
                 </div>
             }
         </div>

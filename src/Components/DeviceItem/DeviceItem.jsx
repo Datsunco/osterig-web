@@ -50,7 +50,7 @@ const DeviceItem = ({ device }) => {
                         id={device.productModel}
                         onClick={() => favorites.addFavorite(device) && toggleFavorite()}
                         alt=""
-                        src="/heart.svg" />
+                        src="/heart.png" />
 
                 }
                 <DataComponent device={device} cartState={isCart}/>

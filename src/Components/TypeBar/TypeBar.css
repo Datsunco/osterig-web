@@ -2,21 +2,60 @@
     display: flex;
     margin-top: 40px;
     align-items: center;
-    width: 1200px;
+    width: 1206px;
     /* margin-left: 8%;
     margin-right: 8%; */
     margin: auto;
 }
 
+.vset {
+    margin-left: 25px;
+}
+
+.component_0,.component_1,.component_2,.component_3,.component_4,.component_5,.component_6,.component_7 {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    vertical-align: center;
+    height: auto;
+    width: auto;
+    margin-top: 90px;
+}
+
+.component_2 {
+    margin-top: 100px;
+}
+
+.component_3 {
+    margin-top: 70px;
+}
+
+.component_4 {
+    margin-top: 77px;
+}
+
+.component_5 {
+    margin-top: 85px;
+}
+
+.component_6 {
+    margin-top: 80px;
+}
+
+.component_7 {
+    margin-top: 70px;
+}
+
 .vsetStrelka {
     background-image: url(../../static/vsetStrelka.png);
-    width: 10px;
-    height: 20px;
+    width: 15px;
+    height: 15px;
     background-size: 8px;
     background-repeat: no-repeat;
     vertical-align: center;
     background-position: center center;
-    margin-left: auto;
+    margin-left: 12px;
+    margin-top: 1px;
 }
 
 .atovar1 {
@@ -67,18 +106,17 @@
 
 
 .pop {
-    margin-top: 4%;
     display: flex;
     flex-wrap: wrap;
-    /* margin-left: 8%; */
-    width: 1200px;
+    width: 1206px;
     margin: auto;
     gap: 20px;
+    margin-top: 48px;
 }
 
 .list-group-item {
-    width: 220px;
-    height: 295px;
+    width: 222px;
+    height: 270px;
     border-radius: 13px;
     background: #282828;
     border: 2px solid #666C77;
@@ -92,6 +130,11 @@
     border-top-width: 2px;
 }
 
+.atovar1:hover {
+    background-color: #0071E3;
+    transition: all 0.5s;
+}
+
 .list-group-item:first-child {
     border-top-left-radius: 13px;
     border-top-right-radius: 13px;
@@ -100,16 +143,6 @@
 .list-group-item:last-child {
     border-bottom-left-radius: 13px;
     border-bottom-right-radius: 13px;
-}
-
-.components12 {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    vertical-align: center;
-    height: auto;
-    width: auto;
-    margin-top: 37%;
 }
 
 .list-group-item:hover {

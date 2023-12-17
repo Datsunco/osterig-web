@@ -107,6 +107,7 @@ const Header = () => {
     return (
         <div>
             <div className='Header' onScroll={onClickCatalog}>
+            <div class="asdqwe">
                 <div class="topHeader">
                     <div class="logo" onClick={() => onClickButton("mainpage")}><LogoSVG /></div>
                     {catalog.catalogOpen === false ?
@@ -133,6 +134,7 @@ const Header = () => {
                         <button class="searchLupa" onClick={() => onClickSearch()}></button>
                     </div>
                     <div class="rightOptions">
+                        <div class="margerZ">
                         <div class="cursorP">
                             <div class="orders"></div>
                             <div class='text-padding-top'>Заказы</div>
@@ -146,6 +148,7 @@ const Header = () => {
                             <div class="basket"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>
+                        </div>
                         <div class="profile" useRef={avaRef} ref={avaRef} onClick={onClickAVA}></div>
                         {inputValue.length != 0 ?
                             <SearchInfo onClose={onClickSuggestion}/>
@@ -157,12 +160,12 @@ const Header = () => {
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
-                            <div class="populars">Популярное 🔥</div>
-                            <div class="resistors">Резисторы</div>
-                            <div class="condensators">Конденсаторы</div>
-                            <div class="inductors">Индукторы</div>
-                            <div class="processors">Процессоры</div>
-                            <div class="preobrazovateli">Преобразователи</div>
+                            <a class="populars" href="#popularId">Популярное <div class="firepng"></div></a>
+                            <a class="resistors" href="#res">Резисторы</a>
+                            <a class="condensators" href="#cap">Конденсаторы</a>
+                            <a class="inductors" href="#ind">Индукторы</a>
+                            <a class="processors" href="#pro">Процессоры</a>
+                            <a class="preobrazovateli" href="#con">Преобразователи</a>
                         </div>
                     </div>
                     :
@@ -170,7 +173,7 @@ const Header = () => {
                         <HeaderCatalog />
                     </div>
                 }
-            </div>
+            </div></div>
             <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} />
             <div useRef={profileRef} ref={profileRef}>
                 {profileOpened === true ?

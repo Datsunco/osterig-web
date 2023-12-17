@@ -39,7 +39,7 @@ const BottomMenu = () => {
           </Navbar.Brand>
           <div class="textY"><h>info@osterrig.ru</h></div>
         </div>
-      </div>
+      </div><div class="noWrapL"/>
       <div class="btmenu">
         <a class="textP" href=''>
           <svg width="87" height="29" viewBox="0 0 87 29" fill="none" xmlns="http://www.w3.org/2000/svg">

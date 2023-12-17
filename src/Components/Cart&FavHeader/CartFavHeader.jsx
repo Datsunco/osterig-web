@@ -28,7 +28,7 @@ const CartFavHeader = ({state}) => {
 
     return (
         <div className='cart_header'>
-            <b className='cart_header_first' onClick={handleCartClick}>КОРИЗНА</b><b className='cart_header_mid'>/</b>
+            <b className='cart_header_first' onClick={handleCartClick}>КОРЗИНА</b><b className='cart_header_mid'>/</b>
             <b className='cart_header_second' onClick={handleFavoritesClick}>ИЗБРАННОЕ</b>
         </div>
     );
