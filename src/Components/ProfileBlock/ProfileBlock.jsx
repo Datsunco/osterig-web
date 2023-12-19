@@ -3,6 +3,7 @@ import { Context } from '../..';
 import { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './ProfileBlock.module.css'
+import imgExit from '../../static/exit.png'
 
 const ProfileBlock = ({ onProfileClick }) => {
     const { store, cart, favorites } = useContext(Context)
@@ -18,9 +19,9 @@ const ProfileBlock = ({ onProfileClick }) => {
     //     )
 
     return (
-        <div className={styles.profile_component} id='profileblock'>
+        <div>
             {store.isAuth ?
-                <div>
+                <div className={styles.profile_component} id='profileblock'>
                     <div className={styles.vertical_block}>
                         <div className={styles.profile_data_block}>
                             <div className={styles.profile_data_vertical_block}>
@@ -46,8 +47,10 @@ const ProfileBlock = ({ onProfileClick }) => {
                         </div>
                         <div className={styles.profile_logout_block}>
                             <div className={styles.logout_button_block}>
-                                <button className={styles.logout_button} onClick={() => store.logout()}>Выйти</button>
-                                <img className='' />
+                                <button className={styles.logout_button} onClick={() => store.logout()}>
+                                    Выйти
+                                    <img className={styles.imgExit} src={imgExit} />
+                                </button>
                             </div>
 
                         </div>
@@ -62,7 +65,27 @@ const ProfileBlock = ({ onProfileClick }) => {
                 </div>
 
                 :
-                <button onClick={() => onProfileClick()}>Авторизуйся, тварь</button>
+                <div className={styles.profile_component1} id='profileblock'>
+                    <div className={styles.vertical_block}>
+                        <div className={styles.profile_data_block}>
+                            <div className={styles.profile_data_vertical_block}>
+                                <h className={styles.nickname_text}>
+                                    Гость
+                                </h>
+                            </div>
+                            <img src='./UserNoPlus.svg' className={styles.profile_img_block} />
+                        </div>
+                        <div className={styles.profile_buttons_block}>
+                            <div className={styles.need_authorization}>
+                                Перед началом покупок нужно авторизироваться
+                            </div>
+                        </div>
+                        <div className={styles.profile_nologin_block}>
+                            <button onClick={() => onProfileClick()} className={styles.sign_in_button}>Войти</button>
+                            <button onClick={() => onProfileClick()} className={styles.registration_button}>Зарегестрироваться</button>
+                        </div>
+                    </div>
+                </div>
             }
         </div>
     );

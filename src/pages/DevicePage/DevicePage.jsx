@@ -9,6 +9,7 @@ import { useLocation, useParams } from 'react-router-dom';
 import { useEffect, useContext, useState } from 'react';
 import { Context } from '../..';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
+import HeartDevice from "../../static/HeartheartDevice.png"
 
 
 
@@ -47,8 +48,8 @@ const DevicePage = () => {
   }, [favorites.favorites, cart.devices])
 
   const addToCart = () => {
-    cart.addDevice(device.productDetails) 
-    setIsCart(true) 
+    cart.addDevice(device.productDetails)
+    setIsCart(true)
     cart.setPreviewAddedDevice(device.productDetails)
   }
 
@@ -97,9 +98,9 @@ const DevicePage = () => {
             {device.productDetails.productPriceList?.[0].discountRate != 1 ?
               <>
                 <div class='lastprice'>
-                  { device.productDetails.productPriceList?.[0].productPrice} ₽
+                  {device.productDetails.productPriceList?.[0].productPrice} ₽
                 </div>
-                <div class='newprice'>от { device.productDetails.productPriceList?.[0].discountRate *device.productDetails.productPriceList?.[0].productPrice} ₽</div>
+                <div class='newprice'>от {device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice} ₽</div>
               </>
               :
               <div class='newprice'>от {device.productDetails.productPriceList?.[0].productPrice} ₽</div>
@@ -119,10 +120,12 @@ const DevicePage = () => {
                   <button
                     class="vkorzine" >
                     В корзине
+                    <div class='svgL'>
+                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+                        <path d="M10.2 1L4.42505 7L1.42505 4" stroke="#0071E3" stroke-width="1.5" />
+                      </svg>
+                    </div>
                   </button>
-                  <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
-                    <path d="M10.2 1L4.42505 7L1.42505 4" stroke="#0071E3" stroke-width="1.5" />
-                  </svg>
                 </>
               }
 
@@ -130,11 +133,10 @@ const DevicePage = () => {
                 {!isFavorite ?
                   <div className='devcie_page_fav_button' onClick={() => favorites.addFavorite(device.productDetails) && setIsFavorite(true)}>
                     <a class='izbr' >В ИЗБРАННОЕ</a>
-                    <div class="favorits12">
-                    </div>
+                    <img className="fav_act_heart" src={HeartDevice} />
                   </div>
                   :
-                  <div className='devcie_page_fav_button'>
+                  <div className='devcie_page_fav_button' onClick={() => favorites.removeFavorite(device.productDetails) && setIsFavorite(false)}>
                     <a class='izbr' >В ИЗБРАННОM</a>
                     <img className="fav_act_heart"
                       src="/activeheart.svg" />

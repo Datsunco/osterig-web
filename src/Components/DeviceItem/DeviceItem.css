@@ -90,6 +90,8 @@
     word-wrap: break-word;
     width: 207px;
     word-break: break-word;
+    overflow: hidden;
+    height: 27px;
 }
 
 .text12 {

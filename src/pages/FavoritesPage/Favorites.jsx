@@ -7,10 +7,12 @@ import DeviceItem from '../../Components/DeviceItem/DeviceItem';
 import CartFavHeader from '../../Components/Cart&FavHeader/CartFavHeader';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import './Favorites.css'
+import { useNavigate } from 'react-router-dom';
 import PopularTovar from '../../Components/PopularTovar/PopularTovar';
 
 const Favorites = () => {
     const { cart, favorites } = useContext(Context)
+    const navigate = useNavigate()
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -22,21 +24,25 @@ const Favorites = () => {
 
     return (
         <div className='favorite_component'>
-            <Header/>
-            <div className='fav_elements'>
-            <CartFavHeader state={'fav'} />
-                <div className='fav_items'>
-                    {favorites.favorites.map(device =>
-                        // <FavoritesDevice deviceId={device.deviceId} typeId={device.typeId} />
-                        <DeviceItem device={device}/>
+            <Header />
+            {favorites.favorites.length != 0 ?
+                <div className='fav_elements'>
+                    <CartFavHeader state={'fav'} />
+                    <div className='fav_items'>
+                        {favorites.favorites.map(device =>
+                            <DeviceItem device={device} />
                         )}
+                    </div>
                 </div>
-            </div>
-            {/* <PopularTovar/> */}
+                :
+                <div className='cart_elements_empty'>
+                    <CartFavHeader state={'fav'} />
+                    <h3 className='cart_elements_empty_main_text'>В ИЗБРАННОМ ПОКА НЕТ ТОВАРОВ</h3>
+                    <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
+                    <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
+                </div>
+            }
             <BottomMenu />
-            {/* {favorites.favorites.map(favorite => 
-                <FavoritesDevice deviceId={favorite.deviceId} typeId={favorite.typeId}/>
-            )} */}
         </div>
     );
 };
