@@ -40,7 +40,6 @@ const CartDevice = ({device}) => {
                 </div>
                 <div className="frame-wrapper">
                     <div className="parent">
-                        <div className="div">{device.price} ₽</div>
                         <b className="b">{device.price} ₽</b>
                     </div>
                 </div>
@@ -64,7 +63,7 @@ const CartDevice = ({device}) => {
                 {isFavorite == true ?
                     <img className="heart-icon" onClick={() => favorites.removeFavorite(device) && toggleFavorite()} alt="" src="/activeheart.svg" />
                     :
-                    <img className="heart-icon" onClick={() => favorites.addFavorite(device) && toggleFavorite()} alt="" src="/heart.svg" />
+                    <img className="heart-icon" onClick={() => favorites.addFavorite(device) && toggleFavorite()} alt="" src="/heart.png" />
                 }
 
                 <div className="close" >

@@ -41,7 +41,7 @@ const PopUpNotice = ({ device }) => {
           <img
             className={styles.frameItem}
             alt=""
-            src={cart.previewAddedDevice?.productImages?.[0]}
+            src={cart.previewAddedDevice?.productImages?.[0] || cart.previewAddedDevice?.productImageUrl}
           />
         </div>
         <div className={styles.parent}>
