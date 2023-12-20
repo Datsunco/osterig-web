@@ -18,13 +18,13 @@ const DeviceItem = ({ device }) => {
 
     useEffect(() => {
         favorites.favorites.forEach(fav => {
-            if (device.productCode == fav.productCode) {
+            if (device.productCode === fav.productCode) {
                 // console.log(device.productModel, fav.productCode)
                 setIsFavorite(true)
             }
         });
         cart.devices.forEach(dev => {
-            if (device.productCode == dev.productCode){
+            if (device.productCode === dev.productCode){
                 // console.log(device.productModel, dev.productCode)
                 setIsCart(true)
             }
@@ -39,7 +39,7 @@ const DeviceItem = ({ device }) => {
     return (
         <div className={"mt-3"}>
             <div class="md3">
-                {isFavorite == true ?
+                {isFavorite === true ?
                     <img className="heart_icon_device"
                         id={device.productModel}
                         onClick={() => favorites.removeFavorite(device) && toggleFavorite()}
@@ -83,10 +83,15 @@ const DataComponent = ({ device, cartState }) => {
 
     useEffect(() => {
         setIsCart(cartState)
-        // console.log(device, cartState)
     }, [cartState])
 
-    if (device?.domesticStockVO?.total == 0 || device?.stockNumber == 0)
+    const onAddCartClick = () => {
+        setIsCart(true)
+        cart.addDevice(device)
+        cart.setPreviewAddedDevice(device)
+    };
+
+    if (device?.domesticStockVO?.total === 0 && device?.stockNumber === 0 )
         return (
             <button class="busketNetu" href=''>Нет в наличии</button>
         );
@@ -102,7 +107,7 @@ const DataComponent = ({ device, cartState }) => {
         )
     else
         return (
-            <button onClick={() => cart.addDevice(device) && setIsCart(true)} class="busket1" href=''>В корзину</button>
+            <button onClick={() =>onAddCartClick() } class="busket1" href=''>В корзину</button>
         )
 };
 
