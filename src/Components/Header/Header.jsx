@@ -160,12 +160,12 @@ const Header = () => {
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
-                            <a class="populars" href="#popularId">Популярное <div class="firepng"></div></a>
-                            <a class="resistors" href="#res">Резисторы</a>
-                            <a class="condensators" href="#cap">Конденсаторы</a>
-                            <a class="inductors" href="#ind">Индукторы</a>
-                            <a class="processors" href="#pro">Процессоры</a>
-                            <a class="preobrazovateli" href="#con">Преобразователи</a>
+                            <a class="populars" onClick={() => navigate("/catalog")}>Популярное <div class="firepng"></div></a>
+                            <a class="resistors" onClick={() => navigate("/search/308")}>Резисторы</a>
+                            <a class="condensators" onClick={() => navigate("/search/312")}>Конденсаторы</a>
+                            <a class="inductors" onClick={() => navigate("/search/316")}>Индукторы</a>
+                            <a class="processors" onClick={() => navigate("/search/11328")}>Процессоры</a>
+                            <a class="preobrazovateli" onClick={() => navigate("/search/615")}>Преобразователи</a>
                         </div>
                     </div>
                     :

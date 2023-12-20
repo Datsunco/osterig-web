@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 const TypeBar = () => {
   const navigate = useNavigate()
-  const [ selectedType, setSelectedType ] = useState(2)
+  const [selectedType, setSelectedType] = useState(2)
   const { device } = useContext(Context)
   return (
     <ListGroup>
@@ -22,15 +22,16 @@ const TypeBar = () => {
       <div class="pop">
         {device.types.map((type, i) =>
           <a href={type.idHref}>
-          <ListGroupItem
-            style={{ cursor: 'pointer' }}
-            key={type.id}
-          >
-            {type.name} 
-            <div className={'component_' + i}>
-              <img className="type_bar_img" src={type.img} />
-            </div>
-          </ListGroupItem></a>
+            <ListGroupItem
+              style={{ cursor: 'pointer' }}
+              key={type.id}
+            >
+              {type.name}
+              <div className={'component_' + i}>
+                <img className="type_bar_img" src={type.img} />
+              </div>
+            </ListGroupItem>
+          </a>
         )}
       </div>
     </ListGroup>

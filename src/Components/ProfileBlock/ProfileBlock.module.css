@@ -7,7 +7,7 @@
     position: absolute;
     height: 300px;
     width: 1200px;
-    
+
 }
 
 .profile_component {
@@ -90,6 +90,7 @@
     font-style: normal;
     font-weight: 500;
     line-height: normal;
+    cursor: pointer;
 }
 
 .profile_login_block {
@@ -128,4 +129,91 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+    cursor: pointer;
+}
+
+.logout_button {
+    border: none;
+    background-color: #fff;
+    display: flex;
+    justify-self: center;
+    margin-left: 12px;
+    color: #252525;
+    font-family: Gilroy;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.imgExit {
+    height: 18px;
+    width: 18px;
+    margin-left: 5px;
+    margin-top: 2px;
+}
+
+.profile_nologin_block {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.need_authorization {
+    color: #4F4F4F;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+}
+
+.sign_in_button {
+    width: 219px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: var(--System-Blue, #0071E3);
+    border: none;
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    cursor: pointer;
+}
+
+.registration_button {
+    width: 219px;
+    height: 37px;
+    flex-shrink: 0;
+    border-radius: 4px;
+    background: #D9D9D9;
+    color: var(--System-Blue, #0071E3);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    border: none;
+    cursor: pointer;
+}
+
+.profile_component1 {
+    position: fixed;
+    top: 22px;
+    right: 0;
+    left: 920px;
+    z-index: 101;
+    width: 265px;
+    height: 225px;
+    padding-top: 22px;
+    border-radius: 22px;
+    box-shadow: 0px 30px 45px 0px rgba(0, 0, 0, 0.09), 0px -30px 45px 0px rgba(0, 0, 0, 0.09);
+    background: #FFF;
+    margin-left: auto;
+    margin-right: auto;
 }
