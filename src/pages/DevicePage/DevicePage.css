@@ -162,6 +162,24 @@
     cursor: pointer;
 }
 
+.NetVNal {
+    width: 225px;
+    border-radius: 7px;
+    color: black;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 130%;
+    text-transform: uppercase;
+    padding: 22px;
+    border: none;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(200, 12, 12);
+    cursor: default;
+}
+
 .vkorzine {
     width: 225px;
     border-radius: 7px;
@@ -247,19 +265,27 @@
     display: block;
     border-radius: 20px;
     margin-left: auto;
-    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff); /* Градиентный переход */
-    background-size: 200% 200%; /* Размер фона */
-    animation: gradientShift 2s infinite; /* Анимация */
-  }
-  
-  @keyframes gradientShift {
+    background: linear-gradient(90deg, #ff0000, #00ff00, #0000ff);
+    /* Градиентный переход */
+    background-size: 200% 200%;
+    /* Размер фона */
+    animation: gradientShift 2s infinite;
+    /* Анимация */
+}
+
+@keyframes gradientShift {
     0% {
-      background-position: 0% 50%; /* Начальное положение градиента */
+        background-position: 0% 50%;
+        /* Начальное положение градиента */
     }
+
     50% {
-      background-position: 100% 50%; /* Положение градиента на середине анимации */
+        background-position: 100% 50%;
+        /* Положение градиента на середине анимации */
     }
+
     100% {
-      background-position: 0% 50%; /* Конечное положение градиента */
+        background-position: 0% 50%;
+        /* Конечное положение градиента */
     }
-  }
+}

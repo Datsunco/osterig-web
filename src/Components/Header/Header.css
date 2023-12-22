@@ -226,7 +226,7 @@ a.populars {
 }
 
 .profile {
-    background-image: url(../../static/ava.png);
+    background-image: url(../../static/ProfileNoPicture.png);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 30px;
