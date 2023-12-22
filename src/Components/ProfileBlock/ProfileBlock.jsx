@@ -16,7 +16,7 @@ const ProfileBlock = ({ onProfileClick }) => {
     // if (!localStorage.getItem('token'))
     //     return (
     //         <button onClick={() => onProfileClick()}>Авторизуйся, тварь</button>
-    //     )
+    //     )    
 
     return (
         <div>
