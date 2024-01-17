@@ -1,0 +1,110 @@
+.orders_body {
+    height: auto;
+    width: 1206px;
+    margin: auto;
+    align-items: center;
+    color: #2D2D2D;
+    margin-bottom: 100px;
+    margin-top: 137px;
+}
+
+.orders_cart {
+    display: flex;
+    gap: 15px;
+}
+
+.text_orders_h1 {
+    color: #000;
+    font-family: Gilroy;
+    font-size: 36px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+.orders_number {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 26.4px */
+    text-transform: uppercase;
+}
+
+.orders_status_svg {
+    margin-top: -4px;
+}
+
+.orders_status {
+    color: var(--Gray-4, #797C81);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    margin-left: 47px;
+}
+
+.orders_date {
+    color: var(--Gray-4, #797C81);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+    margin-left: 47px;
+}
+
+.orders_images_block {
+    display: flex;
+    margin-left: 60px;
+}
+
+.orders_images {
+    width: 50px;
+    height: 50px;
+    background-position: center;
+    margin-left: 2px;
+    border-radius: 5px;
+}
+
+.orders_if_images_so_much {
+    display: flex;
+    padding: 15px;
+    justify-content: center;
+    align-items: center;
+    background: var(--Gray-1, #F1F3F4);
+    border-radius: 5px;
+    margin-left: 2px;
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 19.8px */
+    text-transform: uppercase;
+}
+
+.orders_price {
+    color: var(--Black, #1A1A1A);
+    text-align: right;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 130%;
+    /* 18.2px */
+    text-transform: uppercase;
+    margin-left: 57px;
+}
+
+.orders_line {
+    width: 757px;
+    height: 1px;
+    flex-shrink: 0;
+    background: var(--Gray-2, #E5E6E8);
+    margin-top: 20px;
+}

@@ -149,7 +149,7 @@ const Header = () => {
                     </div>
                     <div class="rightOptions">
                         <div class="margerZ">
-                        <div class="cursorP">
+                        <div class="cursorP" onClick={() => onClickButton("orders")}>
                             <div class="orders"></div>
                             <div class='text-padding-top'>Заказы</div>
                         </div>
