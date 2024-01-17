@@ -52,7 +52,7 @@ const DevicePage = () => {
     setIsCart(true)
     cart.setPreviewAddedDevice(device.productDetails)
   }
-  
+
 
   // const toggleFavorite = () => {
   //   setIsFavorite(!isFavorite)

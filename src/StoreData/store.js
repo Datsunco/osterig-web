@@ -1,11 +1,14 @@
 import {makeAutoObservable} from "mobx";
 import AuthService from "../services/authService";
 import ProxyService from "../services/proxyService";
+import CartStore from "./cartStore";
+import FavoritesStore from "./favoritesStore";
 import axios from 'axios';
 import $api from "../http";
 
 
 export default class Store {
+    favStore;
     user = {}
     isAuth = false;
     isLoading = false;
@@ -1002,6 +1005,7 @@ export default class Store {
         ]
     }
     seletedParams = []
+    errorMessage = ""
     currentCatalogId = null
     childCatalogs = []
     parentName = null
@@ -1009,8 +1013,13 @@ export default class Store {
     parentId = null
     catalogOpen = false
 
-    constructor() {
+    constructor(favStore) {
+        this.favStore = favStore
         makeAutoObservable(this);
+    }
+
+    setFavStore(fav){
+        this.favStore = fav
     }
 
     setAuth(bool) {
@@ -1019,6 +1028,10 @@ export default class Store {
 
     setUser(user) {
         this.user = user;
+    }
+
+    setErrorMessage(message) {
+        this.errorMessage = message;
     }
 
     setLoading(bool) {
@@ -1101,7 +1114,13 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            this.favStore.getFavorites()
+            // this.favStore.getFavorites()
+            // cartStore.getDevices()
+            // favStore.getFavorites()
+            this.setErrorMessage("")
         } catch (e) {
+            this.setErrorMessage(e.response?.data?.message)
             console.log(e.response?.data?.message);
         }
     }
@@ -1112,7 +1131,9 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            this.setErrorMessage("")
         } catch (e) {
+            this.setErrorMessage(e.response?.data?.message)
             console.log(e.response?.data?.message);
         }
     }

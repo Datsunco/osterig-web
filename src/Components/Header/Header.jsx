@@ -11,6 +11,7 @@ import ProfileBlock from '../ProfileBlock/ProfileBlock';
 import PopUpNotice from '../popUpNotice/popUpNotice';
 import SearchInfo from '../SearchInfo/SearchInfo';
 
+
 const Header = () => {
     const avaRef = useRef(null)
     const exceptRef = useRef(null)
@@ -23,6 +24,8 @@ const Header = () => {
 
 
     useEffect(() => {
+        console.log('rendered')
+        console.log(favorites.favorites.length)
         if (localStorage.getItem('token')) {
             store.setAuth(true)
             favorites.getFavorites()
@@ -34,6 +37,7 @@ const Header = () => {
     }, [store, favorites, cart])
 
     useEffect(() => {
+        console.log('rendere2')
         if (profileOpened === false) return;
 
         const handleClick = (e) => {
@@ -89,6 +93,16 @@ const Header = () => {
 
         const form = document.getElementById("form")
         form.style.display = "block"
+        setOpened(true)
+    }
+
+    const onClickRegistration = () => {
+        const form = document.getElementById("form")
+        form.style.display = "block"
+        const form1 = document.getElementById("screen1")
+        form1.style.display = "none"
+        const form3 = document.getElementById("screen3")
+        form3.style.display = "flex"
         setOpened(true)
     }
 
@@ -178,7 +192,7 @@ const Header = () => {
             <div useRef={profileRef} ref={profileRef}>
                 {profileOpened === true ?
                     <div ref={exceptRef} useRef={exceptRef}>
-                        <ProfileBlock onProfileClick={onClickAuthorization} />
+                        <ProfileBlock onLogClick={onClickAuthorization} onRegClick={onClickRegistration} />
                     </div>
                     :
                     null

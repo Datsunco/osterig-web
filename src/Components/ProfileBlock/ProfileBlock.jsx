@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import styles from './ProfileBlock.module.css'
 import imgExit from '../../static/exit.png'
 
-const ProfileBlock = ({ onProfileClick }) => {
+const ProfileBlock = ({ onLogClick, onRegClick }) => {
     const { store, cart, favorites } = useContext(Context)
 
     // const onClickAVA = () => {
@@ -81,8 +81,8 @@ const ProfileBlock = ({ onProfileClick }) => {
                             </div>
                         </div>
                         <div className={styles.profile_nologin_block}>
-                            <button onClick={() => onProfileClick()} className={styles.sign_in_button}>Войти</button>
-                            <button onClick={() => onProfileClick()} className={styles.registration_button}>Зарегестрироваться</button>
+                            <button onClick={() => onLogClick()} className={styles.sign_in_button}>Войти</button>
+                            <button onClick={() => onRegClick()} className={styles.registration_button}>Зарегестрироваться</button>
                         </div>
                     </div>
                 </div>

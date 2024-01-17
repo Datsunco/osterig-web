@@ -17,9 +17,9 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
 
     <Context.Provider value={{
+      favorites: new FavoritesStore(),
       store: new Store(),
       userStore: new UserStore(),
-      favorites: new FavoritesStore(),
       cart: new CartStore(),
       device: new DeviceStore(),
       catalog: new CatalogStore(),

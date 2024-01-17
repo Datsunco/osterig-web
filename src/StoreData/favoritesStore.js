@@ -69,6 +69,7 @@ export default class FavoritesStore {
     async getFavorites() {
         try {
             const favorites = await favoritesService.getFavorites()
+            console.log(favorites)
             this.setFavorites(favorites.data)
             
         } catch (e) {
