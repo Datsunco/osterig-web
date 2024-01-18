@@ -68,7 +68,7 @@ const DeviceItem = ({ device }) => {
                     <div class="text11">{device.brandNameEn}</div>
                     <div class="text12">{device.productModel}</div>
                 </div>
-                <div class="text13">{device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice}
+                <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency).toFixed(2)}
                 </div>
             </div>
         </div>

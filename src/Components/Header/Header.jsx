@@ -24,8 +24,6 @@ const Header = () => {
 
 
     useEffect(() => {
-        console.log('rendered')
-        console.log(favorites.favorites.length)
         if (localStorage.getItem('token')) {
             store.setAuth(true)
             favorites.getFavorites()
@@ -37,7 +35,6 @@ const Header = () => {
     }, [store, favorites, cart])
 
     useEffect(() => {
-        console.log('rendere2')
         if (profileOpened === false) return;
 
         const handleClick = (e) => {

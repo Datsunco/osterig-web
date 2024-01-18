@@ -20,11 +20,12 @@ import './Main.css'
 
 
 const Main = () => {
-    const { device, favorites, cart } = useContext(Context)
+    const { device, favorites, cart, store} = useContext(Context)
     const [data, setData] = useState('')
 
     useEffect(() => {
         device.parseHotProducts()
+        store.getCurrency()
         if (localStorage.getItem('token')) {
             
             // favorites.getFavorites()

@@ -1,6 +1,7 @@
 import {makeAutoObservable} from "mobx";
 import AuthService from "../services/authService";
 import ProxyService from "../services/proxyService";
+import CurrencyService from "../services/currencyService";
 import CartStore from "./cartStore";
 import FavoritesStore from "./favoritesStore";
 import axios from 'axios';
@@ -9,6 +10,7 @@ import $api from "../http";
 
 export default class Store {
     favStore;
+    currency = 1;
     user = {}
     isAuth = false;
     isLoading = false;
@@ -1076,6 +1078,10 @@ export default class Store {
         this.catalogOpen = bool;
     }
 
+    setCurrency(currency) {
+        this.currency = currency;
+    }
+
     sliceSelectedParam(param){
         const changed = []
         let flag = false
@@ -1115,9 +1121,6 @@ export default class Store {
             this.setAuth(true);
             this.setUser(response.data.user);
             this.favStore.getFavorites()
-            // this.favStore.getFavorites()
-            // cartStore.getDevices()
-            // favStore.getFavorites()
             this.setErrorMessage("")
         } catch (e) {
             this.setErrorMessage(e.response?.data?.message)
@@ -1207,6 +1210,15 @@ export default class Store {
             console.log(e);
             console.log(e.response?.data?.message);
 
+        }
+    }
+
+    async getCurrency(){
+        try{
+            const response = await CurrencyService.getCurrency();
+            this.setCurrency(response.data.Valute['USD'].Value)
+        } catch(e){
+            console.log(e);
         }
     }
 
