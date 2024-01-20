@@ -1,0 +1,118 @@
+.MAO_body1 {
+    width: 1212px;
+    height: 950px;
+    margin: auto;
+    margin-top: 102px;
+    display: flex;
+    padding-bottom: 124px;
+}
+
+.MAO_text_result {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    /* 18.9px */
+    width: 240px;
+    margin-top: 6px;
+    display: flex;
+}
+
+.MAO_text_result1 {
+    margin-left: 10px;
+}
+
+.MAO_RES_IMG {
+    width: 47px;
+    height: 18px;
+}
+
+.MAO_input1 {
+    width: 520px;
+    height: 89px;
+    margin-top: 10px;
+}
+
+.MAO_paymant_frame {
+    margin-top: 57px;
+}
+
+.MAO_text_chose_paymant {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 130%;
+    /* 23.4px */
+    text-transform: uppercase;
+    margin-top: 20px;
+}
+
+.B_CART {
+    width: 236px;
+    height: 60px;
+    border-radius: 7px;
+    background: var(--White, #FEFEFE);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.SBP {
+    width: 301px;
+    height: 60px;
+    border-radius: 7px;
+    background: var(--White, #FEFEFE);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.Image_BCART {
+    height: 12px;
+    width: 20px;
+}
+
+.Image_SBP {
+    width: 13px;
+    height: 21.125px;
+}
+
+.text_oplata {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 130%;
+    /* 18.2px */
+    text-transform: uppercase;
+    margin-left: 10px;
+}
+
+.OHUENNIY_KRUG {
+    height: 30px;
+    width: 30px;
+    background-color: #F1F3F4;
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.SBP:active {
+    border: 1px solid var(--Red, #BD2922);
+}
+
+.B_CART:active {
+    border: 1px solid var(--Red, #BD2922);
+}
