@@ -4,13 +4,16 @@ import { observer } from 'mobx-react-lite';
 import styles from "./CartResultForMAO.module.css"
 
 const CartResultForMAO = ({textbutton}) => {
-    const { device, cart } = useContext(Context)
+    const { device, cart, store} = useContext(Context)
 
     useEffect(() => {
         console.log(cart.getCartSumPrice())
     }, [cart])
 
-    const { store } = useContext(Context)
+    const nextPage = () => {
+        store.nextPage()
+      }
+
     return (
         <div className={styles.rectangleParent}>
             <div className={styles.frameWrapper}>
@@ -31,9 +34,9 @@ const CartResultForMAO = ({textbutton}) => {
                             </div>
                             {
                                 store.isAuth ?
-                                <div className={styles.frameParent9}>
+                                <div className={styles.frameParent9} onClick={() => store.switchPage()}>
                                     <div className={styles.wrapper1}>
-                                        <b className={styles.b21}>к выбору доставки </b>
+                                        <b className={styles.b21}>{textbutton}</b>
                                     </div>
                                 </div>
                             //(textbutton == 1 ?
@@ -44,7 +47,7 @@ const CartResultForMAO = ({textbutton}) => {
                             :
                             <div className={styles.frameParent1}>
                                 <div className={styles.wrapper}>
-                                    <b className={styles.b2}>к выбору доставки</b>
+                                    <b className={styles.b2}>{textbutton}</b>
                                 </div>
                             </div>
                             }

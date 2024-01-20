@@ -14,7 +14,7 @@ import ArrowLe from '../../static/Arrow.png.png'
 const MackingAnOrders3 = () => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
-    let textbutton = '3'
+    let textbutton = 'Оплатить'
     const { device } = useContext(Context)
 
     return (
@@ -123,7 +123,7 @@ const MackingAnOrders3 = () => {
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO />
+                        <CartResultForMAO textbutton={textbutton} />
                     </div>
                 </div>
             </div>

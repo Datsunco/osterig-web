@@ -8,11 +8,12 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
+import { observer } from 'mobx-react-lite'; 
 
 const MackingAnOrders1 = () => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
-    let textbutton = '1'
+    let textbutton = 'К выбору доставки'
     const { device } = useContext(Context)
     return (
         <div>
@@ -98,4 +99,4 @@ const MackingAnOrders1 = () => {
     );
 };
 
-export default MackingAnOrders1;
+export default observer(MackingAnOrders1);
