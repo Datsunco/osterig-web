@@ -1225,13 +1225,14 @@ export default class Store {
     async checkAuth() {
         this.setLoading(true);
         try {
-            // const response = await $api.get(`/user/refresh`);
-            const response = await axios.get(`https://osterig-server.vercel.app/api/user/refresh`, {withCredentials: true})
+            const response = await $api.get(`/user/refresh`);
+            // const response = await axios.get(`https://osterig-server.vercel.app/api/user/refresh`, {withCredentials: true})
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (e) {
             console.log(e)
+            this.logout()
         } finally {
             this.setLoading(false);
         }
