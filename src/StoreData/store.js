@@ -1097,7 +1097,6 @@ export default class Store {
     }
 
     nextPage() {
-        console.log(this.page)
         this.page = this.page + 1;
     }
 
