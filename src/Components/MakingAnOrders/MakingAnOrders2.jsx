@@ -14,7 +14,7 @@ const MackingAnOrders2 = () => {
     const navigate = useNavigate()
     let textbutton = '2'
     const { device } = useContext(Context)
-    
+
     return (
         <div>
             <Header />
@@ -57,7 +57,36 @@ const MackingAnOrders2 = () => {
                                     </div>
                                 </div>
                             </div>
-
+                        </div>
+                        <div className='choose_delivery_body'>
+                            <div className='cd_header'>
+                                <div className='cd_h1_text_black'>Пункты выдачи</div>
+                                <div className='cd_slash'>/</div>
+                                <div className='cd_h1_text_gray'>Доставка до двери</div>
+                                <div className='cd_slash'>/</div>
+                                <div className='cd_h1_text_gray'>Самовывоз</div>
+                            </div>
+                            <hr className='cd_line'></hr>
+                            <div className='cd_points'>
+                                <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                <div className='cd_box_for_org'>
+                                    <div className='cd_name_org'>СДЭК ПВЗ</div>
+                                </div>
+                                <div className='cd_time'>5-7 дней</div>
+                                <div className='cd_prise'>600 ₽</div>
+                                <div className='cd_choose_deliviry'>Выбрать</div>
+                            </div>
+                            <hr className='cd_line'></hr>
+                            <div className='cd_points'>
+                                <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                <div className='cd_box_for_org'>
+                                    <div className='cd_name_org'>СДЭК ПВЗ</div>
+                                    <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div>
+                                </div>
+                                <div className='cd_time'>5-7 дней</div>
+                                <div className='cd_prise'>600 ₽</div>
+                                <div className='cd_choose_deliviry'>Выбрать</div>
+                            </div>
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
@@ -69,7 +98,7 @@ const MackingAnOrders2 = () => {
                 <div class="chelka" id="popularId">
                     <div class="popular1"><h1>ВАМ МОЖЕТ ПОНРАВИТЬСЯ</h1></div>
                     <button class="alltovars" onClick={() => navigate("/catalog")}>
-                        Все товары 
+                        Все товары
                         <div class="strelka1SVG">
                             <img src={ArrowLe} class="filter-green"></img>
                         </div>

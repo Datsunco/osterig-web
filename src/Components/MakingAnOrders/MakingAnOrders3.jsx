@@ -98,7 +98,7 @@ const MackingAnOrders3 = () => {
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>КОММЕНТАРИЙ К ДОСТАВКЕ</div>
-                                        <input type='text' className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                        <input type='text' className='MAO_input9' placeholder='Город, улица, дом, квартира и др.' />
                                     </div>
                                 </div>
                             </div>

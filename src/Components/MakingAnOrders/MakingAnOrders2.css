@@ -21,3 +21,139 @@
     color: linen;
     opacity: 1;
 }
+
+.choose_delivery_body {
+    width: 791px;
+}
+
+.cd_header {
+    display: flex;
+    gap: 7px;
+}
+
+.cd_h1_text_black {
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 26.4px */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cd_h1_text_gray {
+    color: var(--Gray-3, #BFC2C7);
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 26.4px */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cd_slash {
+    color: var(--Gray-3, #BFC2C7);
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 26.4px */
+    text-transform: uppercase;
+    cursor: default;
+}
+
+.cd_line {
+    background: #E5E6E8;
+    margin-top: 20px;
+}
+
+.cd_img {
+    width: 47px;
+    height: 18px;
+}
+
+.cd_points {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.cd_name_org {
+    margin-left: 12px;
+    width: 159px;
+    height: 15px;
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 110%;
+    /* 15.4px */
+}
+
+.cd_time {
+    margin-left: 108px;
+    width: 67px;
+    height: 20px;
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    /* 19.6px */
+    letter-spacing: -0.28px;
+}
+
+.cd_prise {
+    margin-left: 40px;
+    width: 67px;
+    height: 20px;
+    color: var(--Black, #1A1A1A);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 140%;
+    /* 19.6px */
+    letter-spacing: -0.28px;
+}
+
+.cd_choose_deliviry {
+    margin-left: 198px;
+    width: 56px;
+    height: 16px;
+    color: var(--Gray-4, #797C81);
+    font-family: Gilroy;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    /* 15.6px */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.cd_box_for_org {
+    width: 204px;
+    height: auto;
+}
+
+.cd_org_addres {
+    width: 295px;
+    height: 16px;
+    color: #939393;
+    font-family: Gilroy;
+    font-size: 13px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 120%;
+    margin-left: 13px;
+    margin-top: 12px;
+}

@@ -17,8 +17,7 @@ const MackingOrders = () => {
     return (
         <div>
             <Header />
-            <MakingAnOrders1 />
-            
+            <MakingAnOrders2 />
             <BottomMenu />
         </div>
     );
