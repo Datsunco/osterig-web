@@ -12,6 +12,7 @@ export default class Store {
     isParsed = false;
     devices = [{productId: 1},{productId: 2}]
 
+    page = 1
     defaultUrl = "https://cdn-icons-png.flaticon.com/512/4021/4021581.png"
     params = {"Manufacturer": [
         {
@@ -1092,6 +1093,18 @@ export default class Store {
         }
         else{
             return false
+        }
+    }
+
+    nextPage() {
+        this.page = this.page + 1;
+    }
+
+    async switchPage() {
+        try {
+            this.nextPage()
+        } catch (e) {
+            console.log(e.response?.data?.message);
         }
     }
 
