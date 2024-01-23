@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styles from './MakingAnOrders2.css';
 import Header from '../../Components/Header/Header'
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
@@ -8,12 +8,17 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
+import { observer } from 'mobx-react-lite';
 
 const MackingAnOrders2 = () => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     let textbutton = 'К способам оплаты'
     const { device } = useContext(Context)
+
+    useEffect(() => {
+        store.getTariffs()
+    }, [store])
 
     return (
         <div>
@@ -66,27 +71,39 @@ const MackingAnOrders2 = () => {
                                 <div className='cd_slash'>/</div>
                                 <div className='cd_h1_text_gray'>Самовывоз</div>
                             </div>
-                            <hr className='cd_line'></hr>
-                            <div className='cd_points'>
-                                <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
-                                <div className='cd_box_for_org'>
-                                    <div className='cd_name_org'>СДЭК ПВЗ</div>
+                            { store?.tariffs[138] ?
+                            <>
+                                <hr className='cd_line'></hr>
+                                <div className='cd_points'>
+                                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                    <div className='cd_box_for_org'>
+                                        <div className='cd_name_org'>СДЭК ПВЗ</div>
+                                    </div>
+                                    <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
+                                    <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
+                                    <div className='cd_choose_deliviry'>Выбрать</div>
                                 </div>
-                                <div className='cd_time'>5-7 дней</div>
-                                <div className='cd_prise'>600 ₽</div>
-                                <div className='cd_choose_deliviry'>Выбрать</div>
-                            </div>
-                            <hr className='cd_line'></hr>
-                            <div className='cd_points'>
-                                <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
-                                <div className='cd_box_for_org'>
-                                    <div className='cd_name_org'>СДЭК ПВЗ</div>
-                                    <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div>
+                            </>
+                            :
+                            null
+                            }
+                            { store?.tariffs[366] ?
+                            <>
+                                <hr className='cd_line'></hr>
+                                <div className='cd_points'>
+                                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                    <div className='cd_box_for_org'>
+                                        <div className='cd_name_org'>СДЭК Постамат</div>
+                                        {/* <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div> */}
+                                    </div>
+                                    <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
+                                    <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
+                                    <div className='cd_choose_deliviry'>Выбрать</div>
                                 </div>
-                                <div className='cd_time'>5-7 дней</div>
-                                <div className='cd_prise'>600 ₽</div>
-                                <div className='cd_choose_deliviry'>Выбрать</div>
-                            </div>
+                            </>
+                            :
+                            null
+                            }
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
@@ -114,4 +131,4 @@ const MackingAnOrders2 = () => {
     );
 };
 
-export default MackingAnOrders2;
+export default observer(MackingAnOrders2);

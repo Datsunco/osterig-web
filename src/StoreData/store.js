@@ -3,9 +3,11 @@ import AuthService from "../services/authService";
 import ProxyService from "../services/proxyService";
 import axios from 'axios';
 import $api from "../http";
+import DeliveryService from "../services/deliveryService";
 
 
 export default class Store {
+    tariffs = []
     user = {}
     isAuth = false;
     isLoading = false;
@@ -1081,6 +1083,16 @@ export default class Store {
         this.seletedParams = changed
     }
 
+    setTariffs(tariff_codes){
+        var new_tariffs = {}
+        var tmp_tariffs = tariff_codes.filter(element => element.tariff_code === 138 || element.tariff_code === 366)
+        tmp_tariffs.forEach(element => {
+            new_tariffs[element.tariff_code] = element
+        })
+
+        this.tariffs = new_tariffs
+    }
+
     isSelectedparam(param){
         let flag = false
         this.seletedParams.forEach(element => {
@@ -1205,7 +1217,6 @@ export default class Store {
     async checkAuth() {
         this.setLoading(true);
         try {
-            // const response = await $api.get(`/user/refresh`);
             const response = await axios.get(`https://osterig-server.vercel.app/api/user/refresh`, {withCredentials: true})
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
@@ -1214,6 +1225,15 @@ export default class Store {
             console.log(e)
         } finally {
             this.setLoading(false);
+        }
+    }
+
+    async getTariffs() {
+        try {
+            const resp = await DeliveryService.getTariff()
+            this.setTariffs(resp.data.tariff_codes)
+        } catch (e) {
+            console.log(e)
         }
     }
 }
