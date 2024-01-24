@@ -31,9 +31,11 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
 
         const handleClick = (e) => {
             if (opened == false) return
+
             if (!loginPopUpRef.current && !ava.current && !loginSecPopUpRef.current && !regPopUpRef.current && !regSecPopUpRef.current && !loadButRef.current) return;
 
             if (!loginPopUpRef.current?.contains(e.target) && !ava.current?.contains(e.target) && !loginSecPopUpRef.current?.contains(e.target) && !regPopUpRef.current?.contains(e.target) && !regSecPopUpRef.current?.contains(e.target) && !loadButRef.current?.contains(e.target)) {
+                console.log("check contains")
                 const form2 = document.getElementById("screen2")
                 form2.style.display = "none"
                 const form3 = document.getElementById("screen3")
@@ -43,15 +45,14 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                 const form1 = document.getElementById("screen1")
                 form1.style.display = "flex"
                 onClose()
-                console.log(e.target, 'penis', loadButRef)
             }
         }
 
         document.body.style.overflowY = 'hidden'
-        document.addEventListener("click", handleClick)
+        document.addEventListener("mousedown", handleClick)
 
         return () => {
-            document.removeEventListener("click", handleClick)
+            document.removeEventListener("mousedown", handleClick)
             setIsEmailCorrect(true)
             setIsPassCorrect(true)
             setEmailValue('')
@@ -173,7 +174,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
 
     return (
         <div className={styles.popup_background} id="form">
-            <div ref={loginPopUpRef} useRef={loginPopUpRef} className={styles.popup_login_main_block} id="screen1">
+            <div ref={loginPopUpRef} className={styles.popup_login_main_block} id="screen1">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_log}>
                         <div className={styles.popup_login_top_block_logo}>

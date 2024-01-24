@@ -13,17 +13,17 @@ import { observer } from 'mobx-react-lite';
 
 const MackingOrders = () => {
     const { store } = useContext(Context)
-    const navigate = useNavigate()
+    // const navigate = useNavigate()
 
-    // useEffect(() => {
-
-    //     console.log(store.page)
-    // }, [store])
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            store.getCurrency()
+        }
+    }, [store])
 
     return (
         <div>
             <Header />
-            
             {store.page == 1 ?
                 <MakingAnOrders1 />
                 :
@@ -33,12 +33,6 @@ const MackingOrders = () => {
                     <MakingAnOrders3 />
                 )
             }
-            {/* {store.page == 1 ?
-                <MakingAnOrders1 />
-                :
-                <MakingAnOrders2 />
-
-            } */}
             <BottomMenu />
         </div>
     );

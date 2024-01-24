@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './MakingAnOrders1.css';
+import  './MakingAnOrders1.css';
 import Header from '../../Components/Header/Header'
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import CartResultForMAO from '../../Components/CartResultForMAO/CartResultForMAO'
@@ -11,13 +11,11 @@ import ArrowLe from '../../static/Arrow.png.png'
 import { observer } from 'mobx-react-lite'; 
 
 const MackingAnOrders1 = () => {
-    const { store } = useContext(Context)
+    const { store, device} = useContext(Context)
     const navigate = useNavigate()
-    let textbutton = 'К выбору доставки'
-    const { device } = useContext(Context)
+    const textbutton = 'К выбору доставки'
     return (
         <div>
-            <Header />
             <div className='MAO_body'>
                 <div className='MAO_frame_parent'>
                     <div className='MAO_left_menu'>
@@ -28,7 +26,7 @@ const MackingAnOrders1 = () => {
                             <div className='text_back_to_busket'>В корзину</div>
                         </div>
                         {store.isAuth ?
-                            <div></div>
+                            null
                             :
                             <div className='MAO_if_noauth'>
                                 <div className='text_noauth'>

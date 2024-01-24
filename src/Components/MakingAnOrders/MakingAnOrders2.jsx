@@ -22,7 +22,6 @@ const MackingAnOrders2 = () => {
 
     return (
         <div>
-            <Header />
             <div className='MAO_body'>
                 <div className='MAO_frame_parent'>
                     <div className='MAO_left_menu'>
