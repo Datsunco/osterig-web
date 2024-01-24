@@ -2,9 +2,11 @@ import React, { useContext, useEffect } from 'react';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./CartResult.module.css"
+import { useNavigate } from 'react-router-dom';
 
 const CartResult = () => {
     const { device, cart} = useContext(Context)
+    const navigate = useNavigate()
 
     useEffect(() => {
         console.log(cart.getCartSumPrice())
@@ -29,7 +31,7 @@ const CartResult = () => {
                                 </div>
                             </div>
                             <div className={styles.frameParent1}>
-                                <div className={styles.wrapper}>
+                                <div className={styles.wrapper} onClick={() => navigate('/checkout')}>
                                     <b className={styles.b2}>к оформлению</b>
                                 </div>
                                 <div className={styles.div2}>

@@ -9,6 +9,7 @@ import CartStore from './StoreData/cartStore';
 import DeviceStore from './StoreData/deviceStore';
 import CatalogStore from './StoreData/catalogStore';
 import SearchStore from './StoreData/searchStore';
+import CheckoutStore from './StoreData/checkoutStore';
 
 const store = new Store()
 
@@ -25,7 +26,8 @@ root.render(
       cart: new CartStore(),
       device: new DeviceStore(),
       catalog: new CatalogStore(),
-      search: new SearchStore()
+      search: new SearchStore(),
+      checkout: new CheckoutStore(),
     }}>
     <App />
     </Context.Provider>

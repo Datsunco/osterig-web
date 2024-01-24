@@ -27,7 +27,7 @@ const Main = () => {
         device.parseHotProducts()
         store.getCurrency()
         if (localStorage.getItem('token')) {
-            store.checkAuth()
+            // store.checkAuth()
             // favorites.getFavorites()
             // cart.getDevices()
         }
