@@ -10,9 +10,9 @@ export default class ordersService {
         }
     }
 
-    static async createOrder() {
+    static async createOrder(userId, totalAmount, paymentType) {
         try {
-            return $api.post('/order/post')
+            return $api.post('/payment/initial', {body: {userId, totalAmount, paymentType}})
         } catch (e) {
             console.log(e)
         }

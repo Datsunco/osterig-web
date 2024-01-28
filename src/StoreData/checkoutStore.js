@@ -13,6 +13,7 @@ export default class CheckoutStore {
     uniqId = 'test';
     totalAmount = 128100;
     userId = '651d45f76bd9ff09147fc61e';
+    paymentType = 'CARD'
 
 
     constructor() {
