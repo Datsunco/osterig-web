@@ -3,16 +3,16 @@ import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./CartResultForMAO.module.css"
 
-const CartResultForMAO = ({textbutton}) => {
-    const { device, cart, store} = useContext(Context)
+const CartResultForMAO = ({ textbutton, isButtonDisabled, dileviry}) => {
+    const { device, cart, store } = useContext(Context)
 
     useEffect(() => {
-        console.log(cart.getCartSumPrice())
+        
     }, [cart])
 
     const nextPage = () => {
         store.nextPage()
-      }
+    }
 
     return (
         <div className={styles.rectangleParent}>
@@ -34,24 +34,10 @@ const CartResultForMAO = ({textbutton}) => {
                             </div>
                             {
                                 store.isAuth ?
-                                <div className={styles.frameParent9} onClick={() => store.switchPage()}>
-                                    <div className={styles.wrapper1}>
-                                        <b className={styles.b21}>{textbutton}</b>
-                                    </div>
-                                </div>
-                            //(textbutton == 1 ?
-                          //  <div>asd</div>
-                         //   :
-                         //   <div>asdsa</div>
-                        //)
-                            :
-                            <div className={styles.frameParent1}>
-                                <div className={styles.wrapper}>
-                                    <b className={styles.b2}>{textbutton}</b>
-                                </div>
-                            </div>
+                                    <button className={styles.b21} disabled={isButtonDisabled} onClick={() => store.switchPage()}>{textbutton}</button>
+                                    :
+                                    <button className={styles.b2} >{textbutton}</button>
                             }
-
                         </div>
                     </div>
                 </div>

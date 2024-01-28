@@ -8,13 +8,42 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
-import { observer } from 'mobx-react-lite'; 
+import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
 
 const MackingAnOrders1 = () => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     let textbutton = 'К выбору доставки'
     const { device } = useContext(Context)
+
+    const [value_email, setValue_email] = useState("");
+    function handleChange1(e) {
+        setValue_email(e.target.value);
+    }
+
+    const [value_number, setValue_number] = useState("");
+    function handleChange2(e) {
+        setValue_number(e.target.value);
+    }
+
+    const [value_surname, setValue_surname] = useState("");
+    function handleChange3(e) {
+        setValue_surname(e.target.value);
+    }
+
+    const [value_name, setValue_name] = useState("");
+    function handleChange4(e) {
+        setValue_name(e.target.value);
+    }
+
+    const [value_patronymic, setValue_patronymic] = useState("");
+    function handleChange5(e) {
+        setValue_patronymic(e.target.value);
+    }
+    
+    let isButtonDisabled = value_email == '' || value_number == '' || value_surname == '' || value_name == '' || value_patronymic == '';
+    
     return (
         <div>
             <Header />
@@ -49,33 +78,32 @@ const MackingAnOrders1 = () => {
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>E-MAIL</div>
-                                        <input type='text' className='MAO_input' placeholder='example@mail.ru' />
+                                        <input type='text' className='MAO_input' placeholder='example@mail.ru' value={value_email} onChange={handleChange1} />
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Телефон</div>
-                                        <input type='text' className='MAO_input' placeholder='+ 7 999 134 08 35' />
+                                        <input type='text' className='MAO_input' placeholder='+ 7 999 134 08 35' value={value_number} onChange={handleChange2}/>
                                     </div>
                                 </div>
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>фамилия</div>
-                                        <input type='text' className='MAO_input' placeholder='Иванов' />
+                                        <input type='text' className='MAO_input' placeholder='Иванов' value={value_surname} onChange={handleChange3}/>
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>имя</div>
-                                        <input type='text' className='MAO_input' placeholder='Иван' />
+                                        <input type='text' className='MAO_input' placeholder='Иван' value={value_name} onChange={handleChange4} />
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>отчество</div>
-                                        <input type='text' className='MAO_input' placeholder='Иванович' />
+                                        <input type='text' className='MAO_input' placeholder='Иванович' value={value_patronymic} onChange={handleChange5} />
                                     </div>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO textbutton={textbutton} />
+                        <CartResultForMAO textbutton={textbutton} isButtonDisabled={isButtonDisabled}/>
                     </div>
                 </div>
             </div>
@@ -83,7 +111,7 @@ const MackingAnOrders1 = () => {
                 <div class="chelka" id="popularId">
                     <div class="popular1"><h1>ВАМ МОЖЕТ ПОНРАВИТЬСЯ</h1></div>
                     <button class="alltovars" onClick={() => navigate("/catalog")}>
-                        Все товары 
+                        Все товары
                         <div class="strelka1SVG">
                             <img src={ArrowLe} class="filter-green"></img>
                         </div>

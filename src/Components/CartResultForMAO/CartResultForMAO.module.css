@@ -62,33 +62,6 @@
   gap: 20px;
 }
 
-.b2 {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  color: #323232;
-  text-align: center;
-  font-family: Gilroy;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 130%;
-  /* 18.2px */
-  text-transform: uppercase;
-}
-
-.wrapper {
-  align-self: stretch;
-  border-radius: 7px;
-  background-color: #E5E6E8;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 25px;
-  cursor: default;
-}
-
 .p {
   margin: 0;
 }
@@ -102,26 +75,6 @@
   font-weight: 500;
   color: var(--gray-4);
   text-align: center;
-}
-
-.frameParent1 {
-  align-self: stretch;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  text-align: right;
-  color: var(--white);
-}
-
-.frameParent {
-  align-self: stretch;
-  gap: 35px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
 }
 
 .frameDiv {
@@ -168,18 +121,6 @@
   color: var(--white);
 }
 
-.wrapper1 {
-  align-self: stretch;
-  border-radius: 7px;
-  background: var(--System-Blue, #0071E3);
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding: 20px 25px;
-  cursor: pointer;
-}
-
 .b21 {
   display: block;
   margin-left: auto;
@@ -192,4 +133,40 @@
   font-weight: 700;
   line-height: 130%;
   text-transform: uppercase;
+  width: 349px;
+  height: 58px;
+  border-radius: 7px;
+  background: var(--System-Blue, #0071E3);
+  border: none;
+  margin-top: 35px;
+}
+
+.b2 {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  color: #323232;
+  text-align: center;
+  font-family: Gilroy;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 130%;
+  /* 18.2px */
+  text-transform: uppercase;
+  width: 349px;
+  height: 58px;
+  border-radius: 7px;
+  background: #E5E6E8;
+  border: none;
+}
+
+.b2:disabled {
+  border-radius: 7px;
+  background: #E5E6E8;
+}
+
+.b21:disabled {
+  border-radius: 7px;
+  background: #E5E6E8;
 }

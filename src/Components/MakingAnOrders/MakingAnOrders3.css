@@ -33,6 +33,17 @@
     width: 520px;
     height: 89px;
     margin-top: 10px;
+    border-radius: 7px;
+    background: var(--Gray-1, #F1F3F4);
+    color: black;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 135%;
+    padding: 10px;
+    resize: none;
+    border: none;
 }
 
 .MAO_paymant_frame {

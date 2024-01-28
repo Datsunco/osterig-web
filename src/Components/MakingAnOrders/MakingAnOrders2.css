@@ -55,6 +55,18 @@
     cursor: pointer;
 }
 
+.cd_h1_text_grayblack {
+    color: red;
+    font-family: Gilroy;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 110%;
+    /* 26.4px */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
 .cd_slash {
     color: var(--Gray-3, #BFC2C7);
     font-family: Gilroy;

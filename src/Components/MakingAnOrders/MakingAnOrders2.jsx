@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router';
 import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
 import { observer } from 'mobx-react-lite';
+import { useState } from 'react';
 
 const MackingAnOrders2 = () => {
     const { store } = useContext(Context)
@@ -18,7 +19,16 @@ const MackingAnOrders2 = () => {
 
     useEffect(() => {
         store.getTariffs()
-    }, [store])
+    }, [store]);
+
+    const [value_adress, setValue_addres] = useState("");
+    function handleChange(e) {
+        setValue_addres(e.target.value);
+    }
+    let [dileviry, setDileviry] = useState('');
+    let isButtonDisabled = !value_adress || !dileviry;
+    let [ChooseButton, setChooseButton] = useState(''); 
+    let [ActiveButton, setActiveButton] = useState('');
 
     return (
         <div>
@@ -58,56 +68,77 @@ const MackingAnOrders2 = () => {
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Точный адрес</div>
-                                        <input type='text' className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                        <input type='text' className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' value={value_adress} onChange={handleChange} />
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div className='choose_delivery_body'>
+                        <div className='choose_delivery_body'>  
                             <div className='cd_header'>
-                                <div className='cd_h1_text_black'>Пункты выдачи</div>
+                                <div className={ActiveButton == 1? 'cd_h1_text_black': 'cd_h1_text_gray'} onClick={() => {setChooseButton(1); setActiveButton('1')}}>Пункты выдачи</div>
                                 <div className='cd_slash'>/</div>
-                                <div className='cd_h1_text_gray'>Доставка до двери</div>
+                                <div className={ActiveButton == 2? 'cd_h1_text_black': 'cd_h1_text_gray'} onClick={() => {setChooseButton(2); setActiveButton('2')}}>Доставка до двери</div>
                                 <div className='cd_slash'>/</div>
-                                <div className='cd_h1_text_gray'>Самовывоз</div>
+                                <div className={ActiveButton == 3? 'cd_h1_text_black': 'cd_h1_text_gray'} onClick={() => {setChooseButton(3); setActiveButton('3')}}>Самовывоз</div>
                             </div>
-                            { store?.tariffs[138] ?
-                            <>
-                                <hr className='cd_line'></hr>
-                                <div className='cd_points'>
-                                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
-                                    <div className='cd_box_for_org'>
-                                        <div className='cd_name_org'>СДЭК ПВЗ</div>
+                            {ChooseButton == 1 ?
+                            <div>
+                                {store?.tariffs[138] ?
+                                <>
+                                    <hr className='cd_line'></hr>
+                                    <div className='cd_points'>
+                                        <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                        <div className='cd_box_for_org'>
+                                            <div className='cd_name_org'>СДЭК ПВЗ</div>
+                                        </div>
+                                        <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
+                                        <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
+                                        <div className='cd_choose_deliviry' onClick={() => {setDileviry(1)}}>Выбрать</div>
                                     </div>
-                                    <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
-                                    <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                    <div className='cd_choose_deliviry'>Выбрать</div>
-                                </div>
-                            </>
-                            :
-                            null
+                                </>
+                                :
+                                null
                             }
-                            { store?.tariffs[366] ?
-                            <>
-                                <hr className='cd_line'></hr>
-                                <div className='cd_points'>
-                                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
-                                    <div className='cd_box_for_org'>
-                                        <div className='cd_name_org'>СДЭК Постамат</div>
-                                        {/* <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div> */}
+                            {store?.tariffs[366] ?
+                                <>
+                                    <hr className='cd_line'></hr>
+                                    <div className='cd_points'>
+                                        <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                        <div className='cd_box_for_org'>
+                                            <div className='cd_name_org'>СДЭК Постамат</div>
+                                            {/* <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div> */}
+                                        </div>
+                                        <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
+                                        <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
+                                        <div className='cd_choose_deliviry ' onClick={() => {setDileviry(1)}}>Выбрать</div>
                                     </div>
-                                    <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
-                                    <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                    <div className='cd_choose_deliviry'>Выбрать</div>
-                                </div>
-                            </>
-                            :
-                            null
+                                </>
+                                :
+                                null
                             }
+                            </div>
+                            :
+                            <div></div>
+                            } 
+                            {ChooseButton == 2 ?
+                            <div>
+                                Доставка до двери
+                            </div>
+                            :
+                            <div></div>
+                            }  
+                            {ChooseButton == 3 ?
+                            <div>
+                                Самовывоз
+                            </div>
+                            :
+                            <div></div>
+                            }  
+                            
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO textbutton={textbutton} />
+                        <CartResultForMAO textbutton={textbutton} isButtonDisabled={isButtonDisabled} dileviry={dileviry} />
                     </div>
                 </div>
             </div>
