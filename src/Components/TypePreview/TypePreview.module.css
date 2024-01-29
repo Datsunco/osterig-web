@@ -91,3 +91,8 @@
 .navigation_link{
     color: #717171;
 }
+
+.search_result {
+    margin-left: -60px;
+    padding-bottom: 20px;
+}
