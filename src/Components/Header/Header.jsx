@@ -107,6 +107,9 @@ const Header = () => {
         catalog.setCatalogOpen(!catalog.catalogOpen)
     }
 
+    const onClickCatalogClose = () => {
+        catalog.setCatalogOpen(false)
+    }
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -146,11 +149,11 @@ const Header = () => {
                     </div>
                     <div class="rightOptions">
                         <div class="margerZ">
-                        <div class="cursorP" onClick={() => onClickButton("orders")}>
+                        <div class="cursorP" onClick={() => onClickButton("orders") & onClickCatalogClose()}>
                             <div class="orders"></div>
                             <div class='text-padding-top'>Заказы</div>
                         </div>
-                        <div class="cursorP" onClick={() => onClickButton("favorites")}>
+                        <div class="cursorP" onClick={() => onClickButton("favorites") & onClickCatalogClose()}>
                             <div className='header_fav_count'>{favorites.favorites.length}</div>
                             <div class="favorits"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("favorites")}>Избранное</div>

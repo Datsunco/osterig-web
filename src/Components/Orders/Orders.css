@@ -11,6 +11,7 @@
 .orders_cart {
     display: flex;
     gap: 15px;
+    margin-top: 20px;
 }
 
 .text_orders_h1 {
