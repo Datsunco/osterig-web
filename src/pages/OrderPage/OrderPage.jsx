@@ -1,5 +1,6 @@
 import React from 'react';
 import Orders from '../../Components/Orders/Orders';
+import { observer } from 'mobx-react-lite';
 
 const OrderPage = () => {
     return (
@@ -9,4 +10,4 @@ const OrderPage = () => {
     );
 };
 
-export default OrderPage;
+export default observer(OrderPage);

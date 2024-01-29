@@ -9,10 +9,14 @@ const Orders = () => {
     const { orders } = useContext(Context)
 
     useEffect(() => {
+        console.log(orders.orders.length)
+        console.log("renderes")
+        orders.getOrders()
         if (localStorage.getItem('token')) {
             orders.getOrders()
         }
     }, [orders])
+
     return (
         <div>
             <Header />
