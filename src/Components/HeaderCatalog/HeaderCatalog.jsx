@@ -6,6 +6,7 @@ import HeaderSubCatalog from "../HeaderSubCatalog/HeaderSubCatalog";
 import HeaderSubSuCatalog from "../HeaderSubSubCatalog/HeaderSubSuCatalog";
 import styles2 from "../HeaderSubSubCatalog/HeaderSubSubCatalog.module.css"
 import { useNavigate } from "react-router-dom";
+import ArrowLe from "../../static/Arrow.png.png"
 
 const HeaderCatalog = () => {
     const { catalog } = useContext(Context)
@@ -15,6 +16,9 @@ const HeaderCatalog = () => {
         document.getElementById(`${catalog.activeCatalog}`).style.display = "block"
     }, [catalog])
 
+    const onClickCatalogClose = () => {
+        catalog.setCatalogOpen(false)
+    }
 
     const onHoverSubcatalog = useCallback(() => {
         Array.from(document.getElementsByClassName(styles2.catalogTypesBlock)).forEach(element => {
@@ -38,6 +42,12 @@ const HeaderCatalog = () => {
                         <HeaderSubSuCatalog key={catalog.catalogId} catalogElement={catalog} />
                     )}
                 </div>
+                <button className={styles.alltovarsCatalog} onClick={() => navigate("/catalog") & onClickCatalogClose()}>
+                        Все товары 
+                        <div class={styles.strelka1SVG}>
+                            <img src={ArrowLe} class={styles.filtergreen}></img> 
+                        </div>
+                </button>
             </div>
         </div>
     );

@@ -1,16 +1,18 @@
 import React, { useContext, useEffect } from 'react';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
-import styles from "./CartResult.module.css"
-import { useNavigate } from 'react-router-dom';
+import styles from "./CartResultForMAO.module.css"
 
-const CartResult = () => {
-    const { device, cart} = useContext(Context)
-    const navigate = useNavigate()
+const CartResultForMAO = ({textbutton}) => {
+    const { device, cart, store} = useContext(Context)
 
     useEffect(() => {
         console.log(cart.getCartSumPrice())
     }, [cart])
+
+    const nextPage = () => {
+        store.nextPage()
+      }
 
     return (
         <div className={styles.rectangleParent}>
@@ -30,17 +32,26 @@ const CartResult = () => {
                                     <b className={styles.b1}>13 600 ₽</b>
                                 </div>
                             </div>
-                            <div className={styles.frameParent1}>
-                                <div className={styles.wrapper} onClick={() => navigate('/checkout')}>
-                                    <b className={styles.b2}>к оформлению</b>
+                            {
+                                store.isAuth ?
+                                <div className={styles.frameParent9} onClick={() => store.switchPage()}>
+                                    <div className={styles.wrapper1}>
+                                        <b className={styles.b21}>{textbutton}</b>
+                                    </div>
                                 </div>
-                                <div className={styles.div2}>
-                                    <p className={styles.p}>{`Доступные способы доставки `}</p>
-                                    <p className={styles.p}>
-                                        можно выбрать при оформлении заказа
-                                    </p>
+                            //(textbutton == 1 ?
+                          //  <div>asd</div>
+                         //   :
+                         //   <div>asdsa</div>
+                        //)
+                            :
+                            <div className={styles.frameParent1}>
+                                <div className={styles.wrapper}>
+                                    <b className={styles.b2}>{textbutton}</b>
                                 </div>
                             </div>
+                            }
+
                         </div>
                     </div>
                 </div>
@@ -49,4 +60,4 @@ const CartResult = () => {
     );
 };
 
-export default observer(CartResult);
+export default observer(CartResultForMAO);

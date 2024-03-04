@@ -20,12 +20,14 @@ import './Main.css'
 
 
 const Main = () => {
-    const { device, favorites, cart} = useContext(Context)
+    const { device, favorites, cart, store} = useContext(Context)
     const [data, setData] = useState('')
 
     useEffect(() => {
+        device.parseHotProducts()
+        store.getCurrency()
         if (localStorage.getItem('token')) {
-            device.parseHotProducts()
+            // store.checkAuth()
             // favorites.getFavorites()
             // cart.getDevices()
         }
@@ -35,25 +37,25 @@ const Main = () => {
 
     return (
         <div>
-                <Header/>
-                <Container>
+            <Header />
+            <Container>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
                 <div class="MainPageMargin">
-                <Row className='mt-2'>
-                    <Info />
-                    <Popular />
-                </Row>
+                    <Row className='mt-2'>
+                        <Info />
+                        <Popular />
+                    </Row>
                 </div>
             </Container>
             <div>
                 <TypeBar />
-                <Resistors/>
-                <Capacitors/>
-                <Inductors/>
-                <Processors/>
-                <Сonverters/>
-                <Diodes/>
-                <Connectors/>
+                <Resistors />
+                <Capacitors />
+                <Inductors />
+                <Processors />
+                <Сonverters />
+                <Diodes />
+                <Connectors />
             </div>
 
             <BottomMenu />

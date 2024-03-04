@@ -11,8 +11,6 @@ import { Context } from '../..';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import HeartDevice from "../../static/HeartheartDevice.png"
 
-
-
 const DevicePage = () => {
   const { id } = useParams()
   const [isFavorite, setIsFavorite] = useState(false);
@@ -52,7 +50,44 @@ const DevicePage = () => {
     setIsCart(true)
     cart.setPreviewAddedDevice(device.productDetails)
   }
-  
+
+  const DataComponentDevicePage = ({ device, cartState }) => {
+    const { cart } = useContext(Context)
+    const [isCart, setIsCart] = useState(cartState)
+
+    useEffect(() => {
+      setIsCart(cartState)
+      // console.log(device, cartState)
+    }, [cartState])
+    if (device.productDetails.stockNumber == 0)
+      return (
+        <div
+            class="NetVNal" >
+            Нет в наличии
+          </div>
+      );
+    if (isCart)
+      return (
+        <>
+          <button
+            class="vkorzine" >
+            В корзине
+            <div class='svgL'>
+              <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
+                <path d="M10.2 1L4.42505 7L1.42505 4" stroke="#0071E3" stroke-width="1.5" />
+              </svg>
+            </div>
+          </button>
+        </>
+      )
+    else
+      return (
+        <button onClick={() => addToCart()}
+          class="vkorzinu" >
+          Добавить в корзину
+        </button>
+      )
+  };
 
   // const toggleFavorite = () => {
   //   setIsFavorite(!isFavorite)
@@ -111,25 +146,7 @@ const DevicePage = () => {
             <br />
 
             <div class='dhg'>
-              {!isCart ?
-                <button onClick={() => addToCart()}
-                  class="vkorzinu" >
-                  Добавить в корзину
-                </button>
-                :
-                <>
-                  <button
-                    class="vkorzine" >
-                    В корзине
-                    <div class='svgL'>
-                      <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
-                        <path d="M10.2 1L4.42505 7L1.42505 4" stroke="#0071E3" stroke-width="1.5" />
-                      </svg>
-                    </div>
-                  </button>
-                </>
-              }
-
+              <DataComponentDevicePage device={device} cartState={isCart} />
               <div className='device_page_favorite_block'>
                 {!isFavorite ?
                   <div className='devcie_page_fav_button' onClick={() => favorites.addFavorite(device.productDetails) && setIsFavorite(true)}>

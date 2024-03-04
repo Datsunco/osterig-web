@@ -10,6 +10,7 @@ import { useNavigate } from 'react-router';
 const Popular = () => {
     const { device, favorites, cart } = useContext(Context)
     const navigate = useNavigate()
+    console.log(device.hotProducts.slice(0, 5))
     return (
         <div class="PopularBody">
             <div>

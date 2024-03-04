@@ -1,4 +1,3 @@
-
 .homeDesktop {
     margin-top: 35px;
     height: 458px;
@@ -20,7 +19,7 @@
     height: 393px;
 }
 
-.catalogSubdirectoryBlock_2{
+.catalogSubdirectoryBlock_2 {
     display: block;
     width: 375px;
     height: 393px;
@@ -35,12 +34,12 @@
     background: #D4D4D4;
 }
 
-.typeHeader{
+.typeHeader {
     font-size: 36px;
     color: var(--color-black);
 }
 
-.catalogTypesStock{
+.catalogTypesStock {
     display: flex;
 }
 
@@ -51,7 +50,7 @@
     background-color: #55bc72;
     width: 8px;
     height: 8px;
-} 
+}
 
 .catalogTypesStockText {
     top: 77px;
@@ -69,4 +68,42 @@
     flex-direction: row;
     width: 1100px;
     height: 405px;
-} 
+}
+
+
+.alltovarsCatalog {
+    cursor: pointer;
+    color: #0071E3;
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: normal;
+    width: 141px;
+    height: 42px;
+    flex-shrink: 0;
+    border: none;
+    border-radius: 6px;
+    margin-left: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin-top: 380px;
+}
+
+.alltovarsCatalog:hover {
+    background-color: #0071E3;
+    color:aliceblue;
+    transition: all 0.5s;
+}
+
+.alltovarsCatalog:hover .filtergreen{
+    filter: brightness(0) invert(24);
+    transition: all 0.3s;
+}
+
+.strelka1SVG {
+    margin-left: 9px;
+    margin-top: 2px;
+}   

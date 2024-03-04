@@ -11,14 +11,14 @@ import { useLocation, useParams } from 'react-router-dom';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 
 const Search = () => {
-    const { state } = useLocation() 
+    const { state } = useLocation()
     const { store } = useContext(Context)
     const { id, type } = useParams()
 
     useEffect(() => {
         if (type === "search") {
             store.search(id)
-        }else{
+        } else {
             store.setCurrentCatalogId(id)
             store.onLevel(id)
             store.parse(id, store.seletedParams)
@@ -28,27 +28,19 @@ const Search = () => {
 
     useEffect(() => {
         window.scrollTo(0, 0)
-      },)
+    },)
 
     return (
         <div>
             <Header />
             <div className='search_page'>
-                    <TypePreview from={type}
+                <TypePreview from={type}
                     childCatalogs={store.childCatalogs}
                     parentCatalogName={store.parentName}
                     parentcatalogId={store.parentId}
                     catalogName={store.catalogName} />
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
-                        {type != "search" ?
-                            <div>
-                                <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
-                                <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />
-                            </div>
-                            :
-                            null
-                        }
 
                     </div>
                     <div className='blocknameelem'>
@@ -58,7 +50,7 @@ const Search = () => {
                     </div>
                 </div>
             </div>
-            <BottomMenu/>
+            <BottomMenu />
         </div>
     );
 };

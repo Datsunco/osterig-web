@@ -11,6 +11,7 @@ import ProfileBlock from '../ProfileBlock/ProfileBlock';
 import PopUpNotice from '../popUpNotice/popUpNotice';
 import SearchInfo from '../SearchInfo/SearchInfo';
 
+
 const Header = () => {
     const avaRef = useRef(null)
     const exceptRef = useRef(null)
@@ -92,10 +93,23 @@ const Header = () => {
         setOpened(true)
     }
 
+    const onClickRegistration = () => {
+        const form = document.getElementById("form")
+        form.style.display = "block"
+        const form1 = document.getElementById("screen1")
+        form1.style.display = "none"
+        const form3 = document.getElementById("screen3")
+        form3.style.display = "flex"
+        setOpened(true)
+    }
+
     const onClickCatalog = () => {
         catalog.setCatalogOpen(!catalog.catalogOpen)
     }
 
+    const onClickCatalogClose = () => {
+        catalog.setCatalogOpen(false)
+    }
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -135,11 +149,11 @@ const Header = () => {
                     </div>
                     <div class="rightOptions">
                         <div class="margerZ">
-                        <div class="cursorP">
+                        <div class="cursorP" onClick={() => onClickButton("orders") & onClickCatalogClose()}>
                             <div class="orders"></div>
                             <div class='text-padding-top'>Заказы</div>
                         </div>
-                        <div class="cursorP" onClick={() => onClickButton("favorites")}>
+                        <div class="cursorP" onClick={() => onClickButton("favorites") & onClickCatalogClose()}>
                             <div className='header_fav_count'>{favorites.favorites.length}</div>
                             <div class="favorits"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("favorites")}>Избранное</div>
@@ -178,7 +192,7 @@ const Header = () => {
             <div useRef={profileRef} ref={profileRef}>
                 {profileOpened === true ?
                     <div ref={exceptRef} useRef={exceptRef}>
-                        <ProfileBlock onProfileClick={onClickAuthorization} />
+                        <ProfileBlock onLogClick={onClickAuthorization} onRegClick={onClickRegistration} />
                     </div>
                     :
                     null

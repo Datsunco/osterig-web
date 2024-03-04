@@ -1,17 +1,25 @@
 import {makeAutoObservable} from "mobx";
 import AuthService from "../services/authService";
 import ProxyService from "../services/proxyService";
+import CurrencyService from "../services/currencyService";
+import CartStore from "./cartStore";
+import FavoritesStore from "./favoritesStore";
 import axios from 'axios';
 import $api from "../http";
+import DeliveryService from "../services/deliveryService";
 
 
 export default class Store {
+    favStore;
+    currency = 1;
+    tariffs = []
     user = {}
     isAuth = false;
     isLoading = false;
     isParsed = false;
     devices = [{productId: 1},{productId: 2}]
 
+    page = 1
     defaultUrl = "https://cdn-icons-png.flaticon.com/512/4021/4021581.png"
     params = {"Manufacturer": [
         {
@@ -1002,6 +1010,7 @@ export default class Store {
         ]
     }
     seletedParams = []
+    errorMessage = ""
     currentCatalogId = null
     childCatalogs = []
     parentName = null
@@ -1009,8 +1018,13 @@ export default class Store {
     parentId = null
     catalogOpen = false
 
-    constructor() {
+    constructor(favStore) {
+        this.favStore = favStore
         makeAutoObservable(this);
+    }
+
+    setFavStore(fav){
+        this.favStore = fav
     }
 
     setAuth(bool) {
@@ -1019,6 +1033,10 @@ export default class Store {
 
     setUser(user) {
         this.user = user;
+    }
+
+    setErrorMessage(message) {
+        this.errorMessage = message;
     }
 
     setLoading(bool) {
@@ -1063,6 +1081,10 @@ export default class Store {
         this.catalogOpen = bool;
     }
 
+    setCurrency(currency) {
+        this.currency = currency;
+    }
+
     sliceSelectedParam(param){
         const changed = []
         let flag = false
@@ -1080,6 +1102,16 @@ export default class Store {
         this.seletedParams = changed
     }
 
+    setTariffs(tariff_codes){
+        var new_tariffs = {}
+        var tmp_tariffs = tariff_codes.filter(element => element.tariff_code === 138 || element.tariff_code === 366)
+        tmp_tariffs.forEach(element => {
+            new_tariffs[element.tariff_code] = element
+        })
+
+        this.tariffs = new_tariffs
+    }
+
     isSelectedparam(param){
         let flag = false
         this.seletedParams.forEach(element => {
@@ -1095,13 +1127,28 @@ export default class Store {
         }
     }
 
+    nextPage() {
+        this.page = this.page + 1;
+    }
+
+    async switchPage() {
+        try {
+            this.nextPage()
+        } catch (e) {
+            console.log(e.response?.data?.message);
+        }
+    }
+
     async login(email, password) {
         try {
             const response = await AuthService.login(email, password);
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            this.favStore.getFavorites()
+            this.setErrorMessage("")
         } catch (e) {
+            this.setErrorMessage(e.response?.data?.message)
             console.log(e.response?.data?.message);
         }
     }
@@ -1112,7 +1159,9 @@ export default class Store {
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
+            this.setErrorMessage("")
         } catch (e) {
+            this.setErrorMessage(e.response?.data?.message)
             console.log(e.response?.data?.message);
         }
     }
@@ -1189,18 +1238,36 @@ export default class Store {
         }
     }
 
+    async getCurrency(){
+        try{
+            const response = await CurrencyService.getCurrency();
+            this.setCurrency(response.data.Valute['USD'].Value)
+        } catch(e){
+            console.log(e);
+        }
+    }
+
     async checkAuth() {
         this.setLoading(true);
         try {
-            // const response = await $api.get(`/user/refresh`);
             const response = await axios.get(`https://osterig-server.vercel.app/api/user/refresh`, {withCredentials: true})
             localStorage.setItem('token', response.data.accessToken);
             this.setAuth(true);
             this.setUser(response.data.user);
         } catch (e) {
             console.log(e)
+            this.logout()
         } finally {
             this.setLoading(false);
+        }
+    }
+
+    async getTariffs() {
+        try {
+            const resp = await DeliveryService.getTariff()
+            this.setTariffs(resp.data.tariff_codes)
+        } catch (e) {
+            console.log(e)
         }
     }
 }

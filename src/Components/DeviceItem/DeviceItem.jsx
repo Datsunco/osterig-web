@@ -19,13 +19,11 @@ const DeviceItem = ({ device }) => {
     useEffect(() => {
         favorites.favorites.forEach(fav => {
             if (device.productCode === fav.productCode) {
-                // console.log(device.productModel, fav.productCode)
                 setIsFavorite(true)
             }
         });
         cart.devices.forEach(dev => {
             if (device.productCode === dev.productCode){
-                // console.log(device.productModel, dev.productCode)
                 setIsCart(true)
             }
         });
@@ -70,7 +68,7 @@ const DeviceItem = ({ device }) => {
                     <div class="text11">{device.brandNameEn}</div>
                     <div class="text12">{device.productModel}</div>
                 </div>
-                <div class="text13">{device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice}
+                <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency).toFixed(2)}
                 </div>
             </div>
         </div>
@@ -78,7 +76,7 @@ const DeviceItem = ({ device }) => {
 };
 
 const DataComponent = ({ device, cartState }) => {
-    const { cart } = useContext(Context)
+    const { cart, store} = useContext(Context)
     const [isCart, setIsCart] = useState(cartState)
 
     useEffect(() => {
@@ -86,9 +84,13 @@ const DataComponent = ({ device, cartState }) => {
     }, [cartState])
 
     const onAddCartClick = () => {
-        setIsCart(true)
-        cart.addDevice(device)
-        cart.setPreviewAddedDevice(device)
+    
+        if (store.isAuth){
+            cart.setPreviewAddedDevice(device)
+            setIsCart(true)
+            cart.addDevice(device)
+        }
+            
     };
 
     if (device?.domesticStockVO?.total === 0 && device?.stockNumber === 0 )

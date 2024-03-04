@@ -29,7 +29,7 @@ const Favorites = () => {
                 <div className='fav_elements'>
                     <CartFavHeader state={'fav'} />
                     <div className='fav_items'>
-                        {favorites.favorites.map(device =>
+                        {favorites.favorites.slice(0).reverse().map(device =>
                             <DeviceItem device={device} />
                         )}
                     </div>
