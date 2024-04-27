@@ -3,7 +3,7 @@ import $api from "../http";
 export default class CartService{
     static async addDevice(device){
         try{
-            const imageUrl = device?.productImageUrlBig || device?.productImageUrl || device?.productImages?.[0] || "https://cdn-icons-png.flaticon.com/512/4021/4021581.png"
+            const imageUrl = device?.productImageUrlBig || device?.productImageUrl || device?.productImages?.[0] || "https://cdn-icons-png.flaticon.com/512/2339/2339070.png"
             const price =  device?.price || device?.productPriceList[0].currencyPrice 
             const minCount =  device?.minCount || device?.productPriceList[0].ladder 
             return $api.post('/cart/add', { 

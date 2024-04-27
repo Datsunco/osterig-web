@@ -315,8 +315,8 @@ export default class DeviceStore {
         if (newImages.length == 0){
             newImages.push(
                 {
-                    itemImageSrc: "https://cdn-icons-png.flaticon.com/512/4021/4021581.png",
-                    thumbnailImageSrc: "https://cdn-icons-png.flaticon.com/512/4021/4021581.png",
+                    itemImageSrc: "https://cdn-icons-png.flaticon.com/512/2339/2339070.png",
+                    thumbnailImageSrc: "https://cdn-icons-png.flaticon.com/512/2339/2339070.png",
                     alt: 'Description for Image 1',
                     title: 'Title 1'
                 })

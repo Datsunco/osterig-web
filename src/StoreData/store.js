@@ -20,7 +20,7 @@ export default class Store {
     devices = [{productId: 1},{productId: 2}]
 
     page = 1
-    defaultUrl = "https://cdn-icons-png.flaticon.com/512/4021/4021581.png"
+    defaultUrl = "https://cdn-icons-png.flaticon.com/512/2339/2339070.png"
     params = {"Manufacturer": [
         {
             "name": "3PEAK",
