@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const $api = axios.create({
-    baseURL: "https://osterig-server.vercel.app/api/",
+    baseURL: "https://osterrig-electronics.vercel.app/api/",
     withCredentials: true,
 
 })
