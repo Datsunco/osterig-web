@@ -30,6 +30,7 @@ const CartResult = () => {
                                     <b className={styles.b1}>13 600 ₽</b>
                                 </div>
                             </div>
+                            
                             <div className={styles.frameParent1}>
                                 <div className={styles.wrapper} onClick={() => navigate('/checkout')}>
                                     <b className={styles.b2}>к оформлению</b>
