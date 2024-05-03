@@ -68,9 +68,9 @@ const BottomMenu = () => {
         </div>
         <div class="textP">
           <a class="textPop" href=''>Реквизиты</a>
-          <a class="textYes" href=''>ИП Бархатова Анна Юрьевна</a>
-          <a class="textYes" href=''>ИНН: 032384275700</a>
-          <a class="textYes" href=''>ОГРН/ОГРНИП: 318502900056762</a>
+          <a class="textYes" href=''>ООО "Лазарь"</a>
+          <a class="textYes" href=''>ИНН: 7727322300</a>
+          <a class="textYes" href=''>ОГРН: 1177746608270</a>
         </div>
         <div class="autors">
           <svg xmlns="http://www.w3.org/2000/svg" width="330" height="1" viewBox="0 0 330 1" fill="none"><path d="M1 -2.87621e-05C0.723846 -2.87863e-05 0.5 0.223829 0.5 0.499971C0.5 0.776114 0.723846 0.999971 1 0.999971L1 -287621e-05ZM330 0L1 -2.87621e-05L1 0.999971L330 1L330 0Z" fill="url(#paint0_linear_449_245)" /><defs><linearGradient id="paint0_linear_449_245" x1="222" y1="-5.50002" x2="76" y2="-3.99988" gradientUnits="userSpaceOnUse"><stop stopColor="white" /><stop offset="1" stopColor="white" stopOpacity="0" /></linearGradient></defs></svg>
