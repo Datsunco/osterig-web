@@ -17,11 +17,17 @@ import Diodes from '../../Components/BottomProducts/Diodes';
 import Connectors from '../../Components/BottomProducts/Connectors';
 
 import './Main.css'
+import MobileHeader from '../../Components/MobileHeader/MobileHeader';
 
 
 const Main = () => {
     const { device, favorites, cart, store} = useContext(Context)
     const [data, setData] = useState('')
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const breakpoints = {
+        mobile: 991
+       }
 
     useEffect(() => {
         device.parseHotProducts()
@@ -33,11 +39,33 @@ const Main = () => {
         }
     }, [device, favorites, cart])
 
+    const handleResize = () => {
+        console.log(window.innerWidth)
+        setWindowWidth(window.innerWidth);
+      };
+    
+      useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
+
+    const getIsMobile = () => {
+        if (windowWidth <= breakpoints.mobile) {
+          return true
+        }
+        console.log('magic')
+        return false
+       }
+
 
 
     return (
         <div>
-            <Header />
+            {windowWidth <= breakpoints.mobile ? <MobileHeader/> : <Header/> }
+            {/* <Header /> */}
             <Container>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
                 <div class="MainPageMargin">

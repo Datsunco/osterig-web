@@ -1,7 +1,8 @@
 .rowitems{
     display: flex;
     flex-direction: row;
-    width: 1206px;
+    max-width:  1206px;
+    width: 100%;
     margin: auto;
 }
 

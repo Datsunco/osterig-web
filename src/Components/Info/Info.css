@@ -1,11 +1,14 @@
 
+.testrowclass{
+    overflow-x: auto;
+}
 .h2css {
     font-family: Gilroy;
     font-size: 30px;
     font-weight: 700;
     line-height: 37px;
     letter-spacing: 0em;
-    text-align: left;
+    text-align: center;
     margin-top: 15%;
     color: white;
 }
@@ -14,14 +17,15 @@
     justify-content: center;
     display: flex;
     height: 382px;
-    width: 1206px;
+    max-width: 1206px;
+    width: 100%;
     border-radius: 20px;
     margin: auto;
     margin-top: 134px;
     background-color: black;
     background-image: url(../../static/bggradient.png);
+    background-size:100% 100%;
     background-position: center center;
-    background-size: 100%;
     background-repeat: no-repeat;
 }
 
@@ -90,7 +94,7 @@
     line-height: 26px;
     letter-spacing: 0em;
     text-align: left;
-    margin-top: 17%;
+    margin-top: 100px;
     border: none;
     cursor: pointer;
 }
@@ -112,18 +116,19 @@
 }
 
 .description {
+    overflow-x: auto;
     height: auto;
-    width: 1206px;
+    max-width: 1206px;
     margin: auto;
     display: flex;
     align-items: center;
     color: #2D2D2D;
-    justify-content: center;
+    /* justify-content: center; */
     margin-bottom: 100px;
 }
 
 .op {
-    width: 284px;
+    min-width: 284px;
     font-family: 'GloryBold';
     height: 206px;
     background-color: #F8F8F8;
@@ -158,7 +163,7 @@
 }
 
 .op1 {
-    width: 284px;
+    min-width: 284px;
     font-family: 'GloryBold';
     height: 206px;
     background-color: #F8F8F8;

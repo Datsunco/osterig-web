@@ -37,6 +37,7 @@ const DeviceItem = ({ device }) => {
     return (
         <div className={"mt-3"}>
             <div class="md3">
+                <div className="tmp">
                 {isFavorite === true ?
                     <img className="heart_icon_device"
                         id={device.productModel}
@@ -51,9 +52,10 @@ const DeviceItem = ({ device }) => {
                         src="/heart.png" />
 
                 }
-                <DataComponent device={device} cartState={isCart}/>
+                {/* <DataComponent device={device} cartState={isCart}/> */}
+                </div>
                 <Card
-                    style={{ width: 150, cursor: 'pointer', margin: 'auto' }}
+                    style={{ width: 150, cursor: 'pointer', margin: 'auto', paddingTop: '0px'}}
                     border={"light"}
                     class="card"
                     onClick={() => navigate(DEVICE_ROUTE + '/' + device.productCode, { state: { productCode: device.productCode } })}>
@@ -70,6 +72,7 @@ const DeviceItem = ({ device }) => {
                 </div>
                 <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency).toFixed(2)}
                 </div>
+                <button onClick={() =>console.log() } class="busket1" href=''>В корзину</button>
             </div>
         </div>
     );

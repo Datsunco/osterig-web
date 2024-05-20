@@ -1,0 +1,106 @@
+.tracedIcon {
+    height: 15px;
+    width: 95.6px;
+    position: relative;
+  }
+  .tracedWrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 0 6.4px;
+  }
+  .electronics {
+    position: relative;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: inline-block;
+    font-weight: 700;
+    min-width: 99px;
+  }
+  .mainContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2.3px;
+  }
+  .vectorIcon {
+    height: 18px;
+    width: 18px;
+    position: relative;
+  }
+  .vectorWrapper {
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 3px;
+    box-sizing: border-box;
+    width: 24px;
+  }
+  .vectorIcon1 {
+    height: 20px;
+    width: 20px;
+    position: relative;
+  }
+  .vectorContainer {
+    height: 24px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 2px;
+    box-sizing: border-box;
+    width: 24px;
+  }
+  .vectorIcon2 {
+    width: 22px;
+    height: 16px;
+    position: relative;
+  }
+  .closebut {
+    height: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 1px;
+    box-sizing: border-box;
+    width: 24px;
+  }
+  .frameParent,
+  .header,
+  .headerInner {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .frameParent {
+    flex-direction: row;
+    gap: 16px;
+  }
+  .header,
+  .headerInner {
+    flex-direction: column;
+    padding: 4.5px 0 0;
+  }
+  .header {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px 16px 20px;
+    line-height: normal;
+    letter-spacing: normal;
+    gap: 20px;
+    text-align: left;
+    font-size: 12px;
+    color: #000;
+    font-family: Jost;
+  }
+  
+  
+  
