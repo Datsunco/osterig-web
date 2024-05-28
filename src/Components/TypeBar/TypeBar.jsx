@@ -21,8 +21,9 @@ const TypeBar = () => {
       </div>
       <div class="pop">
         {device.types.map((type, i) =>
-          <a href={type.idHref}>
+          <a className="test" href={type.idHref}>
             <ListGroupItem
+            className="est"
               style={{ cursor: 'pointer' }}
               key={type.id}
             >

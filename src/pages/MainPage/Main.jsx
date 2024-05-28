@@ -86,7 +86,7 @@ const Main = () => {
                 <Connectors />
             </div>
 
-            <BottomMenu />
+            {/* <BottomMenu /> */}
         </div>
 
     );

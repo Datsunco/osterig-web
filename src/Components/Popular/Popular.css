@@ -16,10 +16,13 @@
 
 }
 
+.rowitems::-webkit-scrollbar { width: 0 !important }
+
 .rowitems {
     gap: 15px;
     display: flex;
-    overflow-x:hidden;
+    overflow:hidden;
+    overflow-x: scroll;
     display: flex;
     height: auto;
     /* flex-wrap: nowrap; */
