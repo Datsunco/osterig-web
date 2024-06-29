@@ -15,7 +15,7 @@ const DevicePage = () => {
   const { id } = useParams()
   const [isFavorite, setIsFavorite] = useState(false);
   const [isCart, setIsCart] = useState(false);
-  const { cart, favorites, device } = useContext(Context)
+  const { cart, favorites, device, store} = useContext(Context)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -136,10 +136,10 @@ const DevicePage = () => {
                 <div class='lastprice'>
                   {device.productDetails.productPriceList?.[0].productPrice} ₽
                 </div>
-                <div class='newprice'>от {device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice} ₽</div>
+                <div class='newprice'>от {(device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice * store.currency*3).toFixed(2)} ₽</div>
               </>
               :
-              <div class='newprice'>от {device.productDetails.productPriceList?.[0].productPrice} ₽</div>
+              <div class='newprice'>от {(device.productDetails.productPriceList?.[0].productPrice   * store.currency*3).toFixed(2)} ₽</div>
             }
 
             <VMenu params={device.productDetails.paramVOList} />

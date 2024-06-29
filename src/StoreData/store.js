@@ -1018,6 +1018,19 @@ export default class Store {
     parentId = null
     catalogOpen = false
 
+    name=''
+    surname=''
+    middlename=''
+    phone=''
+    email=''
+    address=''
+    deliveryType=''
+    // const [name, setName] = useState('')
+    // const [surname, setSurname] = useState('')
+    // const [middlename, setMiddlename] = useState('')
+    // const [phone, setPhone] = useState('')
+    // const [email, setEmail] = useState('')
+
     constructor(favStore) {
         this.favStore = favStore
         makeAutoObservable(this);
@@ -1041,6 +1054,31 @@ export default class Store {
 
     setLoading(bool) {
         this.isLoading = bool;
+    }
+
+    setName(name) {
+        this.name = name;
+    }
+
+    setDeliveryType(name) {
+        this.deliveryType = name;
+    }
+
+    setSurname(name) {
+        this.surname = name;
+    }
+    setMiddlename(name) {
+        this.middlename = name;
+    }
+    setEmail(name) {
+        this.email = name;
+    }
+    setPhone(name) {
+        this.phone = name;
+    }
+
+    setAddress(name) {
+        this.address = name;
     }
 
     setParsed(bool) {
@@ -1104,7 +1142,7 @@ export default class Store {
 
     setTariffs(tariff_codes){
         var new_tariffs = {}
-        var tmp_tariffs = tariff_codes.filter(element => element.tariff_code === 138 || element.tariff_code === 366)
+        var tmp_tariffs = tariff_codes.filter(element => element.tariff_code === 139 || element.tariff_code === 138 )
         tmp_tariffs.forEach(element => {
             new_tariffs[element.tariff_code] = element
         })
@@ -1131,6 +1169,15 @@ export default class Store {
         this.page = this.page + 1;
     }
 
+    previousPage() {
+        if (this.page > 1){
+            this.page = this.page - 1;
+            return 'yes'
+        }
+        
+            return 'back'
+    }
+
     async switchPage() {
         try {
             this.nextPage()
@@ -1143,6 +1190,19 @@ export default class Store {
         try {
             const response = await AuthService.login(email, password);
             localStorage.setItem('token', response.data.accessToken);
+            this.setAuth(true);
+            this.setUser(response.data.user);
+            this.favStore.getFavorites()
+            this.setErrorMessage("")
+        } catch (e) {
+            this.setErrorMessage(e.response?.data?.message)
+            console.log(e.response?.data?.message);
+        }
+    }
+
+    async getData(email, password) {
+        try {
+            const response = await AuthService.getData();
             this.setAuth(true);
             this.setUser(response.data.user);
             this.favStore.getFavorites()
@@ -1262,9 +1322,9 @@ export default class Store {
         }
     }
 
-    async getTariffs() {
+    async getTariffs(address) {
         try {
-            const resp = await DeliveryService.getTariff()
+            const resp = await DeliveryService.getTariff(address)
             this.setTariffs(resp.data.tariff_codes)
         } catch (e) {
             console.log(e)

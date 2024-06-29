@@ -115,6 +115,18 @@
   color: var(--white);
 }
 
+.frameParent1disabled {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 15px;
+  text-align: right;
+  color: black;
+  background: rgba(241, 242, 244, 1);
+}
+
 .frameParent {
   align-self: stretch;
   gap: 35px;

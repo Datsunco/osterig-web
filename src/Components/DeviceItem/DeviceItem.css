@@ -157,8 +157,8 @@
 
 .busketUzhe { /* Уже в корзине */
     position: absolute;
-    margin-top: 300px;
-    margin-left: 40px;
+    /* margin-top: 300px; */
+    margin-left: 50px;
     width: 149px;
     height: 32px;
     background-color: #F5F5F7;
@@ -174,7 +174,7 @@
     letter-spacing: -0.5px;
     display: flex;
     justify-content: center;
-    visibility: hidden;
+    /* visibility: hidden; */
 }
 
 .md3:hover .busketUzhe { /* Уже в корзине hover */

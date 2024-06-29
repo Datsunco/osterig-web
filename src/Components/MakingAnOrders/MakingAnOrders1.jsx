@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import  './MakingAnOrders1.css';
 import Header from '../../Components/Header/Header'
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
@@ -14,12 +14,27 @@ const MackingAnOrders1 = () => {
     const { store, device} = useContext(Context)
     const navigate = useNavigate()
     const textbutton = 'К выбору доставки'
+
+    const [name, setName] = useState('')
+    const [surname, setSurname] = useState('')
+    const [middlename, setMiddlename] = useState('')
+    const [phone, setPhone] = useState('')
+    const [email, setEmail] = useState('')
+
+    const prevpage = () => {
+        const cb = store.previousPage()
+        console.log(cb)
+        if (cb === 'back'){
+            navigate("/cart")
+        }
+    }
+
     return (
         <div>
             <div className='MAO_body'>
                 <div className='MAO_frame_parent'>
                     <div className='MAO_left_menu'>
-                        <div className='back_to_basket' onClick={() => navigate("/cart")}>
+                        <div className='back_to_basket'  onClick={() => prevpage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>
                             </div>
@@ -47,25 +62,25 @@ const MackingAnOrders1 = () => {
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>E-MAIL</div>
-                                        <input type='text' className='MAO_input' placeholder='example@mail.ru' />
+                                        <input type='text' onChange={(e) => store.setEmail(e.target.value)} value={store.email} className='MAO_input' placeholder='example@mail.ru' />
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Телефон</div>
-                                        <input type='text' className='MAO_input' placeholder='+ 7 999 134 08 35' />
+                                        <input type='text' onChange={(e) => store.setPhone(e.target.value)} value={store.phone} className='MAO_input' placeholder='+ 7 999 134 08 35' />
                                     </div>
                                 </div>
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>фамилия</div>
-                                        <input type='text' className='MAO_input' placeholder='Иванов' />
+                                        <input type='text' onChange={(e) => store.setSurname(e.target.value)} value={store.surname} className='MAO_input' placeholder='Иванов' />
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>имя</div>
-                                        <input type='text' className='MAO_input' placeholder='Иван' />
+                                        <input type='text' onChange={(e) =>store.setName(e.target.value)} value={store.name} className='MAO_input' placeholder='Иван' />
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>отчество</div>
-                                        <input type='text' className='MAO_input' placeholder='Иванович' />
+                                        <input type='text' onChange={(e) => store.setMiddlename(e.target.value)} value={store.middlename} className='MAO_input' placeholder='Иванович' />
                                     </div>
                                 </div>
                             </div>
@@ -73,7 +88,7 @@ const MackingAnOrders1 = () => {
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO textbutton={textbutton} />
+                        <CartResultForMAO disabled={store.name && store.email && store.middlename && store.surname && store.phone } textbutton={textbutton} />
                     </div>
                 </div>
             </div>

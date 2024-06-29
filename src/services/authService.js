@@ -6,6 +6,11 @@ export default class AuthService{
         
     }
 
+    static async getData(){
+        return $api.get('/user/data')
+        
+    }
+
     static async parse(catalogId){
         return $api.get(`/proxy/parse/${catalogId}`)
         

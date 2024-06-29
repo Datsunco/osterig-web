@@ -78,10 +78,20 @@
 }
 
 .cd_points {
+    height: 50px;
     display: flex;
     margin-top: 20px;
     align-items: center;
     justify-content: center;
+}
+
+.cd_pointsblack {
+    height: 50px;
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+    background: rgba(241, 243, 244, 1);
 }
 
 .cd_name_org {
@@ -126,7 +136,7 @@
 }
 
 .cd_choose_deliviry {
-    margin-left: 198px;
+    margin-left: 170px;
     width: 56px;
     height: 16px;
     color: var(--Gray-4, #797C81);

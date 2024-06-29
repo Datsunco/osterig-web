@@ -1,12 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Context } from '../..';
 import { useContext } from 'react';
 import { observer } from 'mobx-react-lite';
 import styles from './ProfileBlock.module.css'
 import imgExit from '../../static/exit.png'
+import NoUserIcon from '../icons/NoUsericon';
 
 const ProfileBlock = ({ onLogClick, onRegClick }) => {
-    const { store, cart, favorites } = useContext(Context)
+    const { store, cart, favorites} = useContext(Context)
 
     // const onClickAVA = () => {
     //     const form = document.getElementById("form")
@@ -17,6 +18,17 @@ const ProfileBlock = ({ onLogClick, onRegClick }) => {
     //     return (
     //         <button onClick={() => onProfileClick()}>Авторизуйся, тварь</button>
     //     )    
+
+    useEffect(() => {
+        if (localStorage.getItem('token')) {
+            store.getData()
+            favorites.getFavorites()
+            const resp = cart.getDevices()
+            if (resp.status === 401) store.checkAuth()
+        } else {
+            store.checkAuth()
+        }
+    }, [store, favorites, cart])
 
     return (
         <div>
@@ -32,7 +44,11 @@ const ProfileBlock = ({ onLogClick, onRegClick }) => {
                                     {store.user.email}
                                 </h6>
                             </div>
-                            <img src='./UserNoPlus.svg' className={styles.profile_img_block} />
+                            <div  className={styles.profile_img_block}>
+                            <NoUserIcon/>
+                            </div>
+                            {/* <img src='./UserNoPlus.svg' alt='TMP' className={styles.profile_img_block} /> */}
+                            
                         </div>
                         <div className={styles.profile_buttons_block}>
                             <div className={styles.orders_button_block}>

@@ -16,6 +16,16 @@ const DeviceItem = ({ device }) => {
         setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
     };
 
+    const onAddCartClick = () => {
+    
+        if (store.isAuth){
+            cart.setPreviewAddedDevice(device)
+            setIsCart(true)
+            cart.addDevice(device)
+        }
+            
+    };
+
     useEffect(() => {
         favorites.favorites.forEach(fav => {
             if (device.productCode === fav.productCode) {
@@ -70,9 +80,9 @@ const DeviceItem = ({ device }) => {
                     <div class="text11">{device.brandNameEn}</div>
                     <div class="text12">{device.productModel}</div>
                 </div>
-                <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency).toFixed(2)}
+                <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency*3).toFixed(2)} ₽
                 </div>
-                <button onClick={() =>console.log() } class="busket1" href=''>В корзину</button>
+                <DataComponent device={device} cartState={isCart}/>
             </div>
         </div>
     );
@@ -112,7 +122,7 @@ const DataComponent = ({ device, cartState }) => {
         )
     else
         return (
-            <button onClick={() =>onAddCartClick() } class="busket1" href=''>В корзину</button>
+            <button onClick={() =>onAddCartClick() || console.log('tmp')} class="busket1" href=''>В корзину</button>
         )
 };
 

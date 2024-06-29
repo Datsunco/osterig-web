@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MakingAnOrders2.css';
 import Header from '../../Components/Header/Header'
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router';
 import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
 import { observer } from 'mobx-react-lite';
+import LogoSVG from '../Header/LogoSVG';
 
 const MackingAnOrders2 = () => {
     const { store } = useContext(Context)
@@ -16,16 +17,19 @@ const MackingAnOrders2 = () => {
     let textbutton = 'К способам оплаты'
     const { device } = useContext(Context)
 
-    useEffect(() => {
-        store.getTariffs()
-    }, [store])
+    const [address, setAddress] = useState('Мытизи')
+    const [type, setType] = useState('PVZ')
+
+    // useEffect(() => {
+    //     store.getTariffs(address)
+    // }, [store])
 
     return (
         <div>
             <div className='MAO_body'>
                 <div className='MAO_frame_parent'>
                     <div className='MAO_left_menu'>
-                        <div className='back_to_basket' onClick={() => navigate("/cart")}>
+                        <div className='back_to_basket' onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>
                             </div>
@@ -57,56 +61,90 @@ const MackingAnOrders2 = () => {
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Точный адрес</div>
-                                        <input type='text' className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                        <input type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
                                     </div>
+                                    <button style={{height: '44px', marginTop: '20px', border: 'none', borderRadius: '2px', background: '#0071E3', color: 'white', padding: '0 25px', fontFamily: 'Gilroy'}} onClick={()=> store.getTariffs(store.address)}>Искать</button>
                                 </div>
                             </div>
                         </div>
                         <div className='choose_delivery_body'>
                             <div className='cd_header'>
-                                <div className='cd_h1_text_black'>Пункты выдачи</div>
+                                <div className={ type === 'PVZ' ? 'cd_h1_text_black' : "cd_h1_text_gray"} onClick={() =>setType('PVZ')}>Пункты выдачи</div>
                                 <div className='cd_slash'>/</div>
-                                <div className='cd_h1_text_gray'>Доставка до двери</div>
+                                <div className={ type === 'HOME' ? 'cd_h1_text_black' : "cd_h1_text_gray"} onClick={() =>setType('HOME')}>Доставка до двери</div>
                                 <div className='cd_slash'>/</div>
-                                <div className='cd_h1_text_gray'>Самовывоз</div>
+                                <div className={ type === 'SELF' ? 'cd_h1_text_black' : "cd_h1_text_gray"} onClick={() =>setType('SELF')}>Самовывоз</div>
                             </div>
-                            { store?.tariffs[138] ?
+                            { store?.tariffs[138] && type ===  'PVZ' ?
                             <>
                                 <hr className='cd_line'></hr>
-                                <div className='cd_points'>
-                                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                <div className={ store.deliveryType !== 'PVZ' ? 'cd_points' : 'cd_pointsblack'}>
+                                    <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
                                     <div className='cd_box_for_org'>
                                         <div className='cd_name_org'>СДЭК ПВЗ</div>
                                     </div>
                                     <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
                                     <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                    <div className='cd_choose_deliviry'>Выбрать</div>
+                                    <div className='cd_choose_deliviry' onClick={() => store.setDeliveryType('PVZ')}>
+                                        {store.deliveryType == 'PVZ' ? "Выбрано"
+                                        :
+                                        "Выбрать"
+                                        }
+                                        
+                                        </div>
                                 </div>
                             </>
                             :
                             null
                             }
-                            { store?.tariffs[366] ?
+                            { store?.tariffs[139] && type ===  'HOME' ?
                             <>
                                 <hr className='cd_line'></hr>
-                                <div className='cd_points'>
-                                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='cd_img' />
+                                <div className={ store.deliveryType !== 'HOME' ? 'cd_points' : 'cd_pointsblack'}>
+                                    <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
                                     <div className='cd_box_for_org'>
                                         <div className='cd_name_org'>СДЭК Постамат</div>
                                         {/* <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div> */}
                                     </div>
                                     <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
                                     <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                    <div className='cd_choose_deliviry'>Выбрать</div>
+                                    <div className='cd_choose_deliviry' onClick={() => store.setDeliveryType('HOME')}>
+                                    {store.deliveryType == 'HOME' ? "Выбрано"
+                                        :
+                                        "Выбрать"
+                                        }
+                                    </div>
                                 </div>
                             </>
                             :
                             null
                             }
+                            {type ===  'SELF' ?
+                            <>
+                                <hr className='cd_line'></hr>
+                                <div className={ store.deliveryType !== 'SELF' ? 'cd_points' : 'cd_pointsblack'}>
+                                    <LogoSVG/>
+                                    <div className='cd_box_for_org'>
+                                        <div className='cd_name_org'>Самовывоз</div>
+                                        {/* <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div> */}
+                                    </div>
+                                    <div className='cd_time'></div>
+                                    <div className='cd_prise'>Бесплатно</div>
+                                    <div className='cd_choose_deliviry' onClick={() => store.setDeliveryType('SELF')}>
+                                    {store.deliveryType == 'SELF' ? "Выбрано"
+                                        :
+                                        "Выбрать"
+                                        }
+                                    </div>
+                                </div>
+                            </>
+                            :
+                            null
+}
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO textbutton={textbutton} />
+                        <CartResultForMAO disabled={store.address && store.deliveryType} textbutton={textbutton} />
                     </div>
                 </div>
             </div>

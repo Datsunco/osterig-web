@@ -22,7 +22,7 @@ const MackingAnOrders3 = () => {
             <div className='MAO_body1'>
                 <div className='MAO_frame_parent'>
                     <div className='MAO_left_menu'>
-                        <div className='back_to_basket' onClick={() => navigate("/cart")}>
+                        <div className='back_to_basket'  onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>
                             </div>
@@ -50,11 +50,11 @@ const MackingAnOrders3 = () => {
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>E-Mail</div>
-                                        <div className='MAO_text_result'>exampleexample@mail.ru</div>
+                                        <div className='MAO_text_result'>{store.email}</div>
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Телефон</div>
-                                        <div className='MAO_text_result'>+ 7 999 134 08 35</div>
+                                        <div className='MAO_text_result'>{store.phone}</div>
                                     </div>
                                 </div>
                             </div>
@@ -62,15 +62,15 @@ const MackingAnOrders3 = () => {
                                 <div className='d-flex'>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Фамилия</div>
-                                        <div className='MAO_text_result'>Константинопольский</div>
+                                        <div className='MAO_text_result'>{store.surname}</div>
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Имя</div>
-                                        <div className='MAO_text_result'>Константин</div>
+                                        <div className='MAO_text_result'>{store.name}</div>
                                     </div>
                                     <div className='MAO_input_frame'>
-                                        <div className='MAO_input_text'>Отчество</div>
-                                        <div className='MAO_text_result'>Константинович</div>
+                                        <div className='MAO_input_text'>отчество</div>
+                                        <div className='MAO_text_result'>{store.middlename}</div>
                                     </div>
                                 </div>
                             </div>
@@ -80,16 +80,16 @@ const MackingAnOrders3 = () => {
                                         <div className='MAO_input_text'>Способ доставки</div>
                                         <div className='MAO_text_result'>
                                                 <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='MAO_RES_IMG'/>
-                                                <div className='MAO_text_result1'>СДЭК ПВЗ</div>
+                                                <div className='MAO_text_result1'>{store.deliveryType}</div>
                                         </div>
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Точный адрес доставки</div>
-                                        <div className='MAO_text_result'>Санкт-Петербург, Кременчукская, дом 25, кв. 128</div>
+                                        <div className='MAO_text_result'>{store.address}</div>
                                     </div>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Индекс</div>
-                                        <div className='MAO_text_result'>430024</div>
+                                        <div className='MAO_text_result'></div>
                                     </div>
                                 </div>
                             </div>

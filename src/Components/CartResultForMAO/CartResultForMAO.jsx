@@ -3,7 +3,7 @@ import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./CartResultForMAO.module.css"
 
-const CartResultForMAO = ({textbutton}) => {
+const CartResultForMAO = ({textbutton, disabled}) => {
     const { device, cart, store} = useContext(Context)
 
     useEffect(() => {
@@ -34,8 +34,8 @@ const CartResultForMAO = ({textbutton}) => {
                             </div>
                             {
                                 store.isAuth ?
-                                <div className={styles.frameParent9} onClick={() => store.switchPage()}>
-                                    <div className={styles.wrapper1}>
+                                <div className={styles.frameParent9} onClick={disabled ? () => store.switchPage() : undefined}>
+                                    <div className={disabled ? styles.wrapper1 : styles.wrapper}>
                                         <b className={styles.b21}>{textbutton}</b>
                                     </div>
                                 </div>
@@ -45,7 +45,7 @@ const CartResultForMAO = ({textbutton}) => {
                          //   <div>asdsa</div>
                         //)
                             :
-                            <div className={styles.frameParent1}>
+                            <div className={styles.frameParent9}>
                                 <div className={styles.wrapper}>
                                     <b className={styles.b2}>{textbutton}</b>
                                 </div>

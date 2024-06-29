@@ -4,6 +4,8 @@
     width: 1250px;
     margin: auto;
     margin-top: 141px;
+    /* display: flex; */
+    /* flex-direction: row; */
 }
 
 .blocknameelem {

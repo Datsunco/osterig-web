@@ -41,7 +41,8 @@ const Search = () => {
                     catalogName={store.catalogName} />
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
-
+                    <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
+                    <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />
                     </div>
                     <div className='blocknameelem'>
                         {store?.devices?.map(device =>

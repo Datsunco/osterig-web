@@ -87,15 +87,15 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
                 :
                 <h1 className={styles.type_preview_block_text}>Результаты поиска</h1>
             }
-            <div className={styles.search_result}>
+            {/* <div className={styles.search_result}>
                 <div class="search">
                     <input value={inputValue} onChange={(e) => setInputValue(e.target.value) & search.getPreWord(e.target.value)}
                         class="searchInput" type="text" placeholder="Искать товары" />
                     <button class="searchLupa" onClick={() => onClickSearch()}></button>
                 </div>
-            </div>
-            <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
-            <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />
+            </div> */}
+            {/* <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
+            <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} /> */}
             <div className={styles.type_preview_block_selected_params}>
                 {store?.seletedParams?.map(param =>
                     <div className={styles.selected_param}>
