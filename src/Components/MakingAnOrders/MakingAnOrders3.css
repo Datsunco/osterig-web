@@ -64,6 +64,20 @@
     margin-top: 15px;
 }
 
+.paymantSelected {
+    width: 236px;
+    height: 60px;
+    border-radius: 7px;
+    background: var(--White, #FEFEFE);
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.10);
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    border: 1px solid var(--Red, #BD2922);
+}
+
 .SBP {
     width: 301px;
     height: 60px;

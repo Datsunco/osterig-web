@@ -1025,6 +1025,9 @@ export default class Store {
     email=''
     address=''
     deliveryType=''
+    deliveryPrice=''
+    paymentType = ''
+
     // const [name, setName] = useState('')
     // const [surname, setSurname] = useState('')
     // const [middlename, setMiddlename] = useState('')
@@ -1062,6 +1065,14 @@ export default class Store {
 
     setDeliveryType(name) {
         this.deliveryType = name;
+    }
+
+    setDeliveryPrice(name) {
+        this.deliveryPrice = name;
+    }
+
+    setPaymentType(name) {
+        this.paymentType = name;
     }
 
     setSurname(name) {

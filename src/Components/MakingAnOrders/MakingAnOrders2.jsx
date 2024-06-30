@@ -85,7 +85,7 @@ const MackingAnOrders2 = () => {
                                     </div>
                                     <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
                                     <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                    <div className='cd_choose_deliviry' onClick={() => store.setDeliveryType('PVZ')}>
+                                    <div className='cd_choose_deliviry' onClick={() => {store.setDeliveryType('PVZ'); store.setDeliveryPrice(store?.tariffs[138].delivery_sum)}}>
                                         {store.deliveryType == 'PVZ' ? "Выбрано"
                                         :
                                         "Выбрать"
@@ -108,7 +108,7 @@ const MackingAnOrders2 = () => {
                                     </div>
                                     <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
                                     <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                    <div className='cd_choose_deliviry' onClick={() => store.setDeliveryType('HOME')}>
+                                    <div className='cd_choose_deliviry' onClick={() => {store.setDeliveryType('HOME'); store.setDeliveryPrice(store?.tariffs[139].delivery_sum);}}>
                                     {store.deliveryType == 'HOME' ? "Выбрано"
                                         :
                                         "Выбрать"
@@ -130,7 +130,7 @@ const MackingAnOrders2 = () => {
                                     </div>
                                     <div className='cd_time'></div>
                                     <div className='cd_prise'>Бесплатно</div>
-                                    <div className='cd_choose_deliviry' onClick={() => store.setDeliveryType('SELF')}>
+                                    <div className='cd_choose_deliviry' onClick={() => { store.setDeliveryType('SELF');  store.setDeliveryPrice(0)}}>
                                     {store.deliveryType == 'SELF' ? "Выбрано"
                                         :
                                         "Выбрать"

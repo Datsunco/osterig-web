@@ -24,12 +24,20 @@ const CartResultForMAO = ({textbutton, disabled}) => {
                                 <div className={styles.frameDiv}>
                                     <div className={styles.parent}>
                                         <div className={styles.div}>Товары</div>
-                                        <div className={styles.div1}>{cart.getCartSumPrice()} ₽</div>
+                                        <div className={styles.div1}>{(cart.getCartSumPrice() * store.currency * 3).toFixed(3) } ₽</div>
                                     </div>
                                 </div>
+                                { store.deliveryType != '' && (
+                                    <div className={styles.frameDiv}>
+                                    <div className={styles.parent}>
+                                        <div className={styles.div}>Доставка</div>
+                                        <div className={styles.div1}>{store.deliveryPrice } ₽</div>
+                                    </div>
+                                </div>
+                                ) }
                                 <div className={styles.group}>
                                     <b className={styles.b}>Итог</b>
-                                    <b className={styles.b1}>13 600 ₽</b>
+                                    <b className={styles.b1}>{(cart.getCartSumPrice() * store.currency * 3).toFixed(3) } ₽</b>
                                 </div>
                             </div>
                             {

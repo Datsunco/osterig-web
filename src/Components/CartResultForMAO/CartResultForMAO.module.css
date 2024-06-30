@@ -163,7 +163,8 @@
 .frameWrapper {
   font-family: Gilroy;
   width: 377px;
-  height: 198px;
+  height: auto;
+  padding: 14px 0;
   flex-shrink: 0;
   border-radius: 18px;
   background: #F1F2F4;

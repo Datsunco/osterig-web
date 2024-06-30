@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MakingAnOrders3.css';
 import Header from '../../Components/Header/Header'
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
@@ -10,12 +10,52 @@ import SBP from '../../static/SBP.png';
 import BCART from '../../static/BCART.png';
 import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
+import LogoSVG from '../Header/LogoSVG';
 
 const MackingAnOrders3 = () => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     let textbutton = 'Оплатить'
     const { device } = useContext(Context)
+
+    const [paymentTypeC, setPaymentTypeC] = useState('')
+
+    useEffect(() => {},[store.paymentType])
+
+
+    const switchDel = (value) => {
+        switch (value){
+            case 'PVZ':
+                return (
+                    <>
+                    <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='MAO_RES_IMG'/>
+                    <div className='MAO_text_result1'>ПВЗ</div>
+                    </>
+                )
+            case 'HOME':
+                return (
+                    <>
+                    <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='MAO_RES_IMG'/>
+                    <div className='MAO_text_result1'>До двери</div>
+                    </>
+                )
+            case 'SELF':
+                    return (
+                        <>
+                        <LogoSVG/>
+                        <div className='MAO_text_result1'>Самовывоз</div>
+                        </>
+                    )
+            
+            default:
+                return (
+                    <>
+                    <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='MAO_RES_IMG'/>
+                    <div className='MAO_text_result1'>{store.deliveryType}</div>
+                    </>
+                )
+        }
+    }
 
     return (
         <div>
@@ -79,8 +119,7 @@ const MackingAnOrders3 = () => {
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Способ доставки</div>
                                         <div className='MAO_text_result'>
-                                                <img src='https://www.cdek.ru/storage/source/logo/1/WwRC73vQdmjyYz-FuqiKlHCMWdW2xv0P.svg' className='MAO_RES_IMG'/>
-                                                <div className='MAO_text_result1'>{store.deliveryType}</div>
+                                        {switchDel(store.deliveryType)}
                                         </div>
                                     </div>
                                     <div className='MAO_input_frame'>
@@ -105,13 +144,13 @@ const MackingAnOrders3 = () => {
                                 <div className='MAO_text_h1'>Оплата</div>
                                 <div className='MAO_text_chose_paymant'>Выбери способ оплаты</div>
                                 <div className='d-flex'>
-                                    <button className='B_CART' onClick={console.log(1)}>
+                                    <button className={` ${ paymentTypeC === 'CARD' ? 'paymantSelected' : 'B_CART'}`} onClick={() => {setPaymentTypeC('CARD'); store.setPaymentType('CARD')}}>
                                         <div className='OHUENNIY_KRUG'>
                                             <img src={BCART} className='Image_BCART'/>
                                         </div>
                                         <div className='text_oplata'>Банковской Картой</div>
                                     </button>
-                                    <button className='SBP' onClick={console.log(1)}>
+                                    <button className={`${ paymentTypeC === 'SBP' ? 'paymantSelected' : 'B_CART' }`}onClick={() => {setPaymentTypeC('SBP'); store.setPaymentType('SBP')}}>
                                         <div className='OHUENNIY_KRUG'>
                                             <img src={SBP} className='Image_SBP'/>
                                         </div>
@@ -122,7 +161,7 @@ const MackingAnOrders3 = () => {
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO textbutton={textbutton} />
+                        <CartResultForMAO disabled={paymentTypeC} textbutton={textbutton} />
                     </div>
                 </div>
             </div>

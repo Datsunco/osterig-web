@@ -134,7 +134,7 @@ const DevicePage = () => {
             {device.productDetails.productPriceList?.[0].discountRate != 1 ?
               <>
                 <div class='lastprice'>
-                  {device.productDetails.productPriceList?.[0].productPrice} ₽
+                  {(device.productDetails.productPriceList?.[0].productPrice  * store.currency*3).toFixed(2)} ₽
                 </div>
                 <div class='newprice'>от {(device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice * store.currency*3).toFixed(2)} ₽</div>
               </>

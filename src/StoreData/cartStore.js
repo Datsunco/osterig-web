@@ -25,7 +25,7 @@ export default class CartStore {
             const minCount = element?.count
             changedPrice += price * minCount
         });
-        return changedPrice
+        return changedPrice.toFixed(3)
     }
 
 
