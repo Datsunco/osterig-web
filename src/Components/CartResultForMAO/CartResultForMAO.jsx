@@ -46,9 +46,7 @@ const CartResultForMAO = ({textbutton, disabled}) => {
                             </div>
                             {
                                 store.isAuth ?
-                                <div className={styles.frameParent9} onClick={
-                                    disabled ? () => store.switchPage() : undefined
-                                    }>
+                                <div className={styles.frameParent9} onClick={() => mainButtonClick()}>
                                     <div className={disabled ? styles.wrapper1 : styles.wrapper}>
                                         <b className={styles.b21}>{textbutton}</b>
                                     </div>
