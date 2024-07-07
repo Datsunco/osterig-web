@@ -14,7 +14,7 @@ const CartResultForMAO = ({textbutton, disabled}) => {
     const mainButtonClick = () => {
         if (textbutton === 'Оплатить')
             ordersService.createOrder(store.user.userId, (cart.getCartSumPrice() * store.currency * 3).toFixed(3), store.paymentType)
-        else if (!disabled) 
+        if (disabled) 
             store.switchPage() 
       }
 
