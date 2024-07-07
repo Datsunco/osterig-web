@@ -12,7 +12,15 @@ export default class ordersService {
 
     static async createOrder(userId, totalAmount, paymentType) {
         try {
-            return $api.post('/order/create', {body: {userId, totalAmount, paymentType}})
+            return $api.post('/order/create', {userId, totalAmount, paymentType})
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+    static async confirmOrder(idempotenceKey) {
+        try {
+            return $api.post('/order/confirm', {idempotenceKey})
         } catch (e) {
             console.log(e)
         }

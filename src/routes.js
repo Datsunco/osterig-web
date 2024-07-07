@@ -41,7 +41,7 @@ export const publicRoutes = [
         Component: DevicePage,
     },
     {
-        path: ORDERS_ROUTE,
+        path: ORDERS_ROUTE + '/:id?',
         Component: Orders,
     },
     {

@@ -3,17 +3,24 @@ import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./CartResultForMAO.module.css"
 import ordersService from '../../services/ordersService';
+import { useNavigate } from 'react-router-dom';
 
 const CartResultForMAO = ({textbutton, disabled}) => {
+    const navigate = useNavigate()
     const { device, cart, store, order} = useContext(Context)
 
     useEffect(() => {
         console.log(cart.getCartSumPrice())
     }, [cart])
 
-    const mainButtonClick = () => {
-        if (textbutton === 'Оплатить')
-            ordersService.createOrder(store.user.userId, (cart.getCartSumPrice() * store.currency * 3).toFixed(3), store.paymentType)
+    const mainButtonClick = async () => {
+        let resp = null
+        if (textbutton === 'Оплатить'){
+            resp = await ordersService.createOrder(store.user.id, (cart.getCartSumPrice() * store.currency * 3).toFixed(3), store.paymentType)
+            console.log(resp)
+            window.location.href = resp.data.payment.confirmation.confirmation_url
+            // await navigate(resp.data.payment.confirmation.confirmation_url, { replace: true })
+        }
         if (disabled) 
             store.switchPage() 
       }

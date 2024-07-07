@@ -4,9 +4,16 @@ import Header from '../Header/Header'
 import BottomMenu from '../BottomMenu/BottomMenu';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
+import { useParams } from 'react-router-dom';
+import ordersService from '../../services/ordersService';
 
 const Orders = () => {
+    const { id } = useParams()
     const { orders } = useContext(Context)
+
+    const sendConfirm = async (id) => {
+        await ordersService.confirmOrder(id)
+    }
 
     useEffect(() => {
         console.log(orders.orders.length)
@@ -16,6 +23,12 @@ const Orders = () => {
             orders.getOrders()
         }
     }, [orders])
+
+    useEffect(() => {
+        if (id) {
+           sendConfirm(id)
+        }
+    }, [])
 
     return (
         <div>
