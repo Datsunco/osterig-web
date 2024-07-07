@@ -1028,6 +1028,9 @@ export default class Store {
     deliveryPrice=''
     paymentType = ''
 
+    totalPage = 1
+    currPage = 1
+
     // const [name, setName] = useState('')
     // const [surname, setSurname] = useState('')
     // const [middlename, setMiddlename] = useState('')
@@ -1061,6 +1064,14 @@ export default class Store {
 
     setName(name) {
         this.name = name;
+    }
+
+    setTotalPage(name) {
+        this.totalPage = name;
+    }
+
+    setCurrPage(name) {
+        this.currPage = name;
     }
 
     setDeliveryType(name) {
@@ -1098,6 +1109,11 @@ export default class Store {
 
     setDevices(devices){
         this.devices = devices?.data?.result?.dataList
+    }
+
+    setAppendDevices(devices){
+        console.log([...devices?.data?.result?.dataList, ...this.devices])
+        this.devices = [...devices?.data?.result?.dataList, ...this.devices]
     }
 
     setSearchedDevices(devices){
@@ -1260,6 +1276,26 @@ export default class Store {
         try{
             const response = await ProxyService.parse(catalogId, seletedParams);
             this.setDevices(response)
+        } catch(e){
+            console.log(e);
+            console.log(e.response?.data?.message);
+
+        }finally{
+            this.setParsed(true)
+        }
+    }
+
+    async parseByPage(catalogId, seletedParams = null, page){
+        try{
+            const response = await ProxyService.parse_by_page(catalogId, seletedParams, page);
+            this.setCurrPage(response?.data?.result?.currPage)
+            this.setTotalPage(response?.data?.result?.totalPage)
+            if (response?.data?.result?.currPage != 0){
+                this.setAppendDevices(response)
+            } else{
+                this.setDevices(response)
+            }
+            return true
         } catch(e){
             console.log(e);
             console.log(e.response?.data?.message);

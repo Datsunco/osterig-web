@@ -2,16 +2,20 @@ import React, { useContext, useEffect } from 'react';
 import { Context } from '../..';
 import { observer } from 'mobx-react-lite';
 import styles from "./CartResultForMAO.module.css"
+import ordersService from '../../services/ordersService';
 
 const CartResultForMAO = ({textbutton, disabled}) => {
-    const { device, cart, store} = useContext(Context)
+    const { device, cart, store, order} = useContext(Context)
 
     useEffect(() => {
         console.log(cart.getCartSumPrice())
     }, [cart])
 
-    const nextPage = () => {
-        store.nextPage()
+    const mainButtonClick = () => {
+        if (textbutton === 'Оплатить')
+            ordersService.createOrder(store.user.userId, (cart.getCartSumPrice() * store.currency * 3).toFixed(3), store.paymentType)
+        else if (!disabled) 
+            store.switchPage() 
       }
 
     return (
@@ -42,16 +46,13 @@ const CartResultForMAO = ({textbutton, disabled}) => {
                             </div>
                             {
                                 store.isAuth ?
-                                <div className={styles.frameParent9} onClick={disabled ? () => store.switchPage() : undefined}>
+                                <div className={styles.frameParent9} onClick={
+                                    disabled ? () => store.switchPage() : undefined
+                                    }>
                                     <div className={disabled ? styles.wrapper1 : styles.wrapper}>
                                         <b className={styles.b21}>{textbutton}</b>
                                     </div>
                                 </div>
-                            //(textbutton == 1 ?
-                          //  <div>asd</div>
-                         //   :
-                         //   <div>asdsa</div>
-                        //)
                             :
                             <div className={styles.frameParent9}>
                                 <div className={styles.wrapper}>

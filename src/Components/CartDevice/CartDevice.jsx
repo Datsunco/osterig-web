@@ -8,7 +8,7 @@ import './CartDevice.css'
 // deviceId, typeId 
 const CartDevice = ({device}) => {
     const navigate = useNavigate()
-    const { cart, favorites } = useContext(Context)
+    const { cart, favorites, store} = useContext(Context)
     const [isFavorite, setIsFavorite] = useState(false);
 
     const toggleFavorite = () => {
@@ -40,7 +40,7 @@ const CartDevice = ({device}) => {
                 </div>
                 <div className="frame-wrapper">
                     <div className="parent">
-                        <b className="b">{device.price} ₽</b>
+                        <b className="b">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency * 3).toFixed(2)} ₽</b>
                     </div>
                 </div>
             </div>

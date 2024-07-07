@@ -25,24 +25,37 @@ const Favorites = () => {
     return (
         <div className='favorite_component'>
             <Header />
-            {favorites.favorites.length != 0 ?
-                <div className='fav_elements'>
-                    <CartFavHeader state={'fav'} />
-                    <div className='fav_items'>
-                        {favorites.favorites.slice(0).reverse().map(device =>
-                            <DeviceItem device={device} />
-                        )}
-                    </div>
-                </div>
-                :
+            {!localStorage.getItem('token') ?
                 <div className='cart_elements_empty'>
                     <CartFavHeader state={'fav'} />
-                    <h3 className='cart_elements_empty_main_text'>В ИЗБРАННОМ ПОКА НЕТ ТОВАРОВ</h3>
+                    <h3 className='cart_elements_empty_main_text'>ЧТОБЫ ПОЛУЧИТЬ ДОСТУП К ИЗБРАННОМУ, СНАЧАЛА АВТОРИЗИРУЙТЕСЬ</h3>
                     <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
                     <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
                 </div>
+                :
+                (
+                    <>
+                        {favorites.favorites.length != 0 ?
+                            <div className='fav_elements'>
+                                <CartFavHeader state={'fav'} />
+                                <div className='fav_items'>
+                                    {favorites.favorites.slice(0).reverse().map(device =>
+                                        <DeviceItem device={device} />
+                                    )}
+                                </div>
+                            </div>
+                            :
+                            <div className='cart_elements_empty'>
+                                <CartFavHeader state={'fav'} />
+                                <h3 className='cart_elements_empty_main_text'>В ИЗБРАННОМ ПОКА НЕТ ТОВАРОВ</h3>
+                                <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
+                                <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
+                            </div>
+                        }
+                    </>
+                )
             }
-            <BottomMenu />
+            < BottomMenu />
         </div>
     );
 };

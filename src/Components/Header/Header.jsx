@@ -22,13 +22,21 @@ const Header = () => {
     const { favorites, search, store, catalog, cart } = useContext(Context)
     const [inputValue, setInputValue] = useState("")
 
+    const get = async () => {
+        const stm = await cart.getDevices()
+        if (stm === 'auth')
+            store.checkAuth()
+        else{
+            console.log('complete')
+        }
+    }
+
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
             store.setAuth(true)
             favorites.getFavorites()
-            const resp = cart.getDevices()
-            if (resp.status === 401) store.checkAuth()
+            get()
         } else {
             store.checkAuth()
         }
@@ -159,6 +167,7 @@ const Header = () => {
                             <div class='text-padding-top' onClick={() => onClickButton("favorites")}>Избранное</div>
                         </div>
                         <div class="cursorP" onClick={() => onClickButton("cart")}>
+                            <div className='header_fav_count' style={{marginLeft: '40px'}}>{cart.devices.length}</div>
                             <div class="basket"></div>
                             <div class='text-padding-top' onClick={() => onClickButton("cart")}>Корзина</div>
                         </div>

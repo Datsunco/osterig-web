@@ -138,6 +138,7 @@ export default class CartStore {
             return devices
         } catch (e) {
             console.log(e);
+            return 'auth'
         }
     }
 

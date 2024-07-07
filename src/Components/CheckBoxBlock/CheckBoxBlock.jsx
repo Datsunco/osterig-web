@@ -4,11 +4,12 @@ import { observer } from 'mobx-react-lite';
 import { useContext } from 'react';
 import { Context } from '../..';
 
-const CheckBoxBlock = ({ param }) => {
+const CheckBoxBlock = ({ param, text}) => {
     const { store } = useContext(Context)
     const [isShowAll, setIsShowAll] = useState(false)
 
     const onClickCheckBox = (param) => {
+        store.setCurrPage(1)
         store.sliceSelectedParam(param)
         store.parse(store.currentCatalogId, store.seletedParams)
         store.parse_params(store.currentCatalogId, store.seletedParams)
@@ -18,7 +19,7 @@ const CheckBoxBlock = ({ param }) => {
 
     return (
         <div className={styles.check_box_block}>
-            <b className={styles.check_box_block_text}>Производитель</b>
+            <b className={styles.check_box_block_text}>{text}</b>
             <div className={styles.check_box_block_elements}>
                 {isShowAll == false ?
                     (param?.slice(0, 5).map(elemo =>

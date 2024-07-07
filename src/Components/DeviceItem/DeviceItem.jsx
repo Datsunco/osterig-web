@@ -80,7 +80,7 @@ const DeviceItem = ({ device }) => {
                     <div class="text11">{device.brandNameEn}</div>
                     <div class="text12">{device.productModel}</div>
                 </div>
-                <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency*3).toFixed(2)} ₽
+                <div class="text13">{((device.price || device.currencyPrice || device?.productPriceList?.[0].currencyPrice) * store.currency * 3).toFixed(2)} ₽
                 </div>
                 <DataComponent device={device} cartState={isCart}/>
             </div>
@@ -122,7 +122,7 @@ const DataComponent = ({ device, cartState }) => {
         )
     else
         return (
-            <button onClick={() =>onAddCartClick() || console.log('tmp')} class="busket1" href=''>В корзину</button>
+            <button onClick={() =>onAddCartClick()} class="busket1" href=''>В корзину</button>
         )
 };
 

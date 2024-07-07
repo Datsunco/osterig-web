@@ -14,6 +14,7 @@ const Search = () => {
     const { state } = useLocation()
     const { store } = useContext(Context)
     const { id, type } = useParams()
+    const [page, setPage ] = useState(1)
 
     useEffect(() => {
         if (type === "search") {
@@ -26,9 +27,18 @@ const Search = () => {
         }
     }, [store, state, id])
 
+    const loadPage  = async () => {
+        const res = await store.parseByPage(id, store.seletedParams, store.currPage)
+        if (res)
+            store.setCurrPage(store.currPage + 1)
+    }
+
     useEffect(() => {
-        window.scrollTo(0, 0)
-    },)
+        // window.scrollTo(0, 0)
+        return  () => {
+            store.setCurrPage(1 )
+        }
+    },[])
 
     return (
         <div>
@@ -41,13 +51,16 @@ const Search = () => {
                     catalogName={store.catalogName} />
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
-                    <CheckBoxBlock param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
-                    <CheckBoxBlock param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />
+                        <CheckBoxBlock text='Производитель' param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
+                        <CheckBoxBlock text='Характеристики' param={store?.params?.["Package"] ? store?.params?.["Package"] : null} />
                     </div>
-                    <div className='blocknameelem'>
-                        {store?.devices?.map(device =>
-                            <DeviceItem key={device.id} device={device} />
-                        )}
+                    <div className='loadBut_block'>
+                        <div className='blocknameelem'>
+                            {store?.devices?.map(device =>
+                                <DeviceItem key={device.id} device={device} />
+                            )}
+                        </div>
+                        <button className='load_button' onClick={loadPage}>Загрузить еще</button>
                     </div>
                 </div>
             </div>

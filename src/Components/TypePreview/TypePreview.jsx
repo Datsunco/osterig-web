@@ -49,7 +49,7 @@ const TypePreview = ({ from, childCatalogs, catalogName, parentCatalogName, pare
     }, [store, state, id])
 
     return (
-        <div className={styles.type_preview_block}>
+        <div className={styles.type_preview_block} style={ !store?.seletedParams.length ? { marginBottom: "-50px"}: {}}>
             {from != 'search' ?
                 <h6 className={styles.type_path}>
                     <a href='/mainpage' className={styles.navigation_link}>Главная</a>

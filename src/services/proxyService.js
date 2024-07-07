@@ -11,6 +11,15 @@ export default class ProxyService {
 
     }
 
+    static async parse_by_page(catalogId, seletedParams=null, page) {
+        try {
+            return $api.get(`/proxy/catalog/parsebypage/data/${catalogId}/${page}/${JSON.stringify(seletedParams)}`)
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
+
     static async parse_params(catalogId, seletedParams=null) {
         try {
             return $api.get(`/proxy/catalog/parse/params/${catalogId}/${JSON.stringify(seletedParams)}`)
