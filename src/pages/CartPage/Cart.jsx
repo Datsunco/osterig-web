@@ -33,6 +33,8 @@ const Cart = () => {
     }
 
     useEffect(() => {
+        store.getCurrency()
+        
         console.log('auth', userStore._isAuth)
         if (localStorage.getItem('token')) {
             favorites.getFavorites()

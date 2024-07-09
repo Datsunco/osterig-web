@@ -13,7 +13,15 @@ const DeviceItem = ({ device }) => {
     const navigate = useNavigate();
 
     const toggleFavorite = () => {
-        setIsFavorite(!isFavorite); // Инвертируем текущее состояние избранного
+
+            if (store.isAuth){
+                setIsFavorite(!isFavorite); 
+            } else{
+                cart.setNoLoginAdd(true)
+                console.log('penis')
+            }
+
+       // Инвертируем текущее состояние избранного
     };
 
     const onAddCartClick = () => {
@@ -102,6 +110,9 @@ const DataComponent = ({ device, cartState }) => {
             cart.setPreviewAddedDevice(device)
             setIsCart(true)
             cart.addDevice(device)
+        } else{
+            cart.setNoLoginAdd(true)
+            console.log('penis')
         }
             
     };

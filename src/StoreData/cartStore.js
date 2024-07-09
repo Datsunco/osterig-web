@@ -5,6 +5,7 @@ export default class CartStore {
     devices = []
     cartPrice = 0
     previewAddedDevice = null
+    noLoginAdd = false
 
     constructor() {
         makeAutoObservable(this);
@@ -12,6 +13,9 @@ export default class CartStore {
 
     setPreviewAddedDevice(device) {
         this.previewAddedDevice = device
+    }
+    setNoLoginAdd(val) {
+        this.noLoginAdd = val
     }
 
     setDevices(devices) {

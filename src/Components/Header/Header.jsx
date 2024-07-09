@@ -43,6 +43,24 @@ const Header = () => {
     }, [store, favorites, cart])
 
     useEffect(() => {
+        if (cart.noLoginAdd) {
+        
+          setOpened(true)
+          setprofileOpened(true)
+    
+          const timer = setTimeout(() => {
+            setprofileOpened(false)
+            setOpened(false)
+            cart.setNoLoginAdd(false)
+          }, 3000);
+    
+          return () => {
+            clearTimeout(timer); // Очищаем таймер при размонтировании компонента
+          };
+        }
+      }, [cart.noLoginAdd]);
+
+    useEffect(() => {
         if (profileOpened === false) return;
 
         const handleClick = (e) => {
@@ -74,6 +92,9 @@ const Header = () => {
 
     const onClickOutsideForm = () => {
         const form = document.getElementById("form")
+        setprofileOpened(false)
+        setOpened(false)
+        cart.setNoLoginAdd(false)
         if (opened === true) {
             form.style.display = "none"
             setOpened(false)

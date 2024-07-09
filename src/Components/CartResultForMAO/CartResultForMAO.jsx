@@ -16,7 +16,22 @@ const CartResultForMAO = ({textbutton, disabled}) => {
     const mainButtonClick = async () => {
         let resp = null
         if (textbutton === 'Оплатить'){
-            resp = await ordersService.createOrder(store.user.id, (cart.getCartSumPrice() * store.currency * 3).toFixed(3), store.paymentType)
+            resp = await ordersService.createOrder(
+                store.user.id,
+                (cart.getCartSumPrice() * store.currency * 3).toFixed(3),
+                {  
+                    paymentType: store.paymentType,
+                    email: store.email,
+                    name:  store.name,
+                    surname: store.surname,
+                    middlename: store.middlename,
+                    phone: store.phone,
+                    address: store.address,
+                    deliveryType: store.deliveryType,
+                    deliveryPrice: store.deliveryPrice,
+                    
+                }
+            )
             console.log(resp)
             window.location.href = resp.data.payment.confirmation.confirmation_url
             // await navigate(resp.data.payment.confirmation.confirmation_url, { replace: true })
