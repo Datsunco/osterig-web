@@ -293,7 +293,7 @@ export default class CatalogStore {
     }
 
     setCatalogs(catalogs){
-        this.catalogs = catalogs.slice(0,  13) //Почемуто после 14 элемента крашится все нахер хз почему ебать
+        this.catalogs = catalogs.slice(0,  17) //Почемуто после 14 элемента крашится все нахер хз почему ебать
     }
 
     async getCatalogs() {

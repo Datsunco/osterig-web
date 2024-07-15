@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from 'react';
-import './Search.css'
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import Header from '../../Components/Header/Header';
@@ -9,26 +8,21 @@ import TypePreview from '../../Components/TypePreview/TypePreview';
 import DeviceItem from '../../Components/DeviceItem/DeviceItem';
 import { useLocation, useParams } from 'react-router-dom';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
+import styles from "./Popular.module.css"
 
-const Search = () => {
+const Popular = () => {
     const { state } = useLocation()
     const { store } = useContext(Context)
-    const { id, type } = useParams()
-    const [page, setPage ] = useState(1)
+    // const { id, type } = useParams()
+    const [page, setPage] = useState(1)
 
     useEffect(() => {
-        if (type === "search") {
-            store.search(id)
-        } else {
-            store.setCurrentCatalogId(id)
-            store.onLevel(id)
-            store.parse(id, store.seletedParams, 1)
-            store.parse_params(id, store.seletedParams, 1)
-        }
-    }, [store, state, id])
+        store.parseHotByPage(store.seletedParams, 1)
+        store.parse_hot_params(store.seletedParams)
+    }, [store, state])
 
-    const loadPage  = async () => {
-        const res = await store.parseByPage(id, store.seletedParams, store.currPage)
+    const loadPage = async () => {
+        const res = await store.parseHotByPage(store.seletedParams, store.currPage)
         if (res)
             store.setCurrPage(store.currPage + 1)
     }
@@ -36,20 +30,16 @@ const Search = () => {
     useEffect(() => {
         store.getCurrency()
         window.scrollTo(0, 0)
-        return  () => {
-            store.setCurrPage(1 )
+        return () => {
+            store.setCurrPage(1)
         }
-    },[])
+    }, [])
 
     return (
         <div>
             <Header />
             <div className='search_page'>
-                <TypePreview from={type}
-                    childCatalogs={store.childCatalogs}
-                    parentCatalogName={store.parentName}
-                    parentcatalogId={store.parentId}
-                    catalogName={store.catalogName} />
+                <h1 className={styles.type_preview_block_text}>Популярные товары</h1>
                 <div className='vart_block'>
                     <div className='chechboxes_block'>
                         <CheckBoxBlock text='Производитель' param={store?.params?.["Manufacturer"] ? store?.params?.["Manufacturer"] : null} />
@@ -70,4 +60,4 @@ const Search = () => {
     );
 };
 
-export default observer(Search);
+export default observer(Popular);

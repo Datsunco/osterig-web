@@ -12,6 +12,7 @@ const DeviceItem = ({ device }) => {
     const [isCart, setIsCart] = useState(false);
     const navigate = useNavigate();
 
+
     const toggleFavorite = () => {
 
             if (store.isAuth){

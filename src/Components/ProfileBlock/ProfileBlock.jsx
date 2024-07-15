@@ -5,9 +5,11 @@ import { observer } from 'mobx-react-lite';
 import styles from './ProfileBlock.module.css'
 import imgExit from '../../static/exit.png'
 import NoUserIcon from '../icons/NoUsericon';
+import { useNavigate } from 'react-router-dom';
 
 const ProfileBlock = ({ onLogClick, onRegClick }) => {
     const { store, cart, favorites} = useContext(Context)
+    const navigate = useNavigate()
 
     // const onClickAVA = () => {
     //     const form = document.getElementById("form")
@@ -52,13 +54,13 @@ const ProfileBlock = ({ onLogClick, onRegClick }) => {
                         </div>
                         <div className={styles.profile_buttons_block}>
                             <div className={styles.orders_button_block}>
-                                <button className={styles.orders_button}>Заказы</button>
+                                <button className={styles.orders_button} onClick={() => navigate('/orders')}>Заказы</button>
                             </div>
                             <div className={styles.favorites_button_block}>
-                                <button className={styles.favorites_button}>Избранное</button>
+                                <button className={styles.favorites_button} onClick={() => navigate('/favorites')}>Избранное</button>
                             </div>
                             <div className={styles.settings_button_block}>
-                                <button className={styles.settings_button}>Настройки</button>
+                                <button className={styles.settings_button} onClick={() => navigate('/cart')}>Корзина</button>
                             </div>
                         </div>
                         <div className={styles.profile_logout_block}>
@@ -73,8 +75,8 @@ const ProfileBlock = ({ onLogClick, onRegClick }) => {
                     </div>
                     <div className={styles.profile_login_block}>
                         <div className={styles.login_button_block}>
-                            <img className='' src='./addUser.svg' />
-                            <button className={styles.login_button}>Добавить пользователя</button>
+                            {/* <img className='' src='./addUser.svg' />
+                            <button className={styles.login_button}>Добавить пользователя</button> */}
 
                         </div>
                     </div>
@@ -89,7 +91,9 @@ const ProfileBlock = ({ onLogClick, onRegClick }) => {
                                     Гость
                                 </h>
                             </div>
-                            <img src='./UserNoPlus.svg' className={styles.profile_img_block} />
+                            <div  className={styles.profile_img_block} style={{background: 'white'}}>
+                            <NoUserIcon/>
+                            </div>
                         </div>
                         <div className={styles.profile_buttons_block}>
                             <div className={styles.need_authorization}>

@@ -78,7 +78,9 @@
 }
 
 .cd_points {
-    height: 50px;
+    min-height: 50px;
+    padding-right: 20px;
+    height: auto;
     display: flex;
     margin-top: 20px;
     align-items: center;
@@ -86,7 +88,9 @@
 }
 
 .cd_pointsblack {
-    height: 50px;
+    min-height: 50px;
+    padding-right: 20px;
+    height: auto;
     display: flex;
     margin-top: 20px;
     align-items: center;
@@ -157,7 +161,7 @@
 
 .cd_org_addres {
     width: 295px;
-    height: 16px;
+    /* height: 16px; */
     color: #939393;
     font-family: Gilroy;
     font-size: 13px;

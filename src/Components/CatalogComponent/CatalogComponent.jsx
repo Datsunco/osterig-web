@@ -11,6 +11,11 @@ const CatalogComponent = () => {
   const { catalog } = useContext(Context)
   const navigate = useNavigate()
 
+
+  useEffect(() => {
+    catalog.getCatalogs()
+  }, [])
+
   useEffect(() => {
     document.getElementById(`${catalog.activeCatalog}`).style.display = "block"
   }, [catalog])
@@ -30,7 +35,7 @@ const CatalogComponent = () => {
     <div className={styles.homeDesktop}>
       <div className={styles.catalog}>
         <div className={styles.catalogSubdirectoryBlock}>
-          {catalog.catalogs.map(catalog =>
+          {catalog?.catalogs?.map(catalog =>
             <SubCatalog key={catalog.catalogId}
               catalogElement={catalog}
               onTag={onHoverSubcatalog}/>

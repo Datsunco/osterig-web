@@ -4,6 +4,7 @@ import Header from '../../Components/Header/Header.jsx';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../../index.js';
 import "./CatalogPage.css"
+import BottomMenu from '../../Components/BottomMenu/BottomMenu.jsx';
 
 const CatalogPage = () => {
     const {catalog} = useContext(Context)
@@ -19,6 +20,7 @@ const CatalogPage = () => {
         <div className='catalog_page'>
             <Header/>
             <CatalogComponent />
+            <BottomMenu/>
         </div>
     );
 };

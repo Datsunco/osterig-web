@@ -20,9 +20,27 @@ export default class ProxyService {
 
     }
 
+    static async parse_hot_by_page(seletedParams=null, page) {
+        try {
+            return $api.get(`/proxy/catalog/parsebypage/hotdata/${page}/${JSON.stringify(seletedParams)}`)
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
+
     static async parse_params(catalogId, seletedParams=null) {
         try {
             return $api.get(`/proxy/catalog/parse/params/${catalogId}/${JSON.stringify(seletedParams)}`)
+        } catch (e) {
+            console.log(e)
+        }
+
+    }
+
+    static async parse_hot_params(seletedParams=null) {
+        try {
+            return $api.get(`/proxy/catalog/parse/params/hot/${JSON.stringify(seletedParams)}`)
         } catch (e) {
             console.log(e)
         }

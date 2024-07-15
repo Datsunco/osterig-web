@@ -12,13 +12,14 @@ import { useNavigate } from 'react-router';
 import { observer } from 'mobx-react-lite'; 
 
 const MackingOrders = () => {
-    const { store } = useContext(Context)
+    const { store, device } = useContext(Context)
     // const navigate = useNavigate()
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
             store.getCurrency()
         }
+        device.parseHotProducts()
     }, [store])
 
     return (

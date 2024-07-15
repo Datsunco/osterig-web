@@ -16,7 +16,7 @@ const Popular = () => {
             <div>
                 <div class="chelka" id="popularId">
                     <div class="popular1"><h1>ПОПУЛЯРНЫЕ <h class="tovars">ТОВАРЫ</h></h1></div>
-                    <button class="alltovars" onClick={() => navigate("/catalog")}>
+                    <button class="alltovars" onClick={() => navigate("/popular")}>
                         Все товары 
                         <div class="strelka1SVG">
                             <img src={ArrowLe} class="filter-green"></img>

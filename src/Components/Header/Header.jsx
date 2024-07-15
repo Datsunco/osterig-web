@@ -141,6 +141,10 @@ const Header = () => {
     }
 
     useEffect(() => {
+        store.getCurrency()
+    }, [])
+
+    useEffect(() => {
         if (localStorage.getItem('token')) {
             catalog.getCatalogs()
         }
@@ -204,7 +208,7 @@ const Header = () => {
                     <div class="bottomHeader">
                         <div class="ml-custom">
                             <div class="textMoscow">Москва</div>
-                            <a class="populars" onClick={() => navigate("/catalog")}>Популярное <div class="firepng"></div></a>
+                            <a class="populars" onClick={() => navigate("/popular")}>Популярное <div class="firepng"></div></a>
                             <a class="resistors" onClick={() => navigate("/search/308")}>Резисторы</a>
                             <a class="condensators" onClick={() => navigate("/search/312")}>Конденсаторы</a>
                             <a class="inductors" onClick={() => navigate("/search/316")}>Индукторы</a>

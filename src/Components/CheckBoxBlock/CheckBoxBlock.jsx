@@ -11,8 +11,8 @@ const CheckBoxBlock = ({ param, text}) => {
     const onClickCheckBox = (param) => {
         store.setCurrPage(1)
         store.sliceSelectedParam(param)
-        store.parse(store.currentCatalogId, store.seletedParams)
-        store.parse_params(store.currentCatalogId, store.seletedParams)
+        store.parse(store.currentCatalogId, store.seletedParams,true)
+        store.parse_params(store.currentCatalogId, store.seletedParams, true)
         //store.appendSelectedParam(param)
     }
 

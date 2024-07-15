@@ -15,7 +15,7 @@ const DevicePage = () => {
   const { id } = useParams()
   const [isFavorite, setIsFavorite] = useState(false);
   const [isCart, setIsCart] = useState(false);
-  const { cart, favorites, device, store} = useContext(Context)
+  const { cart, favorites, device, store } = useContext(Context)
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -46,10 +46,26 @@ const DevicePage = () => {
   }, [favorites.favorites, cart.devices])
 
   const addToCart = () => {
-    cart.addDevice(device.productDetails)
-    setIsCart(true)
-    cart.setPreviewAddedDevice(device.productDetails)
+    if (store.isAuth) {
+      cart.addDevice(device.productDetails)
+      setIsCart(true)
+      cart.setPreviewAddedDevice(device.productDetails)
+    } else {
+      cart.setNoLoginAdd(true)
+    }
   }
+
+  const toggleFavorite = () => {
+
+    if (store.isAuth) {
+      setIsFavorite(!isFavorite);
+    } else {
+      cart.setNoLoginAdd(true)
+      console.log('penis')
+    }
+
+    // Инвертируем текущее состояние избранного
+  };
 
   const DataComponentDevicePage = ({ device, cartState }) => {
     const { cart } = useContext(Context)
@@ -59,12 +75,13 @@ const DevicePage = () => {
       setIsCart(cartState)
       // console.log(device, cartState)
     }, [cartState])
+
     if (device.productDetails.stockNumber == 0)
       return (
         <div
-            class="NetVNal" >
-            Нет в наличии
-          </div>
+          class="NetVNal" >
+          Нет в наличии
+        </div>
       );
     if (isCart)
       return (
@@ -134,12 +151,12 @@ const DevicePage = () => {
             {device.productDetails.productPriceList?.[0].discountRate != 1 ?
               <>
                 <div class='lastprice'>
-                  {(device.productDetails.productPriceList?.[0].productPrice  * store.currency*3).toFixed(2)} ₽
+                  {(device.productDetails.productPriceList?.[0].productPrice * store.currency * 3).toFixed(2)} ₽
                 </div>
-                <div class='newprice'>от {(device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice * store.currency*3).toFixed(2)} ₽</div>
+                <div class='newprice'>от {(device.productDetails.productPriceList?.[0].discountRate * device.productDetails.productPriceList?.[0].productPrice * store.currency * 3).toFixed(2)} ₽</div>
               </>
               :
-              <div class='newprice'>от {(device.productDetails.productPriceList?.[0].productPrice   * store.currency*3).toFixed(2)} ₽</div>
+              <div class='newprice'>от {(device.productDetails.productPriceList?.[0].productPrice * store.currency * 3).toFixed(2)} ₽</div>
             }
 
             <VMenu params={device.productDetails.paramVOList} />

@@ -17,12 +17,12 @@ const PopularTovar = () => {
                     <div className="popular1">
                         <h1>ПОХОЖИЕ ТОВАРЫ</h1>
                     </div>
-                    <button className="atovar12" onClick={() => navigate("/catalog")}>
+                    {/* <button className="atovar12" onClick={() => navigate("/catalog")}>
                         Все товары
                         <div class="strelka1SVG">
                             <img src={ArrowLe} class="filter-green"></img>
                         </div>
-                    </button>
+                    </button> */}
                 </div>
             <div class="rowitems">
                     {device.sameProducts.map(device =>

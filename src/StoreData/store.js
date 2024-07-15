@@ -1305,9 +1305,40 @@ export default class Store {
         }
     }
 
+    async parseHotByPage( seletedParams = null, page){
+        try{
+            const response = await ProxyService.parse_hot_by_page(seletedParams, page);
+            this.setCurrPage(response?.data?.result?.currPage)
+            this.setTotalPage(response?.data?.result?.totalPage)
+            if (response?.data?.result?.currPage != 0){
+                this.setAppendDevices(response)
+            } else{
+                this.setDevices(response)
+            }
+            return true
+        } catch(e){
+            console.log(e);
+            console.log(e.response?.data?.message);
+
+        }finally{
+            this.setParsed(true)
+        }
+    }
+
     async parse_params(catalogId, seletedParams = null){
         try{
             const response = await ProxyService.parse_params(catalogId, seletedParams);
+            console.log(response?.data?.result)
+            this.setParams(response?.data?.result)
+        } catch(e){
+            console.log(e);
+
+        }
+    }
+
+    async parse_hot_params( seletedParams = null){
+        try{
+            const response = await ProxyService.parse_hot_params(seletedParams);
             console.log(response?.data?.result)
             this.setParams(response?.data?.result)
         } catch(e){

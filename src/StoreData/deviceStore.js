@@ -11,20 +11,21 @@ import diodes from "../static/DeviceTypeImages/diodes.png"
 import exel from "../static/DeviceTypeImages/exel.png"
 import inductors from "../static/DeviceTypeImages/inductors.png"
 import processors from "../static/DeviceTypeImages/processors.png"
+import popular from "../static/DeviceTypeImages/popular.png"
 import hand from "../static/DeviceTypeImages/hand.png"
 
 
 export default class DeviceStore {
     constructor() {
         this._types = [
-            { id: 0, name: 'RESISTORS', img: resistor, catalogId: 312, idHref:'#res'},
-            { id: 2, name: 'CAPACITORS', img: capacitors, idHref:'#cap' },
-            { id: 3, name: 'INDUCTORS', img: inductors, idHref:'#ind' },
-            { id: 4, name: 'PROCESSORS', img: processors, idHref:'#pro' },
-            { id: 5, name: 'CONVERTERS', img: converters, idHref:'#conv' },
-            { id: 6, name: 'DIODES', img: diodes, idHref:'#dio' },
-            { id: 7, name: 'CONNECTORS', img: connectors, idHref:'#con' },
-            { id: 8, name: 'ПОДОБРАТЬ ЧЕРЕЗ EXEL', img: exel, idHref:''},
+            { id: 0, name: 'RESISTORS', img: resistor, catalogId: 312, idHref:'#res', link: '/search/308'},
+            { id: 2, name: 'CAPACITORS', img: capacitors, idHref:'#cap', link: '/search/312' },
+            { id: 3, name: 'INDUCTORS', img: inductors, idHref:'#ind', link: '/search/316' },
+            { id: 4, name: 'PROCESSORS', img: processors, idHref:'#pro', link: '/search/11328' },
+            { id: 5, name: 'CONVERTERS', img: converters, idHref:'#conv', link: '/search/615' },
+            { id: 6, name: 'DIODES', img: diodes, idHref:'#dio', link: '/search/319' },
+            { id: 7, name: 'CONNECTORS', img: connectors, idHref:'#con', link: '/search/365' },
+            { id: 8, name: 'Смотреть популярное', img: popular, idHref:'', link: '/popular'},
         ]
         this._brands = [
             { id: 1, name: 'Chipanalog' },
