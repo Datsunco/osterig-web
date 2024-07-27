@@ -10,12 +10,15 @@ import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
 import { observer } from 'mobx-react-lite';
 import LogoSVG from '../Header/LogoSVG';
+import CdekMap from '../CdekMap/CdekMap';
 
 const MackingAnOrders2 = () => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     let textbutton = 'К способам оплаты'
     const { device } = useContext(Context)
+    const [center, setCenter] = useState([55.9161885, 37.854422])
+    const [features, setFeatures] = useState([])
 
     const [address, setAddress] = useState('Мытизи')
     const [type, setType] = useState('PVZ')
@@ -23,6 +26,41 @@ const MackingAnOrders2 = () => {
     // useEffect(() => {
     //     store.getTariffs(address)
     // }, [store])
+
+    const onSearchPVZCLICK = async () => {
+        const data = await store.getFeaturesByAddress(store.address)
+        setCenter(data.cords ?? [55.9161885, 37.854422])
+        setFeatures(data.features)
+    }
+
+    const onClickPVZOrPostomat = async () => {
+        if (store.deliveryPointRes?.tariff_code){
+            store.setDeliveryPointRes({})
+            store.setTariffs({})
+            store.setDeliveryType('')
+            store.setDeliveryPrice('')
+        }
+    }
+
+    const onClickHomeDelivery = async () => {
+        if (store.deliveryType === 'HOME'){
+            store.setTariffs({})
+            store.setDeliveryType('')
+        }
+    }
+
+    const onClickSELF = async () => {
+        store.setDeliveryPointRes({})
+        if (store.deliveryType === 'SELF'){
+            store.setTariffs({})
+            store.setDeliveryType('')
+        }
+        else {
+            store.setTariffs({})
+            store.setDeliveryType('SELF');
+            store.setDeliveryPrice(0)
+        }
+    }
 
     return (
         <div>
@@ -45,7 +83,7 @@ const MackingAnOrders2 = () => {
                                 <button className='MAO_login_in'>Войти</button>
                             </div>
                         }
-                        <div className='MAO_contacts_body'>
+                        <div className='MAO_contacts_body' style={{ height: '100px' }}>
                             <div className='MAO_contacts_text_body'>
                                 <div className='MAO_text_h1'>Адрес</div>
                                 <div className='MAO_steps'>
@@ -53,7 +91,7 @@ const MackingAnOrders2 = () => {
                                 </div>
 
                             </div>
-                            {type !== 'SELF' ?
+                            {/* {type !== 'SELF' ?
                                 <div className='MAO_imputs_frame'>
                                     <div className='d-flex'>
                                         <div className='MAO_input_frame'>
@@ -73,7 +111,7 @@ const MackingAnOrders2 = () => {
                                         Для самовывоза не нужно указывать адрес
                                     </div>
                                 </div>
-                            }
+                            } */}
                         </div>
                         <div className='choose_delivery_body'>
                             <div className='cd_header'>
@@ -83,46 +121,89 @@ const MackingAnOrders2 = () => {
                                 <div className='cd_slash'>/</div>
                                 <div className={type === 'SELF' ? 'cd_h1_text_black' : "cd_h1_text_gray"} onClick={() => setType('SELF')}>Самовывоз</div>
                             </div>
-                            {store?.tariffs[138] && type === 'PVZ' ?
+                            {type === 'PVZ' ?
                                 <>
-                                    <hr className='cd_line'></hr>
-                                    <div className={store.deliveryType !== 'PVZ' ? 'cd_points' : 'cd_pointsblack'}>
-                                        <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
-                                        <div className='cd_box_for_org'>
-                                            <div className='cd_name_org'>СДЭК ПВЗ</div>
-                                        </div>
-                                        <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
-                                        <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                        <div className='cd_choose_deliviry' onClick={() => { store.setDeliveryType('PVZ'); store.setDeliveryPrice(store?.tariffs[138].delivery_sum) }}>
-                                            {store.deliveryType == 'PVZ' ? "Выбрано"
-                                                :
-                                                "Выбрать"
-                                            }
-
-                                        </div>
+                                    <div style={{ marginBottom: '40px' }}>
+                                        <hr className='cd_line'></hr>
+                                        {store.deliveryPointRes?.tariff_code &&
+                                            <div className={store.deliveryPointRes.tariff_code != 138 && store.deliveryPointRes.tariff_code != 366 ? 'cd_points' : 'cd_pointsblack'}>
+                                                <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
+                                                <div className='cd_box_for_org'>
+                                                    <div className='cd_name_org'>СДЭК {store.deliveryPointRes.tariff_code == 138 ? 'ПВЗ' : 'Постомат'}</div>
+                                                    <div className='cd_org_addres'> {store.deliveryAddress}</div>
+                                                </div>
+                                                <div className='cd_time'>{store.deliveryPointRes.period_min}-{store.deliveryPointRes.period_max} дней</div>
+                                                <div className='cd_prise'>{store.deliveryPointRes.delivery_sum} ₽</div>
+                                                <div className='cd_choose_deliviry' onClick={() => onClickPVZOrPostomat()}>
+                                                    {store.deliveryPointRes.tariff_code != 138 && store.deliveryPointRes.tariff_code != 366 ? "Выбрать"
+                                                        :
+                                                        "Отмена"
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
+                                    {!store.deliveryPointRes?.tariff_code &&
+                                        <>
+                                            <div className='MAO_imputs_frame' style={{ marginBottom: '20px' }}>
+                                                <div className='d-flex'>
+                                                    <div className='MAO_input_frame'>
+                                                        <div className='MAO_input_text'>Страна</div>
+                                                        <input type='text' className='MAO_input' placeholder='Россия' disabled />
+                                                    </div>
+                                                    <div className='MAO_input_frame'>
+                                                        <div className='MAO_input_text'>Точный адрес</div>
+                                                        <input type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                                    </div>
+                                                    <button style={{ height: '44px', marginTop: '20px', border: 'none', borderRadius: '2px', background: '#0071E3', color: 'white', padding: '0 25px', fontFamily: 'Gilroy' }} onClick={() => onSearchPVZCLICK()}>Искать</button>
+                                                </div>
+                                            </div>
+                                            <CdekMap center={center} features={features} />
+                                        </>
+                                    }
                                 </>
                                 :
                                 null
                             }
-                            {store?.tariffs[139] && type === 'HOME' ?
+                            {type === 'HOME' ?
                                 <>
-                                    <hr className='cd_line'></hr>
-                                    <div className={store.deliveryType !== 'HOME' ? 'cd_points' : 'cd_pointsblack'}>
-                                        <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
-                                        <div className='cd_box_for_org'>
-                                            <div className='cd_name_org'>СДЭК Постамат</div>
-                                            {/* <div className='cd_org_addres'>Адрес: Пришвина, д. 25, офис 128</div> */}
-                                        </div>
-                                        <div className='cd_time'>{store?.tariffs[138].period_min}-{store?.tariffs[138].period_max} дней</div>
-                                        <div className='cd_prise'>{store?.tariffs[138].delivery_sum} ₽</div>
-                                        <div className='cd_choose_deliviry' onClick={() => { store.setDeliveryType('HOME'); store.setDeliveryPrice(store?.tariffs[139].delivery_sum); }}>
-                                            {store.deliveryType == 'HOME' ? "Выбрано"
-                                                :
-                                                "Выбрать"
-                                            }
-                                        </div>
+                                    <div style={{ marginBottom: '40px' }}>
+                                        <hr className='cd_line'></hr>
+                                        {store.tariffs?.[139] &&
+                                            <div className={store.deliveryType != 'HOME' ? 'cd_points' : 'cd_pointsblack'}>
+                                                <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
+                                                <div className='cd_box_for_org'>
+                                                    <div className='cd_name_org'>СДЭК до Двери</div>
+                                                    <div className='cd_org_addres'> {store.address}</div>
+                                                </div>
+                                                <div className='cd_time'>{store.tariffs?.[139].period_min}-{store.tariffs?.[139].period_max} дней</div>
+                                                <div className='cd_prise'>{store.tariffs?.[139].delivery_sum} ₽</div>
+                                                <div className='cd_choose_deliviry' onClick={() => onClickHomeDelivery()}>
+                                                    {store.deliveryType != 'HOME' ? "Выбрать"
+                                                        :
+                                                        "Отмена"
+                                                    }
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
+                                    {!store.tariffs?.[139] &&
+                                        <>
+                                            <div className='MAO_imputs_frame' style={{ marginBottom: '20px' }}>
+                                                <div className='d-flex'>
+                                                    <div className='MAO_input_frame'>
+                                                        <div className='MAO_input_text'>Страна</div>
+                                                        <input type='text' className='MAO_input' placeholder='Россия' disabled />
+                                                    </div>
+                                                    <div className='MAO_input_frame'>
+                                                        <div className='MAO_input_text'>Точный адрес</div>
+                                                        <input type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                                    </div>
+                                                    <button style={{ height: '44px', marginTop: '20px', border: 'none', borderRadius: '2px', background: '#0071E3', color: 'white', padding: '0 25px', fontFamily: 'Gilroy' }} onClick={() => store.getTariffs(store.address)}>Искать</button>
+                                                </div>
+                                            </div>
+                                        </>
+                                    }
                                 </>
                                 :
                                 null
@@ -138,8 +219,8 @@ const MackingAnOrders2 = () => {
                                         </div>
                                         <div className='cd_time'></div>
                                         <div className='cd_prise'>Бесплатно</div>
-                                        <div className='cd_choose_deliviry' onClick={() => { store.setDeliveryType('SELF'); store.setDeliveryPrice(0) }}>
-                                            {store.deliveryType == 'SELF' ? "Выбрано"
+                                        <div className='cd_choose_deliviry' onClick={() => onClickSELF()}>
+                                            {store.deliveryType == 'SELF' ? "Отмена"
                                                 :
                                                 "Выбрать"
                                             }
@@ -150,9 +231,10 @@ const MackingAnOrders2 = () => {
                                 null
                             }
                         </div>
+
                     </div>
-                    <div className='MAO_right_menu'>
-                        <CartResultForMAO disabled={store.address && store.deliveryType || (store.deliveryType == 'SELF')} textbutton={textbutton} />
+                    <div className='MAO_right_menu' onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType,"bool", store.deliveryType == 'SELF')}>
+                        <CartResultForMAO disabled={store.deliveryAddress && store.deliveryType || (store.deliveryType == 'SELF')} textbutton={textbutton} />
                     </div>
                 </div>
             </div>

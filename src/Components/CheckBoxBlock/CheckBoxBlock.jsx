@@ -9,6 +9,7 @@ const CheckBoxBlock = ({ param, text}) => {
     const [isShowAll, setIsShowAll] = useState(false)
 
     const onClickCheckBox = (param) => {
+        console.log(param)
         store.setCurrPage(1)
         store.sliceSelectedParam(param)
         store.parse(store.currentCatalogId, store.seletedParams,true)
@@ -24,14 +25,14 @@ const CheckBoxBlock = ({ param, text}) => {
                 {isShowAll == false ?
                     (param?.slice(0, 5).map(elemo =>
                         <div className={styles.box}>
-                            <input onChange={() => onClickCheckBox(elemo)} className={styles.check_box_block_elements_box} checked={store.isSelectedparam(elemo)} type="checkbox" />
+                            <input onChange={() => onClickCheckBox({...elemo, type: text})} className={styles.check_box_block_elements_box} checked={store.isSelectedparam(elemo)} type="checkbox" />
                             <a className={styles.check_box_block_elements_text}>{elemo.name}</a>
                         </div>
                     ))
                     :
                     (param?.slice(0, 50).map(elemo =>
                         <div className={styles.box}>
-                            <input onChange={() => onClickCheckBox(elemo)} className={styles.check_box_block_elements_box} value={elemo.id} checked={store.isSelectedparam(elemo)} type="checkbox" />
+                            <input onChange={() => onClickCheckBox({...elemo, type: text})} className={styles.check_box_block_elements_box} value={elemo.id} checked={store.isSelectedparam(elemo)} type="checkbox" />
                             <span className={styles.check_box_block_elements_text}>{elemo.name}</span>
                         </div>
                     ))

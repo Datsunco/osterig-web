@@ -167,6 +167,7 @@
 }
 
 .MAO_input_text {
+    border-radius: 7px;
     color: var(--Gray-4, #797C81);
     font-family: Gilroy;
     font-size: 12px;
@@ -183,6 +184,7 @@
 }
 
 .MAO_input {
+    border-radius: 7px;
     display: flex;
     width: 240px;
     height: 44px;
