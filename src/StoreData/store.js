@@ -1433,6 +1433,8 @@ export default class Store {
         }
     }
 
+
+    
     async getTariffs(address) {
         try {
             const resp = await DeliveryService.getTariff(address)
