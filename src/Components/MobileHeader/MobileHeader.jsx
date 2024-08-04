@@ -25,7 +25,7 @@ const MobileHeader = () => {
   };
 
   return (
-    <div className={styles.block}>
+    <div className={styles.block} style={{minHeight: isOpen ? '100%': '0'}}>
       <div className={styles.header} style={{ background: isOpen ? '#252525' : '#FFFFFF' }}>
         <div className={styles.mainContent}>
           <LogoSVG />
@@ -78,8 +78,8 @@ const MobileHeader = () => {
           </div>
         </div>
       </div>
-      {isOpen && (
-        <div className={styles.openedmenu}>
+      {/* {isOpen && ( */}
+        <div className={styles.openedmenu} style={{display: isOpen ? 'block' : 'none'}}>
           {!isCatalogOpen ?
             <>
               <div className={styles.buttonsBlock}>
@@ -123,7 +123,7 @@ const MobileHeader = () => {
             </>
           }
         </div>
-      )}
+      {/* )} */}
     </div>
   );
 };
