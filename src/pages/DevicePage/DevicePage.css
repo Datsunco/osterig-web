@@ -21,9 +21,9 @@
 
 .device_page_favorite_block {
     margin: auto;
-    width: 130px;
+    /* width: 130px; */
     display: flex;
-    margin-left: 157px;
+    /* margin-left: 157px; */
     cursor: pointer;
 }
 
@@ -146,7 +146,7 @@
 }
 
 .vkorzinu {
-    width: 225px;
+    /* width: 225px; */
     border-radius: 7px;
     background-color: #0071E3;
     color: #FFF;
@@ -163,7 +163,7 @@
 }
 
 .NetVNal {
-    width: 225px;
+    /* width: 225px; */
     border-radius: 7px;
     color: black;
     font-family: Gilroy;
@@ -181,7 +181,7 @@
 }
 
 .vkorzine {
-    width: 225px;
+    /* width: 225px; */
     border-radius: 7px;
     /* background-color: #0071E3; */
     color: blue;
@@ -222,7 +222,7 @@
 }
 
 .assh {
-    width: 540px;
+    width: -webkit-fill-available;
     height: auto;
     font-size: 32;
     border: 12px;
@@ -233,12 +233,11 @@
     justify-content: space-around;
     /* margin-left: 100px; */
     border-radius: 20px;
-    margin-left: auto;
+    /* margin-left: auto; */
 }
 
 .alltovarcard {
-    width: 1211px;
-
+    max-width: 1211px;
     display: flex;
     margin: auto;
     margin-top: 158px;
@@ -257,7 +256,7 @@
 
 .devcie_page_fav_button {
     display: flex;
-    width: 200px;
+    /* width: 200px; */
 }
 
 .loading {

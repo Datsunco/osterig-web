@@ -1,11 +1,14 @@
-.rowitems{
+.rowitems {
     display: flex;
-    flex-direction: row;
-    max-width:  1206px;
-    /* width: 100%; */
+    justify-content: center;
+    align-items: center;
     margin: auto;
-}
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-wrap: nowrap;
 
+}
 
 .atovar12 {
     color: #0071E3;

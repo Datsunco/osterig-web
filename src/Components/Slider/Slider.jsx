@@ -11,11 +11,11 @@ const Slider = () => {
     const responsiveOptions = [
         {
             breakpoint: '991px',
-            numVisible: 4
+            numVisible: 1
         },
         {
             breakpoint: '767px',
-            numVisible: 3
+            numVisible: 1
         },
         {
             breakpoint: '575px',
@@ -37,7 +37,7 @@ const Slider = () => {
 
     return (
         <div className="slider">
-            <Galleria value={device.images} responsiveOptions={responsiveOptions} numVisible={5} style={{ maxWidth: '425px' }} 
+            <Galleria value={device.images} responsiveOptions={responsiveOptions} numVisible={1} style={{ maxWidth: '425px' }} 
                 item={itemTemplate} thumbnail={thumbnailTemplate} />
         </div>
     )

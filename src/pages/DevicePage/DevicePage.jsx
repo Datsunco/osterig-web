@@ -10,12 +10,19 @@ import { useEffect, useContext, useState } from 'react';
 import { Context } from '../..';
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import HeartDevice from "../../static/HeartheartDevice.png"
+import MobileHeader from '../../Components/MobileHeader/MobileHeader';
+import MobileFooter from '../../Components/MobileFooter/MobileFooter';
 
 const DevicePage = () => {
   const { id } = useParams()
   const [isFavorite, setIsFavorite] = useState(false);
   const [isCart, setIsCart] = useState(false);
   const { cart, favorites, device, store } = useContext(Context)
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  const breakpoints = {
+    mobile: 991
+   }
 
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -24,6 +31,19 @@ const DevicePage = () => {
     setIsFavorite(false)
     device.parseSameProducts(id)
   }, [id])
+
+  const handleResize = () => {
+    console.log(window.innerWidth)
+    setWindowWidth(window.innerWidth);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
 
   useEffect(() => {
 
@@ -114,11 +134,14 @@ const DevicePage = () => {
 
   return (
     <Container className='mt-3'>
-      <Header />
-      <div class="alltovarcard">
-        <Slider />
+      {windowWidth <= breakpoints.mobile ? <MobileHeader/> : <Header/> }
+      <div class="alltovarcard" style={{display: 'flex', flexDirection: windowWidth <= breakpoints.mobile ? 'column':'row'}}>
+        <div style={windowWidth <= breakpoints.mobile ? {display: 'flex', justifyContent: 'center',}: { width: '-webkit-fill-available'}}>
+          <Slider/>
+        </div>
         {device.isDetailsLoaded ?
-          <div class="assh">
+        <div style={windowWidth <= breakpoints.mobile ? {display: 'flex', justifyContent: 'center', maxWidth: '540px'}: {display: 'flex', justifyContent: 'end', maxWidth: '540px'}}>
+          <div class="assh" >
             <h2 class="cb">{device.productDetails.brandNameEn} {device.productDetails.productModel}</h2>
             {device.productDetails.stockNumber != 0 ?
               <div className='d-flex' class="agn">
@@ -166,12 +189,12 @@ const DevicePage = () => {
               <DataComponentDevicePage device={device} cartState={isCart} />
               <div className='device_page_favorite_block'>
                 {!isFavorite ?
-                  <div className='devcie_page_fav_button' onClick={() => favorites.addFavorite(device.productDetails) && setIsFavorite(true)}>
+                  <div className='devcie_page_fav_button' style={{justifyContent: windowWidth <= breakpoints.mobile ? 'start' : 'center'}} onClick={() => favorites.addFavorite(device.productDetails) && setIsFavorite(true)}>
                     <a class='izbr' >В ИЗБРАННОЕ</a>
                     <img className="fav_act_heart" src={HeartDevice} />
                   </div>
                   :
-                  <div className='devcie_page_fav_button' onClick={() => favorites.removeFavorite(device.productDetails) && setIsFavorite(false)}>
+                  <div className='devcie_page_fav_button' style={{justifyContent: windowWidth <= breakpoints.mobile ? 'start' : 'center'}} onClick={() => favorites.removeFavorite(device.productDetails) && setIsFavorite(false)}>
                     <a class='izbr' >В ИЗБРАННОM</a>
                     <img className="fav_act_heart"
                       src="/activeheart.svg" />
@@ -182,12 +205,13 @@ const DevicePage = () => {
 
             </div>
           </div>
+          </div>
           :
           <LoadingComponent />
         }
       </div>
-      <PopularTovar />
-      <BottomMenu />
+      <PopularTovar isMobile={windowWidth <= breakpoints.mobile}/>
+      {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> }
     </Container>
   );
 }

@@ -64,7 +64,7 @@ const MobileHeader = () => {
                   style={{ height: '22px' }}
                   loading="lazy"
                   alt=""
-                  src="crosswhite.png"
+                  src="/crosswhite.png"
                 />
                 :
                 <img

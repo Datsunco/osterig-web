@@ -1193,6 +1193,10 @@ export default class Store {
         this.seletedParams = changed
     }
 
+    clearSelectedParam() {
+        this.seletedParams = []
+    }
+
     setTariffs(tariff_codes) {
         var new_tariffs = {}
         if (Object.keys(tariff_codes).length !== 0) {

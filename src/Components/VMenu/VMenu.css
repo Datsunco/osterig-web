@@ -1,4 +1,7 @@
 .qweqas {
+  display: flex;
+  flex-direction: row;
+  width: -webkit-fill-available;
     color: rgb(241, 243, 244);
     font-family: Gilroy;
     font-size: 14px;
@@ -9,7 +12,7 @@
     text-transform: uppercase;
     border: none;
     height: 45px;
-    width: 508px;
+    /* width: 508px; */
     background-color: rgb(241, 243, 244);;
   }
   .xz{
