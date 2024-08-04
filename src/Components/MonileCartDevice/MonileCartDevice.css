@@ -1,0 +1,234 @@
+.frame-child {
+    position: relative;
+    background-color: #f1f3f4;
+}
+
+.frame-child,
+.frame-group,
+.frame-item {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.frame-item {
+    position: relative;
+    object-fit: cover;
+    margin-top: -100px;
+}
+
+.frame-group {
+    border-radius: 7px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    z-index: 0;
+}
+
+.chipanalog {
+    font-family: Gilroy;
+    position: relative;
+    line-height: 135%;
+    font-weight: 600;
+    display: inline-block;
+    width: 258px;
+}
+
+.ca-is3082wx {
+    align-self: stretch;
+    position: relative;
+    font-size: 13px;
+    line-height: 120%;
+    text-transform: uppercase;
+    font-family: Gilroy;
+    color: #797c81;
+}
+
+.chipanalog-parent {
+    width: -webkit-fill-available;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 5px;
+}
+
+.b,
+.div {
+    position: relative;
+}
+
+.div {
+    text-decoration: line-through;
+    line-height: 130%;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.b {
+    font-size: 17px;
+    line-height: 110%;
+    color: #1a1a1a;
+    margin-top: 2px;
+}
+
+.parent {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.frame-container,
+.frame-wrapper,
+.parent {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.frame-wrapper {
+    flex-direction: column;
+    align-items: flex-start;
+    color: #797c81;
+    font-family: Gilroy;
+    font-size: 15px;
+    margin-left: 20px;
+    width: -webkit-fill-available;
+}
+
+.frame-container {
+    flex: 1;
+    flex-direction: row;
+    align-items: self-start;
+    gap: 10px;
+    z-index: 1;
+}
+
+.vector-icon {
+    position: relative;
+    width: 12px;
+    height: 1.3px;
+}
+
+.minus,
+.plus {
+    width: 16px;
+    height: 16px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 3.3333334922790527px;
+    box-sizing: border-box;
+}
+
+.minus-wrapper,
+.plus-wrapper {
+    border-radius: 32px;
+    background-color: #f1f3f4;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 5px;
+}
+
+.div1 {
+    position: relative;
+    line-height: 130%;
+    text-transform: uppercase;
+    font-weight: 500;
+    display: inline-block;
+    width: 50px;
+}
+
+.wrapper {
+    width: 50px;
+    margin: auto;
+    /* border-radius: 32px; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* padding: 5px 20px; */
+}
+
+.vector-icon1 {
+    position: relative;
+    width: 12px;
+    height: 12px;
+}
+
+.frame-div {
+    border-radius: 60px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 2;
+    /* text-align: center; */
+    font-family: Gilroy;
+}
+
+.heart-icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+}
+
+.vector-stroke-icon {
+    position: relative;
+    width: 10px;
+    height: 10px;
+}
+
+.close {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 4.166666507720947px;
+    box-sizing: border-box;
+}
+
+.frame-parent,
+.heart-parent {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.heart-parent {
+    display: none;
+    margin: 0 !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    align-items: flex-start;
+    gap: 5px;
+    z-index: 3;
+}
+
+.frame-parent {
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: -webkit-fill-available;
+    align-items: center;
+    padding: 0 15px 0 0;
+    box-sizing: border-box;
+    position: relative;
+    gap: 20px;
+    text-align: left;
+    font-size: 14px;
+    color: #1a1a1a;
+    font-family: "Suisse Intl";
+}
+
+.frame-parent:hover .heart-parent{
+    
+    display: flex;
+}

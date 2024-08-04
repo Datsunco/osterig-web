@@ -11,7 +11,7 @@ import LogoSVG from '../Header/LogoSVG';
 const MobileBottomMenu = () => {
   const navigate = useNavigate();
   return (
-    <div className={styles.root}>
+    <div className={styles.root} style={{marginTop: '20px'}}>
     <section className={styles.counter}>
       <div className={styles.counterChild} />
       <div className={styles.countTwo}>

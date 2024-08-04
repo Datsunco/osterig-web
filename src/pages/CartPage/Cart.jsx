@@ -9,12 +9,34 @@ import CartResult from '../../Components/CartResult/CartResult';
 import CartFavHeader from '../../Components/Cart&FavHeader/CartFavHeader';
 import './Cart.css'
 import PopUpLogin from '../../Components/popUpLogin/popUpLogin';
+import MobileHeader from '../../Components/MobileHeader/MobileHeader';
+import MobileFooter from '../../Components/MobileFooter/MobileFooter';
+import MobileCartDevice from '../../Components/MonileCartDevice/MobileCartDevice';
 
 
 const Cart = () => {
     const navigate = useNavigate()
     const { cart, favorites, store, userStore } = useContext(Context)
     const [opened, setOpened] = useState(false)
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const breakpoints = {
+        mobile: 991
+    }
+
+
+    const handleResize = () => {
+        console.log(window.innerWidth)
+        setWindowWidth(window.innerWidth);
+    };
+
+    useEffect(() => {
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const get = async () => {
         const stm = await cart.getDevices()
@@ -34,7 +56,7 @@ const Cart = () => {
 
     useEffect(() => {
         store.getCurrency()
-        
+
         console.log('auth', userStore._isAuth)
         if (localStorage.getItem('token')) {
             favorites.getFavorites()
@@ -46,7 +68,7 @@ const Cart = () => {
 
     return (
         <div className='cart_component'>
-            <Header />
+            {windowWidth <= breakpoints.mobile ? <MobileHeader /> : <Header />}
             {!localStorage.getItem('token') ?
                 <div className='cart_elements_empty'>
                     <CartFavHeader state={'cart'} />
@@ -58,15 +80,25 @@ const Cart = () => {
                 (
                     <>
                         {cart.devices.length != 0 ?
-                            <div className='cart_elements'>
+                            <div className='cart_elements' style={{ flexDirection: windowWidth <= breakpoints.mobile ? 'column' : 'row', padding: windowWidth <= breakpoints.mobile ? '20px' : '0', marginTop: windowWidth <= breakpoints.mobile ? '80px' : '140px' }}>
                                 <div className='cart_items'>
                                     <CartFavHeader state={'cart'} />
-                                    {cart.devices.slice(0).reverse().map(device =>
-                                        <CartDevice device={device} />
+                                    <div style={{height: '50vh',overflowY: 'scroll'}}>
+                                    {cart.devices.slice(0).reverse().map(device => {
+                                        if (windowWidth <= breakpoints.mobile)
+                                            return (
+                                                <MobileCartDevice device={device} />
+                                            )
+                                        else return (
+                                            <CartDevice device={device} />
+                                        )
+                                    }
                                     )}
+                                    </div>
                                 </div>
-
-                                <CartResult />
+                                <div>
+                                <CartResult isMobile={windowWidth <= breakpoints.mobile} />
+                                </div>
                             </div>
                             :
                             <div className='cart_elements_empty'>
@@ -91,7 +123,7 @@ const Cart = () => {
                 }
 
             </div> */}
-            <BottomMenu />
+            {/* {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> } */}
         </div>
     );
 };

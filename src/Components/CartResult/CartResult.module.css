@@ -141,6 +141,7 @@
   font-size: var(--font-size-sm);
   color: var(--black);
   font-family: var(--font-gilroy);
+  z-index: 1000;
 }
 
 .frameWrapper {

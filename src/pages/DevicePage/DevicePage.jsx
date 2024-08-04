@@ -140,7 +140,7 @@ const DevicePage = () => {
           <Slider/>
         </div>
         {device.isDetailsLoaded ?
-        <div style={windowWidth <= breakpoints.mobile ? {display: 'flex', justifyContent: 'center', maxWidth: '540px'}: {display: 'flex', justifyContent: 'end', maxWidth: '540px'}}>
+        <div style={windowWidth <= breakpoints.mobile ? {display: 'flex', justifyContent: 'center', maxWidth: '540px'}: {display: 'flex', justifyContent: 'end', maxWidth: '540px', width: '-webkit-fill-available'}}>
           <div class="assh" >
             <h2 class="cb">{device.productDetails.brandNameEn} {device.productDetails.productModel}</h2>
             {device.productDetails.stockNumber != 0 ?

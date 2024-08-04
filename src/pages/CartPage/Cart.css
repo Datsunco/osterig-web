@@ -13,7 +13,7 @@
 
 .cart_elements {
 
-    width: 1211px;
+    max-width: 1211px;
     margin-top: 151px;
     display: flex;
     justify-content: flex-start;

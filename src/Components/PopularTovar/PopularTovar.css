@@ -1,6 +1,6 @@
 .rowitems {
     display: flex;
-    justify-content: center;
+    /* justify-content: center; */
     align-items: center;
     margin: auto;
     overflow-x: auto;

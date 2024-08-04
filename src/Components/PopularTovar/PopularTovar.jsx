@@ -24,7 +24,7 @@ const PopularTovar = ({isMobile}) => {
                         </div>
                     </button> */}
                 </div>
-            <div class="rowitems" style={{paddingLeft: isMobile ? '10px': '0px'}}>
+            <div class="rowitems" style={{paddingLeft: isMobile ? '10px': '0px', justifyContent: 'center'}}>
                     {device.sameProducts.map(device =>
                         <DeviceItem key={device.id} device={device} />
                     )}

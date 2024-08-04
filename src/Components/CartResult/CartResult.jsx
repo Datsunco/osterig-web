@@ -4,7 +4,7 @@ import { observer } from 'mobx-react-lite';
 import styles from "./CartResult.module.css"
 import { useNavigate } from 'react-router-dom';
 
-const CartResult = () => {
+const CartResult = ({isMobile}) => {
     const { device, cart,  store} = useContext(Context)
     const navigate = useNavigate()
 
@@ -13,9 +13,9 @@ const CartResult = () => {
     }, [cart])
 
     return (
-        <div className={styles.rectangleParent}>
-            <div className={styles.frameWrapper}>
-                <div className={styles.frameContainer}>
+        <div className={styles.rectangleParent} style={{width: isMobile ?  '-webkit-fill-available' : '390px', position: isMobile ? 'absolute': 'relative', bottom: isMobile ? '0': '', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end', left: isMobile ? '10px': '', right: isMobile ? '10px': ''}}>
+            <div className={styles.frameWrapper} style={{width: isMobile ?  '-webkit-fill-available' : '390px'}}>
+                <div className={styles.frameContainer} style={{width: isMobile ?  '-webkit-fill-available' : 'auto', padding: isMobile ? '20px' : '17px 17px'}}>
                     <div className={styles.frameDiv}>
                         <div className={styles.frameParent}>
                             <div className={styles.frameGroup}>

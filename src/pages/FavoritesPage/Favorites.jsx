@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { observer } from 'mobx-react-lite';
 import { Context } from '../..';
 import Header from '../../Components/Header/Header';
@@ -9,10 +9,32 @@ import BottomMenu from '../../Components/BottomMenu/BottomMenu';
 import './Favorites.css'
 import { useNavigate } from 'react-router-dom';
 import PopularTovar from '../../Components/PopularTovar/PopularTovar';
+import MobileHeader from '../../Components/MobileHeader/MobileHeader';
+import MobileFooter from '../../Components/MobileFooter/MobileFooter';
+import MobileDeviceItem from '../../Components/MobileDeviceItem/MobileDeviceItem';
 
 const Favorites = () => {
     const { cart, favorites } = useContext(Context)
     const navigate = useNavigate()
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const breakpoints = {
+        mobile: 991
+       }
+
+
+    const handleResize = () => {
+        console.log(window.innerWidth)
+        setWindowWidth(window.innerWidth);
+      };
+    
+      useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -24,7 +46,7 @@ const Favorites = () => {
 
     return (
         <div className='favorite_component'>
-            <Header />
+            {windowWidth <= breakpoints.mobile ? <MobileHeader/> : <Header/> }
             {!localStorage.getItem('token') ?
                 <div className='cart_elements_empty'>
                     <CartFavHeader state={'fav'} />
@@ -36,11 +58,11 @@ const Favorites = () => {
                 (
                     <>
                         {favorites.favorites.length != 0 ?
-                            <div className='fav_elements'>
+                            <div className='fav_elements' style={{ padding: windowWidth <= breakpoints.mobile  ? '20px': '0', marginTop: windowWidth <= breakpoints.mobile  ? '70px': '140px'}}>
                                 <CartFavHeader state={'fav'} />
                                 <div className='fav_items'>
                                     {favorites.favorites.slice(0).reverse().map(device =>
-                                        <DeviceItem device={device} />
+                                        <MobileDeviceItem device={device} />
                                     )}
                                 </div>
                             </div>
@@ -55,7 +77,7 @@ const Favorites = () => {
                     </>
                 )
             }
-            < BottomMenu />
+            {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> }
         </div>
     );
 };
