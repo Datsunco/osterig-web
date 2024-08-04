@@ -101,6 +101,69 @@
     color: #000;
     font-family: Jost;
   }
+
+.block{
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 100%;
+}
   
   
+.openedmenu{
+  background-color: #252525;
+  min-height: 100%;
+  width: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.buttonsBlock{
+  padding: 0px 16px;
+  display: flex;
+  flex-direction: column;
+  height: 600px;
+  overflow-y: auto;
+}
+
+.openedMenuButton{
+  cursor: pointer;
+  padding: 20px 0;
+  color: #FFFFFF;
+  font-family: Gilroy;
+  font-size: 14px;
+}
+.backButton{
+  padding: 24px 16px 0 ;
+  font-family: Gilroy;
+  font-size: 14px;
+  color: #A7AEB5;
+  cursor: pointer;
+}
+
+
+.devider{
+  width: 100%;
+  height: 1px;
+  background-color: #FFFFFF;
   
+}
+
+.infoBlock{
+  position: absolute;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 16px 100px 16px;
+  color: #FFFFFF;
+  font-family: Gilroy;
+  font-size: 14px;
+}
+
+.subinfotest{
+  color:#787878;
+  
+}

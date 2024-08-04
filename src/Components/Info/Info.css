@@ -116,7 +116,7 @@
 }
 
 .description {
-    /* overflow-x: auto; */
+    overflow-x: auto;
     height: auto;
     max-width: 1206px;
     margin: auto;

@@ -1,0 +1,22 @@
+.openedMenuButton{
+    cursor: pointer;
+    padding: 20px 0;
+    color: #FFFFFF;
+    font-family: Gilroy;
+    font-size: 14px;
+  }
+  .backButton{
+    padding: 24px 16px 0 ;
+    font-family: Gilroy;
+    font-size: 14px;
+    color: #A7AEB5;
+    cursor: pointer;
+  }
+  
+  
+  .devider{
+    width: 100%;
+    height: 1px;
+    background-color: #FFFFFF;
+    
+  }

@@ -1,0 +1,440 @@
+.counterChild {
+    /* width: 375px; */
+    height: 948px;
+    position: relative;
+    border-radius: 35px 35px 0 0;
+    background-color: #252525;
+    display: none;
+    max-width: 100%;
+  }
+  .tracedIcon {
+    height: 13.2px;
+    width: 86.2px;
+    position: relative;
+    z-index: 1;
+  }
+  .countFive {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 0 3px;
+  }
+  .electronics {
+    text-decoration: none;
+    position: relative;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    display: inline-block;
+    font-style: italic;
+    font-weight: 700;
+    color: inherit;
+    min-width: 83.1px;
+    z-index: 1;
+  }
+  .countFour {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 2px;
+  }
+  .frameChild {
+    height: 29px;
+    width: 133px;
+    position: relative;
+    border-radius: 50px;
+    background: linear-gradient(88.99deg, #00c6ff, #0072ff);
+    display: none;
+  }
+  .div,
+  .emptyBuildingIcon {
+    position: relative;
+    z-index: 1;
+  }
+  .div {
+    font-weight: 600;
+    display: inline-block;
+    min-width: 82px;
+    white-space: nowrap;
+  }
+  .emptyBuildingIcon {
+    width: 12px;
+    height: 12px;
+  }
+  .building,
+  .rectangleParent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1px 0 0;
+  }
+  .rectangleParent {
+    border-radius: 50px;
+    background: linear-gradient(88.99deg, #00c6ff, #0072ff);
+    flex-direction: row;
+    padding: 7px 9px 6px 10px;
+    gap: 20px;
+    z-index: 1;
+  }
+  .div1 {
+    align-self: stretch;
+    position: relative;
+    font-size: 16px;
+    line-height: 139%;
+    font-weight: 600;
+    z-index: 1;
+  }
+  .frameParent {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 17px;
+  }
+  .emailDetailsChild {
+    height: 29px;
+    width: 133px;
+    position: relative;
+    border-radius: 50px;
+    background: linear-gradient(88.99deg, #00c6ff, #0072ff);
+    display: none;
+  }
+  .div2,
+  .icroundEmailIcon {
+    position: relative;
+    z-index: 1;
+  }
+  .div2 {
+    font-weight: 600;
+    display: inline-block;
+    min-width: 53px;
+  }
+  .icroundEmailIcon {
+    height: 14px;
+    width: 14px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .emailDetails {
+    flex: 1;
+    border-radius: 50px;
+    background: linear-gradient(88.99deg, #00c6ff, #0072ff);
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 7px 9px 6px 10px;
+    gap: 20px;
+    z-index: 1;
+  }
+  .addressDetails,
+  .emailDetailsWrapper {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .emailDetailsWrapper {
+    width: 143px;
+    flex-direction: row;
+    padding: 0 5px;
+    box-sizing: border-box;
+  }
+  .addressDetails {
+    flex: 1;
+    flex-direction: column;
+    gap: 27px;
+    min-width: 101px;
+  }
+  .phoneContentChild {
+    height: 29px;
+    width: 133px;
+    position: relative;
+    border-radius: 50px;
+    background: linear-gradient(88.99deg, #00c6ff, #0072ff);
+    display: none;
+  }
+  .div3,
+  .ggphoneIcon {
+    position: relative;
+    z-index: 1;
+  }
+  .div3 {
+    font-weight: 600;
+    display: inline-block;
+    min-width: 58px;
+  }
+  .ggphoneIcon {
+    width: 12px;
+    height: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+  }
+  .ggphoneWrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1px 0 0;
+  }
+  .phoneContent,
+  .phoneDetails {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+  .phoneContent {
+    flex: 1;
+    border-radius: 50px;
+    background: linear-gradient(88.99deg, #00c6ff, #0072ff);
+    justify-content: space-between;
+    padding: 7px 9px 6px 10px;
+    gap: 20px;
+    z-index: 1;
+  }
+  .phoneDetails {
+    align-self: stretch;
+    justify-content: flex-start;
+    padding: 0 0 0 5px;
+  }
+  .space {
+    width: 133px;
+    position: relative;
+    font-size: 16px;
+    line-height: 139%;
+    font-weight: 600;
+    display: inline-block;
+    z-index: 1;
+  }
+  .addressContent,
+  .phoneDetailsParent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .phoneDetailsParent {
+    width: 138px;
+    flex-direction: column;
+    gap: 17px;
+  }
+  .addressContent {
+    align-self: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 34px;
+  }
+  .infoosterrigru {
+    width: 133px;
+    position: relative;
+    font-size: 16px;
+    line-height: 139%;
+    font-weight: 600;
+    color: inherit;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+    z-index: 1;
+  }
+  .addressContentParent,
+  .countThree {
+    align-self: stretch;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .addressContentParent {
+    gap: 17px;
+    font-size: 13px;
+    font-family: Gilroy;
+  }
+  .countThree {
+    gap: 36px;
+  }
+  .div4 {
+    position: relative;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    font-weight: 600;
+    display: inline-block;
+    min-width: 55px;
+    z-index: 1;
+  }
+  .wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 0 3px;
+    font-size: 20px;
+    color: #fff;
+  }
+  .div5,
+  .div6,
+  .div7,
+  .div8,
+  .div9 {
+    position: relative;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    font-weight: 500;
+    display: inline-block;
+    min-width: 66px;
+    z-index: 1;
+  }
+  .div6,
+  .div7,
+  .div8,
+  .div9 {
+    min-width: 67px;
+  }
+  .div7,
+  .div8,
+  .div9 {
+    min-width: 60px;
+  }
+  .div8,
+  .div9 {
+    min-width: 93px;
+  }
+  .div9 {
+    min-width: 70px;
+  }
+  .navigationLinks {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 15px;
+    min-width: 93px;
+  }
+  .div10,
+  .div11,
+  .div12 {
+    position: relative;
+    letter-spacing: -0.3px;
+    line-height: 22px;
+    z-index: 1;
+  }
+  .div10 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    display: inline-block;
+    min-width: 124px;
+  }
+  .div11,
+  .div12 {
+    font-weight: 500;
+  }
+  .div11 {
+    align-self: stretch;
+  }
+  .div12 {
+    width: 157px;
+    display: inline-block;
+  }
+  .clientInfo,
+  .countTwo,
+  .navigation {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .clientInfo {
+    flex: 1;
+    flex-direction: column;
+    gap: 16.5px;
+    min-width: 131px;
+  }
+  .countTwo,
+  .navigation {
+    align-self: stretch;
+  }
+  .navigation {
+    flex-direction: row;
+    gap: 34px;
+    font-size: 18px;
+    color: #9e9e9e;
+    font-family: Gilroy;
+  }
+  .countTwo {
+    flex-direction: column;
+    gap: 72px;
+  }
+  .footerContentChild {
+    align-self: stretch;
+    position: relative;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: contain;
+    margin-top: -1px;
+    z-index: 1;
+  }
+  .labekin {
+    font-weight: 600;
+    background: linear-gradient(268.73deg, #84ff9f, #99e71a);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  .designByLabekinContainer {
+    position: relative;
+    display: inline-block;
+    min-width: 109px;
+    z-index: 1;
+  }
+  .designer,
+  .footerContent {
+    display: flex;
+    align-items: flex-start;
+  }
+  .designer {
+    align-self: stretch;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .footerContent {
+    flex: 1;
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 8.5px;
+    max-width: 100%;
+  }
+  .footer {
+    align-self: stretch;
+    flex-direction: row;
+    padding: 0 0 0 4px;
+    font-size: 14px;
+    font-family: "SF Pro Display";
+  }
+  .counter,
+  .footer,
+  .root {
+    max-width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    box-sizing: border-box;
+  }
+  .counter {
+    flex: 1;
+    border-radius: 35px 35px 0 0;
+    background-color: #252525;
+    flex-direction: column;
+    padding: 39px 21px 39.5px;
+    gap: 268px;
+    text-align: left;
+    font-size: 10px;
+    color: #fff;
+    font-family: Jost;
+  }
+  .root {
+    /* width: 385px; */
+    flex-direction: row;
+    /* padding: 0 5px; */
+    line-height: normal;
+    letter-spacing: normal;
+  }

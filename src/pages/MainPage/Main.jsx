@@ -18,6 +18,7 @@ import Connectors from '../../Components/BottomProducts/Connectors';
 
 import './Main.css'
 import MobileHeader from '../../Components/MobileHeader/MobileHeader';
+import MobileFooter from '../../Components/MobileFooter/MobileFooter';
 
 
 const Main = () => {
@@ -69,24 +70,24 @@ const Main = () => {
             <Container>
                 {/* <Catalog />  Выезжающее меню каталог при на ведении,  в разарботке*/}
                 <div class="MainPageMargin">
-                    <Row className='mt-2'>
-                        <Info />
-                        <Popular />
+                    <Row className='mt-2' style={{padding: windowWidth <= breakpoints.mobile ? '0px 10px': '0px'}}>
+                        <Info isMobile={windowWidth <= breakpoints.mobile}/>
+                        <Popular isMobile={windowWidth <= breakpoints.mobile}/>
                     </Row>
                 </div>
             </Container>
             <div>
-                <TypeBar />
-                <Resistors />
-                <Capacitors />
-                <Inductors />
-                <Processors />
-                <Сonverters />
-                <Diodes />
-                <Connectors />
+                <TypeBar isMobile={windowWidth <= breakpoints.mobile}/>
+                <Resistors isMobile={windowWidth <= breakpoints.mobile}/>
+                <Capacitors isMobile={windowWidth <= breakpoints.mobile}/>
+                <Inductors isMobile={windowWidth <= breakpoints.mobile}/>
+                <Processors isMobile={windowWidth <= breakpoints.mobile}/>
+                <Сonverters isMobile={windowWidth <= breakpoints.mobile}/>
+                <Diodes isMobile={windowWidth <= breakpoints.mobile}/>
+                <Connectors isMobile={windowWidth <= breakpoints.mobile}/>
             </div>
-
-            <BottomMenu />
+            {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> }
+            
         </div>
 
     );

@@ -1,21 +1,10 @@
-@media (max-width: 900px) {
-    /* .test {
-        
+/*  */
 
-    }
-    .pop > *{
-        width: 164px;
-        height: 205px;
-        scale: 0.5;
-    } */
-
-    .pop{
-        scale: 0.5;
-    }
-    .atest{
-        width: auto;
-        height: auto;
-    }
+.est{
+    max-width: 220px;
+    max-height: 315px;
+    min-width: 100px;
+    min-height: 100px;
 }
 
 .chelka1 {

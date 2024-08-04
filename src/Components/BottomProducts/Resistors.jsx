@@ -6,7 +6,7 @@ import DeviceItem from "../DeviceItem/DeviceItem";
 import { useNavigate } from "react-router-dom";
 import ArrowLe from "../../static/Arrow.png.png"
 
-const Resistors = () => {
+const Resistors = ({isMobile}) => {
     const navigate = useNavigate()
     const { device, favorites, cart } = useContext(Context)
 
@@ -14,7 +14,7 @@ const Resistors = () => {
     return (
         <div class="PopularBody1" id="res">
                 <div class="chelka">
-                    <div class="popular1"><h1>RESISTORS</h1></div>
+                    <div class="popular1" style={{fontSize: isMobile ? '14px': '20px'}}><h1>RESISTORS</h1></div>
                     <button class="alltovars" onClick={() => navigate("/search/308")}>
                         Все товары 
                         <div class="strelka1SVG">
@@ -22,7 +22,7 @@ const Resistors = () => {
                         </div>
                     </button>
                 </div>
-            <div class="rowitems">
+            <div class="rowitems" style={{paddingLeft: isMobile ? '10px': '0px'}}>
                 {device.hotProducts.slice(0, 5).map(device =>
                         <DeviceItem key={device.id} device={device} />
                     )}

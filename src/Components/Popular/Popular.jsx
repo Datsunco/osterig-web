@@ -7,7 +7,7 @@ import "./Popular.css"
 import ArrowLe from "../../static/Arrow.png.png"
 import { useNavigate } from 'react-router';
 
-const Popular = () => {
+const Popular = ({isMobile}) => {
     const { device, favorites, cart } = useContext(Context)
     const navigate = useNavigate()
     console.log(device.hotProducts.slice(0, 5))
@@ -15,7 +15,9 @@ const Popular = () => {
         <div class="PopularBody">
             <div>
                 <div class="chelka" id="popularId">
-                    <div class="popular1"><h1>ПОПУЛЯРНЫЕ <h class="tovars">ТОВАРЫ</h></h1></div>
+                    <div class="popular1" style={{fontSize: isMobile ? '14px': '20px'}}>
+                        <h1>ПОПУЛЯРНЫЕ <h class="tovars">ТОВАРЫ</h></h1>
+                    </div>
                     <button class="alltovars" onClick={() => navigate("/popular")}>
                         Все товары 
                         <div class="strelka1SVG">
@@ -24,7 +26,7 @@ const Popular = () => {
                     </button>
                 </div>
             </div>
-            <div class="rowitems">
+            <div class="rowitems" style={{paddingLeft: isMobile ? '10px': '0px'}}>
             {device.hotProducts.slice(0, 5).map(device =>
                         <DeviceItem key={device.id} device={device} />
                     )}
