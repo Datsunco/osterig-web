@@ -48,11 +48,11 @@ const Favorites = () => {
         <div className='favorite_component'>
             {windowWidth <= breakpoints.mobile ? <MobileHeader/> : <Header/> }
             {!localStorage.getItem('token') ?
-                <div className='cart_elements_empty'>
+                <div className='cart_elements_empty' style={{ marginTop: windowWidth <= breakpoints.mobile ? '137px' : '137px', padding: windowWidth <= breakpoints.mobile ? '0 20px' : '' }}>
                     <CartFavHeader state={'fav'} />
                     <h3 className='cart_elements_empty_main_text'>ЧТОБЫ ПОЛУЧИТЬ ДОСТУП К ИЗБРАННОМУ, СНАЧАЛА АВТОРИЗИРУЙТЕСЬ</h3>
                     <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
-                    <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
+                    <button onClick={() => navigate("/mainpage")} className='cart_elements_empty_button'>В каталог</button>
                 </div>
                 :
                 (
@@ -71,7 +71,7 @@ const Favorites = () => {
                                 <CartFavHeader state={'fav'} />
                                 <h3 className='cart_elements_empty_main_text'>В ИЗБРАННОМ ПОКА НЕТ ТОВАРОВ</h3>
                                 <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
-                                <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
+                                <button onClick={() => navigate("/mainpage")} className='cart_elements_empty_button'>В каталог</button>
                             </div>
                         }
                     </>

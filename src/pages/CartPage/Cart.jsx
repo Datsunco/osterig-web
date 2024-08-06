@@ -71,11 +71,11 @@ const Cart = () => {
         <div className='cart_component'>
             {windowWidth <= breakpoints.mobile ? <MobileHeader /> : <Header />}
             {!localStorage.getItem('token') ?
-                <div className='cart_elements_empty'>
+                <div className='cart_elements_empty' style={{ marginTop: windowWidth <= breakpoints.mobile ? '137px' : '137px', padding: windowWidth <= breakpoints.mobile ? '0 20px' : '' }}>
                     <CartFavHeader state={'cart'} />
                     <h3 className='cart_elements_empty_main_text'>ЧТОБЫ ПОЛУЧИТЬ ДОСТУП К КОРЗИНЕ, СНАЧАЛА АВТОРИЗИРУЙТЕСЬ</h3>
                     <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
-                    <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
+                    <button onClick={() => navigate("/mainpage")} className='cart_elements_empty_button'>В каталог</button>
                 </div>
                 :
                 (
@@ -106,7 +106,7 @@ const Cart = () => {
                                 <CartFavHeader state={'cart'} />
                                 <h3 className='cart_elements_empty_main_text'>В КОРЗИНЕ ПОКА НЕТ ТОВАРОВ</h3>
                                 <h4 className='cart_elements_empty_secondary_text'>В каталоге можно найти много товаров</h4>
-                                <button onClick={() => navigate("/catalog")} className='cart_elements_empty_button'>В каталог</button>
+                                <button onClick={() => navigate("/mainpage")} className='cart_elements_empty_button'>В каталог</button>
                             </div>
                         }
                     </>

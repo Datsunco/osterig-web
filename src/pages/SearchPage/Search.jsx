@@ -145,7 +145,7 @@ const Search = () => {
                     </div>
                 </div>
             }
-            <div className='vart_block' style={{display: 'flex', justifyContent: 'center'}}>
+            <div className='vart_block' style={{display: 'flex', justifyContent: 'center', minHeight: '500px'}}>
                 <div className='chechboxes_block' style={{ display: windowWidth <= breakpoints.mobile ? 'none' : 'block' }}>
                     {
                         Object.keys(store.params).map((item, index) => {
