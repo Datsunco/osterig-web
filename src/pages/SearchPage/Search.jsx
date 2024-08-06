@@ -100,7 +100,7 @@ const Search = () => {
     //     console.log(store?.params[item])
     // })
     return (
-        <div>
+        <div >
             {windowWidth <= breakpoints.mobile ? <MobileHeader /> : <Header />}
             <div className='search_page' style={{ padding: '0 20px' }}>
                 <TypePreview from={type}
@@ -145,7 +145,7 @@ const Search = () => {
                     </div>
                 </div>
             }
-            <div className='vart_block'>
+            <div className='vart_block' style={{display: 'flex', justifyContent: 'center'}}>
                 <div className='chechboxes_block' style={{ display: windowWidth <= breakpoints.mobile ? 'none' : 'block' }}>
                     {
                         Object.keys(store.params).map((item, index) => {

@@ -27,6 +27,7 @@
 }
 
 .vart_block {
+    /* max-width: 1200px; */
     margin-top: 55px;
     display: flex;
     flex-direction: row;
@@ -39,6 +40,7 @@
 }
 
 .loadBut_block{
+    max-width: 1000px;
     display: flex;
     flex-direction: column;
     justify-content: center;
