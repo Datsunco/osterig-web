@@ -1,5 +1,5 @@
 .MAO_body1 {
-    width: 1212px;
+    max-width: 1212px;
     height: 950px;
     margin: auto;
     margin-top: 102px;
@@ -30,7 +30,7 @@
 }
 
 .MAO_input9 {
-    width: 520px;
+    max-width: 520px;
     height: 89px;
     margin-top: 10px;
 }

@@ -427,8 +427,8 @@
 }
 
 .tovars {
-    background: rgb(45, 135, 247);
-    background: linear-gradient(135deg, rgba(45, 135, 247, 1) 5%, rgba(0, 114, 255, 1) 45%, rgba(53, 53, 53, 1) 100%);
+    /* background: rgb(45, 135, 247); */
+    /* background: linear-gradient(135deg, rgba(45, 135, 247, 1) 5%, rgba(0, 114, 255, 1) 45%, rgba(53, 53, 53, 1) 100%); */
     -webkit-text-fill-color: transparent;
 }
 

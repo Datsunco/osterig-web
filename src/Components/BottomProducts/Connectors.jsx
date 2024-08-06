@@ -21,7 +21,7 @@ const Connectors = ({isMobile}) => {
                         </div>
                     </button>
                 </div>
-            <div class="rowitems" style={{paddingLeft: isMobile ? '10px': '0px'}}>
+            <div class="rowitems" style={{paddingLeft: isMobile ? '10px': '0px', justifyContent: isMobile ? '' : 'center'}}>
                 {device.hotProducts.slice(0, 5).map(device =>
                         <DeviceItem key={device.id} device={device} />
                     )}

@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 
 import styles from './MobileCategoryComponent.module.css'
+import { useNavigate } from 'react-router-dom';
 
-const MobileCategoryComponent = ({ catalogElement }) => {
+const MobileCategoryComponent = ({ catalogElement, triggerCatalog}) => {
     const [isOpen, setIsOpen] = useState(false);
+    const navigate = useNavigate()
 
     const toggleCatalog = () => {
         setIsOpen(!isOpen);
@@ -32,12 +34,12 @@ const MobileCategoryComponent = ({ catalogElement }) => {
                     <div className={styles.devider} />
                 </>
             } */}
-            <div className={styles.openedMenuButton}  style={{padding: isOpen ? '20px 0px 0 0': '20px 0'}} onClick={() => toggleCatalog()}>
+            <div className={styles.openedMenuButton}  style={{padding: isOpen ? '20px 0px 0 0' : '20px 0'}} onClick={() => toggleCatalog()}>
                 {catalogElement.catalogNameEn}
             </div>
             {isOpen && catalogElement.childCatelogs.slice(0, 6).map((subcatalog, index) => {
                 return (
-                <div key={index} className={styles.backButton}>{subcatalog.catalogNameEn}</div>
+                <div key={index} className={styles.backButton} onClick={() =>{triggerCatalog() ;navigate(`/search/${subcatalog.catalogId}`); }}>{subcatalog.catalogNameEn}</div>
                 )
             })}
             <div className={styles.devider} style={{marginTop: isOpen ? '20px' : ''}}/>

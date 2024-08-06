@@ -1,6 +1,6 @@
 .orders_body {
     height: auto;
-    width: 1206px;
+    max-width: 1206px;
     margin: auto;
     align-items: center;
     color: #2D2D2D;
@@ -12,6 +12,17 @@
     display: flex;
     gap: 15px;
     margin-top: 20px;
+}
+
+.mobile_orders_cart {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.mobile_orders_f_row{
+    display: flex;
 }
 
 .text_orders_h1 {
@@ -60,10 +71,24 @@
     margin-left: 47px;
 }
 
+.mobile_orders_date {
+    color: var(--Gray-4, #797C81);
+    font-family: Gilroy;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 135%;
+}
+
 .orders_images_block {
     width: 156px;
     display: flex;
     margin-left: 60px;
+}
+
+.mobile_orders_images_block {
+    width: 156px;
+    display: flex;
 }
 
 .orders_images {
@@ -106,7 +131,7 @@
 }
 
 .orders_line {
-    width: 900px;
+    max-width: 900px;
     height: 1px;
     flex-shrink: 0;
     background: var(--Gray-2, #E5E6E8);

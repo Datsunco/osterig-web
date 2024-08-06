@@ -1,5 +1,5 @@
 .MAO_body {
-    width: 1212px;
+    max-width: 1212px;
     height: auto;
     margin: auto;
     margin-top: 102px;
@@ -13,7 +13,7 @@
 }
 
 .MAO_left_menu {
-    width: 790px;
+    max-width: 790px;
     height: auto;
 }
 
@@ -57,8 +57,9 @@
 }
 
 .MAO_if_noauth {
-    width: 790px;
-    height: 122px;
+    display: flex;
+    max-width: 790px;
+    height: auto;
     margin-top: 40px;
     display: flex;
     justify-content: center;
@@ -109,7 +110,7 @@
 }
 
 .MAO_contacts_body {
-    width: 790px;
+    max-width: 790px;
     height: 220px;
     margin-top: 40px;
 }

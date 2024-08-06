@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './MackingOrders.css';
 import Header from '../../Components/Header/Header'
 import BottomMenu from '../../Components/BottomMenu/BottomMenu';
@@ -10,10 +10,31 @@ import { Context } from '../../index';
 import { useContext } from 'react';
 import { useNavigate } from 'react-router';
 import { observer } from 'mobx-react-lite'; 
+import MobileHeader from '../../Components/MobileHeader/MobileHeader';
+import MobileFooter from '../../Components/MobileFooter/MobileFooter';
 
 const MackingOrders = () => {
     const { store, device } = useContext(Context)
     // const navigate = useNavigate()
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    const breakpoints = {
+        mobile: 991
+       }
+
+
+    const handleResize = () => {
+        console.log(window.innerWidth)
+        setWindowWidth(window.innerWidth);
+      };
+    
+      useEffect(() => {
+        window.addEventListener('resize', handleResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleResize);
+        };
+      }, []);
 
     useEffect(() => {
         if (localStorage.getItem('token')) {
@@ -24,17 +45,17 @@ const MackingOrders = () => {
 
     return (
         <div>
-            <Header />
+            {windowWidth <= breakpoints.mobile ? <MobileHeader/> : <Header/> }
             {store.page == 1 ?
-                <MakingAnOrders1 />
+                <MakingAnOrders1 isMobile={windowWidth <= breakpoints.mobile}/>
                 :
                 (store.page == 2 ?
-                    <MakingAnOrders2 />
+                    <MakingAnOrders2 isMobile={windowWidth <= breakpoints.mobile}/>
                     :
-                    <MakingAnOrders3 />
+                    <MakingAnOrders3 isMobile={windowWidth <= breakpoints.mobile}/>
                 )
             }
-            <BottomMenu />
+            {windowWidth <= breakpoints.mobile ? <></> : <BottomMenu /> }
         </div>
     );
 };

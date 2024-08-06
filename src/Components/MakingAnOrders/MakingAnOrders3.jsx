@@ -12,7 +12,7 @@ import DeviceItem from '../DeviceItem/DeviceItem';
 import ArrowLe from '../../static/Arrow.png.png'
 import LogoSVG from '../Header/LogoSVG';
 
-const MackingAnOrders3 = () => {
+const MackingAnOrders3 = ({isMobile}) => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     let textbutton = 'Оплатить'
@@ -59,7 +59,7 @@ const MackingAnOrders3 = () => {
 
     return (
         <div>
-            <div className='MAO_body1'>
+            <div className='MAO_body1' style={{marginTop: isMobile ? '40px': '100px', padding:  isMobile ? '20px': '0'}}>
                 <div className='MAO_frame_parent'>
                     <div className='MAO_left_menu'>
                         <div className='back_to_basket'  onClick={() => store.previousPage()}>
@@ -81,13 +81,14 @@ const MackingAnOrders3 = () => {
                         <div className='MAO_contacts_body'>
                             <div className='MAO_contacts_text_body'>
                                 <div className='MAO_text_h1'>Проверьте данные</div>
+                                {!isMobile && 
                                 <div className='MAO_steps'>
                                     ШАГ 3<div className='MAO_step3'> / 3</div>
                                 </div>
-
+}
                             </div>
                             <div className='MAO_imputs_frame'>
-                                <div className='d-flex'>
+                                <div className='d-flex'  style={{flexDirection: isMobile ? 'column' : 'row',width: isMobile ? '-webkit-fill-available': 'auto'}}>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>E-Mail</div>
                                         <div className='MAO_text_result'>{store.email}</div>
@@ -99,7 +100,7 @@ const MackingAnOrders3 = () => {
                                 </div>
                             </div>
                             <div className='MAO_imputs_frame'>
-                                <div className='d-flex'>
+                                <div className='d-flex'  style={{flexDirection: isMobile ? 'column' : 'row',width: isMobile ? '-webkit-fill-available': 'auto'}}>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Фамилия</div>
                                         <div className='MAO_text_result'>{store.surname}</div>
@@ -115,7 +116,7 @@ const MackingAnOrders3 = () => {
                                 </div>
                             </div>
                             <div className='MAO_imputs_frame'>
-                                <div className='d-flex'>
+                                <div className='d-flex'  style={{flexDirection: isMobile ? 'column' : 'row',width: isMobile ? '-webkit-fill-available': 'auto'}}>
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>Способ доставки</div>
                                         <div className='MAO_text_result'>
@@ -133,10 +134,10 @@ const MackingAnOrders3 = () => {
                                 </div>
                             </div>
                             <div className='MAO_imputs_frame'>
-                                <div className='d-flex'>
+                                <div className='d-flex' style={{width: isMobile ? '-webkit-fill-available': '520px'}} >
                                     <div className='MAO_input_frame'>
                                         <div className='MAO_input_text'>КОММЕНТАРИЙ К ДОСТАВКЕ</div>
-                                        <input type='text' className='MAO_input9' placeholder='Город, улица, дом, квартира и др.' />
+                                        <input type='text' style={{width: isMobile ? '-webkit-fill-available': '520px'}} className='MAO_input9' placeholder='Город, улица, дом, квартира и др.' />
                                     </div>
                                 </div>
                             </div>
@@ -150,21 +151,23 @@ const MackingAnOrders3 = () => {
                                         </div>
                                         <div className='text_oplata'>Банковской Картой</div>
                                     </button>
-                                    <button className={`${ paymentTypeC === 'SBP' ? 'paymantSelected' : 'B_CART' }`}onClick={() => {setPaymentTypeC('SBP'); store.setPaymentType('SBP')}}>
+                                    {/* <button className={`${ paymentTypeC === 'SBP' ? 'paymantSelected' : 'B_CART' }`}onClick={() => {setPaymentTypeC('SBP'); store.setPaymentType('SBP')}}>
                                         <div className='OHUENNIY_KRUG'>
                                             <img src={SBP} className='Image_SBP'/>
                                         </div>
                                         <div className='text_oplata'>Система быстрых платежей</div>
-                                    </button>
+                                    </button> */}
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div className='MAO_right_menu'>
-                        <CartResultForMAO disabled={paymentTypeC} textbutton={textbutton} />
+                        <CartResultForMAO isMobile={isMobile} disabled={paymentTypeC} textbutton={textbutton} />
                     </div>
                 </div>
             </div>
+            {!isMobile &&
+            <>
             <div>
                 <div class="chelka" id="popularId">
                     <div class="popular1"><h1>ВАМ МОЖЕТ ПОНРАВИТЬСЯ</h1></div>
@@ -181,6 +184,8 @@ const MackingAnOrders3 = () => {
                     <DeviceItem key={device.id} device={device} />
                 )}
             </div>
+            </>
+}
         </div>
     );
 };

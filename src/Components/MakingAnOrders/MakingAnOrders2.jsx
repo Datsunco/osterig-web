@@ -12,7 +12,7 @@ import { observer } from 'mobx-react-lite';
 import LogoSVG from '../Header/LogoSVG';
 import CdekMap from '../CdekMap/CdekMap';
 
-const MackingAnOrders2 = () => {
+const MackingAnOrders2 = ({ isMobile }) => {
     const { store } = useContext(Context)
     const navigate = useNavigate()
     let textbutton = 'К способам оплаты'
@@ -34,7 +34,7 @@ const MackingAnOrders2 = () => {
     }
 
     const onClickPVZOrPostomat = async () => {
-        if (store.deliveryPointRes?.tariff_code){
+        if (store.deliveryPointRes?.tariff_code) {
             store.setDeliveryPointRes({})
             store.setTariffs({})
             store.setDeliveryType('')
@@ -43,7 +43,7 @@ const MackingAnOrders2 = () => {
     }
 
     const onClickHomeDelivery = async () => {
-        if (store.deliveryType === 'HOME'){
+        if (store.deliveryType === 'HOME') {
             store.setTariffs({})
             store.setDeliveryType('')
         }
@@ -51,7 +51,7 @@ const MackingAnOrders2 = () => {
 
     const onClickSELF = async () => {
         store.setDeliveryPointRes({})
-        if (store.deliveryType === 'SELF'){
+        if (store.deliveryType === 'SELF') {
             store.setTariffs({})
             store.setDeliveryType('')
         }
@@ -64,8 +64,8 @@ const MackingAnOrders2 = () => {
 
     return (
         <div>
-            <div className='MAO_body'>
-                <div className='MAO_frame_parent'>
+            <div className='MAO_body'  style={{marginTop: isMobile ? '40px' : '102px'}}>
+                <div className='MAO_frame_parent' style={{display: 'flex', flexDirection: isMobile ? 'column': 'row'}}>
                     <div className='MAO_left_menu'>
                         <div className='back_to_basket' onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
@@ -76,7 +76,7 @@ const MackingAnOrders2 = () => {
                         {store.isAuth ?
                             <div></div>
                             :
-                            <div className='MAO_if_noauth'>
+                            <div className='MAO_if_noauth' style={{flexDirection: isMobile ? 'column' : 'row', gap: isMobile ? '20px': '234px', padding: isMobile ? '20px' : '20px'}}>
                                 <div className='text_noauth'>
                                     Войдите в профиль. Если вы у нас уже покупали,<br /> мы заполним данные автоматически
                                 </div>
@@ -86,11 +86,12 @@ const MackingAnOrders2 = () => {
                         <div className='MAO_contacts_body' style={{ height: '100px' }}>
                             <div className='MAO_contacts_text_body'>
                                 <div className='MAO_text_h1'>Адрес</div>
-                                <div className='MAO_steps'>
-                                    ШАГ 2<div className='MAO_step3'> / 3</div>
-                                </div>
-
                             </div>
+                            {!isMobile &&
+                            <div className='MAO_steps'>
+                                    ШАГ 1<div className='MAO_step3'> / 3</div>
+                                </div>
+}
                             {/* {type !== 'SELF' ?
                                 <div className='MAO_imputs_frame'>
                                     <div className='d-flex'>
@@ -128,13 +129,13 @@ const MackingAnOrders2 = () => {
                                         {store.deliveryPointRes?.tariff_code &&
                                             <div className={store.deliveryPointRes.tariff_code != 138 && store.deliveryPointRes.tariff_code != 366 ? 'cd_points' : 'cd_pointsblack'}>
                                                 <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
-                                                <div className='cd_box_for_org'>
-                                                    <div className='cd_name_org'>СДЭК {store.deliveryPointRes.tariff_code == 138 ? 'ПВЗ' : 'Постомат'}</div>
-                                                    <div className='cd_org_addres'> {store.deliveryAddress}</div>
+                                                <div className='cd_box_for_org'  style={{width: isMobile ? 'auto' : '204px'}}>
+                                                    <div className='cd_name_org' style={{width: isMobile ? 'auto' : '159px'}}>СДЭК {store.deliveryPointRes.tariff_code == 138 ? 'ПВЗ' : 'Постомат'}</div>
+                                                    <div className='cd_org_addres' style={{display: isMobile ? 'none' : 'block'}}> {store.deliveryAddress}</div>
                                                 </div>
-                                                <div className='cd_time'>{store.deliveryPointRes.period_min}-{store.deliveryPointRes.period_max} дней</div>
+                                                <div className='cd_time' style={{marginLeft: isMobile ? '20px' : '100px'}}>{store.deliveryPointRes.period_min}-{store.deliveryPointRes.period_max} дней</div>
                                                 <div className='cd_prise'>{store.deliveryPointRes.delivery_sum} ₽</div>
-                                                <div className='cd_choose_deliviry' onClick={() => onClickPVZOrPostomat()}>
+                                                <div className='cd_choose_deliviry'  style={{marginLeft: isMobile ? '0' : '170px'}} onClick={() => onClickPVZOrPostomat()}>
                                                     {store.deliveryPointRes.tariff_code != 138 && store.deliveryPointRes.tariff_code != 366 ? "Выбрать"
                                                         :
                                                         "Отмена"
@@ -146,14 +147,14 @@ const MackingAnOrders2 = () => {
                                     {!store.deliveryPointRes?.tariff_code &&
                                         <>
                                             <div className='MAO_imputs_frame' style={{ marginBottom: '20px' }}>
-                                                <div className='d-flex'>
+                                                <div className='d-flex' style={{flexDirection: isMobile ? 'column' : 'row', width: isMobile ? '-webkit-fill-available': 'auto'}}>
                                                     <div className='MAO_input_frame'>
                                                         <div className='MAO_input_text'>Страна</div>
-                                                        <input type='text' className='MAO_input' placeholder='Россия' disabled />
+                                                        <input style={{width: isMobile ? '-webkit-fill-available': '240px'}} type='text' className='MAO_input' placeholder='Россия' disabled />
                                                     </div>
                                                     <div className='MAO_input_frame'>
                                                         <div className='MAO_input_text'>Точный адрес</div>
-                                                        <input type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                                        <input  style={{width: isMobile ? '-webkit-fill-available': '380px'}} type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
                                                     </div>
                                                     <button style={{ height: '44px', marginTop: '20px', border: 'none', borderRadius: '2px', background: '#0071E3', color: 'white', padding: '0 25px', fontFamily: 'Gilroy' }} onClick={() => onSearchPVZCLICK()}>Искать</button>
                                                 </div>
@@ -173,12 +174,12 @@ const MackingAnOrders2 = () => {
                                             <div className={store.deliveryType != 'HOME' ? 'cd_points' : 'cd_pointsblack'}>
                                                 <img src='https://static.tildacdn.com/tild3062-6166-4665-a463-363636383965/Logo_svg.svg' className='cd_img' />
                                                 <div className='cd_box_for_org'>
-                                                    <div className='cd_name_org'>СДЭК до Двери</div>
-                                                    <div className='cd_org_addres'> {store.address}</div>
+                                                    <div className='cd_name_org' style={{width: isMobile ? 'auto' : '159px'}}>СДЭК до Двери</div>
+                                                    <div className='cd_org_addres' style={{display: isMobile ? 'none' : 'block'}}> {store.address}</div>
                                                 </div>
-                                                <div className='cd_time'>{store.tariffs?.[139].period_min}-{store.tariffs?.[139].period_max} дней</div>
+                                                <div className='cd_time' style={{marginLeft: isMobile ? '20px' : '100px'}}>{store.tariffs?.[139].period_min}-{store.tariffs?.[139].period_max} дней</div>
                                                 <div className='cd_prise'>{store.tariffs?.[139].delivery_sum} ₽</div>
-                                                <div className='cd_choose_deliviry' onClick={() => onClickHomeDelivery()}>
+                                                <div className='cd_choose_deliviry'  style={{marginLeft: isMobile ? '0' : '170px'}} onClick={() => onClickHomeDelivery()}>
                                                     {store.deliveryType != 'HOME' ? "Выбрать"
                                                         :
                                                         "Отмена"
@@ -190,14 +191,14 @@ const MackingAnOrders2 = () => {
                                     {!store.tariffs?.[139] &&
                                         <>
                                             <div className='MAO_imputs_frame' style={{ marginBottom: '20px' }}>
-                                                <div className='d-flex'>
+                                                <div className='d-flex'  style={{flexDirection: isMobile ? 'column' : 'row', width: isMobile ? '-webkit-fill-available': 'auto'}}>
                                                     <div className='MAO_input_frame'>
                                                         <div className='MAO_input_text'>Страна</div>
-                                                        <input type='text' className='MAO_input' placeholder='Россия' disabled />
+                                                        <input style={{width: isMobile ? '-webkit-fill-available': '240px'}} type='text' className='MAO_input' placeholder='Россия' disabled />
                                                     </div>
                                                     <div className='MAO_input_frame'>
                                                         <div className='MAO_input_text'>Точный адрес</div>
-                                                        <input type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
+                                                        <input  style={{width: isMobile ? '-webkit-fill-available': '380px'}} type='text' value={store.address} onChange={(e) => store.setAddress(e.target.value)} className='MAO_input1' placeholder='Город, улица, дом, квартира и др.' />
                                                     </div>
                                                     <button style={{ height: '44px', marginTop: '20px', border: 'none', borderRadius: '2px', background: '#0071E3', color: 'white', padding: '0 25px', fontFamily: 'Gilroy' }} onClick={() => store.getTariffs(store.address)}>Искать</button>
                                                 </div>
@@ -214,12 +215,12 @@ const MackingAnOrders2 = () => {
                                     <div className={store.deliveryType !== 'SELF' ? 'cd_points' : 'cd_pointsblack'}>
                                         <LogoSVG />
                                         <div className='cd_box_for_org'>
-                                            <div className='cd_name_org'>Самовывоз</div>
-                                            <div className='cd_org_addres'> ул. Михалковская 63 Б стр1, подъезд 2, 1 этаж, офис 1-16</div>
+                                            <div className='cd_name_org' style={{width: isMobile ? 'auto' : '159px'}}>Самовывоз</div>
+                                            <div className='cd_org_addres'  style={{display: isMobile ? 'none' : 'block'}}> ул. Михалковская 63 Б стр1, подъезд 2, 1 этаж, офис 1-16</div>
                                         </div>
-                                        <div className='cd_time'></div>
-                                        <div className='cd_prise'>Бесплатно</div>
-                                        <div className='cd_choose_deliviry' onClick={() => onClickSELF()}>
+                                        <div className='cd_time'  style={{marginLeft: isMobile ? '20px' : '100px'}}></div>
+                                        <div className='cd_prise'  style={{marginLeft: isMobile ? '0' : '40px'}}>Бесплатно</div>
+                                        <div className='cd_choose_deliviry' style={{marginLeft: isMobile ? '10px' : '170px', textAlign: isMobile ? 'end': 'start'}} onClick={() => onClickSELF()}>
                                             {store.deliveryType == 'SELF' ? "Отмена"
                                                 :
                                                 "Выбрать"
@@ -233,27 +234,31 @@ const MackingAnOrders2 = () => {
                         </div>
 
                     </div>
-                    <div className='MAO_right_menu' onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType,"bool", store.deliveryType == 'SELF')}>
-                        <CartResultForMAO disabled={store.deliveryAddress && store.deliveryType || (store.deliveryType == 'SELF')} textbutton={textbutton} />
+                    <div className='MAO_right_menu' onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType, "bool", store.deliveryType == 'SELF')}>
+                        <CartResultForMAO isMobile={isMobile} disabled={store.deliveryAddress && store.deliveryType || (store.deliveryType == 'SELF')} textbutton={textbutton} />
                     </div>
                 </div>
             </div>
-            <div>
-                <div class="chelka" id="popularId">
-                    <div class="popular1"><h1>ВАМ МОЖЕТ ПОНРАВИТЬСЯ</h1></div>
-                    <button class="alltovars" onClick={() => navigate("/catalog")}>
-                        Все товары
-                        <div class="strelka1SVG">
-                            <img src={ArrowLe} class="filter-green"></img>
+            {!isMobile &&
+                <>
+                    <div>
+                        <div class="chelka" id="popularId">
+                            <div class="popular1"><h1>ВАМ МОЖЕТ ПОНРАВИТЬСЯ</h1></div>
+                            <button class="alltovars" onClick={() => navigate("/catalog")}>
+                                Все товары
+                                <div class="strelka1SVG">
+                                    <img src={ArrowLe} class="filter-green"></img>
+                                </div>
+                            </button>
                         </div>
-                    </button>
-                </div>
-            </div>
-            <div class="rowitems">
-                {device.hotProducts.slice(0, 5).map(device =>
-                    <DeviceItem key={device.id} device={device} />
-                )}
-            </div>
+                    </div>
+                    <div class="rowitems">
+                        {device.hotProducts.slice(0, 5).map(device =>
+                            <DeviceItem key={device.id} device={device} />
+                        )}
+                    </div>
+                </>
+            }
         </div>
     );
 };

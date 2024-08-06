@@ -12,6 +12,7 @@ import PopUpLogin from '../../Components/popUpLogin/popUpLogin';
 import MobileHeader from '../../Components/MobileHeader/MobileHeader';
 import MobileFooter from '../../Components/MobileFooter/MobileFooter';
 import MobileCartDevice from '../../Components/MonileCartDevice/MobileCartDevice';
+import { isObservableMap } from 'mobx';
 
 
 const Cart = () => {
@@ -83,7 +84,7 @@ const Cart = () => {
                             <div className='cart_elements' style={{ flexDirection: windowWidth <= breakpoints.mobile ? 'column' : 'row', padding: windowWidth <= breakpoints.mobile ? '20px' : '0', marginTop: windowWidth <= breakpoints.mobile ? '80px' : '140px' }}>
                                 <div className='cart_items'>
                                     <CartFavHeader state={'cart'} />
-                                    <div style={{height: '50vh',overflowY: 'scroll'}}>
+                                    <div style={ windowWidth <= breakpoints.mobile ? {height: '50vh',overflowY: 'scroll'}: {}}>
                                     {cart.devices.slice(0).reverse().map(device => {
                                         if (windowWidth <= breakpoints.mobile)
                                             return (
@@ -96,7 +97,7 @@ const Cart = () => {
                                     )}
                                     </div>
                                 </div>
-                                <div>
+                                <div style={{zIndex: '50', width: '-webkit-fill-available'}}>
                                 <CartResult isMobile={windowWidth <= breakpoints.mobile} />
                                 </div>
                             </div>
@@ -123,7 +124,7 @@ const Cart = () => {
                 }
 
             </div> */}
-            {/* {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> } */}
+            {windowWidth <= breakpoints.mobile ? <></> : <BottomMenu /> }
         </div>
     );
 };

@@ -24,10 +24,12 @@
 }
 
 .choose_delivery_body {
-    width: 791px;
+    max-width: 791px;
 }
 
 .cd_header {
+    display: flex;
+    overflow-x: scroll;
     display: flex;
     gap: 7px;
 }

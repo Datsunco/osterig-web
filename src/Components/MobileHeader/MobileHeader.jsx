@@ -3,11 +3,13 @@ import styles from './MobileHeader.module.css'
 import LogoSVG from '../Header/LogoSVG';
 import { Context } from '../..';
 import MobileCategoryComponent from './MobileCategoryComponent/MobileCategoryComponent';
+import { useNavigate } from 'react-router-dom';
 
 const MobileHeader = () => {
   const { catalog } = useContext(Context)
   const [isOpen, setIsOpen] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const navigate = useNavigate()
 
   useEffect(() => {
     catalog.getCatalogs()
@@ -27,7 +29,7 @@ const MobileHeader = () => {
   return (
     <div className={styles.block} style={{minHeight: isOpen ? '100%': '0'}}>
       <div className={styles.header} style={{ background: isOpen ? '#252525' : '#FFFFFF' }}>
-        <div className={styles.mainContent}>
+        <div className={styles.mainContent} onClick={() => navigate('/mainpage')}>
           <LogoSVG />
         </div>
         <div className={styles.headerInner}>
@@ -40,7 +42,7 @@ const MobileHeader = () => {
                 src="/vector.svg"
               />
             </div>
-            <div className={styles.vectorContainer}>
+            <div className={styles.vectorContainer} onClick={() => navigate('/cart')}>
               {isOpen ?
                 <img
                   className={styles.vectorIcon1}
@@ -53,7 +55,7 @@ const MobileHeader = () => {
                   className={styles.vectorIcon1}
                   loading="lazy"
                   alt=""
-                  src="/profsvg.png"
+                  src="/cartblack.png"
                 />
               }
             </div>
@@ -87,9 +89,11 @@ const MobileHeader = () => {
                 <div className={styles.devider} />
                 <div className={styles.openedMenuButton}>ПРОФИЛЬ</div>
                 <div className={styles.devider} />
-                <div className={styles.openedMenuButton}>ИЗБРАННОЕ</div>
+                <div className={styles.openedMenuButton} onClick={() => navigate('/cart')}>КОРЗИНА</div>
                 <div className={styles.devider} />
-                <div className={styles.openedMenuButton}>ЗАКАЗЫ</div>
+                <div className={styles.openedMenuButton} onClick={() => navigate('/favorites')}>ИЗБРАННОЕ</div>
+                <div className={styles.devider} />
+                <div className={styles.openedMenuButton} onClick={() => navigate('/orders')}>ЗАКАЗЫ</div>
               </div>
               <div className={styles.infoBlock}>
                 <div className={styles.infoElem}>
@@ -117,7 +121,7 @@ const MobileHeader = () => {
                   // <div className={styles.openedMenuButton}>{catalog.catalogNameEn}</div>
                   //   <div className={styles.devider} />
                   // </div>
-                  <MobileCategoryComponent key={id} catalogElement={catalog} />
+                  <MobileCategoryComponent key={id} catalogElement={catalog} triggerCatalog={toggleMenu}/>
                 )}
               </div>
             </>
