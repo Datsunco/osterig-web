@@ -7,7 +7,7 @@ import imgExit from '../../static/exit.png'
 import NoUserIcon from '../icons/NoUsericon';
 import { useNavigate } from 'react-router-dom';
 
-const ProfileBlock = ({ onLogClick, onRegClick }) => {
+const ProfileBlock = ({ onLogClick, onRegClick, isMobile}) => {
     const { store, cart, favorites} = useContext(Context)
     const navigate = useNavigate()
 
@@ -83,7 +83,7 @@ const ProfileBlock = ({ onLogClick, onRegClick }) => {
                 </div>
 
                 :
-                <div className={styles.profile_component1} id='profileblock'>
+                <div className={isMobile ? styles.mob_profile_component1 : styles.profile_component1} id='profileblock'>
                     <div className={styles.vertical_block}>
                         <div className={styles.profile_data_block}>
                             <div className={styles.profile_data_vertical_block}>

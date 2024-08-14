@@ -17,7 +17,7 @@
     display: flex;
     flex-direction: column;
     width: 542px;
-    height: 417px;
+    /* height: 417px; */
     border-radius: 29px;
     background: white;
     z-index: 1000;
@@ -27,6 +27,40 @@
     left: 0;
     right: 0;
     text-align: center;
+}
+
+.mob_popup_login_main_block {
+    
+    margin-top: 280px;
+
+    display: flex;
+    flex-direction: column;
+    /* width: 542px; */
+    /* height: 417px; */
+    border-radius: 29px;
+    background: white;
+    z-index: 1000;
+    position: fixed;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+}
+
+.mob_popup_login_sec_block {
+    /* padding: 10px; */
+    margin-top: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    border-radius: 29px;
+    background: white;
+    z-index: 1000;
 }
 
 .popup_login_sec_block {
@@ -39,7 +73,7 @@
     display: none;
     flex-direction: column;
     width: 542px;
-    height: 417px;
+    /* height: 417px; */
     border-radius: 29px;
     background: white;
     z-index: 1000;
@@ -54,8 +88,8 @@
     position: absolute;
     display: none;
     flex-direction: column;
-    width: 542px;
-    height: 556px;
+    /* width: 542px; */
+    /* height: 556px; */
     border-radius: 29px;
     background: white;
     /* margin: auto; */
@@ -63,14 +97,22 @@
 }
 
 .popup_login_main_block_all {
-    margin: auto;
+    padding: 10px;
     /* height: 450px; */
 }
 
 .popup_login_top_block_log {
     margin: auto;
     margin-bottom: 35px;
-    width: 375px;
+    /* width: 375px; */
+    display: flex;
+    flex-direction: column;
+}
+
+.mob_popup_login_top_block_log {
+    margin: auto;
+    margin-bottom: 35px;
+    /* width: 200px; */
     display: flex;
     flex-direction: column;
 }
@@ -78,15 +120,17 @@
 .popup_login_top_block_reg {
     margin: auto;
     margin-bottom: 35px;
-    width: 450px;
+    /* width: 450px; */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
 }
 
 .popup_login_top_block_reg_pass {
     margin: auto;
     margin-bottom: 18px;
-    width: 220px;
+    /* width: 220px; */
     display: flex;
     flex-direction: column;
 }
@@ -115,7 +159,7 @@
 }
 
 .popup_login_input_alert, .popup_login_input_alert_right, .popup_login_input_alert_invise{
-    max-width: 480px;
+    /* max-width: 480px; */
     margin-top: 12px;
     color: #D00000;
     font-family: Gilroy;
@@ -155,7 +199,7 @@
     border-radius: 12px;
     background: #E6E6E6;
     box-shadow: 1px 1px 9.2px 0px rgba(0, 0, 0, 0.10) inset;
-    width: 463px;
+    /* width: 463px; */
     height: 50px;
     flex-shrink: 0;
     color: #A3A3A3;
@@ -184,17 +228,42 @@
 
 
 .popup_login_buttons_block {
-    margin: auto;
+    /* margin: auto; */
     /* width: 375px; */
+    width: 100%;
     display: flex;
     flex-direction: column;
 }
 
 .popup_login_buttons_block_regist {
     border: none;
-    width: 478px;
+    /* width: 478px; */
+    height: 40px;
+    width: 100%;
     display: inline-flex;
-    padding: 15px 205px;
+    /* padding: 15px 205px; */
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 12px;
+    background: var(--System-Blue, #0071E3);
+    color: #FFF;
+    font-family: Gilroy;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+}
+
+.mob_popup_login_buttons_block_regist {
+    border: none;
+    height: 40px;
+    /* width: 200px; */
+    display: inline-flex;
+    /* padding: 15px 205px; */
     justify-content: center;
     align-items: center;
     gap: 10px;

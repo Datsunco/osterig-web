@@ -217,3 +217,18 @@
     margin-left: auto;
     margin-right: auto;
 }
+
+.mob_profile_component1 {
+    position: fixed;
+    top: 60px;
+    left: 10px;
+    z-index: 101;
+    width: 265px;
+    height: 225px;
+    padding-top: 22px;
+    border-radius: 22px;
+    box-shadow: 0px 30px 45px 0px rgba(0, 0, 0, 0.09), 0px -30px 45px 0px rgba(0, 0, 0, 0.09);
+    background: #FFF;
+    margin-left: auto;
+    margin-right: auto;
+}

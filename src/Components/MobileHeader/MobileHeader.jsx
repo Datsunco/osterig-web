@@ -6,9 +6,10 @@ import MobileCategoryComponent from './MobileCategoryComponent/MobileCategoryCom
 import { useNavigate } from 'react-router-dom';
 import PopUpLogin from '../popUpLogin/popUpLogin';
 import LogoWhiteSVG from '../Header/LogoWhiteSVG';
+import ProfileBlock from '../ProfileBlock/ProfileBlock';
 
 const MobileHeader = () => {
-  const { catalog, cart } = useContext(Context)
+  const { catalog, cart, favorites, store } = useContext(Context)
   const [isOpen, setIsOpen] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
   const navigate = useNavigate()
@@ -35,6 +36,25 @@ const MobileHeader = () => {
 
   }
 
+  const get = async () => {
+    const stm = await cart.getDevices()
+    if (stm === 'auth')
+      store.checkAuth()
+    else {
+      console.log('complete')
+    }
+  }
+
+  useEffect(() => {
+    if (localStorage.getItem('token')) {
+      store.setAuth(true)
+      favorites.getFavorites()
+      get()
+    } else {
+      store.checkAuth()
+    }
+  }, [store, favorites, cart])
+
   const onClickAuthorization = () => {
 
     const form = document.getElementById("form")
@@ -54,13 +74,14 @@ const MobileHeader = () => {
 
   useEffect(() => {
     if (cart.noLoginAdd) {
-
+      console.log('check no auth')
       setOpened(true)
       setprofileOpened(true)
 
       const timer = setTimeout(() => {
-        setprofileOpened(false)
-        setOpened(false)
+        console.log('end')
+        // setprofileOpened(false)
+        // setOpened(false)
         cart.setNoLoginAdd(false)
       }, 3000);
 
@@ -68,7 +89,7 @@ const MobileHeader = () => {
         clearTimeout(timer); // Очищаем таймер при размонтировании компонента
       };
     }
-  }, [cart.noLoginAdd]);
+  }, [cart.noLoginAdd, cart]);
 
   useEffect(() => {
     if (profileOpened === false) return;
@@ -77,6 +98,7 @@ const MobileHeader = () => {
       if (!profileRef.current) return;
       if (!profileRef.current.contains(e.target) && !avaRef.current?.contains(e.target)) {
         setprofileOpened(false)
+        setOpened(false)
       }
     }
 
@@ -133,19 +155,25 @@ const MobileHeader = () => {
             </div>
             <div className={styles.vectorContainer} onClick={() => navigate('/cart')}>
               {isOpen ?
-                <img
-                  className={styles.vectorIcon1}
-                  loading="lazy"
-                  alt=""
-                  src="/cartwhite.png"
-                />
+                <>
+                  <img
+                    className={styles.vectorIcon1}
+                    loading="lazy"
+                    alt=""
+                    src="/cartwhite.png"
+                  />
+
+                </>
                 :
-                <img
-                  className={styles.vectorIcon1}
-                  loading="lazy"
-                  alt=""
-                  src="/cartblack.png"
-                />
+                <>
+                  <img
+                    className={styles.vectorIcon1}
+                    loading="lazy"
+                    alt=""
+                    src="/cartblack.png"
+                  />
+                  <div className='header_fav_count' style={{ marginLeft: '20px', marginTop: '-15px' }}>{cart.devices.length}</div>
+                </>
               }
             </div>
             <div className={styles.closebut} onClick={toggleMenu}>
@@ -170,7 +198,17 @@ const MobileHeader = () => {
         </div>
       </div>
       {/* {isOpen && ( */}
-      <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} />
+      <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} isMobile={true}/>
+      <div useRef={profileRef} ref={profileRef}>
+        {profileOpened === true ?
+          <div ref={exceptRef} useRef={exceptRef}>
+            <ProfileBlock onLogClick={onClickAuthorization} onRegClick={onClickRegistration} isMobile={true}/>
+          </div>
+          :
+          null
+        }
+
+      </div>
       <div className={styles.openedmenu} style={{ display: isOpen ? 'block' : 'none' }}>
         {!isCatalogOpen ?
           <>
@@ -193,7 +231,7 @@ const MobileHeader = () => {
                 />
                 КАТАЛОГ ТОВАРОВ
               </div>
-              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.devider} style={{ opacity: '15%' }} />
               <div className={styles.openedMenuButton} onClick={onClickAuthorization}>
                 <img
                   className={styles.vectorIcon1}
@@ -203,27 +241,33 @@ const MobileHeader = () => {
                 />
                 ПРОФИЛЬ
               </div>
-              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.devider} style={{ opacity: '15%' }} />
               <div className={styles.openedMenuButton} onClick={() => navigate('/cart')}>
-                <img
-                  className={styles.vectorIcon1}
-                  loading="lazy"
-                  alt=""
-                  src="/cartwhite.png"
-                />
+                <>
+                  <img
+                    className={styles.vectorIcon1}
+                    loading="lazy"
+                    alt=""
+                    src="/cartwhite.png"
+                  />
+                  <div className='header_fav_count' style={{ marginLeft: '13px', marginTop: '-15px' }}>{cart.devices.length}</div>
+                </>
                 КОРЗИНА
               </div>
-              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.devider} style={{ opacity: '15%' }} />
               <div className={styles.openedMenuButton} onClick={() => navigate('/favorites')}>
-                <img
-                  className={styles.vectorIcon1}
-                  loading="lazy"
-                  alt=""
-                  src="/mobFavNav.png"
-                />
-                ИЗБРАННОЕ
+                <>
+                  <img
+                    className={styles.vectorIcon1}
+                    loading="lazy"
+                    alt=""
+                    src="/mobFavNav.png"
+                  />
+                  ИЗБРАННОЕ
+                  <div className='header_fav_count' style={{ marginLeft: '13px', marginTop: '-15px' }}>{favorites.favorites.length}</div>
+                </>
               </div>
-              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.devider} style={{ opacity: '15%' }} />
               <div className={styles.openedMenuButton} onClick={() => navigate('/orders')}>
                 <img
                   className={styles.vectorIcon1}
@@ -270,7 +314,7 @@ const MobileHeader = () => {
                 // </div>
                 <div>
                   <MobileCategoryComponent key={id} catalogElement={catalog} triggerCatalog={toggleMenu} />
-                  <div className={styles.devider} style={{opacity: '15%'}}/>
+                  <div className={styles.devider} style={{ opacity: '15%' }} />
                 </div>
               )}
             </div>

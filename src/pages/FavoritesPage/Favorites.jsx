@@ -77,7 +77,7 @@ const Favorites = () => {
                     </>
                 )
             }
-            {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> }
+            {/* {windowWidth <= breakpoints.mobile ? <MobileFooter/> : <BottomMenu /> } */}
         </div>
     );
 };

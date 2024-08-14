@@ -49,6 +49,7 @@ const Header = () => {
           setprofileOpened(true)
     
           const timer = setTimeout(() => {
+            console.log('end')
             setprofileOpened(false)
             setOpened(false)
             cart.setNoLoginAdd(false)
@@ -226,7 +227,7 @@ const Header = () => {
             <div useRef={profileRef} ref={profileRef}>
                 {profileOpened === true ?
                     <div ref={exceptRef} useRef={exceptRef}>
-                        <ProfileBlock onLogClick={onClickAuthorization} onRegClick={onClickRegistration} />
+                        <ProfileBlock isMobile={false} onLogClick={onClickAuthorization} onRegClick={onClickRegistration} />
                     </div>
                     :
                     null

@@ -29,6 +29,10 @@ const Main = () => {
     const breakpoints = {
         mobile: 991
        }
+    
+    useEffect(() => {
+
+    }, [cart.noLoginAdd])
 
     useEffect(() => {
         device.parseHotProducts()

@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import styles from "./popUpLogin.module.css"
 import LogoSVG from '../Header/LogoSVG';
 
-const PopUpLogin = ({ opened, onClose, ava }) => {
+const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
     const { store } = useContext(Context)
     const loginPopUpRef = useRef(null)
     const loginSecPopUpRef = useRef(null)
@@ -173,11 +173,11 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
 
 
     return (
-        <div className={styles.popup_background} id="form">
-            <div ref={loginPopUpRef} className={styles.popup_login_main_block} id="screen1">
+        <div className={styles.popup_background } id="form">
+            <div ref={loginPopUpRef} className={isMobile ? styles.mob_popup_login_main_block: styles.popup_login_main_block} id="screen1">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_log}>
-                        <div className={styles.popup_login_top_block_logo}>
+                        <div className={isMobile ? styles.mob_popup_login_top_block_log : styles.popup_login_top_block_logo}>
                             <LogoSVG />
                         </div>
                         <b className={styles.popup_login_top_block_text}>Войдите в свой аккаунт Osterrig</b>
@@ -194,7 +194,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
 
                     </div>
                     <div className={styles.popup_login_buttons_block}>
-                        <button className={styles.popup_login_buttons_block_regist} onClick={handleLoginClick}>
+                        <button className={isMobile ? styles.mob_popup_login_buttons_block_regist : styles.popup_login_buttons_block_regist} onClick={handleLoginClick}>
                             Войти
                         </button>
                         <button className={styles.popup_login_buttons_block_login} onClick={handleRegClick}>
@@ -203,7 +203,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                     </div>
                 </div>
             </div>
-            <div ref={loginSecPopUpRef} useRef={loginSecPopUpRef} className={styles.popup_login_sec_block} id="screen2">
+            <div ref={loginSecPopUpRef} useRef={loginSecPopUpRef} className={isMobile ? styles.mob_popup_login_sec_block : styles.popup_login_sec_block} id="screen2">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_log}>
                         <div className={styles.popup_login_top_block_logo}>
@@ -223,7 +223,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                     </div>
                     <div className={styles.popup_login_buttons_block}>
                         <button
-                            className={styles.popup_login_buttons_block_regist}
+                            className={isMobile ? styles.mob_popup_login_buttons_block_regist : styles.popup_login_buttons_block_regist}
                             onClick={(e) => handleLoginPassClick()}
                             disabled={isLoading}
                         >
@@ -235,13 +235,13 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                     </div>
                 </div>
             </div>
-            <div ref={regPopUpRef} useRef={regPopUpRef} className={styles.popup_login_sec_block} id="screen3">
+            <div ref={regPopUpRef} useRef={regPopUpRef} className={isMobile ? styles.mob_popup_login_sec_block : styles.popup_login_sec_block} id="screen3">
                 <div className={styles.popup_login_main_block_all}>
                     <div className={styles.popup_login_top_block_reg}>
                         <div className={styles.popup_login_top_block_logo}>
                             <LogoSVG />
                         </div>
-                        <b className={styles.popup_login_top_block_text}>Зарегестрируйте свой аккаунт Osterrig</b>
+                        <b className={styles.popup_login_top_block_text} style={{width: isMobile ? ''  : ''}}>Зарегестрируйте свой аккаунт Osterrig</b>
                     </div>
 
                     <div className={styles.popup_login_input_block}>
@@ -254,7 +254,7 @@ const PopUpLogin = ({ opened, onClose, ava }) => {
                         }
                     </div>
                     <div className={styles.popup_login_buttons_block}>
-                        <button className={styles.popup_login_buttons_block_regist} onClick={handleRegistartionClick}>
+                        <button className={isMobile ? styles.mob_popup_login_buttons_block_regist : styles.popup_login_buttons_block_regist} onClick={handleRegistartionClick}>
                             зарегестрироваться
                         </button>
                         <button className={styles.popup_login_buttons_block_login} onClick={handleLogClick}>
