@@ -1,6 +1,10 @@
 .openedMenuButton{
+    display: flex;
+    /* justify-content: space-between; */
     cursor: pointer;
     padding: 20px 0;
+    font-weight: 600;
+    line-height: 20px;
     color: #FFFFFF;
     font-family: Gilroy;
     font-size: 14px;
@@ -18,5 +22,11 @@
     width: 100%;
     height: 1px;
     background-color: #FFFFFF;
-    
+    opacity: 15%;
+  }
+
+  .vectorIcon1{
+  height: 20px;
+    width: 20px;
+    position: relative;
   }

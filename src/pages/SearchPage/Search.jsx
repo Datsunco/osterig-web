@@ -109,9 +109,18 @@ const Search = () => {
                     parentcatalogId={store.parentId}
                     catalogName={store.catalogName} />
                 {/* {params ? <div>{Object.keys(store.params)} </div> : 'loading'} */}
-                <div className='filterBlock' style={{ cursor: 'pointer', display: 'flex', justifyContent: 'end', marginTop: '50px', padding: '0 20px' }}>
+                <div className='filterBlock' style={{ cursor: 'pointer', display: 'flex', justifyContent: 'end', marginTop: '60px', padding: '0 0px' }}>
                     {windowWidth <= breakpoints.mobile &&
-                        <div className='filter' onClick={() => toggleCatalog()}>ФИЛЬТРЫ</div>
+                        <div className='filter' style={{display: 'flex', alignItems: 'center'}} onClick={() => toggleCatalog()}>
+                            ФИЛЬТРЫ
+                            <img
+                                // className={styles.vectorIcon1}
+                                style={{width: '20px', height: '20px'}}
+                                loading="lazy"
+                                alt=""
+                                src="/filters.png"
+                            />
+                        </div>
                     }
 
                 </div>
@@ -121,7 +130,7 @@ const Search = () => {
                     <div className='backButtonfilters' onClick={() => toggleCatalog()}>
                         <img
                             // className={}
-                            style={{ height: '22px', width: '22px', marginRight: '20px'}}
+                            style={{ height: '22px', width: '22px', marginRight: '20px' }}
                             loading="lazy"
                             alt=""
                             src="/crosswhite.png"
@@ -145,7 +154,7 @@ const Search = () => {
                     </div>
                 </div>
             }
-            <div className='vart_block' style={{display: 'flex', justifyContent: 'center', minHeight: '500px'}}>
+            <div className='vart_block' style={{ display: 'flex', justifyContent: 'center', minHeight: '500px' }}>
                 <div className='chechboxes_block' style={{ display: windowWidth <= breakpoints.mobile ? 'none' : 'block' }}>
                     {
                         Object.keys(store.params).map((item, index) => {

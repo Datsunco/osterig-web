@@ -5,12 +5,12 @@ import { observer } from "mobx-react-lite";
 import './VMenu.css'
 
 
-const VMenu = ({ params }) => {
+const VMenu = ({ params,isMobile }) => {
   const [visible, setVisible] = React.useState(false);
   return (
-    <div class="bgcqa">
-      <button class="qweqas" onClick={() => setVisible(!visible)}>
-        <div class="dflexand">
+    <div class="bgcqa"  style={{backgroundColor: isMobile ? 'white': 'rgb(241, 243, 244)'}}>
+      <button class="qweqas" style={{backgroundColor: isMobile ? 'white': 'rgb(241, 243, 244)'}} onClick={() => setVisible(!visible)}>
+        <div class="dflexand"  style={{backgroundColor: isMobile ? 'white': 'rgb(241, 243, 244)'}}>
           <h class='harakter'>Характеристики</h>
           {/* <div class='svgd'>
           </div>

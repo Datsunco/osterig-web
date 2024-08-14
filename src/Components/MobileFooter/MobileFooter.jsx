@@ -7,6 +7,7 @@ import phone from "../../static/phone.png"
 import { observer } from "mobx-react-lite";
 import styles from "./MobileFooter.module.css"
 import LogoSVG from '../Header/LogoSVG';
+import LogoWhiteSVG from '../Header/LogoWhiteSVG';
 
 const MobileBottomMenu = () => {
   const navigate = useNavigate();
@@ -24,7 +25,7 @@ const MobileBottomMenu = () => {
                 alt=""
                 src="/-1-traced.svg"
               /> */}
-              <LogoSVG />
+              <LogoWhiteSVG />
             </div>
           </div>
           <div className={styles.addressContentParent}>
@@ -39,7 +40,7 @@ const MobileBottomMenu = () => {
                         className={styles.emptyBuildingIcon}
                         loading="lazy"
                         alt=""
-                        src="/frame-1948759939.svg"
+                        src={dom}
                       />
                     </div>
                   </div>
@@ -54,7 +55,7 @@ const MobileBottomMenu = () => {
                     <img
                       className={styles.icroundEmailIcon}
                       alt=""
-                      src="/icroundemail.svg"
+                      src={email}
                     />
                   </div>
                 </div>
@@ -69,7 +70,7 @@ const MobileBottomMenu = () => {
                         className={styles.ggphoneIcon}
                         loading="lazy"
                         alt=""
-                        src="/ggphone.svg"
+                        src={phone}
                       />
                     </div>
                   </div>
@@ -103,6 +104,13 @@ const MobileBottomMenu = () => {
             <div className={styles.div12}>Доставка и оплата</div>
           </div>
         </div>
+        <div className={styles.clientInfo} style={{lineHeight: '22px', fontWeight: '600px', fontFamily: 'Gilroy'}}>
+            <div className={styles.div10} style={{lineHeight: '22px', fontWeight: '600px', fontFamily: 'Gilroy'}}>Реквизиты</div>
+            <div className={styles.div11} style={{lineHeight: '22px', fontWeight: '600px', fontFamily: 'Gilroy', fontSize: '18px',color: '#9E9E9E'}}>ИП Бархатова Анна<br/> Юрьевна</div>
+            <div className={styles.div12} style={{lineHeight: '22px', fontWeight: '600px', fontFamily: 'Gilroy', fontSize: '18px',color: '#9E9E9E',width: '180px'}}>ИНН: 032384275700</div>
+            <div className={styles.div12} style={{lineHeight: '22px', fontWeight: '600px', fontFamily: 'Gilroy', fontSize: '18px',color: '#9E9E9E'}}>ОГРН/ОГРНИП: 318502900056762</div>
+          </div>
+        
       </div>
       <div className={styles.footer}>
         <div className={styles.footerContent}>

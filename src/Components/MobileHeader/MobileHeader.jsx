@@ -5,6 +5,7 @@ import { Context } from '../..';
 import MobileCategoryComponent from './MobileCategoryComponent/MobileCategoryComponent';
 import { useNavigate } from 'react-router-dom';
 import PopUpLogin from '../popUpLogin/popUpLogin';
+import LogoWhiteSVG from '../Header/LogoWhiteSVG';
 
 const MobileHeader = () => {
   const { catalog, cart } = useContext(Context)
@@ -105,17 +106,30 @@ const MobileHeader = () => {
     <div className={styles.block} style={{ minHeight: isOpen ? '100%' : '0' }}>
       <div className={styles.header} style={{ background: isOpen ? '#252525' : '#FFFFFF' }}>
         <div className={styles.mainContent} onClick={() => navigate('/mainpage')}>
-          <LogoSVG />
+          {!isOpen ?
+            <LogoSVG />
+            :
+            <LogoWhiteSVG />
+          }
         </div>
         <div className={styles.headerInner}>
           <div className={styles.frameParent}>
             <div className={styles.vectorWrapper}>
-              <img
-                className={styles.vectorIcon}
-                loading="lazy"
-                alt=""
-                src="/vector.svg"
-              />
+              {isOpen ?
+                <img
+                  className={styles.vectorIcon1}
+                  loading="lazy"
+                  alt=""
+                  src="/whiteloop.png"
+                />
+                :
+                <img
+                  className={styles.vectorIcon}
+                  loading="lazy"
+                  alt=""
+                  src="/vector.svg"
+                />
+              }
             </div>
             <div className={styles.vectorContainer} onClick={() => navigate('/cart')}>
               {isOpen ?
@@ -160,16 +174,65 @@ const MobileHeader = () => {
       <div className={styles.openedmenu} style={{ display: isOpen ? 'block' : 'none' }}>
         {!isCatalogOpen ?
           <>
+            <div className={styles.backButton} style={{ display: 'flex', alignItems: 'center' }} onClick={() => toggleMenu()}>
+              <img
+                className={styles.vectorIcon1}
+                loading="lazy"
+                alt=""
+                src="/ChevronLeft.png"
+              />
+              Назад
+            </div>
             <div className={styles.buttonsBlock}>
-              <div className={styles.openedMenuButton} onClick={() => toggleCatalog()}>КАТАЛОГ ТОВАРОВ</div>
-              <div className={styles.devider} />
-              <div className={styles.openedMenuButton} onClick={onClickAuthorization}>ПРОФИЛЬ</div>
-              <div className={styles.devider} />
-              <div className={styles.openedMenuButton} onClick={() => navigate('/cart')}>КОРЗИНА</div>
-              <div className={styles.devider} />
-              <div className={styles.openedMenuButton} onClick={() => navigate('/favorites')}>ИЗБРАННОЕ</div>
-              <div className={styles.devider} />
-              <div className={styles.openedMenuButton} onClick={() => navigate('/orders')}>ЗАКАЗЫ</div>
+              <div className={styles.openedMenuButton} onClick={() => toggleCatalog()}>
+                <img
+                  className={styles.vectorIcon1}
+                  loading="lazy"
+                  alt=""
+                  src="/menu-scale.png"
+                />
+                КАТАЛОГ ТОВАРОВ
+              </div>
+              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.openedMenuButton} onClick={onClickAuthorization}>
+                <img
+                  className={styles.vectorIcon1}
+                  loading="lazy"
+                  alt=""
+                  src="/system-shut.png"
+                />
+                ПРОФИЛЬ
+              </div>
+              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.openedMenuButton} onClick={() => navigate('/cart')}>
+                <img
+                  className={styles.vectorIcon1}
+                  loading="lazy"
+                  alt=""
+                  src="/cartwhite.png"
+                />
+                КОРЗИНА
+              </div>
+              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.openedMenuButton} onClick={() => navigate('/favorites')}>
+                <img
+                  className={styles.vectorIcon1}
+                  loading="lazy"
+                  alt=""
+                  src="/mobFavNav.png"
+                />
+                ИЗБРАННОЕ
+              </div>
+              <div className={styles.devider}  style={{opacity: '15%'}}/>
+              <div className={styles.openedMenuButton} onClick={() => navigate('/orders')}>
+                <img
+                  className={styles.vectorIcon1}
+                  loading="lazy"
+                  alt=""
+                  src="/MobOrderNv.png"
+                />
+                ЗАКАЗЫ
+              </div>
             </div>
             <div className={styles.infoBlock}>
               <div className={styles.infoElem}>
@@ -187,7 +250,15 @@ const MobileHeader = () => {
           </>
           :
           <>
-            <div className={styles.backButton} onClick={() => toggleCatalog()}>Назад</div>
+            <div className={styles.backButton} style={{ display: 'flex', alignItems: 'center' }} onClick={() => toggleCatalog()}>
+              <img
+                className={styles.vectorIcon1}
+                loading="lazy"
+                alt=""
+                src="/ChevronLeft.png"
+              />
+              Назад
+            </div>
             <div className={styles.buttonsBlock}>
               {catalog?.catalogs.slice(0, 8)?.map((catalog, id) =>
                 // <SubCatalog key={catalog.catalogId}
@@ -197,7 +268,10 @@ const MobileHeader = () => {
                 // <div className={styles.openedMenuButton}>{catalog.catalogNameEn}</div>
                 //   <div className={styles.devider} />
                 // </div>
-                <MobileCategoryComponent key={id} catalogElement={catalog} triggerCatalog={toggleMenu} />
+                <div>
+                  <MobileCategoryComponent key={id} catalogElement={catalog} triggerCatalog={toggleMenu} />
+                  <div className={styles.devider} style={{opacity: '15%'}}/>
+                </div>
               )}
             </div>
           </>
