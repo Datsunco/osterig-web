@@ -22,7 +22,7 @@ import MobileFooter from '../../Components/MobileFooter/MobileFooter';
 
 
 const Main = () => {
-    const { device, favorites, cart, store} = useContext(Context)
+    const { device, favorites, cart, store, search} = useContext(Context)
     const [data, setData] = useState('')
     const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
@@ -32,7 +32,7 @@ const Main = () => {
     
     useEffect(() => {
 
-    }, [cart.noLoginAdd])
+    }, [cart.noLoginAdd, search.pre_data])
 
     useEffect(() => {
         device.parseHotProducts()

@@ -7,11 +7,14 @@ import { useNavigate } from 'react-router-dom';
 import PopUpLogin from '../popUpLogin/popUpLogin';
 import LogoWhiteSVG from '../Header/LogoWhiteSVG';
 import ProfileBlock from '../ProfileBlock/ProfileBlock';
+import { DEVICE_ROUTE } from '../../utils/consts';
 
 const MobileHeader = () => {
-  const { catalog, cart, favorites, store } = useContext(Context)
+  const { catalog, cart, favorites, store, search } = useContext(Context)
   const [isOpen, setIsOpen] = useState(false);
   const [isCatalogOpen, setIsCatalogOpen] = useState(false);
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [inputValue, setInputValue] = useState("")
   const navigate = useNavigate()
 
   const [opened, setOpened] = useState(false)
@@ -33,6 +36,16 @@ const MobileHeader = () => {
       form.style.display = "block"
       setOpened(true)
     }
+
+  }
+
+  const onCloseOutsideForm = () => {
+    const form = document.getElementById("form")
+    setprofileOpened(false)
+    cart.setNoLoginAdd(false)
+    form.style.display = "none"
+    setOpened(false)
+
 
   }
 
@@ -113,96 +126,145 @@ const MobileHeader = () => {
     catalog.getCatalogs()
   }, [])
 
+  useEffect(() => {
+
+  }, [search.pre_data])
+
   const toggleMenu = () => {
-    // if (isOpen == false) {
-    //   document.body.style.overflowY = 'hidden'
-    // } else document.body.style.overflowY = 'scroll'
     setIsOpen(!isOpen);
+  };
+
+  const toggleSearch = () => {
+    setIsOpen(false)
+    setIsSearchOpen(!isSearchOpen);
   };
 
   const toggleCatalog = () => {
     setIsCatalogOpen(!isCatalogOpen);
   };
 
+  const onClickSuggestion = async (type, element) => {
+    const resp = await search.getPreLink(type, element)
+    if (resp) {
+      navigate(`/device/${resp}`)
+      // onClose()
+    }
+  }
+
+  const onClickLSCS = async (id) => {
+    navigate(`/device/${id}`)
+    // onClose()
+  }
+
+  const onClickSearch = async () => {
+    const response = await store.search(inputValue)
+    if (response?.data?.result?.isToDetail === true) {
+      navigate(DEVICE_ROUTE + '/' + inputValue, { state: { productCode: inputValue } })
+    } else {
+      navigate(`/search/${inputValue}/search`)
+    }
+  }
+
   return (
     <div className={styles.block} style={{ minHeight: isOpen ? '100%' : '0' }}>
-      <div className={styles.header} style={{ background: isOpen ? '#252525' : '#FFFFFF' }}>
-        <div className={styles.mainContent} onClick={() => navigate('/mainpage')}>
-          {!isOpen ?
-            <LogoSVG />
-            :
-            <LogoWhiteSVG />
-          }
-        </div>
-        <div className={styles.headerInner}>
-          <div className={styles.frameParent}>
-            <div className={styles.vectorWrapper}>
-              {isOpen ?
-                <img
-                  className={styles.vectorIcon1}
-                  loading="lazy"
-                  alt=""
-                  src="/whiteloop.png"
-                />
-                :
-                <img
-                  className={styles.vectorIcon}
-                  loading="lazy"
-                  alt=""
-                  src="/vector.svg"
-                />
-              }
-            </div>
-            <div className={styles.vectorContainer} onClick={() => navigate('/cart')}>
-              {isOpen ?
-                <>
+      {!isSearchOpen ?
+        <div className={styles.header} style={{ background: isOpen ? '#252525' : '#FFFFFF' }}>
+          <div className={styles.mainContent} onClick={() => navigate('/mainpage')}>
+            {!isOpen ?
+              <LogoSVG />
+              :
+              <LogoWhiteSVG />
+            }
+          </div>
+          <div className={styles.headerInner}>
+            <div className={styles.frameParent}>
+              <div className={styles.vectorWrapper} onClick={toggleSearch}>
+                {isOpen ?
                   <img
                     className={styles.vectorIcon1}
                     loading="lazy"
                     alt=""
-                    src="/cartwhite.png"
+                    src="/whiteloop.png"
                   />
+                  :
+                  <img
+                    className={styles.vectorIcon}
+                    loading="lazy"
+                    alt=""
+                    src="/vector.svg"
+                  />
+                }
+              </div>
+              <div className={styles.vectorContainer} onClick={() => navigate('/cart')}>
+                {isOpen ?
+                  <>
+                    <img
+                      className={styles.vectorIcon1}
+                      loading="lazy"
+                      alt=""
+                      src="/cartwhite.png"
+                    />
 
-                </>
-                :
-                <>
+                  </>
+                  :
+                  <>
+                    <img
+                      className={styles.vectorIcon1}
+                      loading="lazy"
+                      alt=""
+                      src="/cartblack.png"
+                    />
+                    <div className='header_fav_count' style={{ marginLeft: '20px', marginTop: '-15px' }}>{cart.devices.length}</div>
+                  </>
+                }
+              </div>
+              <div className={styles.closebut} onClick={toggleMenu}>
+                {isOpen ?
                   <img
-                    className={styles.vectorIcon1}
+                    className={styles.vectorIcon2}
+                    style={{ height: '22px' }}
                     loading="lazy"
                     alt=""
-                    src="/cartblack.png"
+                    src="/crosswhite.png"
                   />
-                  <div className='header_fav_count' style={{ marginLeft: '20px', marginTop: '-15px' }}>{cart.devices.length}</div>
-                </>
-              }
-            </div>
-            <div className={styles.closebut} onClick={toggleMenu}>
-              {isOpen ?
-                <img
-                  className={styles.vectorIcon2}
-                  style={{ height: '22px' }}
-                  loading="lazy"
-                  alt=""
-                  src="/crosswhite.png"
-                />
-                :
-                <img
-                  className={styles.vectorIcon2}
-                  loading="lazy"
-                  alt=""
-                  src="/burgersvg.png"
-                />
-              }
+                  :
+                  <img
+                    className={styles.vectorIcon2}
+                    loading="lazy"
+                    alt=""
+                    src="/burgersvg.png"
+                  />
+                }
+              </div>
             </div>
           </div>
         </div>
-      </div>
+        :
+        <div className={styles.header} style={{ background: '#FFFFFF', padding: '18px 20px 15px', display: 'flex', alignItems: 'center' }}>
+          <div className={styles.mainContent} style={{ padding: '0 20px' }}>
+            <div className={styles.search}>
+              <input value={inputValue} onChange={(e) => setInputValue(e.target.value) & search.getPreWord(e.target.value)}
+                className={styles.searchInput} type="text" placeholder="Искать товары" />
+              {/* <button class="searchLupa" onClick={() => onClickSearch()}></button> */}
+            </div>
+          </div>
+          <img
+            onClick={toggleSearch}
+            className={styles.vectorIcon2}
+            style={{ height: '30px', width: '30px' }}
+            loading="lazy"
+            alt=""
+            src="/crossgray.png"
+          />
+
+        </div>
+      }
       {/* {isOpen && ( */}
-      <PopUpLogin opened={opened} onClose={() => onClickOutsideForm()} ava={exceptRef} isMobile={true}/>
+      <PopUpLogin opened={opened} onClose={() => onCloseOutsideForm()} ava={exceptRef} isMobile={true} />
       <div useRef={profileRef} ref={profileRef}>
         {profileOpened === true ?
           <div ref={exceptRef} useRef={exceptRef}>
-            <ProfileBlock onLogClick={onClickAuthorization} onRegClick={onClickRegistration} isMobile={true}/>
+            <ProfileBlock onLogClick={onClickAuthorization} onRegClick={onClickRegistration} isMobile={true} />
           </div>
           :
           null
@@ -321,6 +383,37 @@ const MobileHeader = () => {
           </>
         }
       </div>
+      <div className={styles.searchopenedmenu} style={{ display: isSearchOpen ? 'block' : 'none' }}>
+        {isSearchOpen &&
+          <div className={styles.searchInfo} id="searchInfo">
+            <div class="ProductsSearchInfo">
+              {search.pre_data?.['LCSC Part Number'] ?
+                <div>
+                  <div class="TextSearchInfo">Продукция</div>
+                  {search.pre_data?.['LCSC Part Number']?.slice(0, 10).map(lcsc =>
+                    <div class="ProdTextSeatchInfo" onClick={() => onClickLSCS(lcsc)}>{lcsc}</div>
+                  )}
+                </div>
+                :
+                null
+              }
+            </div>
+            <div class="ProductsSearchInfo">
+              {search.pre_data?.['MPN'] ?
+                <div>
+                  <div class="TextSearchInfo">Артикул</div>
+                  {search.pre_data?.['MPN']?.slice(0, 5).map(mpn =>
+                    <div class="ProdTextSeatchInfo" onClick={() => onClickSuggestion('MPN', mpn)}>{mpn}</div>
+                  )}
+                </div>
+                :
+                null
+              }
+            </div>
+          </div>
+        }
+      </div>
+
       {/* )} */}
     </div>
   );

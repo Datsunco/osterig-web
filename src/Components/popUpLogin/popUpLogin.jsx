@@ -5,7 +5,7 @@ import { observer } from 'mobx-react-lite';
 import styles from "./popUpLogin.module.css"
 import LogoSVG from '../Header/LogoSVG';
 
-const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
+const PopUpLogin = ({ opened, onClose, ava, isMobile }) => {
     const { store } = useContext(Context)
     const loginPopUpRef = useRef(null)
     const loginSecPopUpRef = useRef(null)
@@ -123,7 +123,7 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
         setIsLoading(false)
     }
 
-    
+
     const handleRegPassClick = async () => {
         setIsLoading(true)
         var regularExpression = /^(?=.*[0-9])(?=.*[!@#$%^&*.,?])[a-zA-Z0-9!@#$%^&*.,?]{6,16}$/;
@@ -173,9 +173,17 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
 
 
     return (
-        <div className={styles.popup_background } id="form">
-            <div ref={loginPopUpRef} className={isMobile ? styles.mob_popup_login_main_block: styles.popup_login_main_block} id="screen1">
-                <div className={styles.popup_login_main_block_all}>
+        <div className={styles.popup_background} id="form">
+            <div ref={loginPopUpRef} className={isMobile ? styles.mob_popup_login_main_block : styles.popup_login_main_block} id="screen1">
+                <div className={styles.popup_login_main_block_all} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <img
+                        className={styles.vectorIcon2}
+                        onClick={onClose}
+                        style={{ height: '22px', width: '22px' }}
+                        loading="lazy"
+                        alt=""
+                        src="/crossblack.png"
+                    />
                     <div className={styles.popup_login_top_block_log}>
                         <div className={isMobile ? styles.mob_popup_login_top_block_log : styles.popup_login_top_block_logo}>
                             <LogoSVG />
@@ -204,7 +212,15 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
                 </div>
             </div>
             <div ref={loginSecPopUpRef} useRef={loginSecPopUpRef} className={isMobile ? styles.mob_popup_login_sec_block : styles.popup_login_sec_block} id="screen2">
-                <div className={styles.popup_login_main_block_all}>
+                <div className={styles.popup_login_main_block_all} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <img
+                        className={styles.vectorIcon2}
+                        onClick={onClose}
+                        style={{ height: '22px', width: '22px' }}
+                        loading="lazy"
+                        alt=""
+                        src="/crossblack.png"
+                    />
                     <div className={styles.popup_login_top_block_log}>
                         <div className={styles.popup_login_top_block_logo}>
                             <LogoSVG />
@@ -236,12 +252,20 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
                 </div>
             </div>
             <div ref={regPopUpRef} useRef={regPopUpRef} className={isMobile ? styles.mob_popup_login_sec_block : styles.popup_login_sec_block} id="screen3">
-                <div className={styles.popup_login_main_block_all}>
+                <div className={styles.popup_login_main_block_all} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <img
+                        className={styles.vectorIcon2}
+                        onClick={onClose}
+                        style={{ height: '22px', width: '22px' }}
+                        loading="lazy"
+                        alt=""
+                        src="/crossblack.png"
+                    />
                     <div className={styles.popup_login_top_block_reg}>
                         <div className={styles.popup_login_top_block_logo}>
                             <LogoSVG />
                         </div>
-                        <b className={styles.popup_login_top_block_text} style={{width: isMobile ? ''  : ''}}>Зарегестрируйте свой аккаунт Osterrig</b>
+                        <b className={styles.popup_login_top_block_text} style={{ width: isMobile ? '' : '' }}>Зарегестрируйте свой аккаунт Osterrig</b>
                     </div>
 
                     <div className={styles.popup_login_input_block}>
@@ -264,7 +288,15 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile}) => {
                 </div>
             </div>
             <div ref={regSecPopUpRef} useRef={regSecPopUpRef} className={styles.popup_login_four_block} id="screen4">
-                <div className={styles.popup_login_main_block_all}>
+                <div className={styles.popup_login_main_block_all} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
+                    <img
+                        className={styles.vectorIcon2}
+                        onClick={onClose}
+                        style={{ height: '22px', width: '22px' }}
+                        loading="lazy"
+                        alt=""
+                        src="/crossblack.png"
+                    />
                     <div className={styles.popup_login_top_block_reg_pass}>
                         <div className={styles.popup_login_top_block_logo}>
                             <LogoSVG />
