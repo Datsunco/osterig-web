@@ -139,6 +139,7 @@ const DevicePage = () => {
         <div style={windowWidth <= breakpoints.mobile ? { display: 'flex', justifyContent: 'center', } : { width: '-webkit-fill-available' }}>
           <Slider />
         </div>
+        
         {device.isDetailsLoaded ?
           <div style={windowWidth <= breakpoints.mobile ? { display: 'flex', justifyContent: 'center'} : { display: 'flex', justifyContent: 'end', maxWidth: '540px', width: '-webkit-fill-available' }}>
             <div class="assh" style={{ backgroundColor: windowWidth <= breakpoints.mobile ? 'white' : '#F1F3F4', padding: windowWidth <= breakpoints.mobile ? '0px' : '20px', maxWidth: windowWidth <= breakpoints.mobile ? '540px' : '' }}>
