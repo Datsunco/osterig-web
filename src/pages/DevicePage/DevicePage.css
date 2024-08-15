@@ -163,7 +163,10 @@
 }
 
 .NetVNal {
+    width: 100%;
     /* width: 225px; */
+    height: 60px;
+    align-items: center;
     border-radius: 7px;
     color: black;
     font-family: Gilroy;
@@ -172,7 +175,7 @@
     font-weight: 700;
     line-height: 130%;
     text-transform: uppercase;
-    padding: 22px;
+    /* padding: 22px; */
     border: none;
     display: flex;
     justify-content: center;

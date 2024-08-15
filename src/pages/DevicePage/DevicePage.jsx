@@ -99,7 +99,7 @@ const DevicePage = () => {
     if (device.productDetails.stockNumber == 0)
       return (
         <div
-          class="NetVNal" >
+          class="NetVNal" style={{padding: isMobile ? '0': '22px', height: isMobile ? '60px': '0', width:  isMobile ? "100%":  '225px'}}>
           Нет в наличии
         </div>
       );
@@ -107,7 +107,7 @@ const DevicePage = () => {
       return (
         <>
           <button
-            class="vkorzine" style={{ width: '100%' }}>
+            class="vkorzine" style={{ width: isMobile ? '100%' : '' }}>
             В корзине
             <div class='svgL'>
               <svg xmlns="http://www.w3.org/2000/svg" width="11" height="9" viewBox="0 0 11 9" fill="none">
@@ -135,13 +135,13 @@ const DevicePage = () => {
   return (
     <Container className='mt-3'>
       {windowWidth <= breakpoints.mobile ? <MobileHeader /> : <Header />}
-      <div class="alltovarcard" style={{ display: 'flex', flexDirection: windowWidth <= breakpoints.mobile ? 'column' : 'row', padding: windowWidth <= breakpoints.mobile ? '15px' : '0', marginTop: windowWidth <= breakpoints.mobile ? '100px' : '158px' }}>
+      <div class="alltovarcard" style={{ display: 'flex', flexDirection: windowWidth <= breakpoints.mobile ? 'column' : 'row', padding: windowWidth <= breakpoints.mobile ? '15px' : '0', marginTop: windowWidth <= breakpoints.mobile ? '100px' : '158px', alignItems:  windowWidth <= breakpoints.mobile  ? '': ''}}>
         <div style={windowWidth <= breakpoints.mobile ? { display: 'flex', justifyContent: 'center', } : { width: '-webkit-fill-available' }}>
           <Slider />
         </div>
         {device.isDetailsLoaded ?
-          <div style={windowWidth <= breakpoints.mobile ? { display: 'flex', justifyContent: 'center', maxWidth: '540px' } : { display: 'flex', justifyContent: 'end', maxWidth: '540px', width: '-webkit-fill-available' }}>
-            <div class="assh" style={{ backgroundColor: windowWidth <= breakpoints.mobile ? 'white' : '#F1F3F4', padding: windowWidth <= breakpoints.mobile ? '0px' : '20px' }}>
+          <div style={windowWidth <= breakpoints.mobile ? { display: 'flex', justifyContent: 'center'} : { display: 'flex', justifyContent: 'end', maxWidth: '540px', width: '-webkit-fill-available' }}>
+            <div class="assh" style={{ backgroundColor: windowWidth <= breakpoints.mobile ? 'white' : '#F1F3F4', padding: windowWidth <= breakpoints.mobile ? '0px' : '20px', maxWidth: windowWidth <= breakpoints.mobile ? '540px' : '' }}>
               <h2 class="cb" style={{ fontSize: windowWidth <= breakpoints.mobile ? '20px' : '24px' }} >{device.productDetails.brandNameEn} {device.productDetails.productModel}</h2>
               {device.productDetails.stockNumber != 0 ?
                 <div className='d-flex' class="agn">
