@@ -62,7 +62,15 @@ const Favorites = () => {
                                 <CartFavHeader state={'fav'} />
                                 <div className='fav_items'>
                                     {favorites.favorites.slice(0).reverse().map(device =>
-                                        <MobileDeviceItem device={device} />
+                                    <>
+                                        {
+                                            windowWidth <= breakpoints.mobile ? 
+                                            <MobileDeviceItem device={device} />
+                                            :
+                                            <DeviceItem device={device}/>
+                                        }
+                                    </>
+                                        
                                     )}
                                 </div>
                             </div>

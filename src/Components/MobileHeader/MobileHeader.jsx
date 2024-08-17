@@ -294,14 +294,14 @@ const MobileHeader = () => {
                 КАТАЛОГ ТОВАРОВ
               </div>
               <div className={styles.devider} style={{ opacity: '15%' }} />
-              <div className={styles.openedMenuButton} onClick={onClickAuthorization}>
+              <div className={styles.openedMenuButton} onClick={() => {store.isAuth  ? store.logout() : onClickAuthorization()}}>
                 <img
                   className={styles.vectorIcon1}
                   loading="lazy"
                   alt=""
                   src="/system-shut.png"
                 />
-                ПРОФИЛЬ
+                {store.isAuth  ? "ВЫЙТИ" : "ПРОФИЛЬ"}
               </div>
               <div className={styles.devider} style={{ opacity: '15%' }} />
               <div className={styles.openedMenuButton} onClick={() => navigate('/cart')}>

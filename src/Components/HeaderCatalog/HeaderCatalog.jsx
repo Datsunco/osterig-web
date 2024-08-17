@@ -13,7 +13,10 @@ const HeaderCatalog = () => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        document.getElementById(`${catalog.activeCatalog}`).style.display = "block"
+        const block = document.getElementById(`${catalog.activeCatalog}`)
+        if (block){
+            block.style.display = "block"
+        }
     }, [catalog])
 
     const onClickCatalogClose = () => {
