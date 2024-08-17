@@ -32,8 +32,8 @@ const MackingAnOrders1 = ({isMobile}) => {
     return (
         <div>
             <div className='MAO_body' style={{marginTop: isMobile ? '50px' : '102px'}}>
-                <div className='MAO_frame_parent' style={{width: isMobile ? '-webkit-fill-available': 'auto'}}>
-                    <div className='MAO_left_menu'style={{width: isMobile ? '-webkit-fill-available': 'auto', padding: isMobile ? '20px' : ''}}>
+                <div className='MAO_frame_parent' style={{width: isMobile ? '-webkit-fill-available': 'auto', display: 'flex', flexDirection: isMobile ? 'column': ''}}>
+                    <div className='MAO_left_menu'style={{width: isMobile ? '-webkit-fill-available': 'auto', padding: isMobile ? '20px' : '', height: isMobile ? '550px'  : 'auto'}}>
                         <div className='back_to_basket'  onClick={() => prevpage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>
@@ -94,7 +94,7 @@ const MackingAnOrders1 = ({isMobile}) => {
 
                         </div>
                     </div>
-                    <div className='MAO_right_menu'>
+                    <div className='MAO_right_menu' style={{ marginLeft: isMobile ? '0' : '45px'}}>
                         <CartResultForMAO isMobile={isMobile} disabled={store.name && store.email && store.middlename && store.surname && store.phone } textbutton={textbutton} />
                     </div>
                 </div>

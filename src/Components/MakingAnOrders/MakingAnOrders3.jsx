@@ -59,9 +59,9 @@ const MackingAnOrders3 = ({isMobile}) => {
 
     return (
         <div>
-            <div className='MAO_body1' style={{marginTop: isMobile ? '40px': '100px', padding:  isMobile ? '20px': '0'}}>
-                <div className='MAO_frame_parent'>
-                    <div className='MAO_left_menu'>
+            <div className='MAO_body1' style={{marginTop: isMobile ? '40px': '100px', padding:  isMobile ? '20px': '0', height: 'auto'}}>
+                <div className='MAO_frame_parent' style={{display: 'flex', flexDirection: isMobile ? 'column': ''}} >
+                    <div className='MAO_left_menu'  style={{height: isMobile ? '950px' : '700px'}}>
                         <div className='back_to_basket'  onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>

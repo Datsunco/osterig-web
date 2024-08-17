@@ -66,7 +66,7 @@ const MackingAnOrders2 = ({ isMobile }) => {
         <div>
             <div className='MAO_body'  style={{marginTop: isMobile ? '40px' : '102px'}}>
                 <div className='MAO_frame_parent' style={{display: 'flex', flexDirection: isMobile ? 'column': 'row'}}>
-                    <div className='MAO_left_menu'>
+                    <div className='MAO_left_menu' style={{height: isMobile ? 'auto'  : 'auto'}}>
                         <div className='back_to_basket' onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>
@@ -234,7 +234,7 @@ const MackingAnOrders2 = ({ isMobile }) => {
                         </div>
 
                     </div>
-                    <div className='MAO_right_menu' onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType, "bool", store.deliveryType == 'SELF')}>
+                    <div className='MAO_right_menu' style={{ marginLeft: isMobile ? '0' : '45px', marginTop: isMobile ? '20px' : ''}} onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType, "bool", store.deliveryType == 'SELF')}>
                         <CartResultForMAO isMobile={isMobile} disabled={store.deliveryAddress && store.deliveryType || (store.deliveryType == 'SELF')} textbutton={textbutton} />
                     </div>
                 </div>

@@ -41,8 +41,8 @@ const CartResultForMAO = ({textbutton, disabled,isMobile}) => {
       }
 
     return (
-        <div className={styles.rectangleParent} style={{width: isMobile ?  '-webkit-fill-available' : '390px', height: '180px', position: isMobile ? 'absolute': 'relative', bottom: isMobile ? '0': '', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end', left: isMobile ? '10px': '', right: isMobile ? '10px': ''}}>
-            <div className={styles.frameWrapper} style={{width: isMobile ?  '-webkit-fill-available' : '390px', height: '180px',}}>
+        <div className={styles.rectangleParent} style={{width: isMobile ?  '-webkit-fill-available' : '390px', height: '180px', position:'relative', bottom: isMobile ? '0': '', display: 'flex', justifyContent: isMobile ? 'center': 'flex-end', left: isMobile ? '10px': '', right: isMobile ? '10px': ''}}>
+            <div className={styles.frameWrapper} style={{width: isMobile ?  '-webkit-fill-available' : '390px', height: '250px',}}>
                 <div className={styles.frameContainer}  style={{width: isMobile ?  '-webkit-fill-available' : 'auto', padding: isMobile ? '20px' : '17px 17px'}}>
                     <div className={styles.frameDiv}>
                         <div className={styles.frameParent}>
