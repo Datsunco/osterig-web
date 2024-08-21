@@ -156,7 +156,7 @@
 }
 
 .busketUzhe { /* Уже в корзине */
-    position: absolute;
+    /* position: absolute; */
     /* margin-top: 300px; */
     margin-left: 50px;
     width: 149px;

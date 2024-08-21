@@ -179,18 +179,18 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile }) => {
                     <img
                         className={styles.vectorIcon2}
                         onClick={onClose}
-                        style={{ height: '22px', width: '22px' }}
+                        style={{ height: '22px', width: '22px', marginLeft: '10px', marginTop: '10px'}}
                         loading="lazy"
                         alt=""
                         src="/crossblack.png"
                     />
+                    {/* <div> */}
                     <div className={styles.popup_login_top_block_log}>
                         <div className={isMobile ? styles.mob_popup_login_top_block_log : styles.popup_login_top_block_logo}>
                             <LogoSVG />
                         </div>
                         <b className={styles.popup_login_top_block_text}>Войдите в свой аккаунт Osterrig</b>
                     </div>
-
                     <div className={styles.popup_login_input_block}>
                         <b className={styles.popup_login_input_text}>ПОЧТА</b>
                         <input value={emailValue} type="text" onChange={(e) => setEmailValue(e.target.value) || setIsEmailCorrect(true)} className={styles.popup_login_input} placeholder='Ваш email' ></input>
@@ -209,23 +209,24 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile }) => {
                             зарегестрироваться
                         </button>
                     </div>
-                </div>
+                    </div>
+                {/* </div> */}
             </div>
             <div ref={loginSecPopUpRef} useRef={loginSecPopUpRef} className={isMobile ? styles.mob_popup_login_sec_block : styles.popup_login_sec_block} id="screen2">
                 <div className={styles.popup_login_main_block_all} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-start' }}>
                     <img
                         className={styles.vectorIcon2}
                         onClick={onClose}
-                        style={{ height: '22px', width: '22px' }}
+                        style={{ height: '22px', width: '22px', marginLeft: '10px', marginTop: '10px'}}
                         loading="lazy"
                         alt=""
                         src="/crossblack.png"
                     />
                     <div className={styles.popup_login_top_block_log}>
-                        <div className={styles.popup_login_top_block_logo}>
+                    <div className={isMobile ? styles.mob_popup_login_top_block_log : styles.popup_login_top_block_logo}>
                             <LogoSVG />
                         </div>
-                        <b className={styles.popup_login_top_block_text}>Войдите в свой аккаунт Osterrig</b>
+                        <b className={styles.popup_login_top_block_text} style={{textAlign: 'center'}}>Войдите в свой аккаунт Osterrig</b>
                     </div>
 
                     <div className={styles.popup_login_input_block}>
@@ -256,7 +257,7 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile }) => {
                     <img
                         className={styles.vectorIcon2}
                         onClick={onClose}
-                        style={{ height: '22px', width: '22px' }}
+                        style={{ height: '22px', width: '22px', marginLeft: '10px', marginTop: '10px'}}
                         loading="lazy"
                         alt=""
                         src="/crossblack.png"
@@ -292,7 +293,7 @@ const PopUpLogin = ({ opened, onClose, ava, isMobile }) => {
                     <img
                         className={styles.vectorIcon2}
                         onClick={onClose}
-                        style={{ height: '22px', width: '22px' }}
+                        style={{ height: '22px', width: '22px', marginLeft: '10px', marginTop: '10px'}}
                         loading="lazy"
                         alt=""
                         src="/crossblack.png"

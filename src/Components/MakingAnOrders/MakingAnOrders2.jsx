@@ -66,7 +66,7 @@ const MackingAnOrders2 = ({ isMobile }) => {
         <div>
             <div className='MAO_body'  style={{marginTop: isMobile ? '40px' : '102px'}}>
                 <div className='MAO_frame_parent' style={{display: 'flex', flexDirection: isMobile ? 'column': 'row'}}>
-                    <div className='MAO_left_menu' style={{height: isMobile ? 'auto'  : 'auto'}}>
+                    <div className='MAO_left_menu' style={{height: isMobile ? 'auto'  : 'auto', padding: '0 10px'}}>
                         <div className='back_to_basket' onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
                                 <div className='ArrowBackBasket'></div>
@@ -89,7 +89,7 @@ const MackingAnOrders2 = ({ isMobile }) => {
                             </div>
                             {!isMobile &&
                             <div className='MAO_steps'>
-                                    ШАГ 1<div className='MAO_step3'> / 3</div>
+                                    ШАГ 2<div className='MAO_step3'> / 3</div>
                                 </div>
 }
                             {/* {type !== 'SELF' ?
@@ -212,13 +212,13 @@ const MackingAnOrders2 = ({ isMobile }) => {
                             {type === 'SELF' ?
                                 <>
                                     <hr className='cd_line'></hr>
-                                    <div className={store.deliveryType !== 'SELF' ? 'cd_points' : 'cd_pointsblack'}>
+                                    <div className={store.deliveryType !== 'SELF' ? 'cd_points' : 'cd_pointsblack'}  style={{justifyContent: isMobile ? 'start': 'center'}}>
                                         <LogoSVG />
-                                        <div className='cd_box_for_org'>
+                                        <div className='cd_box_for_org' style={{width: isMobile ? '100px' :  'auto'}}>
                                             <div className='cd_name_org' style={{width: isMobile ? 'auto' : '159px'}}>Самовывоз</div>
                                             <div className='cd_org_addres'  style={{display: isMobile ? 'none' : 'block'}}> ул. Михалковская 63 Б стр1, подъезд 2, 1 этаж, офис 1-16</div>
                                         </div>
-                                        <div className='cd_time'  style={{marginLeft: isMobile ? '20px' : '100px'}}></div>
+                                        {/* <div className='cd_time'  style={{marginLeft: isMobile ? '20px' : '100px'}}></div> */}
                                         <div className='cd_prise'  style={{marginLeft: isMobile ? '0' : '40px'}}>Бесплатно</div>
                                         <div className='cd_choose_deliviry' style={{marginLeft: isMobile ? '10px' : '170px', textAlign: isMobile ? 'end': 'start'}} onClick={() => onClickSELF()}>
                                             {store.deliveryType == 'SELF' ? "Отмена"
@@ -234,7 +234,7 @@ const MackingAnOrders2 = ({ isMobile }) => {
                         </div>
 
                     </div>
-                    <div className='MAO_right_menu' style={{ marginLeft: isMobile ? '0' : '45px', marginTop: isMobile ? '20px' : ''}} onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType, "bool", store.deliveryType == 'SELF')}>
+                    <div className='MAO_right_menu' style={{ marginLeft: isMobile ? '0' : '45px', marginTop: isMobile ? '20px' : '', padding: '0 10px'}} onClick={() => console.log("delivery", store.deliveryAddress, "type", store.deliveryType, "bool", store.deliveryType == 'SELF')}>
                         <CartResultForMAO isMobile={isMobile} disabled={store.deliveryAddress && store.deliveryType || (store.deliveryType == 'SELF')} textbutton={textbutton} />
                     </div>
                 </div>

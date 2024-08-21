@@ -124,7 +124,7 @@ const DataComponent = ({ device, cartState }) => {
         );
     if (isCart)
         return (
-            <button class="busketUzhe" href=''>Уже в корзине
+            <button class="busketUzhe" href='' style={{position: 'relative'}}>Уже в корзине
                 <div class="svgGalka">
                     <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
                         <path d="M13.2 6L7.42499 12L4.42499 9" stroke="#0071E3" stroke-width="1.5" />

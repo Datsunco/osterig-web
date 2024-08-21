@@ -94,7 +94,7 @@ const MackingAnOrders1 = ({isMobile}) => {
 
                         </div>
                     </div>
-                    <div className='MAO_right_menu' style={{ marginLeft: isMobile ? '0' : '45px'}}>
+                    <div className='MAO_right_menu' style={{ marginLeft: isMobile ? '0' : '45px', padding: '0 10px'}}>
                         <CartResultForMAO isMobile={isMobile} disabled={store.name && store.email && store.middlename && store.surname && store.phone } textbutton={textbutton} />
                     </div>
                 </div>

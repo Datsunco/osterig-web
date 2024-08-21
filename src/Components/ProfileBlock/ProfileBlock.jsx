@@ -25,6 +25,7 @@ const ProfileBlock = ({ onLogClick, onRegClick, isMobile}) => {
         if (localStorage.getItem('token')) {
             store.getData()
             favorites.getFavorites()
+            cart.getDevices()
             const resp = cart.getDevices()
             if (resp.status === 401) store.checkAuth()
         } else {

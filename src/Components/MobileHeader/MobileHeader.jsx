@@ -51,6 +51,7 @@ const MobileHeader = () => {
 
   const get = async () => {
     const stm = await cart.getDevices()
+    console.log('devices', stm)
     if (stm === 'auth')
       store.checkAuth()
     else {
@@ -62,6 +63,7 @@ const MobileHeader = () => {
     if (localStorage.getItem('token')) {
       store.setAuth(true)
       favorites.getFavorites()
+      console.log('favorites')
       get()
     } else {
       store.checkAuth()
@@ -125,6 +127,10 @@ const MobileHeader = () => {
   useEffect(() => {
     catalog.getCatalogs()
   }, [])
+
+  useEffect(() => {
+    
+  }, [cart.devices, favorites.favorites])
 
   useEffect(() => {
 

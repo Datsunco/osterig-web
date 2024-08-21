@@ -13,7 +13,7 @@ const MobileCategoryComponent = ({ catalogElement, triggerCatalog }) => {
 
     return (
         <>
-            <div className={styles.openedMenuButton} style={{ padding: isOpen ? '20px 0px 0 0' : '20px 0', textTransform: 'uppercase' }} onClick={() => toggleCatalog()}>
+            <div className={styles.openedMenuButton} style={{ padding: isOpen ? '20px 0px 0 0' : '20px 0', textTransform: 'uppercase',  display: 'flex', justifyContent: 'space-between'}} onClick={() => toggleCatalog()}>
                 {catalogElement.catalogNameEn}
                 {isOpen ?
                     <img

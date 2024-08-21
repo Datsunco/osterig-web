@@ -32,7 +32,7 @@ const Main = () => {
     
     useEffect(() => {
 
-    }, [cart.noLoginAdd, search.pre_data])
+    }, [cart.noLoginAdd, search.pre_data, store.isAuth, cart.devices.length, favorites.favorites.length])
 
     useEffect(() => {
         device.parseHotProducts()

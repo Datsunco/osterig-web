@@ -60,7 +60,7 @@ const MackingAnOrders3 = ({isMobile}) => {
     return (
         <div>
             <div className='MAO_body1' style={{marginTop: isMobile ? '40px': '100px', padding:  isMobile ? '20px': '0', height: 'auto'}}>
-                <div className='MAO_frame_parent' style={{display: 'flex', flexDirection: isMobile ? 'column': ''}} >
+                <div className='MAO_frame_parent' style={{display: 'flex', flexDirection: isMobile ? 'column': '', width: isMobile ? '-webkit-fill-available' : ''}} >
                     <div className='MAO_left_menu'  style={{height: isMobile ? '950px' : '700px'}}>
                         <div className='back_to_basket'  onClick={() => store.previousPage()}>
                             <div className='ArrowBackBasketFrame'>
@@ -135,7 +135,7 @@ const MackingAnOrders3 = ({isMobile}) => {
                             </div>
                             <div className='MAO_imputs_frame'>
                                 <div className='d-flex' style={{width: isMobile ? '-webkit-fill-available': '520px'}} >
-                                    <div className='MAO_input_frame'>
+                                    <div className='MAO_input_frame' style={{width: isMobile ? '-webkit-fill-available': 'auto'}}>
                                         <div className='MAO_input_text'>КОММЕНТАРИЙ К ДОСТАВКЕ</div>
                                         <input type='text' style={{width: isMobile ? '-webkit-fill-available': '520px'}} className='MAO_input9' placeholder='Город, улица, дом, квартира и др.' />
                                     </div>
@@ -161,7 +161,7 @@ const MackingAnOrders3 = ({isMobile}) => {
                             </div>
                         </div>
                     </div>
-                    <div className='MAO_right_menu'>
+                    <div className='MAO_right_menu' style={{marginLeft: isMobile ? '0' : '45px'}}>
                         <CartResultForMAO isMobile={isMobile} disabled={paymentTypeC} textbutton={textbutton} />
                     </div>
                 </div>
